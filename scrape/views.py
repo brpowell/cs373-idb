@@ -10,6 +10,44 @@
 #         'conditions': {dict of field names, lambda predicate} MUST HAVE default FIELD
 #     }
 # }
+# ------------------------
+# Available Fields
+# ------------------------
+# Person
+#   - hometown
+#   - birth_date
+#   - games (list of dicts)
+#   - country
+#   - death_date
+#   - deck
+#   - name
+#   - gender
+#   - first_credited_game
+#   - id
+#   - people (list of dicts)
+# Company
+#   - name
+#   - id
+#   - location_address
+#   - image
+#   - people (list of dicts)
+#   - location_city
+#   - published_games (list of dicts)
+#   - location_country
+#   - website
+#   - deck
+#   - date_founded
+#   - developed_games (list of dicts)
+#   - location_state
+# Game
+#   - name
+#   - deck
+#   - image
+#   - people
+#   - id
+#   - publishers
+#   - platforms
+#   - similar_games
 views = [
     {
         # Include enough info for a 'full' developer profile
