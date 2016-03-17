@@ -1,0 +1,8 @@
+.DS_Store
+*.json
+venv/
+
+# Ignore everything in scrape except...
+scrape/*
+!scrape/json_generator.py
+!scrape/views.py

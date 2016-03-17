@@ -1,4 +1,9 @@
+/*body, html {
+	color: #fff;
+	height: 100vh;
+}*/
 
+<<<<<<< HEAD
 .navigation {
 	background-color: #336666;
 	border: 0px;
@@ -73,3 +78,15 @@ html {
 	border-radius: 8px;
 	height: 300px;
 }
+=======
+
+/* NAVIGATION */
+.navigation {
+	background-color: #006699;
+}
+
+.navbar .navbar-brand, .navbar .navbar-nav > li > a {
+	color: #fff;
+}
+
+>>>>>>> 6e9933ff7c1d144c5e5726de2a604bc8097896eb
