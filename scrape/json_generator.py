@@ -1,3 +1,9 @@
+"""
+json_generator.py
+desc: Create a collection of companies according to specific criteria defined in views.py
+
+"""
+
 import os
 import json
 from views import views

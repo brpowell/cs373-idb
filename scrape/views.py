@@ -54,7 +54,7 @@ views = [
         # Made more than 5 games
         'name': 'Robust Developers',
         'base': 'companies.json',
-        'save': 'developers/robust/',
+        'save': 'data/robust-developers/',
         'details': {
             'defaults': [
                 'name', 'date_founded', 'deck', 'image',
@@ -71,7 +71,7 @@ views = [
         # Include enough info for a 'minimum' developer profile
         'name': 'Developers w/ min fields',
         'base': 'companies.json',
-        'save': 'developers/min/',
+        'save': 'data/min-developers/',
         'details': {
             'defaults': [
                     'name', 'date_founded',
