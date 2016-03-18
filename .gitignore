@@ -6,3 +6,9 @@ venv/
 scrape/*
 !scrape/json_generator.py
 !scrape/views.py
+!scrape/cascade.py
+!scrape/sample-data.zip
+!scrape/companies.json.zip
+!scrape/games.json.zip
+!scrape/people.json.zip
+!scrape/people(FinalPart).json.zip
