@@ -1,11 +1,6 @@
-/*body, html {
-	color: #fff;
-	height: 100vh;
-}*/
 
-<<<<<<< HEAD
 .navigation {
-	background-color: #336666;
+	background-color: #333333;
 	border: 0px;
 }
 
@@ -37,18 +32,14 @@ html {
 
 .cover {
 	margin-top:50px; 
-	width:100%; 
+	width: 100%; 
 	height: 100%; 
-	position: fixed;
+	position: relative;
 	background-color: #003333;
 	overflow: scroll;
-}
-
-.display {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	top: 50%;
+	border-bottom-style: solid;
+	border-bottom-color: #003333;
+	border-bottom-width: 50px;
 }
 
 .active {
@@ -56,12 +47,12 @@ html {
 }
 
 .footer {
-	background-color: #336666;
-	position: absolute;
+	background-color: #333333;
+	position: fixed;
   	right: 0;
   	bottom: 0;
   	left: 0;
-  	height: 40px;	
+  	height: 30px;	
 }
 
 .image {
@@ -78,15 +69,11 @@ html {
 	border-radius: 8px;
 	height: 300px;
 }
-=======
 
-/* NAVIGATION */
-.navigation {
-	background-color: #006699;
+.gameSection {
+	background-color: rgba(128, 128, 128, 0.8); 
+	border-top-style: solid; 
+	border-top-width: 20px; 
+	border-top-color: #003333; 
+	padding: 15px;
 }
-
-.navbar .navbar-brand, .navbar .navbar-nav > li > a {
-	color: #fff;
-}
-
->>>>>>> 6e9933ff7c1d144c5e5726de2a604bc8097896eb

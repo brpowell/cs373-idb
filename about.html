@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,17 +9,20 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular-animate.js"></script>
+    <script src="app.js"></script>
+    
     <title>GGmate</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<!--     <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
-
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="style1.css">
+
+    <!-- <base href="/"> -->
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <!-- <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
@@ -31,8 +34,8 @@
     <![endif]-->
   </head>
 
-  <body style="height:100%">
-    <div class="container" style="width:auto; padding:0px; height: 100%; overflow: auto">
+  <body ng-app=ngGGMate>
+    <div class="container" style="width:auto; padding:0px; height: 100%">
       <div class="navigation navbar navbar-default navbar-fixed-top ">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -44,83 +47,116 @@
             </button>
             <img class="image" alt="Brand" src="ggm8logo3.png">
           </div>
-          <ul class="nav navbar-nav navbar-right navbar-collapse" id="bar">
-            <li role="presentation"><a href="index1.html">Home</a></li>
-            <li role="presentation"><a href="#">Companies</a></li>
-            <li role="presentation"><a href="#">Games</a></li>
-            <li role="presentation"><a href="#">People</a></li>
-            <li role="presentation" class="active"><a href="about.html">About</a></li>
-          </ul>
+
+          <!-- <div ng-controller="MainCtrl"> -->
+            <ul class="nav navbar-nav navbar-right navbar-collapse" id="bar">
+              <li role="presentation"><a href="index1.html">Home</a></li>
+              <li role="presentation" class="active"><a href="about.html">About</a></li>
+              <li role="presentation"><a href="companies.html">Companies</a></li>
+              <li role="presentation"><a href="games.html">Games</a></li>
+              <li role="presentation"><a href="#People">People</a></li>
+            </ul>
+          <!-- </div> -->
         </div>
       </div>
-      <div class="cover">
-        <div class="container">
+
+      <div class="cover container">
+        <div class="container col-md-12">
           <div class="page-header">
             <h1 style="color: orange">Our GGMates</h1>
           </div>
-          <div class="card col-md-4">
-            <h3>Bryan Powell</h3>
-            <img>
-            <p>BIO</p>
-            <p>Major Responsibilites</p>
-            <p>No. of commits</p>
-            <p>No. of Issues</p>
-            <p>No. of Unit Tests</p>
+          <div class="row">
+            <div class="card col-md-4">
+              <h3>Bryan Powell</h3>
+              <img>
+              <p>BIO</p>
+              <p>Major Responsibilites</p>
+              <p>No. of commits</p>
+              <p>No. of Issues</p>
+              <p>No. of Unit Tests</p>
+            </div>
+            <div class="card col-md-4">
+              <h3>Andrew Capindo</h3>
+              <img>
+              <p>BIO</p>
+              <p>Major Responsibilites</p>
+              <p>No. of commits</p>
+              <p>No. of Issues</p>
+              <p>No. of Unit Tests</p>
+            </div>
+            <div class="card col-md-4">
+              <h3>Tin Vo</h3>
+              <img>
+              <p>BIO</p>
+              <p>Major Responsibilites</p>
+              <p>No. of commits</p>
+              <p>No. of Issues</p>
+              <p>No. of Unit Tests</p>
+            </div>
           </div>
-          <div class="card col-md-4">
-            <h3>Andrew Capindo</h3>
-            <img>
-            <p>BIO</p>
-            <p>Major Responsibilites</p>
-            <p>No. of commits</p>
-            <p>No. of Issues</p>
-            <p>No. of Unit Tests</p>
-          </div>
-          <div class="card col-md-4">
-            <h3>Tin Vo</h3>
-            <img>
-            <p>BIO</p>
-            <p>Major Responsibilites</p>
-            <p>No. of commits</p>
-            <p>No. of Issues</p>
-            <p>No. of Unit Tests</p>
-          </div>
-          <div class="card col-md-4">
-            <h3>Uyviet Nguyen</h3>
-            <img>
-            <p>BIO</p>
-            <p>Major Responsibilites</p>
-            <p>No. of commits</p>
-            <p>No. of Issues</p>
-            <p>No. of Unit Tests</p>
-          </div>
-          <div class="card col-md-4">
-            <h3>Kierra Dotson</h3>
-            <img>
-            <p>BIO</p>
-            <p>Major Responsibilites</p>
-            <p>No. of commits</p>
-            <p>No. of Issues</p>
-            <p>No. of Unit Tests</p>
-                        <h3>Kierra Dotson</h3>
-            <img>
-            <p>BIO</p>
-            <p>Major Responsibilites</p>
-            <p>No. of commits</p>
-            <p>No. of Issues</p>
-            <p>No. of Unit Tests</p>
-                        <h3>Kierra Dotson</h3>
-            <img>
-            <p>BIO</p>
-            <p>Major Responsibilites</p>
-            <p>No. of commits</p>
-            <p>No. of Issues</p>
-            <p>No. of Unit Tests</p>
+          <div class="row">
+            <div class="card col-md-4">
+              <h3>Uyviet Nguyen</h3>
+              <img>
+              <p>BIO</p>
+              <p>Major Responsibilites</p>
+              <p>No. of commits</p>
+              <p>No. of Issues</p>
+              <p>No. of Unit Tests</p>
+            </div>
+            <div class="card col-md-4">
+              <h3>Kierra Dotson</h3>
+              <img>
+              <p>BIO</p>
+              <p>Major Responsibilites</p>
+              <p>No. of commits</p>
+              <p>No. of Issues</p>
+              <p>No. of Unit Tests</p>
+            </div>
           </div>
         </div>
-      </div>
+        <div class="container col-md-6">
+          <div class="page-header">
+            <h1 style="color: orange">Our Gaming Stats</h1>
+          </div>
+          <div class="row">
+            <div class="card col-md-12">
+              <p></p>
+              <p>Total No. of Commits</p>
+              <p>Total No. of Issues</p>
+              <p>Total No. of Unit Tests</p>
+              <p>Apiary API Link</p>
+              <p>Github Issue Tracker</p>
+              <p>Github Repo</p>
+              <p>Github Wiki</p>
+            </div>
+          </div>
+        </div>
+        <div class="container col-md-6">
+          <div class="page-header">
+            <h1 style="color: orange">All Important Tools</h1>
+          </div>
+          <div class="row">
+            <div class="card col-md-12">
+              <p></p>
+              
+            </div>
+          </div>
+        </div>
+        <div class="container col-md-12">
+          <div class="page-header">
+            <h1 style="color: orange">Data, Data, and More Data</h1>
+          </div>
+          <div class="row">
+            <div class="card col-md-12">
+              <p>
+            </div>
+          </div>
+        </div>
     </div>
-    <!-- <div class="navigation navbar navbar-default navbar-fixed-bottom "> -->
+    <div class="footer"></div>
+      <div class="footer"></div>
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -129,6 +165,6 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
   </body>
-</html>
+</html>      
