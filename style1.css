@@ -1,6 +1,6 @@
 
 .navigation {
-	background-color: #333333;
+	background-color: rgba(67, 93, 111, 0.9);
 	border: 0px;
 }
 
@@ -14,7 +14,7 @@
 
 .navbar-default .navbar-nav>.active>a{
 	border-bottom: solid white;
-	background-color: transparent;
+	background-color: rgba(67, 93, 111, 0.9);
 	color: white;
 }
 .navbar-default .navbar-nav>li>a {
@@ -31,15 +31,17 @@ html {
 }
 
 .cover {
-	margin-top:50px; 
+/*	margin-top:50px; 
+	border-top-style: solid;*/
 	width: 100%; 
 	height: 100%; 
 	position: relative;
-	background-color: #003333;
+	/*background-color: #75A2B8;*/
 	overflow: scroll;
 	border-bottom-style: solid;
-	border-bottom-color: #003333;
+	border-bottom-color: transparent;
 	border-bottom-width: 50px;
+	background-image: url('background1.jpg');
 }
 
 .active {
@@ -47,7 +49,7 @@ html {
 }
 
 .footer {
-	background-color: #333333;
+	background-color: rgba(67, 93, 111, 0.9);
 	position: fixed;
   	right: 0;
   	bottom: 0;
@@ -62,18 +64,26 @@ html {
 }
 
 .card {
-	background-color: #336666;
+	background-color: rgba(43, 69, 82, 0.5);
 	color: white;
-	border-color: #003333;
+	border-color: #75A2B8;
 	border-style: solid;
 	border-radius: 8px;
 	height: 300px;
 }
 
+.card>h3 {
+	color: #FFFBCC;
+}
+
 .gameSection {
-	background-color: rgba(128, 128, 128, 0.8); 
+	background-color: rgba(43, 69, 82, 0.6); 
 	border-top-style: solid; 
 	border-top-width: 20px; 
-	border-top-color: #003333; 
+	border-top-color: transparent; 
 	padding: 15px;
+}
+
+.titleColor {
+	color: #FFFBCC;
 }
