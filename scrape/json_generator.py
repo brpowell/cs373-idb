@@ -46,13 +46,11 @@ def save_json(src, key, path):
         os.makedirs(dir_name)
     new_path = os.path.join(path, str(key) + '.json')
     with open(new_path, 'w') as f:
-        json.dump(src, f, indent=4, sort_keys=True)
-
+        json.dump(src, f)
 
 def get_json(json_base):
     with open(json_base, 'r') as json_file:
         return json.loads(json_file.readlines()[0])
-
 
 def view_menu():
     view_len = len(views)

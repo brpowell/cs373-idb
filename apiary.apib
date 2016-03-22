@@ -1,0 +1,269 @@
+FORMAT: 1A
+HOST: http://ggmate.me/api
+
+# GGMate
+
+The GGMate API allows making requests for data on video game companies, people,
+and the games they develop/publish.
+
+# Group Companies
+## Company List [/companies]
+
+### Obtain a list of companies. [GET]
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "name": "Bioware"
+            },
+            {
+                "id": 2,
+                "name": "Bungie"
+            },
+            {
+                "id": 3,
+                "name": "Bethesda Softworks"
+            }
+        ]
+
+## Company [/companies/{company_id}]
++ Parameters
+    + company_id (number) - ID of the company in the form of an integer
+
+### Get the details of a specific company. [GET]
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "name": "Bioware",
+            "deck": "BioWare is a game company that is currently owned by Electronic Arts (EA). It specializes in making role playing games that usually involve deep and engaging stories.",
+            "date_founded": "1995-02-01 00:00:00",
+            "city": "Edmonton",
+            "country": "Canada",
+            "average_metacritic": 92,
+            "website": "http://www.bioware.com",
+            "banner": "http://ggmate.me/static/company_banners/bioware.png",
+            "games_developed": [
+                {
+                    "id": 23,
+                    "name": "Baldur's Gate",
+                    "platforms": ["PC", "MAC"],
+                    "metacritic": {
+                        "PC": 91
+                    }
+                },
+                {
+                    "id": 24,
+                    "name": "Star Wars: Knights of the Old Republic",
+                    "platforms": ["Xbox", "PC", "iOS"],
+                    "metacritic": {
+                        "PC": 93,
+                        "Xbox": 94,
+                        "iOS": 88
+                    }
+                },
+                {
+                    "id": 25,
+                    "name": "Mass Effect 2",
+                    "platforms": ["Xbox 360", "PS3", "PC"],
+                    "metacritic": {
+                        "Xbox 360": 96,
+                        "PS3": 94,
+                        "PC": 94
+                    }
+                }
+            ],
+            "games_published": [
+                {
+                    "id": 25,
+                    "name": "Dragon Age Legends",
+                    "platforms": ["PC"],
+                    "metacritic": {
+                        "PC": "None"
+                    }
+                }
+            ]
+        }
+
+# Group People
+
+## People List [/people]
+
+### Obtain a list of people. [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "name": "Casey Hudson"
+            },
+            {
+                "id": 2,
+                "name": "Hideo Kojima"
+            },
+            {
+                "id": 3,
+                "name": "Shigeru Miyamoto"
+            },
+            {
+                "id": 4,
+                "name": "Johnathan Blow"
+            }
+        ]
+
+## Person [/people/{person_id}]
++ Parameters
+    + person_id (number) - ID of the person in the form of an integer
+
+### Get the details of a specific person. [GET]
++ Response 200 (application/json)
+
+        {
+                "id": 1,
+                "name": "Casey Hudson",
+                "country": "Canada",
+                "hometown": "Edmonton",
+                "deck": "A former creative lead at Bioware, where he was the project director on the Mass Effect series. In August 2014 he announced his departure from the company.",
+                "birth_date": null,
+                "death_date": null,
+                "first_credited_game": {
+                    "id": 1531,
+                    "name": "MDK 2"
+                },
+                "games": [
+                    {
+                        "id": 10637,
+                        "name": "Baldur's Gate II: Shadows of Amn"
+                    },
+                    {
+                        "id": 18741,
+                        "name": "Star Wars: Knights of the Old Republic"
+                    },
+                    {
+                        "id": 21590,
+                        "name": "Mass Effect 2"
+                    },
+                    {
+                        "id": 1531,
+                        "name": "MDK 2"
+                    },
+                    {
+                        "id": 9953,
+                        "name": "Neverwinter Nights"
+                    },
+                    {
+                        "id": 26087,
+                        "name": "Mass Effect: Galaxy"
+                    },
+                    {
+                        "id": 8852,
+                        "name": "Star Wars: Knights of the Old Republic II - The Sith Lords"
+                    },
+                    {
+                        "id": 8580,
+                        "name": "Jade Empire"
+                    },
+                    {
+                        "id": 37437,
+                        "name": "Mass Effect: Infiltrator"
+                    },
+                    {
+                        "id": 16909,
+                        "name": "Mass Effect"
+                    },
+                    {
+                        "id": 29935,
+                        "name": "Mass Effect 3"
+                    }
+                ],
+                "people": [{
+                    "id": 89829,
+                    "name": "Larry Hryb"
+                }]
+        }
+
+# Group Games
+
+## Game List [/games]
+
+### Obtain a list of games. [GET]
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "name": "Mass Effect"
+            },
+            {
+                "id": 2,
+                "name": "Mass Effect 2"
+            },
+            {
+                "id": 3,
+                "name": "Fallout 4"
+            },
+            {
+                "id": 4,
+                "name": "Super Mario World"
+            }
+        ]
+
+## Game [/game/{game_id}]
++ Parameters
+    + game_id (number) - ID of the game in the form of an integer
+
+### Get the details of a specific game. [GET]
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "name": "Mass Effect",
+            "deck": "When humanity is still a newcomer on the futuristic galactic stage, it's up to the charismatic Commander Shepard to investigate the actions of a rogue agent in the first chapter of the Mass Effect trilogy.",
+            "image": "http://ggmate.me/static/games/me1.jpg",
+            "platforms": ["Xbox 360", "PS3", "PC"],
+            "metacritic": {
+                "Xbox 360": 91,
+                "PS3": 85,
+                "PC": 89
+            },
+            "developers": [
+                {
+                    "id": 1,
+                    "name": "Bioware"
+                }
+            ],
+            "publishers": [
+                {
+                    "id": 340,
+                    "name": "Microsoft Studios"
+                },
+                {
+                    "id": 6256,
+                    "name": "EA Games"
+                }
+            ],
+            "people": [
+                {
+                    "id": 1,
+                    "name": "Casey Hudson"
+                },
+                {
+                    "id": 101632,
+                    "name": "Robert Blake"
+                },
+                {
+                    "id": 107212,
+                    "name": "Belinda Cornish"
+                },
+                {
+                    "id": 12808,
+                    "name": "Greg Zeschuk"
+                },
+                {
+                    "id": 12762,
+                    "name": "Ray Muzyka"
+                }
+            ]
+        }

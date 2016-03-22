@@ -43,10 +43,10 @@ class Game(db.Model):
     name = db.Column(db.String(255))
     deck = db.Column(db.String(255))
     image = db.Column(db.String(255))
-    metacritic = db.Column(db.Integer)
+    metacritic = db.Column(db.JSON)
     platforms = db.relationship('Platform', secondary=game_platform,
                     backref=db.backref('games', lazy='dynamic'))
-                    
+
     def __repr__(self):
         return '<Game %r>' % self.name
 

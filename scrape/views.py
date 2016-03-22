@@ -53,7 +53,7 @@ views = [
         # Include enough info for a 'full' developer profile
         # Made more than 5 games
         'name': 'Robust Developers',
-        'base': 'companies.json',
+        'base': 'data/base/companies.json',
         'save': 'data/robust-developers/',
         'details': {
             'defaults': [
@@ -70,7 +70,7 @@ views = [
     {
         # Include enough info for a 'minimum' developer profile
         'name': 'Developers w/ min fields',
-        'base': 'companies.json',
+        'base': 'data/base/companies.json',
         'save': 'data/min-developers/',
         'details': {
             'defaults': [
