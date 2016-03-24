@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular-animate.js"></script>
+    <!-- <script src="app.js"></script> -->
+
+    <title>GGmate</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- <base href="/"> -->
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body style="height:100%">
+    <div class="container" style="width:auto; height: 100%; padding: 0px;">
+        <div class="navigation navbar navbar-default navbar-fixed-top ">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bar" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img class="image" alt="Brand" src="{{ url_for('static', filename='images/ggm8logo3.png') }}">
+                </div>
+
+                <!-- <div ng-controller="MainCtrl"> -->
+                <ul class="nav navbar-nav navbar-right navbar-collapse collapsed" id="bar">
+                    <li role="presentation"><a href="index.html">Home</a>
+                    </li>
+                    <li role="presentation"><a href="about.html">About</a>
+                    </li>
+                    <li role="presentation"><a href="companies.html">Companies</a>
+                    </li>
+                    <li role="presentation" class="active"><a href="games.html">Games</a>
+                    </li>
+                    <li role="presentation"><a href="people.html">People</a>
+                    </li>
+                </ul>
+                <!-- </div> -->
+            </div>
+        </div>
+
+        <div class="cover">
+            <div class="container gameSection">
+                <div class="container" style="width: auto;">
+                    <div class="row">
+                        <div class="page-header">
+                            <h1 class="titleColor">Dragon Age: Origins</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <img class="col-md-3 gameImage" src="http://static.giantbomb.com/uploads/scale_large/8/82063/2558592-daoclean.jpg">
+                        <div class="col-md-9">
+                            <h3 style="color: white">Description:</h3>
+                            <h4 class="titleColor">Dragon Age: Origins is an epic fantasy role-playing game featuring a rich story, personality-driven characters, and tactical, bloody combat. It is considered a spiritual successor to the Baldur's Gate series.
+                </h4>
+                            <h3 style="color: white">Ratings:</h3>
+                            <h4 class="titleColor">MetaCritic Rating: 89 &nbsp IGN Rating: 9.4/10</h4>
+                            <h3 style="color: white">Platforms:</h3>
+                            <h4 class="titleColor">PC, PS3, XBOX 360</h4>
+                            <h3 style="color: white">Publisher</h3>
+                            <h4 class="titleColor"><a href="company3.html">Electronic Arts</a></h4>
+                            <h3 style="color: white">Developer</h3>
+                            <h4 class="titleColor"><a href="company2.html">BioWare</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container gameSection">
+                <div class="container col-md-4">
+                    <h3 style="color: white">Related People:</h3>
+                    <div class="container col-md-12" style="height: 425px; overflow: scroll">
+                        <table class="table table-hover titleColor">
+                            <tbody class="titleColor">
+                                <tr class="titleColor">
+                                    <td>Mary Kirby</td>
+                                </tr>
+                                <tr>
+                                    <td>Belinda Cornish</td>
+                                </tr>
+                                <tr>
+                                    <td>Jamie Glover</td>
+                                </tr>
+                                <tr class="titleColor">
+                                    <td>Aubrey Ashburn</td>
+                                </tr>
+                                <tr>
+                                    <td>Mark Meer</td>
+                                </tr>
+                                <tr>
+                                    <td>Mike Spalding</td>
+                                </tr>
+                                <tr>
+                                    <td>Corinne Kempa</td>
+                                </tr>
+                                <tr>
+                                    <td>Tim Curry</td>
+                                </tr>
+                                <tr>
+                                    <td>Alix Wilton Regan</td>
+                                </tr>
+                                <tr>
+                                    <td>Peter Jessop</td>
+                                </tr>
+                                <tr>
+                                    <td>Steve Valentine</td>
+                                </tr>
+                                <tr>
+                                    <td>Inon Zur</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <h3 style="color: white">Game Trailer:</h3>
+                <div class="container col-md-8">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" style="display: block; margin:0 auto;" src="https://www.youtube.com/embed/0olSKafPoQA" frameborder="0" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+</body>
+
+</html>
