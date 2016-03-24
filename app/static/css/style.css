@@ -37,13 +37,14 @@ a {
 	color: #FFFBCC;
 }
 
+
 .cover {
-	margin-top: 75px; 
+	margin-top: 60px; 
 	width: 100%; 
 	height: 100%; 
-	position: absolute;
+	position: fixed;
 	overflow: scroll;
-	margin-bottom: 50px;
+	/*padding-bottom: 50px;*/
 }
 
 .active {
@@ -68,6 +69,7 @@ a {
 .card {
 	color: white;
 	border-radius: 8px;
+	display: flex;
 }
 
 .insideCard {
@@ -86,13 +88,19 @@ a {
 
 .gameSection {
 	background-color: rgba(43, 69, 82, 0.9); 
-/*	border-top-style: solid; 
-	border-top-width: 20px; 
-	border-top-color: transparent; */
 	padding-bottom: 20px;
 	padding-top: -15px;
+	margin-bottom: 80px;
 }
 
 .titleColor {
 	color: #FFFBCC;
+}
+
+.button {
+	background-color: rgba(43, 69, 82, 0.9) ;
+	color: white;
+}
+.row {
+	display: flex;
 }

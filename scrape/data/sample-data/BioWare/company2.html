@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <!-- <base href="/"> -->
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -45,18 +45,18 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <img class="image" alt="Brand" src="{{ url_for('static', filename='images/ggm8logo3.png') }}">
+            <img class="image" alt="Brand" src="ggm8logo3.png">
           </div>
 
-          <div id="bar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
+          <!-- <div ng-controller="MainCtrl"> -->
+            <ul class="nav navbar-nav navbar-right navbar-collapse" id="bar">
               <li role="presentation"><a href="index.html">Home</a></li>
               <li role="presentation"><a href="about.html">About</a></li>
               <li role="presentation" class="active"><a href="companies.html">Companies</a></li>
               <li role="presentation"><a href="games.html">Games</a></li>
               <li role="presentation"><a href="people.html">People</a></li>
             </ul>
-          </div>
+          <!-- </div> -->
         </div>
       </div>
 
@@ -65,30 +65,32 @@
           <div class="container">
             <div class="row">
               <div class="page-header">
-                <h1 class="titleColor">Bethesda Game Studio</h1>
+                <h1 class="titleColor">Bioware</h1>
               </div>
             </div>
             <div class="row">
               <img class="col-md-4" src="http://static.giantbomb.com/uploads/scale_large/1/12139/2754841-bgs.jpg">
               <div class="col-md-8">
-                <h3 style="color: white;">Description</h3>
-                <h4 class="titleColor">Award winning developer behind The Elder Scrolls &amp; Fallout series.</h4>
-                 <h3 style="color: white;">Headquarters</h3>
-                <h4 class="titleColor">1370 Piccard Drive Suite 120</h4>
-                <h4 class="titleColor">Rockville, Maryland, United States</h4>
+                <h3 style="color: white;">Description: </h3>
+                <h4 class="titleColor">BioWare is a game company that is currently owned by Electronic Arts (EA). It specializes in making role playing games that usually involve deep and engaging stories.</h4>
+                <h3 style="color: white;">Headquarters: </h3>
+                <h4 class="titleColor">200 4445 Calgary Trail</h4>
+                <h4 class="titleColor">Edmonton, Alberta, Canada</h4>
+                <h3 style="color: white;">Date Founded: </h3>
+                <h4 class="titleColor">January 02, 1995</h4>
               </div>
             </div>
             <div class="row">
               <div class="col-md-4">
-                <h3 style="color: white">Company Rating</h3>
+                <h3 style="color: white">Company Rating: </h3>
               </div>
               <div class="col-md-4">
                 <h3 style="color: white">Highest Rated Game</h3>
-                <h4 class="titleColor">The Elder Scrolls V: Skyrim</h4>
+                <h4 class="titleColor">Mass Effect 2</h4>
               </div>
               <div class="col-md-4">
                 <h3 style="color: white">Company Website</h3>
-                <a href="http://bgs.bethsoft.com">Bethesda</a>
+                <a href="http://www.bioware.com">Bioware</a>
               </div>
             </div>
             <div class="row">
@@ -98,19 +100,19 @@
                   <table class="table table-hover titleColor">
                     <tbody class="titleColor">
                       <tr class="titleColor">
-                        <td>Todd Howard</td>
+                        <td><a href="person3.html">Casey Hudson</a></td>
                       </tr>
                       <tr>
-                        <td>Daryl Brigner</td>
+                        <td>Charles Randall</td>
                       </tr>
                       <tr>
-                        <td>Lani Minella</td>
+                        <td>Derrick Collins</td>
                       </tr>
                       <tr>
-                        <td>Roger L. Jackson</td>
+                        <td>Scott Horner</td>
                       </tr>
                       <tr>
-                        <td>Mark Jones</td>
+                        <td>Christopher Mann</td>
                       </tr>
                     </tbody>
                   </table>
@@ -122,40 +124,29 @@
                   <table class="table table-hover titleColor">
                     <tbody class="titleColor">
                       <tr class="titleColor">
-                        <td>Fallout 4</td>
+                        <td><a href="game2.html">Dragon Age: Origins</a></td>
                       </tr>
                       <tr>
-                        <td>Fallout Shelter</td>
+                        <td>Mass Effect 3</td>
                       </tr>
                       <tr>
-                        <td>The Elder Scrolls V: Skyrim</td>
+                        <td>Dragon Age: Inquisition</td>
                       </tr>
                       <tr>
-                        <td>Fallout 3</td>
+                        <td>Star Wars: The Old Replublic</td>
                       </tr>
                       <tr>
-                        <td>The Elder Scrolls IV: Shivering Isles</td>
+                        <td>Mass Effect 2</td>
                       </tr>
                       <tr>
-                        <td>The Elder Scrolls IV: Knights of the Nine</td>
+                        <td>Dragon Age: Origins - Awakening</td>
+                      </tr>
+
+                      <tr>
+                        <td>Mass Effect</td>
                       </tr>
                       <tr>
-                        <td>The Elder Scrolls IV: Oblivion</td>
-                      </tr>
-                      <tr>
-                        <td>The Elder Scrolls III: Tribunal</td>
-                      </tr>
-                      <tr>
-                        <td>The Elder Scrolls II: Morrowind</td>
-                      </tr>
-                      <tr>
-                        <td>Peter Jessop</td>
-                      </tr>
-                      <tr>
-                        <td>Steve Valentine</td>
-                      </tr>
-                      <tr>
-                        <td>Inon Zur</td>
+                        <td>Jade Empire</td>
                       </tr>
                     </tbody>
                   </table>
@@ -165,9 +156,6 @@
           </div>
         </div>      
       </div>
-
-<!--       <div class="footer"></div>
-    </div> -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

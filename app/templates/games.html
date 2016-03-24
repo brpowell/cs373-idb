@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular-animate.js"></script>
-    <!-- <script src="app.js"></script> -->
+    <script src="app.js"></script>
     
     <title>GGmate</title>
 
@@ -48,15 +48,15 @@
             <img class="image" alt="Brand" src="{{ url_for('static', filename='images/ggm8logo3.png') }}">
           </div>
 
-          <!-- <div ng-controller="MainCtrl"> -->
-            <ul class="nav navbar-nav navbar-right navbar-collapse" id="bar">
+          <div id="bar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
               <li role="presentation"><a href="index.html">Home</a></li>
               <li role="presentation"><a href="about.html">About</a></li>
               <li role="presentation"><a href="companies.html">Companies</a></li>
-              <li role="presentation"class="active"><a href="games.html">Games</a></li>
+              <li role="presentation" class="active"><a href="games.html">Games</a></li>
               <li role="presentation"><a href="people.html">People</a></li>
             </ul>
-          <!-- </div> -->
+          </div>
         </div>
       </div>
       <div class="cover">
@@ -66,6 +66,7 @@
               <tr class="titleColor">
                 <th><h3>Game</h3></th>
                 <th><h3>Publisher</h3></th>
+                <th><h3>Developer</h3></th>
                 <th><h3>Date Released</h3></th>
                 <th><h3>MetaCritic Rating</h3></th>
               </tr>
@@ -74,17 +75,20 @@
               <tr>
                 <td><a href="game1.html">Fallout 4</a></td>
                 <td><a href="company1.html">Bethesda</a></td>
+                <td><a href="company1.html">Bethesda</a></td>
                 <td>November 10, 2015</td>
                 <td>84</td>
               </tr>
               <tr>
                 <td><a href="game2.html">Dragon Age: Origins</a></td>
+                <td><a href="company3.html">Electronic Arts</a></td>
                 <td><a href="company2.html">Bioware</a></td>
                 <td>November 3, 2009</td>
                 <td>91</td>
               </tr>
               <tr>
                 <td><a href="game3.html">Mass Effect 3</a></td>
+                <td><a href="company3.html">Electronic Arts</a></td>
                 <td><a href="company3.html">Electronic Arts</a></td>
                 <td>March 6, 2012</td>
                 <td>93</td>
