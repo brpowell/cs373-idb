@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="style1.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <!-- <base href="/"> -->
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -34,7 +34,7 @@
     <![endif]-->
   </head>
 
-  <body ng-app=ngGGMate>
+  <body ng-app='ngGGMate' style="height: 100%">
     <div class="container" style="width:auto; padding:0px; height: 100%">
       <div class="navigation navbar navbar-default navbar-fixed-top ">
         <div class="container-fluid">
@@ -50,11 +50,11 @@
 
           <!-- <div ng-controller="MainCtrl"> -->
             <ul class="nav navbar-nav navbar-right navbar-collapse" id="bar">
-              <li role="presentation"><a href="index1.html">Home</a></li>
+              <li role="presentation"><a href="index.html">Home</a></li>
               <li role="presentation" class="active"><a href="about.html">About</a></li>
               <li role="presentation"><a href="companies.html">Companies</a></li>
               <li role="presentation"><a href="games.html">Games</a></li>
-              <li role="presentation"><a href="#People">People</a></li>
+              <li role="presentation"><a href="people.html">People</a></li>
             </ul>
           <!-- </div> -->
         </div>
@@ -66,52 +66,51 @@
             <h1 class="titleColor">Our GGMates</h1>
           </div>
           <div class="row">
-            <div class="card col-md-4">
-              <h3>Bryan Powell</h3>
-              <img>
-              <p>BIO</p>
-              <p>Major Responsibilites</p>
-              <p>No. of commits</p>
-              <p>No. of Issues</p>
-              <p>No. of Unit Tests</p>
+            <div class="card col-md-6">
+              <div class="container col-md-12 insideCard">
+                <h3>Bryan Powell</h3>
+                <img>
+                <p>BIO</p>
+                <p>Major Responsibilites</p>
+                <p>No. of commits</p>
+                <p>No. of Issues</p>
+                <p>No. of Unit Tests</p>
+              </div>
             </div>
-            <div class="card col-md-4">
-              <h3>Andrew Capindo</h3>
-              <img>
-              <p>BIO</p>
-              <p>Major Responsibilites</p>
-              <p>No. of commits</p>
-              <p>No. of Issues</p>
-              <p>No. of Unit Tests</p>
-            </div>
-            <div class="card col-md-4">
-              <h3>Tin Vo</h3>
-              <img>
-              <p>BIO</p>
-              <p>Major Responsibilites</p>
-              <p>No. of commits</p>
-              <p>No. of Issues</p>
-              <p>No. of Unit Tests</p>
+            <div class="card col-md-6">
+              <div class="container col-md-12 insideCard">
+                <h3>Andrew Capindo</h3>
+                <img>
+                <p>BIO</p>
+                <p>Major Responsibilites</p>
+                <p>No. of commits</p>
+                <p>No. of Issues</p>
+                <p>No. of Unit Tests</p>
+              </div>
             </div>
           </div>
           <div class="row">
-            <div class="card col-md-4">
-              <h3>Uyviet Nguyen</h3>
-              <img>
-              <p>BIO</p>
-              <p>Major Responsibilites</p>
-              <p>No. of commits</p>
-              <p>No. of Issues</p>
-              <p>No. of Unit Tests</p>
+            <div class="card col-md-6">
+              <div class="container col-md-12 insideCard">
+                <h3>Tin Vo</h3>
+                <img>
+                <p>BIO</p>
+                <p>Major Responsibilites</p>
+                <p>No. of commits</p>
+                <p>No. of Issues</p>
+                <p>No. of Unit Tests</p>
+              </div>
             </div>
-            <div class="card col-md-4">
-              <h3>Kierra Dotson</h3>
-              <img>
-              <p>BIO</p>
-              <p>Major Responsibilites</p>
-              <p>No. of commits</p>
-              <p>No. of Issues</p>
-              <p>No. of Unit Tests</p>
+            <div class="card col-md-6">
+              <div class="container col-md-12 insideCard">
+                <h3>Uyviet Nguyen</h3>
+                <img>
+                <p>BIO</p>
+                <p>Major Responsibilites</p>
+                <p>No. of commits</p>
+                <p>No. of Issues</p>
+                <p>No. of Unit Tests</p>
+              </div>
             </div>
           </div>
         </div>
@@ -121,14 +120,16 @@
           </div>
           <div class="row">
             <div class="card col-md-12">
-              <p></p>
-              <p>Total No. of Commits</p>
-              <p>Total No. of Issues</p>
-              <p>Total No. of Unit Tests</p>
-              <p>Apiary API Link</p>
-              <p>Github Issue Tracker</p>
-              <p>Github Repo</p>
-              <p>Github Wiki</p>
+              <div class="container col-md-12 insideCard">
+                <p></p>
+                <p>Total No. of Commits</p>
+                <p>Total No. of Issues</p>
+                <p>Total No. of Unit Tests</p>
+                <p>Apiary API Link</p>
+                <p>Github Issue Tracker</p>
+                <p>Github Repo</p>
+                <p>Github Wiki</p>
+              </div>
             </div>
           </div>
         </div>
@@ -138,8 +139,10 @@
           </div>
           <div class="row">
             <div class="card col-md-12">
-              <p></p>
-              
+              <div class="container col-md-12 insideCard">
+                <p>Bootstrap</p>
+                <p>AngularJS</p>
+              </div>
             </div>
           </div>
         </div>
@@ -149,13 +152,12 @@
           </div>
           <div class="row">
             <div class="card col-md-12">
-              <p>
+              <div class="container col-md-12">
+                <p></p>
+              </div>
             </div>
           </div>
         </div>
-    </div>
-    <div class="footer"></div>
-      <div class="footer"></div>
     </div>
 
     <!-- Bootstrap core JavaScript

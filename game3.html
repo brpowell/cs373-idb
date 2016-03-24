@@ -35,7 +35,7 @@
   </head>
 
   <body style="height:100%">
-    <div class="container" style="width:auto; padding:0px; height: 100%">
+    <div class="container" style="width:auto; height: 100%; padding: 0px;">
       <div class="navigation navbar navbar-default navbar-fixed-top ">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -49,50 +49,98 @@
           </div>
 
           <!-- <div ng-controller="MainCtrl"> -->
-            <ul class="nav navbar-nav navbar-right navbar-collapse" id="bar">
+            <ul class="nav navbar-nav navbar-right navbar-collapse collapsed" id="bar">
               <li role="presentation"><a href="index.html">Home</a></li>
               <li role="presentation"><a href="about.html">About</a></li>
               <li role="presentation"><a href="companies.html">Companies</a></li>
-              <li role="presentation"class="active"><a href="games.html">Games</a></li>
+              <li role="presentation" class="active"><a href="games.html">Games</a></li>
               <li role="presentation"><a href="people.html">People</a></li>
             </ul>
           <!-- </div> -->
         </div>
       </div>
+
       <div class="cover">
         <div class="container gameSection">
-          <table class="table table-hover">
-            <thead>
-              <tr class="titleColor">
-                <th><h3>Game</h3></th>
-                <th><h3>Publisher</h3></th>
-                <th><h3>Date Released</h3></th>
-                <th><h3>MetaCritic Rating</h3></th>
-              </tr>
-            </thead>
-            <tbody class="titleColor">
-              <tr>
-                <td><a href="game1.html">Fallout 4</a></td>
-                <td><a href="company1.html">Bethesda</a></td>
-                <td>November 10, 2015</td>
-                <td>84</td>
-              </tr>
-              <tr>
-                <td><a href="game2.html">Dragon Age: Origins</a></td>
-                <td><a href="company2.html">Bioware</a></td>
-                <td>November 3, 2009</td>
-                <td>91</td>
-              </tr>
-              <tr>
-                <td><a href="game3.html">Mass Effect 3</a></td>
-                <td><a href="company3.html">Electronic Arts</a></td>
-                <td>March 6, 2012</td>
-                <td>93</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>        
+          <div class="container" style="width: auto;">
+            <div class="row">
+              <div class="page-header">
+                <h1 class="titleColor">Mass Effect 3</h1>
+              </div>
+            </div>
+            <div class="row">
+              <img class="col-md-3 gameImage" src="http://static.giantbomb.com/uploads/scale_large/8/87790/2126447-box_me3.png">
+              <div class="col-md-9">
+                <h3 style="color: white">Description:</h3>
+                <h4 class="titleColor">When Earth begins to fall in an ancient cycle of destruction, Commander Shepard must unite the forces of the galaxy to stop the Reapers in the infamous final chapter of the first Mass Effect trilogy.
+                </h4>
+                <h3 style="color: white">Ratings:</h3>
+                <h4 class="titleColor">MetaCritic Rating: 89 &nbsp IGN Rating: 9.4/10</h4>
+                <h3 style="color: white">Platforms:</h3>
+
+                <h4 class="titleColor">PC, PS3, PS3N, XBOX 360, Wii U</h4>
+                <h3 style="color: white">Publisher</h3>
+                <h3 style="color: white">Developer</h3>
+                <h4 class="titleColor"><a href="companies.html">Electronic Arts</a></h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container gameSection">
+          <div class="container col-md-4">
+            <h3 style="color: white">Related People:</h3>
+            <div class="container col-md-12" style="height: 425px; overflow: scroll">
+            <table class="table table-hover titleColor">
+              <tbody class="titleColor">
+                <tr class="titleColor">
+                  <td>Casey Hudson</td>
+                </tr>
+                <tr>
+                  <td>Jesse Houston</td>
+                </tr>
+                <tr>
+                  <td>Jamie Glover</td>
+                </tr>
+                <tr>
+                  <td>Mark Meer</td>
+                </tr>
+                <tr>
+                  <td>Mike Spalding</td>
+                </tr>
+                <tr>
+                  <td>Corinne Kempa</td>
+                </tr>
+                <tr>
+                  <td>Tim Curry</td>
+                </tr>
+                <tr>
+                  <td>Alix Wilton Regan</td>
+                </tr>
+                <tr>
+                  <td>Peter Jessop</td>
+                </tr>
+                <tr>
+                  <td>Steve Valentine</td>
+                </tr>
+                <tr>
+                  <td>Inon Zur</td>
+                </tr>
+              </tbody>
+            </table>
+          </div> 
+          </div>
+          <h3 style="color: white">Game Trailer:</h3>
+          <div class="container col-md-8">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" style="display: block; margin:0 auto;" src="https://www.youtube.com/embed/eBktyyaV9LY" frameborder="0" allowfullscreen>
+              </iframe>
+            </div>
+          </div>   
+        </div>
       </div>
+      <div class="footer">
+      </div>
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
