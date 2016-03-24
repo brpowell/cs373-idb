@@ -10,8 +10,6 @@ sudo: false
 install:
     - pip install --upgrade pip
     - pip --version
-    - pip install coverage
-    - pip install numpy
 
 before_script:
     - uname -a
