@@ -10,8 +10,12 @@ sudo: false
 install:
     - pip install --upgrade pip
     - pip --version
-    - pip install coverage
-    - pip install numpy
+    - pip install Flask
+    - pip install Flask-Script
+    - pip install Flask-SQLAlchemy
+    - pip install pymssql
+    - pip install gunicorn
+    - pip install requests
 
 before_script:
     - uname -a

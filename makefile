@@ -2,7 +2,15 @@ IMAGE_NAME_APP := ggm8_app
 IMAGE_NAME_LB := ggm8_lb
 DOCKER_HUB_USERNAME := ggm8group
 FILES :=        \
-    makefile
+    .gitignore  \
+    .travis.yml \
+    makefile    \
+    apiary.apib \
+    IDB1.log    \
+    models.html \
+    models.py   \
+    tests.py    \
+    UML.pdf
     
 check:
 	@not_found=0;                                 \
