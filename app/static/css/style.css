@@ -101,6 +101,8 @@ a {
 	background-color: rgba(43, 69, 82, 0.9) ;
 	color: white;
 }
-.row {
-	display: flex;
-}
+
+/*.gameImage {
+	width: 250px; 
+	height: 300px;
+}*/

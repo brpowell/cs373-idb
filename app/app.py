@@ -5,55 +5,63 @@ app = Flask(__name__, static_url_path='')
 @app.route('/index.html')
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return send_file('templates/index.html')
 
 @app.route('/about.html')
 def about():
-    return render_template('about.html')
+    return send_file('templates/about.html')
 
 @app.route('/companies.html')
 def companies():
-    return render_template('companies.html')
+    return send_file('templates/companies.html')
 
 @app.route('/company.html')
 def company():
-    return render_template('company.html')
+    return send_file('templates/company.html')
 
 @app.route('/company1.html')
 def company1():
-    return render_template('company1.html')
+    return send_file('templates/company1.html')
+
+@app.route('/company2.html')
+def company2():
+    return send_file('templates/company2.html')
+
+@app.route('/company3.html')
+def company3():
+    return send_file('templates/company3.html')    
 
 @app.route('/game1.html')
 def game1():
-    return render_template('game1.html')
+    return send_file('templates/game1.html')
 
 @app.route('/game2.html')
 def game2():
-    return render_template('game2.html')
+    return send_file('templates/game2.html')
 
 @app.route('/game3.html')
 def game3():
-    return render_template('game3.html')
+    return send_file('templates/game3.html')
 
 @app.route('/games.html')
 def games():
-    return render_template('games.html')
+    return send_file('templates/games.html')
 
 @app.route('/people.html')
 def people():
-    return render_template('people.html')
+    return send_file('templates/people.html')
 
 @app.route('/person1.html')
 def person1():
-    return render_template('person1.html')
+    return send_file('templates/person1.html')
 
 @app.route('/person2.html')
 def person2():
-    return render_template('person2.html')
+    return send_file('templates/person2.html')
 
 @app.route('/person3.html')
 def person3():
-    return render_template('person3.html')
+    return send_file('templates/person3.html')
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)

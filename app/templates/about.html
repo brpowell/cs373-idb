@@ -12,7 +12,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1/angular-animate.js"></script>
-    <script src="app.js"></script>
     
     <title>GGmate</title>
 
@@ -20,7 +19,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- <base href="/"> -->
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
@@ -45,7 +44,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <img class="image" alt="Brand" src="ggm8logo3.png">
+            <img class="image" alt="Brand" src="images/ggm8logo3.png">
           </div>
           <div id="bar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -64,11 +63,11 @@
           <div class="page-header">
             <h1 class="titleColor">Our GGMates</h1>
           </div>
-          <div class="row">
+          <div class="row" style="display: flex;">
             <div class="card col-md-6">
               <div class="container col-md-12 insideCard">
                 <h3>Bryan Powell</h3>
-                <img src="{{ url_for('static', filename='images/bryan.jpg') }}" style="height: 100px; border-radius: 100px;">
+                <img src="images/bryan.jpg" style="height: 100px; border-radius: 100px;">
                 <h4>Mini Bio:</h4>
                 <p>Hey I'm Bryan, a UT student studying computer science. Even though I don't have as much time for gaming as I wish anymore, I'm a big fan of following the industry. Besides that I love spaghetti, rollerblading and my roommate's dog. My favorite game series' are Bioshock, Mass Effect, and The Legend of Zelda.</p>
                 <h4>Major Responsibilites: Back End</h4>
@@ -80,7 +79,7 @@
             <div class="card col-md-6">
               <div class="container col-md-12 insideCard">
                 <h3>Andrew Capindo</h3>
-                <img src="{{ url_for('static', filename='images/andrew.jpg') }}" style="height: 100px; border-radius: 100px;">
+                <img src="images/andrew.jpg" style="height: 100px; border-radius: 100px;">
                 <h4>Mini Bio:</h4>
                 <p>Hey I'm Andrew, a UT student in computer science. I love Zelda games the most but play other games as well like Fallout 4. Challenge me to Super Smash Bros. Other than that I like to go to new places and hanging out with my friends.</p>
                 <h4>Major Responsibilites: Front End</h4>
@@ -90,11 +89,11 @@
               </div>
             </div>
           </div>
-          <div class="row">
+          <div class="row" style="display: flex;">
             <div class="card col-md-6">
               <div class="container col-md-12 insideCard">
                 <h3>Tin Vo</h3>
-                <img src="{{ url_for('static', filename='images/tin.png') }}" style="height: 100px; border-radius: 100px;">    
+                <img src="images/tin.png" style="height: 100px; border-radius: 100px;">    
                 <h4>Mini Bio:</h4>
                 <p>Hi, my name is Tin. I am stuyding Computer Science at The University of Texas at Austin, and I am graduating this December. I love writing code and solving problems. I usually play games, reading mangas, or watching animes in my free time. My favorite games are League of Legends and Call of Duty: Black Ops 3.</p>
                 <h4>Major Responsibilites: Back-End</h4>
@@ -106,7 +105,7 @@
             <div class="card col-md-6">
               <div class="container col-md-12 insideCard">
                 <h3>Uyviet Nguyen</h3>
-                <img src="{{ url_for('static', filename='images/uyviet.png') }}" style="height: 100px; border-radius: 100px;">          
+                <img src="images/uyviet.png" style="height: 100px; border-radius: 100px;">          
                 <h4>Mini Bio:</h4>
                 <p>Hey there! My name is Uyviet (pronounced We-Vet) or I go by UV. I’m a former Texas A&M Aggie but now I’ve come to the light and became a Texas Longhorn. Mario Kart DS and Halo 3 are two of my all time favorite games.</p>
                 <h4>Major Responsibilites: Full-Stack</h4>
