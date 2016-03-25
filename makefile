@@ -53,3 +53,6 @@ docker-push:
 
 models.html: models.py
 	pydoc -w models
+
+IDB1.log:
+	git log > IDB1.log

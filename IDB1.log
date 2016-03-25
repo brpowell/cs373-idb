@@ -1,0 +1,214 @@
+commit 3f05d413bafc24156cbe2172cf6ec90cdb78dc34
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Mar 24 20:55:06 2016 -0500
+
+    adding documentation
+
+commit e5ac27fd90ff15e2fa4b934353d958711084fd17
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Mar 24 20:26:01 2016 -0500
+
+    Tests and models updates
+
+commit 7c3e7f9b6119384c31352daee336c080d149a661
+Merge: d552744 bdcba35
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Mar 24 20:17:17 2016 -0500
+
+    Merge branch 'dev' of github.com:brpowell/cs373-idb into dev
+
+commit d55274441def6d7de1da2b53da4b4cf65e841051
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Mar 24 20:16:53 2016 -0500
+
+    Added number of commits
+
+commit bdcba356ba14583ce24e09196e15233d61b3cac2
+Author: Andrew Capindo <acapindo0123@utexas.edu>
+Date:   Thu Mar 24 20:12:11 2016 -0500
+
+    Update .travis.yml
+
+commit dd55fc33c10b6e8eefd5f3ffd6cd880454fdf8ce
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Mar 24 20:11:17 2016 -0500
+
+    Fixed html files
+
+commit 86552290878c4856e9cc474f6072f62163452378
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Mar 24 18:47:18 2016 -0500
+
+    here is my app.js
+
+commit 59647483c78a4fae5a4379b1e5a7b5f3b06b71da
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Mar 24 18:33:25 2016 -0500
+
+    changed the files
+
+commit e0dfa61dd2d08a661f2e13fc0816b4952b88db70
+Author: Uyviet Nguyen <upn63@cs.utexas.edu>
+Date:   Thu Mar 24 16:05:42 2016 -0500
+
+    UML diagram
+
+commit 8e71ebc295db75e6b5caad2c91e0bc6e500e11f3
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Mar 24 11:11:51 2016 -0500
+
+    Updated makefile and .travis
+
+commit c53de5b3f038aa257a5f9c90d0c89654d34aefec
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Mar 24 10:43:21 2016 -0500
+
+    merged testing to dev
+
+commit 8d68af0ef57fd916f70a96b10645d0e568681910
+Author: Bryan Powell <bryanpowell94@gmail.com>
+Date:   Wed Mar 23 20:36:37 2016 -0500
+
+    cleaning dev
+
+commit b8298bb328dc5a69060c2a7bd4dd98f94902dffd
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Wed Mar 23 20:28:05 2016 -0500
+
+    has most of the static pages
+
+commit a11335cf9bccb8e5b48a868bc7c3b1bd708abe64
+Author: Uyviet Nguyen <uyviet.nguyen@utexas.edu>
+Date:   Wed Mar 23 20:17:13 2016 -0500
+
+    Update .travis.yml
+
+commit 292fce24eb4223886fbadf8c4c448212a8afc1b5
+Author: Uyviet Nguyen <uyviet.nguyen@utexas.edu>
+Date:   Wed Mar 23 20:16:24 2016 -0500
+
+    Update .travis.yml
+
+commit 5f580845d48a6833e7858c274f83eb3f0bc2404c
+Author: Uyviet Nguyen <uyviet.nguyen@utexas.edu>
+Date:   Wed Mar 23 20:16:04 2016 -0500
+
+    Create .travis.yml
+
+commit 446bce143d50e9bf87c30c59c8640c9728aa0a9a
+Merge: 0c199b1 1748666
+Author: Bryan Powell <bryanpowell94@gmail.com>
+Date:   Tue Mar 22 12:33:51 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brpowell/cs373-idb into dev
+
+commit 0c199b1ae12d8c363ba12081540722fc95a9a204
+Author: Bryan Powell <bryanpowell94@gmail.com>
+Date:   Tue Mar 22 12:33:41 2016 -0500
+
+    updating scrape files and added api documentation
+
+commit 174866644376a2a2f35824cc2640fb09cf41e6f2
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Mar 22 10:33:25 2016 -0500
+
+    Completed people.json file
+
+commit 761dcc66aadfcaa9009b79acfabdd3acbeb96fc5
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Mon Mar 21 10:59:27 2016 -0500
+
+    color changes
+
+commit 9939b272a75e60f689946bdf6641549c78ae1129
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Sun Mar 20 16:48:39 2016 -0500
+
+    choosing colors and 1 example game page
+
+commit 50c277138000ce9af922d8b8cb30068bda2dfc0d
+Author: Bryan Powell <bryanpowell94@gmail.com>
+Date:   Fri Mar 18 14:50:23 2016 -0500
+
+    reorganizing data files
+
+commit 9a1795dd57105d58d6818c82f4e613cd7031f458
+Author: Bryan Powell <bryanpowell94@gmail.com>
+Date:   Fri Mar 18 11:34:00 2016 -0500
+
+    moved all scraping to scrape folder. added sample data for static pages
+
+commit 6fc38cd72910881638f506c5d9725d74a33b899b
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Mar 17 21:13:22 2016 -0500
+
+    Added final part of people.json (missing middle part)
+
+commit 06158196f30b8627cb2f25e99c3af95ecca19947
+Merge: 2de4f13 6e9933f
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Mar 17 17:08:24 2016 -0500
+
+    new files
+
+commit 6e9933ff7c1d144c5e5726de2a604bc8097896eb
+Author: Bryan Powell <bryanpowell94@gmail.com>
+Date:   Thu Mar 17 15:55:13 2016 -0500
+
+    working on makefile and models
+
+commit 2de4f13f13a1580d570fd370127d84fe51f7e7d2
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Mar 17 14:27:03 2016 -0500
+
+    has about and a splash page
+
+commit f4359c251f05f989cde2ae27da0d087ccd002170
+Merge: eb0149d 2bf9a3e
+Author: Bryan Powell <bryanpowell94@gmail.com>
+Date:   Wed Mar 16 20:24:23 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brpowell/cs373-idb into dev
+
+commit eb0149d5c1fa4b5f8d7023205b02e23e035a9d5b
+Author: Bryan Powell <bryanpowell94@gmail.com>
+Date:   Wed Mar 16 20:24:08 2016 -0500
+
+    Created a json generator to build caches for data
+
+commit 2bf9a3e5a53195420db19cc44783e6d7f86f4bfe
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Wed Mar 16 15:33:10 2016 -0500
+
+    Added people.json file, there are 78119 people out of 163760 people in the .json file
+
+commit cbe5af336ebffcf41e528c84008ba83be3872bba
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Mar 15 14:18:22 2016 -0500
+
+    Added games.json for all of the games, each game contains: id, name, deck, image, people, platforms, publishers, and similar_games
+
+commit c6e5bda88fd817a0b500b3eef2927e7f6df9873b
+Merge: c6701fd d7780cf
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Mar 15 13:43:08 2016 -0500
+
+    Merge branch 'dev' of github.com:brpowell/cs373-idb into dev
+
+commit c6701fdc9e48ad5cef8e9ec96de5e700245637cf
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Mar 15 13:42:37 2016 -0500
+
+    Added companies.json file for all of the companies; each company contains: id, name, deck, date_founded, developed_games, image, people, published_games, webite, location_address, location_city, location_state, and location_country
+
+commit d7780cf8f82aee1239089fb33a67c8c116a231fc
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sat Mar 12 22:51:18 2016 -0600
+
+    Added responsive navbar for sm and xs devices
+
+commit 1efd2808c7cdb9bdc68210a19041a63d6b9c4cf9
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Mar 10 18:01:22 2016 -0600
+
+    some work on splash html
