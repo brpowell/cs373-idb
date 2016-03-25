@@ -2,6 +2,7 @@
 *.json
 venv/
 __pycache__
+*.pyc
 
 data/*/
 !data/base

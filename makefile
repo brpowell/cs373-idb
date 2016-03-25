@@ -49,4 +49,7 @@ docker-build:
 	docker push ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_LB}
 
 docker-push:
-	 docker-compose --file docker-compose-prod.yml up -d
+	docker-compose --file docker-compose-prod.yml up -d
+
+models.html: models.py
+	pydoc -w models

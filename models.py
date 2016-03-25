@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from app import db
+
+db = SQLAlchemy()
 
 
 # Create association tables for many-to-many relationships
@@ -8,11 +9,11 @@ company_person = db.Table('company_person',
     db.Column('company_id', db.Integer, db.ForeignKey('companies.id')),
     db.Column('person_id', db.Integer, db.ForeignKey('people.id'))
 )
-developer_game = db.Table('company_game',
+developer_game = db.Table('developer_game',
     db.Column('company_id', db.Integer, db.ForeignKey('companies.id')),
     db.Column('game_id', db.Integer, db.ForeignKey('games.id'))
 )
-publisher_game = db.Table('company_game',
+publisher_game = db.Table('publisher_game',
     db.Column('company_id', db.Integer, db.ForeignKey('companies.id')),
     db.Column('game_id', db.Integer, db.ForeignKey('games.id'))
 )
