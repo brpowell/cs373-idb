@@ -226,7 +226,7 @@ a:focus {
     -moz-animation-timing-function: linear;
 }
 
-@-webkit-keyframes pulse {    
+@-webkit-keyframes pulse {
     0% {
         -webkit-transform: scale(1);
         transform: scale(1);
@@ -243,7 +243,7 @@ a:focus {
     }
 }
 
-@-moz-keyframes pulse {    
+@-moz-keyframes pulse {
     0% {
         -moz-transform: scale(1);
         transform: scale(1);
@@ -266,7 +266,7 @@ a:focus {
 
 @media(min-width:767px) {
     .content-section {
-        padding-top: 250px;
+        padding-top: 80px;
     }
 
     .download-section {
@@ -297,10 +297,10 @@ a:focus {
 
 .btn-default:hover,
 .btn-default:focus {
-    border: 1px solid #42dca3;
+    border: 1px solid #33CCFF;
     outline: 0;
     color: #000;
-    background-color: #42dca3;
+    background-color: #33CCFF;
 }
 
 ul.banner-social-buttons {
@@ -363,14 +363,14 @@ body {
 
 .center {
     margin-left: auto;
-    margin-right: auto;  
+    margin-right: auto;
 
 }
 
 .bottom {
     bottom: 0;
     position: absolute;
-    margin-bottom: 5%;   
+    margin-bottom: 5%;
 }
 
 .carousel,
@@ -406,12 +406,12 @@ body {
 
 .ggsearch--input::-moz-selection { /* Code for Firefox */
     color: black;
-    background: #42dca3;
+    background: #2DAEE1;
 }
 
 .ggsearch--input::selection {
     color: black;
-    background: #42dca3;
+    background: #2DAEE1;
 }
 
 .btn-space {
@@ -442,6 +442,7 @@ body {
     background: transparent;
     margin: 0;
     position: static;
+    display: table-row;
 }
 
 .ggsearch--form {
@@ -451,11 +452,37 @@ body {
 
 .ggsearch--input-wrapper {
     overflow: hidden;
-    margin-top: 10px;
 }
 
 .ggsearch--input {
   width: 100%;
+}
+
+.ggsearch--submit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border: none;
+    margin-bottom: 1px;
+    margin-right: 10px;
+    background: transparent;
+    color: #888;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 40px;
+    line-height: 60px;
+}
+
+.ggsearch--input:focus.ggsearch--submit {
+    color: #333;
+}
+
+.ggsearch--submit:hover {
+    color: #333;
+    cursor: pointer;
 }
 
 /***********************
@@ -483,7 +510,7 @@ body {
     -webkit-appearance: none;
     -moz-appearance: none;
     text-align: center;
-    background: rgba(255,255,255, 0.7);
+    background: rgba(255,255,255, 0.9);
 
     -webkit-transition: border-color 0.15s linear; /* Saf3.2+, Chrome */
     -moz-transition: border-color 0.15s linear; /* FF3.7+ */
@@ -493,7 +520,7 @@ body {
 
 .ggsearch--input:focus {
   outline: none;
-  border-color: #42dca3;
+  border-color: #2DAEE1;
 }
 
 /*::-webkit-input-placeholder {
@@ -503,12 +530,16 @@ body {
 input:-moz-placeholder {
   color: #888
 }*/
+.launch-titles {
+    display: table-row;
+}
 
 .launch-header {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 44px;
     margin-top: 10px;
     margin-bottom: 0;
+    color: #33CCFF;
 }
 
 .nav-btns {
@@ -519,18 +550,13 @@ input:-moz-placeholder {
 }
 
 .launch-pad {
-    /*position: absolute;*/
-/*    top: 50%;
-    left: 50%;*/
     position: relative;
     top: 50%;
-    background-color: rgba(34,34,34,0.4);
+    background-color: rgba(34,34,34,0.55);
     border-radius: 10px;
-/*    border-color: white;
-    border-style: solid;*/
     border-width: thin;
     height: 200px;
     width: 50%;
     box-shadow: 0px 0px 6px 2px #CCCCCC;
-    /*margin-bottom: 15%;*/
+    display: table;
 }

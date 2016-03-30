@@ -16,6 +16,7 @@
 
     <!-- Custom CSS -->
     <!-- <link href="css/grayscale.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="css/animate.min.css">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -113,12 +114,12 @@
                 <div class="fill" style="background-image:url('http://www.ngohq.com/attachments/screenshots/3588d1321554590-the-elder-scrolls-v-skyrim-screenshots-3.jpg');">
                 </div>
             </div>
-                
+
 
         </div>
 
         </div>
-        
+
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="icon-prev"></span>
         </a>
@@ -127,36 +128,31 @@
         </a>
 
         <div class="container col-lg-12 col-sm-12 col-xs-12 bottom text-center">
-            <div class="row">
+            <div class="row" style="margin-bottom:150px;">
                 <div class="launch-pad col-xs-6 col-xs-offset-3">
-                    <h1 class="launch-header" style="color:#33CCFF"> <img src="img/ggm8center.png" style="height:50px">GGMate</h1>
-                    <!-- <i class="fa fa-gamepad" style="font-size:50px;"></i> GGMate</h1> -->
-
+                    <div class="launch-titles">
+                        <h1 class="launch-header"> <img class="wow tada" src="img/ggm8center.png" style="height:55px;visibility: hidden;" data-wow-delay="1.5s">GGMate</h1>
+                        <h4 style="margin-bottom:0">Games, companies, and their people</h4>
+                    </div>
                     <div class="ggsearch--wrapper">
                         <form class="ggsearch--form" action="#" method="post">
                             <div class="ggsearch--input-wrapper">
                                 <input class="ggsearch--input" type="search" placeholder="Let's Play">
-                       <!--            <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-                                  </span>
- -->                            </div>
+                            </div>
+                            <div class="ggsearch--submit"><i class="fa fa-search" style="margin-top"></i></div>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <a href="#huh" class="btn btn-default btn-custom page-scroll">
-                Learn More About Our Website
-                </a>
+                <a data-scroll href="#about" class="btn btn-default btn-custom">What is GGMate?</a>
             </div>
         </div>
-
-
     </header>
 
-    <section id="huh" class="container content-section text-center" style="height: 100%" >
+    <section id="about" class="container content-section text-center smoothScroll" style="height: 100%" >
         <div class="row">
-            <h1><i class="fa fa-gamepad"></i>GGM8</h1>
+            <h1><i class="fa fa-gamepad wow fadeIn"></i>GGM8</h1>
             <h1>Gamers talking about the Gaming Industry</h1>
             <h4>A Database where you can learn about the studios, the developers, and the people behind your beloved games</h4>
         </div>
@@ -185,6 +181,10 @@
 
     <!-- Plugin JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+    <script> smoothScroll.init(); </script>
+    <script src="js/wow.min.js"></script>
+    <script> new WOW().init(); </script>
 
     <!-- Custom Theme JavaScript -->
     <!-- <script src="js/grayscale.js"></script> -->
