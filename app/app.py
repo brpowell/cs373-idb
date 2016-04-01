@@ -57,7 +57,7 @@ def people():
 
 
 # Run unittest
-@app.route('/run_tests')
+@app.route('/run_unittests')
 def run_tests():
     output = subprocess.getoutput("make test")
     return json.dumps({'output': str(output)})
