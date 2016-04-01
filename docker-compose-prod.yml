@@ -7,7 +7,6 @@ services:
     extends:
       file: docker-compose-common.yml
       service: lb
-    #TODO CHANGE IMAGE NAME
     image: ggm8group/ggm8_lb
     environment:
       # Always deploy to n1 so the lb always has the same IP address. This is
@@ -18,7 +17,6 @@ services:
     extends:
       file: docker-compose-common.yml
       service: app
-    #TODO CHANGE IMAGE NAME
     image: ggm8group/ggm8_app
     expose:
       # Expose port 8000 so it's only visibile on the container, not the host
@@ -27,25 +25,25 @@ services:
     command: gunicorn app:app --bind 0.0.0.0:8000
       # Run Gunicorn to serve app requests
 
-  # db:
-  #   extends:
-  #     file: docker-compose-common.yml
-  #     service: db
-  #   image: etoews/pythonwebapp_db
-  #   expose:
-  #     # Expose port 3306 so it's only visibile on the container, not the host
-  #     - "3306"
-  #   env_file:
-  #     - pythonwebapp-mysql-prod.env
-  #     - pythonwebapp-mysql-root-prod.env
-  #   volumes_from:
-  #     # Mount the volumes from the data container to store our MySQL files
-  #     - data
+  db:
+    extends:
+      file: docker-compose-common.yml
+      service: db
+    image: ggm8group/ggm8_db
+    expose:
+      # Expose port 3306 so it's only visibile on the container, not the host
+      - "3306"
+    env_file:
+      - ggm8-mysql-prod.env
+      - ggm8-mysql-root-prod.env
+    volumes_from:
+      # Mount the volumes from the data container to store our MySQL files
+      - data
 
-  # data:
-  #   extends:
-  #     file: docker-compose-common.yml
-  #     service: data
+  data:
+    extends:
+      file: docker-compose-common.yml
+      service: data
 
 networks:
   backend: {}
