@@ -1,8 +1,8 @@
 from flask import Flask, render_template, send_file
-from flask.ext.script import Manager
+from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.script import Manager, Server
+import subprocess
 from flask.ext.migrate import Migrate, MigrateCommand
-
-
 
 SQLALCHEMY_DATABASE_URI = \
     '{engine}://{username}:{password}@{host}:{port}/{database}'.format(
@@ -24,11 +24,12 @@ migrate = Migrate(app, db)
 
 manager = Manager(app)
 manager.add_command('db', MigrateCommand)
+manager.add_command("runserver", Server(host="0.0.0.0", use_debugger=True))
+
+db = SQLAlchemy(app)
 
 
-
-
-
+# Routes
 @app.route('/index.html')
 @app.route('/')
 def index():
@@ -46,30 +47,6 @@ def companies():
 def company():
     return send_file('templates/company.html')
 
-@app.route('/company1.html')
-def company1():
-    return send_file('templates/company1.html')
-
-@app.route('/company2.html')
-def company2():
-    return send_file('templates/company2.html')
-
-@app.route('/company3.html')
-def company3():
-    return send_file('templates/company3.html')    
-
-@app.route('/game1.html')
-def game1():
-    return send_file('templates/game1.html')
-
-@app.route('/game2.html')
-def game2():
-    return send_file('templates/game2.html')
-
-@app.route('/game3.html')
-def game3():
-    return send_file('templates/game3.html')
-
 @app.route('/games.html')
 def games():
     return send_file('templates/games.html')
@@ -78,18 +55,13 @@ def games():
 def people():
     return send_file('templates/people.html')
 
-@app.route('/person1.html')
-def person1():
-    return send_file('templates/person1.html')
 
-@app.route('/person2.html')
-def person2():
-    return send_file('templates/person2.html')
+# Run unittest
+@app.route('/run_tests')
+def run_tests():
+    output = subprocess.getoutput("make test")
+    return json.dumps({'output': str(output)})
 
-@app.route('/person3.html')
-def person3():
-    return send_file('templates/person3.html')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
     manager.run()

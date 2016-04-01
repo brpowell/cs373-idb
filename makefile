@@ -35,6 +35,9 @@ check:
 clean:
 	rm -rf app/__pycache__
 
+test:
+	python3 tests.py
+
 init-db:
 	docker-compose --file docker-compose-prod.yml run -d --rm --no-deps app python idb.py create_db
 
