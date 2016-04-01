@@ -1,6 +1,33 @@
 from flask import Flask, render_template, send_file
+from flask.ext.script import Manager
+from flask.ext.migrate import Migrate, MigrateCommand
+
+
+
+SQLALCHEMY_DATABASE_URI = \
+    '{engine}://{username}:{password}@{host}:{port}/{database}'.format(
+        engine='mysql+pymysql',
+        username=os.getenv('MYSQL_USER'),
+        password=os.getenv('MYSQL_PASSWORD'),
+        host=os.getenv('MYSQL_HOST'),
+        port=os.getenv('MYSQL_PORT'),
+        database=os.getenv('MYSQL_DATABASE'))
+
 
 app = Flask(__name__, static_url_path='')
+app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+from models import db  # <-- this needs to be placed after app is created
+migrate = Migrate(app, db)
+
+manager = Manager(app)
+manager.add_command('db', MigrateCommand)
+
+
+
+
 
 @app.route('/index.html')
 @app.route('/')
@@ -65,3 +92,4 @@ def person3():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
+    manager.run()
