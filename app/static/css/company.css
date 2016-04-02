@@ -1,0 +1,86 @@
+@import 'nav.css';
+@import url(https://fonts.googleapis.com/css?family=Exo+2);
+
+/*!
+ * Start Bootstrap - Round About HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    padding-top: 70px;  
+    background-image: url('http://www.globalpbm.com/wp-content/uploads/2015/07/betfair-pattern.png');
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.icon-color {
+    color: #33CCFF;
+}
+
+.shadow {
+    box-shadow: 5px 5px gray;
+    display: inline-block;
+    vertical-align: middle;
+    /*height: 100%;*/
+}
+
+hr {
+  border-color: #33CCFF;
+}
+
+h5 {
+  color: white;
+  font-family: 'Exo 2', sans-serif;
+}
+
+h1,
+h3 {
+  color: #FFFBCC;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.page-header {
+    border-color: #33CCFF;
+}
+
+#wrapper {
+    height:100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#wrapper td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table-responsive {
+    height: 300px;
+    overflow:auto;
+     margin-bottom: 10px;
+}
+
+.card {
+    /*rgba(18, 55, 86, 0.8)*/
+    background-color: rgba(18, 55, 86, 1); 
+}
+
+.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+   background-color: #33CCFF;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: #989898 ;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border-top: 0px;
+}
+i {
+    color: #33CCFF;
+}

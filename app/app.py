@@ -31,9 +31,9 @@ def company2():
 def company3():
     return send_file('templates/company3.html')    
 
-@app.route('/game1.html')
+@app.route('/game.html')
 def game1():
-    return send_file('templates/game1.html')
+    return send_file('templates/game.html')
 
 @app.route('/game2.html')
 def game2():
@@ -51,9 +51,9 @@ def games():
 def people():
     return send_file('templates/people.html')
 
-@app.route('/person1.html')
+@app.route('/person.html')
 def person1():
-    return send_file('templates/person1.html')
+    return send_file('templates/person.html')
 
 @app.route('/person2.html')
 def person2():
