@@ -1,5 +1,6 @@
 IMAGE_NAME_APP := ggm8_app
 IMAGE_NAME_LB := ggm8_lb
+IMAGE_NAME_DB := ggm8_db
 DOCKER_HUB_USERNAME := ggm8group
 FILES :=        \
     .gitignore  \
@@ -34,6 +35,12 @@ check:
 clean:
 	rm -rf app/__pycache__
 
+test:
+	python3 tests.py
+
+init-db:
+	docker-compose --file docker-compose-prod.yml run -d --rm --no-deps app python idb.py create_db
+
 docker-build:
 	@if [ -z "$$CONTINUE" ]; then \
 		read -r -p "Have you sourced the docker.env file for our Carina cluster? (y/n): " CONTINUE; \
@@ -47,6 +54,9 @@ docker-build:
 
 	docker build -t ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_LB} lb
 	docker push ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_LB}
+
+	docker build -t ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_DB} db 
+	docker push ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_DB}
 
 docker-push:
 	docker-compose --file docker-compose-prod.yml up -d

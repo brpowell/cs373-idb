@@ -1,7 +1,35 @@
 from flask import Flask, render_template, send_file
+from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.script import Manager, Server
+import subprocess
+from flask.ext.migrate import Migrate, MigrateCommand
+
+SQLALCHEMY_DATABASE_URI = \
+    '{engine}://{username}:{password}@{host}:{port}/{database}'.format(
+        engine='mysql+pymysql',
+        username=os.getenv('MYSQL_USER'),
+        password=os.getenv('MYSQL_PASSWORD'),
+        host=os.getenv('MYSQL_HOST'),
+        port=os.getenv('MYSQL_PORT'),
+        database=os.getenv('MYSQL_DATABASE'))
+
 
 app = Flask(__name__, static_url_path='')
+app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+from models import db  # <-- this needs to be placed after app is created
+migrate = Migrate(app, db)
+
+manager = Manager(app)
+manager.add_command('db', MigrateCommand)
+manager.add_command("runserver", Server(host="0.0.0.0", use_debugger=True))
+
+db = SQLAlchemy(app)
+
+
+# Routes
 @app.route('/index.html')
 @app.route('/')
 def index():
@@ -19,6 +47,7 @@ def companies():
 def company():
     return send_file('templates/company.html')
 
+<<<<<<< HEAD
 @app.route('/company1.html')
 def company1():
     return send_file('templates/company1.html')
@@ -55,13 +84,12 @@ def people():
 def person1():
     return send_file('templates/person.html')
 
-@app.route('/person2.html')
-def person2():
-    return send_file('templates/person2.html')
+# Run unittest
+@app.route('/run_unittests')
+def run_tests():
+    output = subprocess.getoutput("make test")
+    return json.dumps({'output': str(output)})
 
-@app.route('/person3.html')
-def person3():
-    return send_file('templates/person3.html')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+    manager.run()

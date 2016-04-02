@@ -25,34 +25,34 @@ services:
       # Environment variables to configure the app on startup.
       # We don't care about commiting these creds to GitHub because they're only
       # for our local development environment
-      # - MYSQL_USER=guestbook-admin
-      # - MYSQL_PASSWORD=my-guestbook-admin-password
+      - MYSQL_USER=ggmate-admin
+      - MYSQL_PASSWORD=ggmate-admin-password
     command: gunicorn --reload app:app --bind 0.0.0.0:8000
       # Run Gunicorn to serve app requests and reload on change so we can see our
       # changes to the app code
-  
-  # db:
-  #   extends:
-  #     file: docker-compose-common.yml
-  #     service: db
-  #   ports:
-  #     # Publish the port so it's visible on the host, you can access the db directly
-  #     - "3306:3306"
-  #   environment:
-  #     # Environment variables to configure MySQL on startup.
-  #     # We don't care about commiting these creds to GitHub because they're only
-  #     # for our local development environment
-  #     - MYSQL_ROOT_PASSWORD=my-root-password
-  #     - MYSQL_USER=guestbook-admin
-  #     - MYSQL_PASSWORD=my-guestbook-admin-password
-  #   volumes_from:
-  #     # Mount the volumes from the data container to store our MySQL files
-  #     - data
 
-  # data:
-  #   extends:
-  #     file: docker-compose-common.yml
-  #     service: data
+  db:
+    extends:
+      file: docker-compose-common.yml
+      service: db
+    ports:
+      # Publish the port so it's visible on the host, you can access the db directly
+      - "3306:3306"
+    environment:
+      # Environment variables to configure MySQL on startup.
+      # We don't care about commiting these creds to GitHub because they're only
+      # for our local development environment
+      - MYSQL_ROOT_PASSWORD=my-root-password
+      - MYSQL_USER=guestbook-admin
+      - MYSQL_PASSWORD=my-guestbook-admin-password
+    volumes_from:
+      # Mount the volumes from the data container to store our MySQL files
+      - data
+
+  data:
+    extends:
+      file: docker-compose-common.yml
+      service: data
 
 networks:
   backend: {}
