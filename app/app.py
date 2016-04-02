@@ -47,7 +47,6 @@ def companies():
 def company():
     return send_file('templates/company.html')
 
-<<<<<<< HEAD
 @app.route('/company1.html')
 def company1():
     return send_file('templates/company1.html')
