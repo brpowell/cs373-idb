@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from app import app_instance, db
-from app.models import Game
+from app.models import Game, Platform, Rating, Company, Person
 from flask.ext.script import Manager, Shell, Server
 from flask.ext.migrate import Migrate, MigrateCommand
 
@@ -10,7 +10,16 @@ db.session.commit()
 db.create_all()
 
 def make_shell_context():
-    return dict(app=app_instance, db=db, Game=Game)
+    d = {
+        'app': app_instance,
+        'db': db,
+        'Game': Game,
+        'Platform': Platform,
+        'Rating': Rating,
+        'Company': Company,
+        'Person': Person
+    }
+    return d
 
 @manager.command
 def resetdb():
