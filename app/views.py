@@ -1,4 +1,4 @@
-from flask import send_file, make_response, url_for
+from flask import send_file, make_response, url_for, jsonify, abort, make_response
 from app import app_instance, db
 import subprocess, json, os
 # from models import Game, Company, Person
@@ -46,3 +46,36 @@ def run_tests():
     output = subprocess.getoutput('make test')
     print(output)
     return json.dumps({'output': str(output)})
+
+
+
+
+# ------------------------------------
+# RESTful API
+# ------------------------------------
+
+games = [
+	{
+		'id': 1,
+		'name': 'Mario Kart'
+	},
+	{
+		'id': 2,
+		'name': 'Pokemon'
+	}
+]
+
+@app_instance.route('/api/games', methods=['GET'])
+def get_games():
+	return jsonify({'games': games})
+
+@app_instance.route('/api/games/<int:game_id>', methods=['GET'])
+def get_game(game_id):
+	game = [game for game in games if game['id'] == game_id]
+	if len(game) == 0:
+		abort(404)
+	return jsonify({'games': games[0]})
+
+@app_instance.errorhandler(404)
+def not_found(error):
+	return make_response(jsonify({'error': 'Not found'}), 404)
