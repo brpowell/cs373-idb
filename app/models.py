@@ -1,6 +1,6 @@
 from app import db
 
-# Create association tables for many-to-many relationships
+# Association tables for many-to-many relationships
 company_person = db.Table('company_person',
     db.Column('company_id', db.Integer, db.ForeignKey('companies.id')),
     db.Column('person_id', db.Integer, db.ForeignKey('people.id'))
@@ -26,7 +26,6 @@ game_platform = db.Table('game_platform',
     db.Column('platform_id', db.Integer, db.ForeignKey('platforms.id'))
 )
 
-
 class Rating(db.Model):
     __tablename__= 'ratings'
     id = db.Column(db.Integer, primary_key=True)
@@ -45,8 +44,8 @@ class Platform(db.Model):
     short = db.Column(db.String(10))
     ratings = db.relationship('Rating', backref='platform')
 
-    def best_rating():
-        r_iter = iter(ratings)
+    def best_rating(self):
+        r_iter = iter(self.ratings)
         best = next(r_iter)
         for r in r_iter:
             if r.metacritic > best.metacritic:
@@ -67,16 +66,16 @@ class Game(db.Model):
     platforms = db.relationship('Platform', secondary=game_platform,
                     backref=db.backref('games', lazy='dynamic'))
     ratings = db.relationship('Rating', backref='game')
-    # first_for = db.relationship('Game', backref='first_game')
-    #
-    # def best_rating():
-    #     r_iter = iter(ratings)
-    #     best = next(r_iter)
-    #     for r in r_iter:
-    #         if r.metacritic > best.metacritic:
-    #             best = r
-    #     return best
-    #
+    first_for = db.relationship('Person', backref='first_game')
+
+    def best_rating(self):
+        r_iter = iter(self.ratings)
+        best = next(r_iter)
+        for r in r_iter:
+            if r.metacritic > best.metacritic:
+                best = r
+        return best
+
     def __repr__(self):
         return '<Game %r>' % self.name
 
@@ -92,23 +91,22 @@ class Person(db.Model):
     death_date = db.Column(db.DateTime)
     deck = db.Column(db.String(255))
     first_credited_game = db.Column(db.Integer, db.ForeignKey('games.id'))
-
     games = db.relationship('Game', secondary=person_game, backref='people')
-    coworkers = db.relationship('Person', secondary=worked_with,
+    people = db.relationship('Person', secondary=worked_with,
                         primaryjoin=(worked_with.c.person_id == id),
                         secondaryjoin=(worked_with.c.coworker_id == id),
-                        backref=db.backref('coworkers', lazy='dynamic'),
+                        backref='coworkers',
                         lazy='dynamic')
 
-    def coworkers(self, person):
-        self.coworkers.append(person)
-        person.coworkers.append(self)
+    def coworker(self, person):
+        self.people.append(person)
+        person.people.append(self)
         db.session.add(self)
         db.session.add(person)
         db.session.commit()
 
     def __repr__(self):
-        return '<Person %r>' % self.name
+        return '<Person %s>' % self.name
 
 
 class Company(db.Model):
@@ -128,4 +126,4 @@ class Company(db.Model):
                         backref='publishers')
 
     def __repr__(self):
-        return '<Company %r>' % self.name
+        return '<Company %s>' % self.name
