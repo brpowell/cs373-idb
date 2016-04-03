@@ -87,7 +87,8 @@ def person1():
 @app.route('/run_unittests')
 def run_tests():
     print('GOT HERE')
-    output = subprocess.getoutput("make test")
+    output = subprocess.getoutput('make test')
+    print(output)
     return json.dumps({'output': str(output)})
 
 
