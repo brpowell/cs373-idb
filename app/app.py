@@ -1,8 +1,9 @@
 from flask import Flask, render_template, send_file
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.script import Manager, Server
-import subprocess
 from flask.ext.migrate import Migrate, MigrateCommand
+import subprocess
+import os
 
 SQLALCHEMY_DATABASE_URI = \
     '{engine}://{username}:{password}@{host}:{port}/{database}'.format(
