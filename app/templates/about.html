@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app='about' ng-controller='aboutCtrl'>
+<html lang="en" ng-app='about' ng-controller='aboutCtrl' ng-init="showTestsOutput=false;">
 
 <head>
     <meta charset="utf-8">
@@ -182,13 +182,19 @@
             </div>
         </div>
 
-        <div class="container">
+        <hr>
+        <div class="container-fluid">
             <div class="row">
-                <h1>Run Unittests</h1>
+                <h1 align="center">Run Unittests</h1>
             </div>
-            <div class="row">
+            <div class="row" align="center">
                 <a href="" class="btn btn-primary" ng-click="runTests()">Run Tests</a>
-                <pre> {{ testOutput }} </pre>
+            </div>
+            <br>
+            <div class="row" ng-if="showTestsOutput">
+                <pre>
+                    {{ testOutput }} 
+                </pre>
             </div>
 
         </div>

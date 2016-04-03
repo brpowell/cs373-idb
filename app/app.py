@@ -89,7 +89,7 @@ def run_tests():
     print('GOT HERE')
     output = subprocess.getoutput('make test')
     print(output)
-    return json.dumps({'output': str(output)})
+    return json.dumps({'output': str(output).strip()})
 
 
 if __name__ == "__main__":
