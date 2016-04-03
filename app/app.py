@@ -2,8 +2,7 @@ from flask import Flask, render_template, send_file
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.script import Manager, Server
 from flask.ext.migrate import Migrate, MigrateCommand
-import subprocess
-import os
+import subprocess, json, os
 
 SQLALCHEMY_DATABASE_URI = \
     '{engine}://{username}:{password}@{host}:{port}/{database}'.format(
@@ -87,6 +86,7 @@ def person1():
 # Run unittest
 @app.route('/run_unittests')
 def run_tests():
+    print('GOT HERE')
     output = subprocess.getoutput("make test")
     return json.dumps({'output': str(output)})
 
