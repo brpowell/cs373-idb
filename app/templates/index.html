@@ -131,10 +131,19 @@
                 </tr>
             </table>
             <div class="container bottom center" style="width: 100%">
-                <a href="#huh" class="btn btn-default btn-custom page-scroll">
-                Learn More About Our Website
+                <a href="#huh" class="btn btn-default btn-custom smoothScroll">
+                    Learn More About Our Website
                 </a>
             </div>
+            
+
+            <!-- This is what the button was previously. It works but it doesn't smooth scroll -->
+            <!-- 
+            <div class="container bottom center" style="width: 100%">
+                <a href="#huh" class="btn btn-default btn-custom page-scroll">
+                    Learn More About Our Website
+                </a>
+            </div> -->
         </div>
 
 
@@ -199,6 +208,10 @@
     <!-- Custom Theme JavaScript -->
     <!-- <script src="js/grayscale.js"></script> -->
     <script src="../static/js/app.js"></script>
+
+    <!-- Smooth Scrolling Javascript -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="../static/js/smoothscroll-dwuser.js"></script>
 
     <script>
         $(document).scroll(function(){
