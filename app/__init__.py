@@ -5,18 +5,11 @@ from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 import os
 
+# Create an app instance defined by config_name
 app_instance = Flask(__name__)
 app_instance.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 app_instance.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app_instance.config['SQLALCHEMY_DATABASE_URI'] = \
-    '{engine}://{username}:{password}@{host}:{port}/{database}'.format(
-        engine='mysql+pymysql',
-        username=os.getenv('MYSQL_USER'),
-        password=os.getenv('MYSQL_PASSWORD'),
-        host=os.getenv('MYSQL_HOST'),
-        port=os.getenv('MYSQL_PORT'),
-        database=os.getenv('MYSQL_DATABASE'))
-
+app_instance.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_DEV')
 db = SQLAlchemy(app_instance)
 
 import app.views

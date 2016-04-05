@@ -42,12 +42,9 @@ def people():
 # Run unittest
 @app_instance.route('/run_unittests')
 def run_tests():
-    print('GOT HERE')
     output = subprocess.getoutput('make test')
     print(output)
     return json.dumps({'output': str(output)})
-
-
 
 
 # ------------------------------------
