@@ -76,7 +76,3 @@ def get_game(game_id):
 @app_instance.errorhandler(404)
 def not_found(error):
 	return make_response(jsonify({'error': 'Not found'}), 404)
-<<<<<<< HEAD
-=======
-
->>>>>>> 2dded634e8cfb662ea1f5b38edbc8fde204bd946
