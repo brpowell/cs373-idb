@@ -2,37 +2,34 @@ var mainApp = angular.module('ngGGMate', ['ngRoute']);
 
 mainApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider
-    .when('/index', {
-        templateUrl: '../templates/index.html'
-    })
     .when('/about', {
-        templateUrl: '../templatess/about.html',
+        templateUrl: 'about.html',
     })
     .when('/games', {
-        templateUrl: '../templates/games.html',
+        templateUrl: 'games.html',
         controller: 'gamesListCtrl'
     })
     .when('/companies', {
-        templateUrl: '../templates/companies.html',
+        templateUrl: 'companies.html',
         controller: 'companiesListCtrl'
     })
     .when('/people', {
-        templateUrl: '../templates/people.html'
+        templateUrl: 'people.html'
     })
     .when('/company', {
-        templateUrl: '../templates/company.html',
+        templateUrl: 'company.html',
         controller: 'companyCtrl'
     })
     .when('/game', {
-        templateUrl: '../templates/game.html',
+        templateUrl: 'game.html',
         controller: 'gameCtrl'
     })
     .when('/person', {
-        templateUrl: '../templates/person.html',
+        templateUrl: 'person.html',
         controller: 'personCtrl'
     })
     .otherwise({
-        templateUrl: '../templates/index.html'
+        templateUrl: 'about.html'
     })
 }]);
 
