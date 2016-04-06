@@ -32,6 +32,10 @@ def games():
 def people():
     return send_file('templates/people.html')
 
+@app_instance.route('/home.html')
+def home():
+    return send_file('templates/home.html')
+
 # @app.route('/company/<id>')
 # def company(id):
 #     company = Company.query.filter_by(company_id=id)

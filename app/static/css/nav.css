@@ -3,7 +3,7 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
- 
+
 .navbar-custom {
     margin-bottom: 0;
     border-bottom: 1px solid rgba(255,255,255,.3);
@@ -81,4 +81,8 @@
         border-bottom: 1px solid rgba(255,255,255,.3);
         background: #000;
     }
+}
+
+body {
+    background-image: url('http://www.globalpbm.com/wp-content/uploads/2015/07/betfair-pattern.png');
 }

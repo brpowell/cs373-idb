@@ -29,7 +29,7 @@ mainApp.config(['$routeProvider', function($routeProvider) {
         controller: 'personCtrl'
     })
     .otherwise({
-        templateUrl: 'about.html'
+        templateUrl: 'home.html'
     })
 }]);
 
