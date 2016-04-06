@@ -1,4 +1,4 @@
-
+<link href="css/grayscale.css" rel="stylesheet">
     <!-- Intro Header -->
 
     <header id="myCarousel" class="carousel slide" data-ride="carousel" style="padding: 0px; margin: 0px; width: 100%">
@@ -117,4 +117,16 @@
 <!-- Smooth Scrolling Javascript -->
     <script src="js/smoothscroll-dwuser.js"></script>
 
-
+    <script>
+        $(document).scroll(function(){
+            if($(this).scrollTop() > 600)
+            {
+               $('#myNav').css({"background":"#33CCFF"});
+               $('.navbar-custom a').css({"color": "black"});
+            } else {
+               $('#myNav').css({"background":"transparent"});
+               $('.navbar-custom .nav li a hover').css({"color": "black"});
+               $('.navbar-custom a').css({"color": "white"});
+           }
+       });
+    </script>
