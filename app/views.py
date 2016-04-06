@@ -6,23 +6,23 @@ import subprocess, json, os
 # Routes
 @app_instance.route('/', methods=['GET'])
 def index():
-    return send_file('templates/index.html')
+    return send_file('templates/nav.html')
 
-@app_instance.route('/about', methods=['GET'])
-def about():
-    return send_file('templates/about.html')
+# @app_instance.route('/about', methods=['GET'])
+# def about():
+#     return send_file('templates/about.html')
 
-@app_instance.route('/companies')
-def companies():
-    return send_file('templates/companies.html')
+# @app_instance.route('/companies')
+# def companies():
+#     return send_file('templates/companies.html')
 
-@app_instance.route('/games')
-def games():
-    return send_file('templates/games.html')
+# @app_instance.route('/games')
+# def games():
+#     return send_file('templates/games.html')
 
-@app_instance.route('/people')
-def people():
-    return send_file('templates/people.html')
+# @app_instance.route('/people')
+# def people():
+#     return send_file('templates/people.html')
 
 # @app.route('/company/<id>')
 # def company(id):
