@@ -60,9 +60,11 @@ class Game(db.Model):
     __tablename__ = 'games'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
-    deck = db.Column(db.String(255))
+    deck = db.Column(db.Text)
     image = db.Column(db.String(255))
     release_date = db.Column(db.DateTime)
+    content_rating = db.Column(db.String(255))
+    genre = db.Column(db.String(255))
     platforms = db.relationship('Platform', secondary=game_platform,
                     backref=db.backref('games', lazy='dynamic'))
     ratings = db.relationship('Rating', backref='game')
