@@ -1,11 +1,6 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from __main__ import app
+from app import db
 
-db = SQLAlchemy(app)
-
-
-# Create association tables for many-to-many relationships
+# Association tables for many-to-many relationships
 company_person = db.Table('company_person',
     db.Column('company_id', db.Integer, db.ForeignKey('companies.id')),
     db.Column('person_id', db.Integer, db.ForeignKey('people.id'))
@@ -31,7 +26,6 @@ game_platform = db.Table('game_platform',
     db.Column('platform_id', db.Integer, db.ForeignKey('platforms.id'))
 )
 
-
 class Rating(db.Model):
     __tablename__= 'ratings'
     id = db.Column(db.Integer, primary_key=True)
@@ -40,7 +34,7 @@ class Rating(db.Model):
     metacritic = db.Column(db.Integer)
 
     def __repr__(self):
-        return '<Rating %r>' % self.name
+        return '<Rating %s: %d>' % (self.platform.short, self.metacritic)
 
 
 class Platform(db.Model):
@@ -50,8 +44,8 @@ class Platform(db.Model):
     short = db.Column(db.String(10))
     ratings = db.relationship('Rating', backref='platform')
 
-    def best_rating():
-        r_iter = iter(ratings)
+    def best_rating(self):
+        r_iter = iter(self.ratings)
         best = next(r_iter)
         for r in r_iter:
             if r.metacritic > best.metacritic:
@@ -59,7 +53,7 @@ class Platform(db.Model):
         return best
 
     def __repr__(self):
-        return '<Platform %r>' % self.name
+        return '<Platform %s>' % self.short
 
 
 class Game(db.Model):
@@ -72,10 +66,10 @@ class Game(db.Model):
     platforms = db.relationship('Platform', secondary=game_platform,
                     backref=db.backref('games', lazy='dynamic'))
     ratings = db.relationship('Rating', backref='game')
-    first_for = db.relationship('Game', backref='first_game')
+    first_for = db.relationship('Person', backref='first_game')
 
-    def best_rating():
-        r_iter = iter(ratings)
+    def best_rating(self):
+        r_iter = iter(self.ratings)
         best = next(r_iter)
         for r in r_iter:
             if r.metacritic > best.metacritic:
@@ -97,13 +91,14 @@ class Person(db.Model):
     death_date = db.Column(db.DateTime)
     deck = db.Column(db.String(255))
     first_credited_game = db.Column(db.Integer, db.ForeignKey('games.id'))
-
-    games = db.relationship('Game', secondary=person_game,
-                        backref=db.backref('people', lazy='dynamic'))
+    games = db.relationship('Game', secondary=person_game, backref='people')
     people = db.relationship('Person', secondary=worked_with,
-                        backref=db.backref('people', lazy='dynamic'))
+                        primaryjoin=(worked_with.c.person_id == id),
+                        secondaryjoin=(worked_with.c.coworker_id == id),
+                        backref='coworkers',
+                        lazy='dynamic')
 
-    def coworkers(self, person):
+    def coworker(self, person):
         self.people.append(person)
         person.people.append(self)
         db.session.add(self)
@@ -111,7 +106,7 @@ class Person(db.Model):
         db.session.commit()
 
     def __repr__(self):
-        return '<Person %r>' % self.name
+        return '<Person %s>' % self.name
 
 
 class Company(db.Model):
@@ -124,11 +119,11 @@ class Company(db.Model):
     deck = db.Column(db.Text)
     date_founded = db.Column(db.DateTime)
     people = db.relationship('Person', secondary=company_person,
-                        backref=db.backref('companies', lazy='dynamic'))
+                        backref='companies')
     developed_games = db.relationship('Game', secondary=developer_game,
-                        backref=db.backref('developers', lazy='dynamic'))
+                        backref='developers')
     published_games = db.relationship('Game', secondary=publisher_game,
-                        backref=db.backref('publishers', lazy='dynamic'))
+                        backref='publishers')
 
     def __repr__(self):
-        return '<Company %r>' % self.name
+        return '<Company %s>' % self.name

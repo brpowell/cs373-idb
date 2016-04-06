@@ -1,8 +1,11 @@
-'use strict';
-
-angular.module('services', [])
-	.factory('runUnitTests', function($http) {
-		$http.get('/run_unittests').then(function(result){
-            return result.data;
-        });
-	});
+// 'use strict';
+// app = angular.module('about', [])
+// app.factory('runUnitTests', function($http) {
+// 	return {
+// 		runTests = function () {
+// 			$http.get('/run_unittests').then(function(result){
+// 				return result.data;
+// 			});
+// 		}
+// 	}
+// });
