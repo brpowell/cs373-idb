@@ -1,5 +1,5 @@
 <!-- Importing files for page -->
-<link href="../static/css/round-about.css" rel="stylesheet">
+<link href="css/round-about.css" rel="stylesheet">
 <script src="js/services.js"></script>
 
 <!-- Intro Header -->
@@ -10,7 +10,7 @@
             <h2 class="page-header">Our Team</h2>
         </div>
         <div class="col-md-6 col-sm-4 text-center">
-            <img class="col-md-6 col-sm-4 img-circle img-responsive img-center" src="../static/img/andrew.jpg" alt="">
+            <img class="col-md-6 col-sm-4 img-circle img-responsive img-center" src="img/andrew.jpg" alt="">
             <h3>Andrew Capindo</h3>
             <div class="col-md-6">
                 <h4>Mini Bio:</h4>
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="col-md-6 col-sm-4 text-center">
-            <img class="col-md-6 col-sm-4 img-circle img-responsive img-center" src="../static/img/bryan.jpg" alt="">
+            <img class="col-md-6 col-sm-4 img-circle img-responsive img-center" src="img/bryan.jpg" alt="">
             <h3>Bryan Powell</h3>
             <div class="col-md-6">
                 <h4>Mini Bio:</h4>
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="col-md-6 col-sm-4 text-center">
-            <img class="col-md-6 col-sm-4 img-circle img-responsive img-center" src="../static/img/tin.png" alt="">
+            <img class="col-md-6 col-sm-4 img-circle img-responsive img-center" src="img/tin.png" alt="">
             <h3>Tin Vo</h3>
             <div class="col-md-6">
                 <h4>Mini Bio:</h4>
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="col-md-6 col-sm-4 text-center">
-            <img class="col-md-6 col-sm-4 img-circle img-responsive img-center" src="../static/img/uyviet.png" alt="">
+            <img class="col-md-6 col-sm-4 img-circle img-responsive img-center" src="img/uyviet.png" alt="">
             <h3>Uyviet Nyguen</h3>
             <div class="col-md-6">
                 <h4>Mini Bio:</h4>
@@ -105,38 +105,46 @@
                 <h1 align="center">Run Unittests</h1>
             </div>
             <div class="row" align="center">
-                <a href="" class="btn btn-primary" ng-click="runTests()">Run Tests</a>
-                <a href="" class="btn btn-success showHideBtn">Show / Hide</a>
+                <button type="button" class="btn btn-primary" ng-click="runTests()" data-toggle="modal" data-target="#myModal">Run Tests</button>
             </div>
             <br>
-            <div class="row testsOutput" ng-if="showTestsOutput">
+          
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Modal -->
+        <div id="myModal" class="modal fade modal-wide" role="dialog" align="center">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="color: black;">Tests Results</h4>
+              </div>
+              <div class="modal-body" >
                 <pre>
                     {{ testOutput }}
                 </pre>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
             </div>
-            <div class="row">
-                {{test-output}}
-            </div>
+
+          </div>
         </div>
     </div>
 </div>
 </div>
 
-    <!-- jQuery -->
-    <script src="../static/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../static/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="../static/js/jquery.easing.min.js"></script>
-
-    <!-- Show/hide tests results  -->
-    <script>
-        $(".showHideBtn").click(function() {
-            $(".testsOutput").toggle("slow");
-        });
-    </script>
+<style type="text/css">
+    .modal-wide .modal-dialog {
+  width: 80%;
+}
+</style>
+    
 
     <!-- Custom Theme JavaScript -->
     <!-- <script src="js/grayscale.js"></script> -->

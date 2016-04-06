@@ -6,35 +6,35 @@ import subprocess, json, os
 # Routes
 @app_instance.route('/', methods=['GET'])
 def index():
-    return send_file('templates/index.html')
+    return send_file('index.html')
 
-@app_instance.route('/index.html', methods=['GET'])
-def ss():
-    return send_file('templates/index.html')
+# @app_instance.route('/index.html', methods=['GET'])
+# def ss():
+#     return send_file('templates/index.html')
 
-@app_instance.route('/nav.html', methods=['GET'])
-def nav():
-    return send_file('templates/nav.html')
+# @app_instance.route('/nav.html', methods=['GET'])
+# def nav():
+#     return send_file('templates/nav.html')
 
-@app_instance.route('/about.html', methods=['GET'])
-def about():
-    return send_file('templates/about.html')
+# @app_instance.route('/about.html', methods=['GET'])
+# def about():
+#     return send_file('templates/about.html')
 
-@app_instance.route('/companies.html')
-def companies():
-    return send_file('templates/companies.html')
+# @app_instance.route('/companies.html')
+# def companies():
+#     return send_file('templates/companies.html')
 
-@app_instance.route('/games.html')
-def games():
-    return send_file('templates/games.html')
+# @app_instance.route('/games.html')
+# def games():
+#     return send_file('templates/games.html')
 
-@app_instance.route('/people.html')
-def people():
-    return send_file('templates/people.html')
+# @app_instance.route('/people.html')
+# def people():
+#     return send_file('templates/people.html')
 
-@app_instance.route('/home.html')
-def home():
-    return send_file('templates/home.html')
+# @app_instance.route('/home.html')
+# def home():
+#     return send_file('templates/home.html')
 
 # @app.route('/company/<id>')
 # def company(id):
