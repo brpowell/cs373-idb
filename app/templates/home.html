@@ -1,87 +1,127 @@
 <link href="css/grayscale.css" rel="stylesheet">
+<link rel="stylesheet" href="css/animate.min.css">
     <!-- Intro Header -->
 
-<header id="myCarousel" class="carousel slide" data-ride="carousel">
+    <header id="myCarousel" class="carousel slide" data-ride="carousel" style="padding: 0px; margin: 0px; width: 100%; height:100%">
 
+          <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
 
-      <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
+        <div class="carousel-inner" role="listbox">
 
-    <div class="carousel-inner" role="listbox">
-
-        <div class="item active">
-            <div class="fill" style="background-image:url('http://www.bioshockinfinite.com/images/media/screenshots/Elizabeth_fink1.jpg');">
+            <div class="item active">
+                <div class="fill" style="background-image:url('http://www.bioshockinfinite.com/images/media/screenshots/Elizabeth_fink1.jpg');">
+                </div>
             </div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url('http://specials-images.forbesimg.com/imageserve/556f55f3e4b017853ece352a/0x600.jpg?fit=scal&background=000000');">
+            <div class="item">
+                <div class="fill" style="background-image:url('http://cdn.wegotthiscovered.com/wp-content/uploads/fallout_4_14-1152x612.jpg');">
+                </div>
             </div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url('http://www.ngohq.com/attachments/screenshots/3588d1321554590-the-elder-scrolls-v-skyrim-screenshots-3.jpg');">
+            <div class="item">
+                <div class="fill" style="background-image:url('http://www.geforce.com/sites/default/files-world/screenshots/elder-scrolls-v-skyrim/screenshot-2.jpg');">
+                </div>
             </div>
-        </div>
-            
-
-    </div>
-
-    
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="icon-prev"></span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="icon-next"></span>
-    </a>
-
-    <div class="container col-lg-12 col-sm-12 col-xs-12 bottom text-center">
-        <div class="row">
-            <div class="launch-pad col-xs-6 col-xs-offset-3">
-                <h1 class="launch-header" style="color:#33CCFF"> <img src="img/ggm8center.png" style="height:47px">GGMate</h1>
-                <i class="fa fa-gamepad" style="font-size:50px;"></i> GGMate</h1>
-
-                <div class="ggsearch--wrapper">
-                    <form class="ggsearch--form" action="#" method="post">
-                        <div class="ggsearch--input-wrapper">
-                            <input class="ggsearch--input" type="search" placeholder="Let's Play">
-                        </div>
-                    </form>
+            <div class="item">
+                <div class="fill" style="background-image: url('http://nichegamer.com/wp-content/uploads/2015/11/the-legend-of-zelda-twilight-princess-hd-11-13-15-9.jpg');">
                 </div>
             </div>
         </div>
-        <div class="row">
-            <a href="#huh" class="btn btn-default btn-custom page-scroll">
-            Learn More About Our Website
-            </a>
-        </div>
-    </div>
 
+        <div class="container col-lg-12 bottom text-center fill" style="padding: 0px;">
+            <table id="wrapper">
+                <tr>
+                    <td>
+                        <div class="launch-pad col-xs-6 col-xs-offset-3">
+                            <!-- <div class="launch-header"> -->
+                                <h1 class="launch-header"> <img src="img/ggm8center.png" style="max-height: 47px;">GGMate</h1>
+                            <!-- </div> -->
+                            <div class="ggsearch--wrapper">
+                                <form class="ggsearch--form" action="#" method="post">
+                                    <div class="ggsearch--input-wrapper">
+                                        <input class="ggsearch--input" type="search" placeholder="Let's Play">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div data-scroll href="#about" class="container bottom center" style="width: 100%">
+                <a class="btn btn-default btn-custom page-scroll">
+                Learn More About Our Website
+                </a>
+            </div>
+        </div>
 
-</header>
+        <!-- </div> -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
 
-<section id="huh" class="container content-section text-center" style="height: 100%" >
-    <div class="row">
-        <h1><i class="fa fa-gamepad"></i>GGM8</h1>
-        <h1>Gamers talking about the Gaming Industry</h1>
-        <h4>A Database where you can learn about the studios, the developers, and the people behind your beloved games</h4>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-md-4 text-center">
-            <i class="fa fa-gamepad fa-5x"></i>
-            <h4>Learn about the games you love and explore the companies and people behind them</h4>
+    <section id="#about" class="content-section text-center smoothScroll"  style="height: 100%" >
+        <div class="container" style="top: 50%">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h1><i class="fa fa-gamepad"></i>GGM8</h1>
+                    <h1>Understanding the people and the developers behind a game.
+                    </h1>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h4>A database were you can learn about the studios, the developers, and the people behind your beloved games
+                    </h4>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fa fa-gamepad fa-5x icon-color"></i>
+                    <p></p>
+                    <h4>Learn about the games you love and explore the companies and people behind them</h4>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fa fa-building fa-5x icon-color"></i>
+                    <p></p>
+                    <h4>Learn about the developers and publishers making games</h4>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fa fa-users fa-5x icon-color"></i>
+                    <p></p>
+                    <h4>Learn about people in the industry and where and what they have worked on</h4>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4 text-center">
-            <i class="fa fa-building fa-5x"></i>
-            <h4>Learn about the developers and publishers making games</h4>
-        </div>
-        <div class="col-md-4 text-center">
-            <i class="fa fa-users fa-5x"></i>
-            <h4>Learn about people in the industry and where and what they have worked on</h4>
-        </div>
-    </div>
-</section>
- 
+    </section>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/wow.min.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script> smoothScroll.init(); </script>
+    <script> new WOW().init(); </script>
+
+    <!-- Custom Theme JavaScript -->
+    <!-- <script src="js/grayscale.js"></script> -->
+    <!-- <script src="js/app.js"></script> -->
+
+    <script>
+        $(document).scroll(function(){
+            if($(this).scrollTop() > 600)
+            {
+               $('#myNav').css({"background":"#33CCFF"});
+               $('.navbar-custom a').css({"color": "black"});
+            } else {
+               $('#myNav').css({"background":"transparent"});
+               $('.navbar-custom .nav li a hover').css({"color": "black"});
+               $('.navbar-custom a').css({"color": "white"});
+           }
+       });
+    </script>

@@ -1,137 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Custom CSS -->
+<link href="css/company.css" rel="stylesheet">
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Person Name</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/company.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="fa fa-gamepad"></i>  <span class="light">GGM8</span>
-                </a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="index.html">Home</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="games.html">Games</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="companies.html">Companies</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="people.html">People</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+<!-- Page Content -->
+<!-- Portfolio Item Row -->
+<div class="container col-md-8 col-xs-10 col-md-offset-2 col-xs-offset-1 shadow card" style="margin-top: 25px;" >
+    <h1 class="page-header">{{personName}}</h1>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-md-6 col-sm-6">
+            <h3>Description:</h3>
+            <h5>{{description}}</h5>
+            <h3><i class="fa fa-trophy"></i> First Credited Game:</h3>
+            <h5>{{firstGame}}</h5>
+            <h3><i class="fa fa-building"></i> Company:</h3>
+            <h5>{{company}}</h5>
+            <h3><i class="fa fa-birthday-cake"></i> Birthdate:</h3>
+            <h5>{{birthDate}}</h5>
         </div>
-        <!-- /.container -->
-    </nav>
+        <div class="col-md-6 col-sm-6">
+            <h3><i class="fa fa-gamepad"></i> Games I've Worked On</h3>
+            <div class="table-responsive">
+            <table class="table table-striped">
+                <tr ng-repeat="game in games">
+                    <td>{{game}}</td>
+                </tr>
+            </table>
+        </div>
+        </div>
+    </div>
 
-    <!-- Page Content -->
-    <!-- Portfolio Item Row -->
-    <div class="container col-md-8 col-sm- 8 col-md-offset-2 col-sm-offset-2 shadow card" style="margin-top: 25px;" >
-        <h1 class="page-header">Person Name</h1>
-        <div class="row" style="margin-top: 10px;">
-            <div class="col-md-6 col-sm-6">
-                <h3>Description:</h3>
-                <h5>This is where game description goes</h5>
-                <h3><i class="fa fa-trophy"></i> First Credited Game:</h3>
-                <h5>This is where headquarters goes</h5>
-                <h3><i class="fa fa-building"></i> Company:</h3>
-                <h5>This is where platforms go</h5>
-                <h3><i class="fa fa-birthday-cake"></i> Birthdate:</h3>
-                <h5>This is where the birthdate goes</h5>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <h3><i class="fa fa-gamepad"></i> Games I've Worked On</h3>
-                <div class="table-responsive">
-                <table class="table table-striped">
-                    <tr>
-                        <td>Daryl Brigner</td>
-                    </tr>
-                    <tr>
-                        <td>Lani Minella</td>
-                    </tr>
-                    <tr>
-                        <td>Roger L. Jackson</td>
-                    </tr>
-                    <tr>
-                        <td>Mark Jones</td>
-                    </tr>
-                </table>
-            </div>
+<!-- /.row -->
+<hr>
+</div>
+<div class="container col-md-8 col-xs-10 col-md-offset-2 col-xs-offset-1">
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Your Website 2014</p>
             </div>
         </div>
-
-    <!-- /.row -->
-    <hr>
-    </div>
-    <div class="container col-md-8 col-md-offset-2">
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
-    </div>
-   
-
-
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-
-</body>
-
-</html>
+        <!-- /.row -->
+    </footer>
+</div>

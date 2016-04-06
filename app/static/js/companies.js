@@ -1,7 +1,8 @@
-
 var app = angular.module('companies', []);
-app.controller('companiesCtrl', function($scope) {
-	$scope.name = "Bungie";
-	$scope.country = "United States";
+app.controller('companiesListCtrl', function($scope) {
 
+});
+
+app.controller('companyCtrl', function($scope) {
+	$scope.companyName = "Bungie";
 });

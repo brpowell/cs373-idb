@@ -1,32 +1,32 @@
 from flask import Flask, render_template, send_file
-from flask.ext.sqlalchemy import SQLAlchemy
+# from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.script import Manager, Server
-import subprocess
-from flask.ext.migrate import Migrate, MigrateCommand
+# import subprocess
+# from flask.ext.migrate import Migrate, MigrateCommand
 
-SQLALCHEMY_DATABASE_URI = \
-    '{engine}://{username}:{password}@{host}:{port}/{database}'.format(
-        engine='mysql+pymysql',
-        username=os.getenv('MYSQL_USER'),
-        password=os.getenv('MYSQL_PASSWORD'),
-        host=os.getenv('MYSQL_HOST'),
-        port=os.getenv('MYSQL_PORT'),
-        database=os.getenv('MYSQL_DATABASE'))
+# SQLALCHEMY_DATABASE_URI = \
+#     '{engine}://{username}:{password}@{host}:{port}/{database}'.format(
+#         engine='mysql+pymysql',
+#         username=os.getenv('MYSQL_USER'),
+#         password=os.getenv('MYSQL_PASSWORD'),
+#         host=os.getenv('MYSQL_HOST'),
+#         port=os.getenv('MYSQL_PORT'),
+#         database=os.getenv('MYSQL_DATABASE'))
 
 
 app = Flask(__name__, static_url_path='')
-app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
-app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+# app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-from models import db  # <-- this needs to be placed after app is created
-migrate = Migrate(app, db)
+# from models import db  # <-- this needs to be placed after app is created
+# migrate = Migrate(app, db)
 
 manager = Manager(app)
-manager.add_command('db', MigrateCommand)
-manager.add_command("runserver", Server(host="0.0.0.0", use_debugger=True))
+# manager.add_command('db', MigrateCommand)
+# manager.add_command("runserver", Server(host="0.0.0.0", use_debugger=True))
 
-db = SQLAlchemy(app)
+# db = SQLAlchemy(app)
 
 
 # Routes
@@ -47,29 +47,9 @@ def companies():
 def company():
     return send_file('templates/company.html')
 
-@app.route('/company1.html')
-def company1():
-    return send_file('templates/company1.html')
-
-@app.route('/company2.html')
-def company2():
-    return send_file('templates/company2.html')
-
-@app.route('/company3.html')
-def company3():
-    return send_file('templates/company3.html')    
-
 @app.route('/game.html')
 def game1():
     return send_file('templates/game.html')
-
-@app.route('/game2.html')
-def game2():
-    return send_file('templates/game2.html')
-
-@app.route('/game3.html')
-def game3():
-    return send_file('templates/game3.html')
 
 @app.route('/games.html')
 def games():
@@ -83,6 +63,13 @@ def people():
 def person1():
     return send_file('templates/person.html')
 
+@app.route('/nav.html')
+def nav():
+    return send_file('templates/nav.html')
+    
+@app.route('/home.html')
+def home():
+    return send_file('templates/home.html')
 # Run unittest
 @app.route('/run_unittests')
 def run_tests():
