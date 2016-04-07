@@ -41,22 +41,17 @@ mainApp.config(['$routeProvider', function($routeProvider) {
     })
 }]);
 
-mainApp.factory('gameID', function($http) {
-  var productList = [];
-
-  var add = function(newObj) {
-      productList.push(newObj);
+mainApp.factory('dataShare',function($rootScope){
+  var service = {};
+  service.data = false;
+  service.sendData = function(data){
+      this.data = data;
+      $rootScope.$broadcast('data_shared');
   };
-
-  var get = function(){
-      return productList
+  service.getData = function(){
+    return this.data;
   };
-
-  return {
-    add: add,
-    get: get
-  };
-
+  return service;
 });
 
 mainApp.controller('companyCtrl', function($scope) {
@@ -73,22 +68,27 @@ mainApp.controller('companyCtrl', function($scope) {
     $scope.imageLink = "http://static.giantbomb.com/uploads/scale_large/1/12139/2754841-bgs.jpg";
 });
 
-mainApp.controller('gameCtrl', function($scope, $http, gameID) {
-    var id = 1
-    id = gameID.get();
+mainApp.controller('gameCtrl', function($scope, $http, dataShare) {
+    var id =  dataShare.getData();
+    var url = '/api/games/'.concat(id)
 
-    // var myObj = JSON.parse(window.localStorage.get("saved"));
+    $http.get('/api/games/2').then(function(result) {
+        var game = result.data.game[0]
+        $scope.gameName = game["name"]
+        $scope.description = game["description"]
+    })
 
-    // $http.get('/api/games/' + id).then(function(result) {
-        // var game = result.data.games
-        $scope.imageLink = "http://static.giantbomb.com/uploads/scale_large/8/82063/2558592-daoclean.jpg";
-        $scope.description = "This is where game descriptions go";
-        $scope.rating = "This is where the game rating goes";
-        $scope.platforms = "This is where the game platforms goes";
-        $scope.developer = "This is where the game's developers goes";
-        $scope.publisher = "This is where the game's publisher goes";
-        $scope.people = ["Person1", "Person2", "Person3"];
-        $scope.video = "https://www.youtube.com/embed/GE2BkLqMef4"
+    // $http.get(url).then(function(result) {
+    //     $scope.game = url
+    //
+    //     $scope.imageLink = "http://static.giantbomb.com/uploads/scale_large/8/82063/2558592-daoclean.jpg";
+    //     $scope.description = $scope.text;
+    //     $scope.rating = "This is where the game rating goes";
+    //     $scope.platforms = "This is where the game platforms goes";
+    //     $scope.developer = "This is where the game's developers goes";
+    //     $scope.publisher = "This is where the game's publisher goes";
+    //     $scope.people = ["Person1", "Person2", "Person3"];
+    //     $scope.video = "https://www.youtube.com/embed/GE2BkLqMef4"
     // })
 });
 
@@ -140,7 +140,7 @@ mainApp.controller('companiesListCtrl', function($scope, gameID) {
 
 });
 
-mainApp.controller('gamesListCtrl', function($scope, $http, gameID, $rootScope) {
+mainApp.controller('gamesListCtrl', function($scope, $http, dataShare, $rootScope) {
     $scope.myData = [
         {
           "Game": "Fallout 4",
@@ -179,11 +179,14 @@ mainApp.controller('gamesListCtrl', function($scope, $http, gameID, $rootScope) 
         // $scope.b = result.data.games
         $scope.m = result.data.games
         $scope.id = $scope.m[1]["id"]
-        // gameID.add($scope.id)
-        $rootScope.id = $scope.id
+        // $scope.send = function(){
+        dataShare.sendData($scope.id);
+        // };
+        // $rootScope.id = $scope.id
     });
-    $scope.test = $rootScope.id
-    // $scope.test = gameID.get()
+    dataShare.sendData(2);
+    // $scope.test = $rootScope.id
+    // $scope.e = typeof(gameID.get())
     // $scope.test = $scope.test.then(function(result) {
     //     $scope.e = result
     // });
