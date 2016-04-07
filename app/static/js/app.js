@@ -82,13 +82,11 @@ mainApp.controller('peopleListCtrl', function($scope) {
     $scope.people = [{}]
 });
 
+// This scrolling function
+// is from http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript
 mainApp.service('anchorSmoothScroll', function(){
-
+    
     this.scrollTo = function(eID) {
-
-        // This scrolling function
-        // is from http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript
-
         var startY = currentYPosition();
         var stopY = elmYPosition(eID);
         var distance = stopY > startY ? stopY - startY : startY - stopY;
