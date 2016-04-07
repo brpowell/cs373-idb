@@ -5,6 +5,7 @@ __pycache__
 *.pyc
 .env
 .env.swp
+oldenv.txt
 
 data/*/
 !data/base
