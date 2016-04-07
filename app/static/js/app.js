@@ -70,13 +70,13 @@ mainApp.controller('companyCtrl', function($scope) {
 
 mainApp.controller('gameCtrl', function($scope, $http, dataShare) {
     var id =  dataShare.getData();
-    var url = '/api/games/'.concat(id)
+    // var url = '/api/games/'.concat(id)
 
     $http.get('/api/games/2').then(function(result) {
         var game = result.data.game[0]
         $scope.gameName = game["name"]
-        $scope.description = game["description"]
-    })
+        $scope.description = id
+    });
 
     // $http.get(url).then(function(result) {
     //     $scope.game = url
@@ -164,27 +164,27 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare, $rootScop
           "Rating": 6
         }
     ];
-    $scope.gridOptions = {};
-    $scope.gridOptions.data = $scope.myData;
+    $scope.gridOptions = {}
+    $scope.gridOptions.data = $scope.myData
 
     $scope.gridOptions.columnDefs = [
         { name: 'Game',
-          cellTemplate:'<a href="#game" target="_self">{{COL_FIELD}}</a>', enableHiding: false },
-        { name: 'Publisher', enableHiding: false },
-        { name: 'Developer', enableHiding: false },
-        { name: 'Date Released', enableHiding: false },
-        { name: 'Rating', enableHiding: false }
+          cellTemplate:'<a href="#game" ng-click="goTo(row)" target="_self">{{COL_FIELD}}</a>' },
+        { name: 'Publisher'},
+        { name: 'Developer'},
+        { name: 'Date Released'},
+        { name: 'Rating' }
     ];
     $http.get('/api/games').then(function(result){
-        // $scope.b = result.data.games
         $scope.m = result.data.games
         $scope.id = $scope.m[1]["id"]
-        // $scope.send = function(){
-        dataShare.sendData($scope.id);
-        // };
-        // $rootScope.id = $scope.id
     });
     dataShare.sendData(2);
+
+    $scope.goTo = function(id) {
+        $scope.gameId = id
+    };
+
     // $scope.test = $rootScope.id
     // $scope.e = typeof(gameID.get())
     // $scope.test = $scope.test.then(function(result) {
@@ -217,9 +217,8 @@ mainApp.controller('peopleListCtrl', function($scope) {
     ]
 });
 
-
-// Scrolling service and function
-// From http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript
+// This scrolling function
+// is from http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript
 mainApp.service('anchorSmoothScroll', function(){
     this.scrollTo = function(eID) {
         var startY = currentYPosition();
@@ -229,8 +228,8 @@ mainApp.service('anchorSmoothScroll', function(){
             scrollTo(0, stopY); return;
         }
         var speed = Math.round(distance / 100);
-        if (speed >= 20) speed = 20;
-        var step = Math.round(distance / 50);
+        if (speed >= 20) speed = 10;
+        var step = Math.round(distance / 25);
         var leapY = stopY > startY ? startY + step : startY - step;
         var timer = 0;
         if (stopY > startY) {
@@ -266,6 +265,7 @@ mainApp.service('anchorSmoothScroll', function(){
         }
     };
 });
+
 mainApp.controller('ScrollCtrl', function($scope, $location, anchorSmoothScroll) {
     $scope.gotoElement = function (eID){
       // set the location.hash to the id of
@@ -275,8 +275,6 @@ mainApp.controller('ScrollCtrl', function($scope, $location, anchorSmoothScroll)
       anchorSmoothScroll.scrollTo(eID);
     };
 });
-
-
 
 mainApp.controller('aboutCtrl', function($scope, $http) {
     $scope.runTests = function() {
