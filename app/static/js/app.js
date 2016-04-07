@@ -98,38 +98,25 @@ mainApp.controller('personCtrl', function($scope) {
 });
 
 mainApp.controller('companiesListCtrl', function($scope, gameID) {
-    // This will be replaced by the http call to server
-    // need to use
-
     $scope.giveID = function(row) {
         $scope.customer = row.entity.id;
         dataShare.sendData(row.entity.id);
     }
-    $scope.myData = [
-        {
-            "Company": "Bethesda",
-            "Date Founded": "Bethesda",
-            "# of Developed Games" : 8,
-            "# of Published Games": 1,
-            "Country": "United States"
-        },
-        {
-            "Company": "Bethesda",
-            "Date Founded": "Bethesda",
-            "No. of Developed Games" : "Bethesda Game Studio",
-            "No. of Published Games": "November 8, 2015",
-            "Country": 4
-        },
-        {
-            "Company": "Bethesda",
-            "Date Founded": "Bethesda",
-            "No. of Developed Games" : "Bethesda Game Studio",
-            "No. of Published Games": "November 8, 2015",
-            "Country": 4
-        }
-    ];
+
     $scope.gridOptions = {};
-    $scope.gridOptions.data = $scope.myData
+
+    $http.get('/api/companies').then(function(result){
+        $scope.gridOptions.data = result.data.companies;
+
+        $scope.gridOptions.columnDefs = [
+            { name: 'name',
+              cellTemplate:'<a href="#game" target="_self">{{COL_FIELD}}</a>', enableHiding: false },
+            { name: 'deck', enableHiding: false },
+            { name: 'image', enableHiding: false }
+            // { name: 'Date Released', enableHiding: false },
+            // { name: 'Rating', enableHiding: false }
+        ];
+    });
 
     $scope.gridOptions.columnDefs = [
         { name: 'Company',
@@ -143,60 +130,32 @@ mainApp.controller('companiesListCtrl', function($scope, gameID) {
 });
 
 mainApp.controller('gamesListCtrl', function($scope, $http, dataShare, $rootScope) {
-
     $scope.giveID = function(row) {
         $scope.customer = row.entity.id;
         dataShare.sendData(row.entity.id);
     }
 
-    $scope.myData = [
-        {
-            "id": 1,
-          "Game": "Fallout 4",
-          "Publisher": "Bethesda",
-          "Developer": "Bethesda Game Studio",
-          "Date Released": "November 8, 2015",
-          "Rating": 4
-        },
-        {
-          "Game": "Skyrim",
-          "Publisher": "Bethesda",
-          "Developer": "Bethesda Game Studio",
-          "Date Released": "Janurary 5, 2012",
-          "Rating": 5
-        },
-        {
-          "Game": "Mass Effect 3",
-          "Publisher": "Bethesda",
-          "Developer": "Bethesda Game Studio",
-          "Date Released": "November 8, 2015",
-          "Rating": 6
-        }
-    ];
-
-    $http.get('/api/games').then(function(result){
-        $scope.m = result.data.games
-    });
-
-
     $scope.gridOptions = {
         enablePaginationControls: false,
-        paginationPageSize: 1
+        paginationPageSize: 10
     };
-    $scope.gridOptions.data = $scope.myData;
 
     $scope.gridOptions.onRegisterApi = function (gridApi) {
         $scope.grid = gridApi;
     };
 
-    $scope.gridOptions.columnDefs = [
-        { name: 'Game',
-          cellTemplate:'<a href="#game" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>' },
-        { name: 'Publisher'},
-        { name: 'Developer'},
-        { name: 'Date Released'},
-        { name: 'Rating' }
-    ];
+    $http.get('/api/games').then(function(result){
+        $scope.gridOptions.data = result.data.games;
+
+        $scope.gridOptions.columnDefs = [
+            { name: 'name',
+              cellTemplate:'<a href="#game" target="_self">{{COL_FIELD}}</a>', enableHiding: false },
+            { name: 'deck', enableHiding: false },
+            { name: 'image', enableHiding: false }
+            // { name: 'Date Released', enableHiding: false },
+            // { name: 'Rating', enableHiding: false }
+        ];
+    });
 });
 
 mainApp.controller('peopleListCtrl', function($scope) {
