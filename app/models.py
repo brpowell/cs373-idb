@@ -131,6 +131,26 @@ class Person(db.Model):
         db.session.add(person)
         db.session.commit()
 
+    def to_json(self, list_view=False):
+        json_person = {
+            'id': self.id,
+            'name': self.name,
+            'deck': self.deck,
+            'image': self.image,
+            'hometown': self.hometown,
+            'country': self.country,
+            'birth_date': self.birth_date,
+            'death_date': self.death_date,
+            'games_created': len(self.games)
+        }
+        if list_view:
+            games = []
+            for game in self.games:
+                details = {'id': game.id, 'name': game.name}
+                games.append(details)
+            json_person['games'] = games
+        return json_person
+
     def __repr__(self):
         return '<Person %s>' % self.name
 
@@ -150,6 +170,37 @@ class Company(db.Model):
                         backref='developers')
     published_games = db.relationship('Game', secondary=publisher_game,
                         backref='publishers')
+
+    def to_json(self, list_view=False):
+        json_company = {
+            'id': self.id,
+            'name': self.name,
+            'deck': self.deck,
+            'image': self.image,
+            'city': self.city,
+            'country': self.country,
+            'date_founded': self.date_founded
+        }
+        if list_view:
+            dev_games = []
+            for game in self.developed_games:
+                details = {'id': game.id, 'name': game.name}
+                dev_games.append(details)
+            pub_games = []
+            for game in self.published_games:
+                details = {'id': game.id, 'name': game.name}
+                pub_games.append(details)
+            people = []
+            people_cache = []   # removes duplicates
+            for person in self.people:
+                if person.id not in people_cache:
+                    details = {'id': person.id, 'name': person.name}
+                    people.append(details)
+                    people_cache.append(person.id)
+            json_company['developed_games'] = dev_games
+            json_company['published_games'] = pub_games
+            json_company['people'] = people
+        return json_company
 
     def __repr__(self):
         return '<Company %s>' % self.name

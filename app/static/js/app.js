@@ -40,6 +40,7 @@ mainApp.config(['$routeProvider', function($routeProvider) {
     .otherwise({
         templateUrl: '/templates/home.html'
     })
+
 }]);
 
 mainApp.factory('dataShare',function($rootScope){
@@ -151,7 +152,6 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare, $rootScop
     };
     $http.get('/api/games').then(function(result){
         $scope.gridOptions.data = result.data.games;
-
         $scope.gridOptions.columnDefs = [
             { name: 'name',
               cellTemplate:'<a href="#game" target="_self">{{COL_FIELD}}</a>', enableHiding: false },
@@ -164,11 +164,6 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare, $rootScop
 
     // $scope.m = m
     // $scope.gridOptions.data = $scope.m
-
-
-
-
-
 });
 
 

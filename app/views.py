@@ -63,30 +63,44 @@ def run_tests():
 # RESTful API
 # ------------------------------------
 
-# games = [
-# 	{
-# 		'id': 1,
-# 		'name': 'Mario Kart'
-#
-# 	},
-# 	{
-# 		'id': 2,
-# 		'name': 'Pokemon'
-# 	}
-# ]
-
 @app_instance.route('/api/games', methods=['GET'])
 def get_games():
     request = Game.query.paginate(per_page=20)
     games = request.items
     return jsonify({ 'games': [game.to_json() for game in games] })
 
-@app_instance.route('/api/games/<int:game_id>', methods=['GET'])
-def get_game(game_id):
-	game = [game for game in games if game['id'] == game_id]
-	if len(game) == 0:
-		abort(404)
-	return jsonify({'game': game})
+@app_instance.route('/api/companies', methods=['GET'])
+def get_companies():
+    request = Company.query.paginate(per_page=20)
+    companies = request.items
+    return jsonify({'companies': [company.to_json() for company in companies]})
+
+@app_instance.route('/api/people', methods=['GET'])
+def get_people():
+    request = Person.query.paginate(per_page=20)
+    people = request.items
+    return jsonify({'people': [person.to_json() for person in people]})
+
+@app_instance.route('/api/people/<int:id>', methods=['GET'])
+def get_person(id):
+    request = Person.query.filter_by(id=id).first()
+    if request is None:
+        abort(404)
+    return jsonify(request.to_json(list_view=True))
+
+@app_instance.route('/api/companies/<int:id>', methods=['GET'])
+def get_company(id):
+    request = Company.query.filter_by(id=id).first()
+    if request is None:
+        abort(404)
+    return jsonify(request.to_json(list_view=True))
+
+@app_instance.route('/api/games/<int:id>', methods=['GET'])
+def get_game(id):
+    request = Game.query.filter_by(id=id).first()
+    if request is None:
+        abort(404)
+    return jsonify(request.to_json())
 
 @app_instance.errorhandler(404)
 def not_found(error):
