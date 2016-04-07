@@ -1,4 +1,4 @@
-var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate', 'ui.bootstrap']);
+var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate', 'ui.bootstrap', 'ui.grid']);
 
 mainApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider
@@ -38,7 +38,7 @@ mainApp.config(['$routeProvider', function($routeProvider) {
     })
 }]);
 
-mainApp.service('gameID', function($http) {
+mainApp.factory('gameID', function($http) {
   var productList = [];
 
   var add = function(newObj) {
@@ -51,8 +51,7 @@ mainApp.service('gameID', function($http) {
 
   return {
     add: add,
-    get: get,
-    getAll: getAll
+    get: get
   };
 
 });
@@ -74,6 +73,9 @@ mainApp.controller('companyCtrl', function($scope) {
 mainApp.controller('gameCtrl', function($scope, $http, gameID) {
     var id = 1
     id = gameID.get();
+
+    var myObj = JSON.parse(window.localStorage.get("saved"));
+
     $http.get('/api/games/' + id).then(function(result) {
         var game = result.data.games
         $scope.imageLink = "http://static.giantbomb.com/uploads/scale_large/8/82063/2558592-daoclean.jpg";
@@ -102,17 +104,44 @@ mainApp.controller('companiesListCtrl', function($scope, gameID) {
 });
 
 mainApp.controller('gamesListCtrl', function($scope, $http, gameID) {
-    $http.get('/api/games').then(function(result){
-        $scope.b = result.data.games
-        // gameID.add(2);
-    })
+
+    $scope.myData = [
+        {
+          "Game": "Fallout 4",
+          "Publisher": "Bethesda",
+          "Developer": "Bethesda Game Studio",
+          "Date Released": "November 8, 2015",
+          "Rating": 5
+        },
+        {
+          "Game": "Skyrim",
+          "Publisher": "Bethesda",
+          "Developer": "Bethesda Game Studio",
+          "Date Released": "Janurary 5, 2012",
+          "Rating": 5
+        },
+        {
+          "Game": "Fallout 4",
+          "Publisher": "Bethesda",
+          "Developer": "Bethesda Game Studio",
+          "Date Released": "November 8, 2015",
+          "Rating": 5
+        }
+    ];
+    // $http.get('/api/games').then(function(result){
+    //     $scope.b = result.data.games
+    //     gameID.add(2);
+    //
+    //     // window.localStorage.set("saved", JSON.stringify({'id': 2}))
+    // })
     // var id = gameID.get(then(function(data){;
     //     $scope.id = data;
     // });
     // var um = '/api/games/'
+    // var myObj = JSON.parse(window.localStorage.get("saved"));
 
     // gameID.get().then(function(data) { $scope.me = data });
-
+    // $scope.me = gameID.get()
     // $http.get(url).then(function(result) {
     //     $scope.stuff = result.data.game
     // })
@@ -126,7 +155,6 @@ mainApp.controller('peopleListCtrl', function($scope) {
 // This scrolling function
 // is from http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript
 mainApp.service('anchorSmoothScroll', function(){
-    
     this.scrollTo = function(eID) {
         var startY = currentYPosition();
         var stopY = elmYPosition(eID);
