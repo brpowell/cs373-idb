@@ -17,7 +17,7 @@ footer {
 }
 
 .icon-color {
-    color: #33CCFF;
+    color: #336699;
 }
 
 .shadow {
@@ -28,7 +28,7 @@ footer {
 }
 
 hr {
-  border-color: #33CCFF;
+  border-color: #336699;
 }
 
 h5 {
@@ -38,12 +38,12 @@ h5 {
 
 h1,
 h3 {
-  color: #FFFBCC;
+  color: black;
   font-family: 'Exo 2', sans-serif;
 }
 
 .page-header {
-    border-color: #33CCFF;
+    border-color: #336699;
 }
 
 #wrapper {
@@ -82,7 +82,7 @@ h3 {
     border-top: 0px;
 }
 i {
-    color: #33CCFF;
+    color: #336699;
 }
 
 .modal-wide .modal-dialog {

@@ -1,5 +1,7 @@
 var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate', 'ui.bootstrap', 'ui.grid']);
-
+mainApp.run(function($rootScope) {
+    $rootScope.id = 0;
+})
 mainApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider
     .when('/', {
@@ -19,7 +21,8 @@ mainApp.config(['$routeProvider', function($routeProvider) {
         controller: 'companiesListCtrl'
     })
     .when('/people', {
-        templateUrl: '/templates/people.html'
+        templateUrl: '/templates/people.html',
+        controller: 'peopleListCtrl'
     })
     .when('/company', {
         templateUrl: '/templates/company.html',
@@ -74,10 +77,10 @@ mainApp.controller('gameCtrl', function($scope, $http, gameID) {
     var id = 1
     id = gameID.get();
 
-    var myObj = JSON.parse(window.localStorage.get("saved"));
+    // var myObj = JSON.parse(window.localStorage.get("saved"));
 
-    $http.get('/api/games/' + id).then(function(result) {
-        var game = result.data.games
+    // $http.get('/api/games/' + id).then(function(result) {
+        // var game = result.data.games
         $scope.imageLink = "http://static.giantbomb.com/uploads/scale_large/8/82063/2558592-daoclean.jpg";
         $scope.description = "This is where game descriptions go";
         $scope.rating = "This is where the game rating goes";
@@ -86,7 +89,7 @@ mainApp.controller('gameCtrl', function($scope, $http, gameID) {
         $scope.publisher = "This is where the game's publisher goes";
         $scope.people = ["Person1", "Person2", "Person3"];
         $scope.video = "https://www.youtube.com/embed/GE2BkLqMef4"
-    })
+    // })
 });
 
 mainApp.controller('personCtrl', function($scope) {
@@ -98,20 +101,53 @@ mainApp.controller('personCtrl', function($scope) {
 });
 
 mainApp.controller('companiesListCtrl', function($scope, gameID) {
-    $scope.companies = [{name: "Bethesda", founded: "November 10, 2015", develop: "8", publisher: "1", country: "United States"}, {name: "Bethesda", founded: "November 10, 2015", develop: "8", publisher: "1", country: "United States"} ];
-    var q =  gameID.get();
-    $scope.meh = q[-1];
+    // This will be replaced by the http call to server
+    // need to use
+    $scope.myData = [
+        {
+            "Company": "Bethesda",
+            "Date Founded": "Bethesda",
+            "# of Developed Games" : 8,
+            "# of Published Games": 1,
+            "Country": "United States"
+        },
+        {
+            "Company": "Bethesda",
+            "Date Founded": "Bethesda",
+            "No. of Developed Games" : "Bethesda Game Studio",
+            "No. of Published Games": "November 8, 2015",
+            "Country": 4
+        },
+        {
+            "Company": "Bethesda",
+            "Date Founded": "Bethesda",
+            "No. of Developed Games" : "Bethesda Game Studio",
+            "No. of Published Games": "November 8, 2015",
+            "Country": 4
+        }
+    ];
+    $scope.gridOptions = {};
+    $scope.gridOptions.data = $scope.myData
+
+    $scope.gridOptions.columnDefs = [
+        { name: 'Company',
+          cellTemplate:'<a href="#company" target="_self">{{COL_FIELD}}</a>' },
+        { name: 'Date Founded'},
+        { name: '# of Developed Games'},
+        { name: '# of Published Games'},
+        { name: 'Country' }
+    ];
+
 });
 
-mainApp.controller('gamesListCtrl', function($scope, $http, gameID) {
-
+mainApp.controller('gamesListCtrl', function($scope, $http, gameID, $rootScope) {
     $scope.myData = [
         {
           "Game": "Fallout 4",
           "Publisher": "Bethesda",
           "Developer": "Bethesda Game Studio",
           "Date Released": "November 8, 2015",
-          "Rating": 5
+          "Rating": 4
         },
         {
           "Game": "Skyrim",
@@ -121,17 +157,37 @@ mainApp.controller('gamesListCtrl', function($scope, $http, gameID) {
           "Rating": 5
         },
         {
-          "Game": "Fallout 4",
+          "Game": "Mass Effect 3",
           "Publisher": "Bethesda",
           "Developer": "Bethesda Game Studio",
           "Date Released": "November 8, 2015",
-          "Rating": 5
+          "Rating": 6
         }
     ];
-    // $http.get('/api/games').then(function(result){
-    //     $scope.b = result.data.games
-    //     gameID.add(2);
-    //
+    $scope.gridOptions = {}
+    $scope.gridOptions.data = $scope.myData
+
+    $scope.gridOptions.columnDefs = [
+        { name: 'Game',
+          cellTemplate:'<a href="#game" target="_self">{{COL_FIELD}}</a>' },
+        { name: 'Publisher'},
+        { name: 'Developer'},
+        { name: 'Date Released'},
+        { name: 'Rating' }
+    ];
+    $http.get('/api/games').then(function(result){
+        // $scope.b = result.data.games
+        $scope.m = result.data.games
+        $scope.id = $scope.m[1]["id"]
+        // gameID.add($scope.id)
+        $rootScope.id = $scope.id
+    });
+    $scope.test = $rootScope.id
+    // $scope.test = gameID.get()
+    // $scope.test = $scope.test.then(function(result) {
+    //     $scope.e = result
+    // });
+});
     //     // window.localStorage.set("saved", JSON.stringify({'id': 2}))
     // })
     // var id = gameID.get(then(function(data){;
@@ -146,10 +202,16 @@ mainApp.controller('gamesListCtrl', function($scope, $http, gameID) {
     //     $scope.stuff = result.data.game
     // })
 
-});
-
 mainApp.controller('peopleListCtrl', function($scope) {
-    $scope.people = [{}]
+    $scope.myData = [
+        {
+            "Person" : "Person's name goes here",
+            "Company" : "Person's company goes here",
+            "First Game" : "My First Game",
+            "Country" : "United States",
+            "Gender" : "Male"
+        }
+    ]
 });
 
 // This scrolling function
@@ -198,26 +260,20 @@ mainApp.service('anchorSmoothScroll', function(){
                 y += node.offsetTop;
             } return y;
         }
-
     };
-
 });
 
 mainApp.controller('ScrollCtrl', function($scope, $location, anchorSmoothScroll) {
-
     $scope.gotoElement = function (eID){
       // set the location.hash to the id of
       // the element you wish to scroll to.
       $location.hash('bottom');
-
       // call $anchorScroll()
       anchorSmoothScroll.scrollTo(eID);
-
     };
 });
 
 mainApp.controller('aboutCtrl', function($scope, $http) {
-
     $scope.runTests = function() {
         $scope.showTestsOutput = true;
         $scope.testOutput = '\nRunning Tests ... '
@@ -226,7 +282,6 @@ mainApp.controller('aboutCtrl', function($scope, $http) {
             $scope.testOutput = '\n' + result.data.output;
         });
     }
-
 });
 
 mainApp.controller('CarouselDemoCtrl', function($scope) {

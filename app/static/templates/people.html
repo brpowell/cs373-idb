@@ -5,28 +5,7 @@
 <div class="container">
     <div class="container col-md-12 col-sm-12 col-xs-12 card shadow">
         <div class="row">
-            <div class="table-responsive" style="margin: 15px;">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th><h3>Person</h3></th>
-                            <th><h3>Company</h3></th>
-                            <th><h3>First Game</h3></th>
-                            <th><h3>Country</h3></th>
-                            <th><h3>Gender</h3></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <tr ng-repeat="company in companies">
-                        <td><h5>{{company.name}}</h5></td>
-                        <td><h5>{{company.founded}}</h5></td>
-                        <td><h5>{{company.develop}}</h5></td>
-                        <td><h5>{{company.publisher}}</h5></td>
-                        <td><h5>{{company.country}}</h5></td>
-                      </tr>
-                    </tbody>
-                </table>
-            </div>
+            <div id="grid1" ui-grid="{data: myData }" class="grid" style="margin: 5px;"></div>
         </div>
     </div>
 </div>
