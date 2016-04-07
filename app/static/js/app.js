@@ -79,7 +79,7 @@ mainApp.controller('gamesListCtrl', function($scope) {
 });
 
 mainApp.controller('peopleListCtrl', function($scope) {
-
+    $scope.people = [{}]
 });
 
 

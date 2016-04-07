@@ -8,7 +8,7 @@
  */
 
 body {
-    padding-top: 70px;  
+    padding-top: 70px;
     background-image: url('http://www.globalpbm.com/wp-content/uploads/2015/07/betfair-pattern.png');
 }
 
@@ -67,7 +67,7 @@ h3 {
 
 .card {
     /*rgba(18, 55, 86, 0.8)*/
-    background-color: rgba(18, 55, 86, 1); 
+    background-color: rgba(18, 55, 86, 1);
 }
 
 .table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
@@ -83,4 +83,8 @@ h3 {
 }
 i {
     color: #33CCFF;
+}
+
+.modal-wide .modal-dialog {
+width: 80%;
 }
