@@ -164,16 +164,16 @@ mainApp.controller('gamesListCtrl', function($scope, $http, gameID, $rootScope) 
           "Rating": 6
         }
     ];
-    $scope.gridOptions = {}
-    $scope.gridOptions.data = $scope.myData
+    $scope.gridOptions = {};
+    $scope.gridOptions.data = $scope.myData;
 
     $scope.gridOptions.columnDefs = [
         { name: 'Game',
-          cellTemplate:'<a href="#game" target="_self">{{COL_FIELD}}</a>' },
-        { name: 'Publisher'},
-        { name: 'Developer'},
-        { name: 'Date Released'},
-        { name: 'Rating' }
+          cellTemplate:'<a href="#game" target="_self">{{COL_FIELD}}</a>', enableHiding: false },
+        { name: 'Publisher', enableHiding: false },
+        { name: 'Developer', enableHiding: false },
+        { name: 'Date Released', enableHiding: false },
+        { name: 'Rating', enableHiding: false }
     ];
     $http.get('/api/games').then(function(result){
         // $scope.b = result.data.games
@@ -214,8 +214,9 @@ mainApp.controller('peopleListCtrl', function($scope) {
     ]
 });
 
-// This scrolling function
-// is from http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript
+
+// Scrolling service and function
+// From http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript
 mainApp.service('anchorSmoothScroll', function(){
     this.scrollTo = function(eID) {
         var startY = currentYPosition();
@@ -225,8 +226,8 @@ mainApp.service('anchorSmoothScroll', function(){
             scrollTo(0, stopY); return;
         }
         var speed = Math.round(distance / 100);
-        if (speed >= 20) speed = 10;
-        var step = Math.round(distance / 25);
+        if (speed >= 20) speed = 20;
+        var step = Math.round(distance / 50);
         var leapY = stopY > startY ? startY + step : startY - step;
         var timer = 0;
         if (stopY > startY) {
@@ -262,7 +263,6 @@ mainApp.service('anchorSmoothScroll', function(){
         }
     };
 });
-
 mainApp.controller('ScrollCtrl', function($scope, $location, anchorSmoothScroll) {
     $scope.gotoElement = function (eID){
       // set the location.hash to the id of
@@ -272,6 +272,8 @@ mainApp.controller('ScrollCtrl', function($scope, $location, anchorSmoothScroll)
       anchorSmoothScroll.scrollTo(eID);
     };
 });
+
+
 
 mainApp.controller('aboutCtrl', function($scope, $http) {
     $scope.runTests = function() {
