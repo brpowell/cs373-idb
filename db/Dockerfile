@@ -1,3 +1,3 @@
 FROM mysql:5.6
 
-ADD mysql.cnf /etc/mysql/conf.d/
+ADD ggmate.sql /docker-entrypoint-initdb.d/
