@@ -91,7 +91,7 @@ class Person(db.Model):
     country = db.Column(db.String(255))
     birth_date = db.Column(db.DateTime)
     death_date = db.Column(db.DateTime)
-    deck = db.Column(db.String(255))
+    deck = db.Column(db.Text)
     first_credited_game = db.Column(db.Integer, db.ForeignKey('games.id'))
     games = db.relationship('Game', secondary=person_game, backref='people')
     people = db.relationship('Person', secondary=worked_with,
