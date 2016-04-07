@@ -1,7 +1,6 @@
-var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate', 'ui.bootstrap', 'ui.grid']);
-mainApp.run(function($rootScope) {
-    $rootScope.id = 0;
-})
+var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate', 'ui.bootstrap',
+    'ui.grid', 'ui.grid.pagination']);
+
 mainApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider
     .when('/', {
@@ -70,9 +69,7 @@ mainApp.controller('companyCtrl', function($scope) {
 
 mainApp.controller('gameCtrl', function($scope, $http, dataShare) {
     var id =  dataShare.getData();
-    // var url = '/api/games/'.concat(id)
-
-    $http.get('/api/games/2').then(function(result) {
+    $http.get('/api/games/'.concat(id)).then(function(result) {
         var game = result.data.game[0]
         $scope.gameName = game["name"]
         $scope.description = id
@@ -103,6 +100,11 @@ mainApp.controller('personCtrl', function($scope) {
 mainApp.controller('companiesListCtrl', function($scope, gameID) {
     // This will be replaced by the http call to server
     // need to use
+
+    $scope.giveID = function(row) {
+        $scope.customer = row.entity.id;
+        dataShare.sendData(row.entity.id);
+    }
     $scope.myData = [
         {
             "Company": "Bethesda",
@@ -131,7 +133,7 @@ mainApp.controller('companiesListCtrl', function($scope, gameID) {
 
     $scope.gridOptions.columnDefs = [
         { name: 'Company',
-          cellTemplate:'<a href="#company" target="_self">{{COL_FIELD}}</a>' },
+          cellTemplate:'<a href="#company" ng-click="grid.appScope.giveID(row) target="_self">{{COL_FIELD}}</a>' },
         { name: 'Date Founded'},
         { name: '# of Developed Games'},
         { name: '# of Published Games'},
@@ -141,8 +143,15 @@ mainApp.controller('companiesListCtrl', function($scope, gameID) {
 });
 
 mainApp.controller('gamesListCtrl', function($scope, $http, dataShare, $rootScope) {
+
+    $scope.giveID = function(row) {
+        $scope.customer = row.entity.id;
+        dataShare.sendData(row.entity.id);
+    }
+
     $scope.myData = [
         {
+            "id": 1,
           "Game": "Fallout 4",
           "Publisher": "Bethesda",
           "Developer": "Bethesda Game Studio",
@@ -164,46 +173,31 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare, $rootScop
           "Rating": 6
         }
     ];
-    $scope.gridOptions = {}
-    $scope.gridOptions.data = $scope.myData
+
+    $http.get('/api/games').then(function(result){
+        $scope.m = result.data.games
+    });
+
+
+    $scope.gridOptions = {
+        enablePaginationControls: false,
+        paginationPageSize: 1
+    };
+    $scope.gridOptions.data = $scope.myData;
+
+    $scope.gridOptions.onRegisterApi = function (gridApi) {
+        $scope.grid = gridApi;
+    };
 
     $scope.gridOptions.columnDefs = [
         { name: 'Game',
-          cellTemplate:'<a href="#game" ng-click="goTo(row)" target="_self">{{COL_FIELD}}</a>' },
+          cellTemplate:'<a href="#game" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>' },
         { name: 'Publisher'},
         { name: 'Developer'},
         { name: 'Date Released'},
         { name: 'Rating' }
     ];
-    $http.get('/api/games').then(function(result){
-        $scope.m = result.data.games
-        $scope.id = $scope.m[1]["id"]
-    });
-    dataShare.sendData(2);
-
-    $scope.goTo = function(id) {
-        $scope.gameId = id
-    };
-
-    // $scope.test = $rootScope.id
-    // $scope.e = typeof(gameID.get())
-    // $scope.test = $scope.test.then(function(result) {
-    //     $scope.e = result
-    // });
 });
-    //     // window.localStorage.set("saved", JSON.stringify({'id': 2}))
-    // })
-    // var id = gameID.get(then(function(data){;
-    //     $scope.id = data;
-    // });
-    // var um = '/api/games/'
-    // var myObj = JSON.parse(window.localStorage.get("saved"));
-
-    // gameID.get().then(function(data) { $scope.me = data });
-    // $scope.me = gameID.get()
-    // $http.get(url).then(function(result) {
-    //     $scope.stuff = result.data.game
-    // })
 
 mainApp.controller('peopleListCtrl', function($scope) {
     $scope.myData = [
@@ -215,6 +209,24 @@ mainApp.controller('peopleListCtrl', function($scope) {
             "Gender" : "Male"
         }
     ]
+    $scope.gridOptions = {
+        enablePaginationControls: false,
+        paginationPageSize: 1
+    };
+
+    $scope.gridOptions.data = $scope.myData;
+    $scope.gridOptions.onRegisterApi = function (gridApi) {
+        $scope.grid = gridApi;
+    };
+    $scope.gridOptions.columnDefs = [
+        { name: 'Person',
+          cellTemplate:'<a href="#game" ng-click="grid.appScope.why(row)">{{COL_FIELD}}</a>' },
+        { name: 'Company'},
+        { name: 'First Game'},
+        { name: 'Country'},
+        { name: 'Gender' }
+    ];
+
 });
 
 // This scrolling function
