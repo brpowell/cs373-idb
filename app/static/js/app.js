@@ -1,8 +1,6 @@
 var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate', 'ui.bootstrap',
     'ui.grid', 'ui.grid.pagination']);
-mainApp.run(function($rootScope) {
-    $rootScope.id = 0;
-})
+
 mainApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider
     .when('/', {
@@ -72,13 +70,11 @@ mainApp.controller('companyCtrl', function($scope) {
 
 mainApp.controller('gameCtrl', function($scope, $http, dataShare) {
     var id =  dataShare.getData();
-    var url = '/api/games/'.concat(id)
-
-    $http.get('/api/games/2').then(function(result) {
+    $http.get('/api/games/'.concat(id)).then(function(result) {
         var game = result.data.game[0]
         $scope.gameName = game["name"]
-        $scope.description = game["description"]
-    })
+        $scope.description = id
+    });
 
     // $http.get(url).then(function(result) {
     //     $scope.game = url
@@ -103,37 +99,29 @@ mainApp.controller('personCtrl', function($scope) {
 });
 
 mainApp.controller('companiesListCtrl', function($scope, gameID) {
-    // This will be replaced by the http call to server
-    // need to use
-    $scope.myData = [
-        {
-            "Company": "Bethesda",
-            "Date Founded": "Bethesda",
-            "# of Developed Games" : 8,
-            "# of Published Games": 1,
-            "Country": "United States"
-        },
-        {
-            "Company": "Bethesda",
-            "Date Founded": "Bethesda",
-            "No. of Developed Games" : "Bethesda Game Studio",
-            "No. of Published Games": "November 8, 2015",
-            "Country": 4
-        },
-        {
-            "Company": "Bethesda",
-            "Date Founded": "Bethesda",
-            "No. of Developed Games" : "Bethesda Game Studio",
-            "No. of Published Games": "November 8, 2015",
-            "Country": 4
-        }
-    ];
+    $scope.giveID = function(row) {
+        $scope.customer = row.entity.id;
+        dataShare.sendData(row.entity.id);
+    }
+
     $scope.gridOptions = {};
-    $scope.gridOptions.data = $scope.myData
+
+    $http.get('/api/companies').then(function(result){
+        $scope.gridOptions.data = result.data.companies;
+
+        $scope.gridOptions.columnDefs = [
+            { name: 'name',
+              cellTemplate:'<a href="#game" target="_self">{{COL_FIELD}}</a>', enableHiding: false },
+            { name: 'deck', enableHiding: false },
+            { name: 'image', enableHiding: false }
+            // { name: 'Date Released', enableHiding: false },
+            // { name: 'Rating', enableHiding: false }
+        ];
+    });
 
     $scope.gridOptions.columnDefs = [
         { name: 'Company',
-          cellTemplate:'<a href="#company" target="_self">{{COL_FIELD}}</a>' },
+          cellTemplate:'<a href="#company" ng-click="grid.appScope.giveID(row) target="_self">{{COL_FIELD}}</a>' },
         { name: 'Date Founded'},
         { name: '# of Developed Games'},
         { name: '# of Published Games'},
@@ -143,13 +131,20 @@ mainApp.controller('companiesListCtrl', function($scope, gameID) {
 });
 
 mainApp.controller('gamesListCtrl', function($scope, $http, dataShare, $rootScope) {
+    $scope.giveID = function(row) {
+        $scope.customer = row.entity.id;
+        dataShare.sendData(row.entity.id);
+    }
+
     $scope.gridOptions = {
         enablePaginationControls: false,
         paginationPageSize: 10
     };
+
     $scope.gridOptions.onRegisterApi = function (gridApi) {
         $scope.grid = gridApi;
     };
+
     $http.get('/api/games').then(function(result){
         $scope.gridOptions.data = result.data.games;
         $scope.gridOptions.columnDefs = [
@@ -161,11 +156,7 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare, $rootScop
             // { name: 'Rating', enableHiding: false }
         ];
     });
-
-    // $scope.m = m
-    // $scope.gridOptions.data = $scope.m
 });
-
 
 mainApp.controller('peopleListCtrl', function($scope) {
     $scope.myData = [
@@ -177,11 +168,28 @@ mainApp.controller('peopleListCtrl', function($scope) {
             "Gender" : "Male"
         }
     ]
+    $scope.gridOptions = {
+        enablePaginationControls: false,
+        paginationPageSize: 1
+    };
+
+    $scope.gridOptions.data = $scope.myData;
+    $scope.gridOptions.onRegisterApi = function (gridApi) {
+        $scope.grid = gridApi;
+    };
+    $scope.gridOptions.columnDefs = [
+        { name: 'Person',
+          cellTemplate:'<a href="#game" ng-click="grid.appScope.why(row)">{{COL_FIELD}}</a>' },
+        { name: 'Company'},
+        { name: 'First Game'},
+        { name: 'Country'},
+        { name: 'Gender' }
+    ];
+
 });
 
-
-// Scrolling service and function
-// From http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript
+// This scrolling function
+// is from http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript
 mainApp.service('anchorSmoothScroll', function(){
     this.scrollTo = function(eID) {
         var startY = currentYPosition();
@@ -191,8 +199,8 @@ mainApp.service('anchorSmoothScroll', function(){
             scrollTo(0, stopY); return;
         }
         var speed = Math.round(distance / 100);
-        if (speed >= 20) speed = 20;
-        var step = Math.round(distance / 50);
+        if (speed >= 20) speed = 10;
+        var step = Math.round(distance / 25);
         var leapY = stopY > startY ? startY + step : startY - step;
         var timer = 0;
         if (stopY > startY) {
@@ -228,6 +236,7 @@ mainApp.service('anchorSmoothScroll', function(){
         }
     };
 });
+
 mainApp.controller('ScrollCtrl', function($scope, $location, anchorSmoothScroll) {
     $scope.gotoElement = function (eID){
       // set the location.hash to the id of
@@ -237,8 +246,6 @@ mainApp.controller('ScrollCtrl', function($scope, $location, anchorSmoothScroll)
       anchorSmoothScroll.scrollTo(eID);
     };
 });
-
-
 
 mainApp.controller('aboutCtrl', function($scope, $http) {
     $scope.runTests = function() {
