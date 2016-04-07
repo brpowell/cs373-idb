@@ -1,4 +1,4 @@
-var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate', 'ui.bootstrap', 
+var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate', 'ui.bootstrap',
     'ui.grid', 'ui.grid.pagination']);
 mainApp.run(function($rootScope) {
     $rootScope.id = 0;
@@ -142,76 +142,35 @@ mainApp.controller('companiesListCtrl', function($scope, gameID) {
 });
 
 mainApp.controller('gamesListCtrl', function($scope, $http, dataShare, $rootScope) {
-    $scope.myData = [
-        {
-          "Game": "Fallout 4",
-          "Publisher": "Bethesda",
-          "Developer": "Bethesda Game Studio",
-          "Date Released": "November 8, 2015",
-          "Rating": 4
-        },
-        {
-          "Game": "Skyrim",
-          "Publisher": "Bethesda",
-          "Developer": "Bethesda Game Studio",
-          "Date Released": "Janurary 5, 2012",
-          "Rating": 5
-        },
-        {
-          "Game": "Mass Effect 3",
-          "Publisher": "Bethesda",
-          "Developer": "Bethesda Game Studio",
-          "Date Released": "November 8, 2015",
-          "Rating": 6
-        }
-    ];
-    $scope.gridOptions = {    
+    $scope.gridOptions = {
         enablePaginationControls: false,
-        paginationPageSize: 1
+        paginationPageSize: 10
     };
-    $scope.gridOptions.data = $scope.myData;
-
     $scope.gridOptions.onRegisterApi = function (gridApi) {
         $scope.grid = gridApi;
     };
-
-    $scope.gridOptions.columnDefs = [
-        { name: 'Game',
-          cellTemplate:'<a href="#game" target="_self">{{COL_FIELD}}</a>', enableHiding: false },
-        { name: 'Publisher', enableHiding: false },
-        { name: 'Developer', enableHiding: false },
-        { name: 'Date Released', enableHiding: false },
-        { name: 'Rating', enableHiding: false }
-    ];
     $http.get('/api/games').then(function(result){
-        // $scope.b = result.data.games
-        $scope.m = result.data.games
-        $scope.id = $scope.m[1]["id"]
-        // $scope.send = function(){
-        dataShare.sendData($scope.id);
-        // };
-        // $rootScope.id = $scope.id
-    });
-    dataShare.sendData(2);
-    // $scope.test = $rootScope.id
-    // $scope.e = typeof(gameID.get())
-    // $scope.test = $scope.test.then(function(result) {
-    //     $scope.e = result
-    // });
-});
-    //     // window.localStorage.set("saved", JSON.stringify({'id': 2}))
-    // })
-    // var id = gameID.get(then(function(data){;
-    //     $scope.id = data;
-    // });
-    // var um = '/api/games/'
-    // var myObj = JSON.parse(window.localStorage.get("saved"));
+        $scope.gridOptions.data = result.data.games;
 
-    // gameID.get().then(function(data) { $scope.me = data });
-    // $scope.me = gameID.get()
-    // $http.get(url).then(function(result) {
-    //     $scope.stuff = result.data.game
-    // })
+        $scope.gridOptions.columnDefs = [
+            { name: 'name',
+              cellTemplate:'<a href="#game" target="_self">{{COL_FIELD}}</a>', enableHiding: false },
+            { name: 'deck', enableHiding: false },
+            { name: 'image', enableHiding: false }
+            // { name: 'Date Released', enableHiding: false },
+            // { name: 'Rating', enableHiding: false }
+        ];
+    });
+
+    // $scope.m = m
+    // $scope.gridOptions.data = $scope.m
+
+
+
+
+
+});
+
 
 mainApp.controller('peopleListCtrl', function($scope) {
     $scope.myData = [

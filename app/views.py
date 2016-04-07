@@ -77,7 +77,8 @@ def run_tests():
 
 @app_instance.route('/api/games', methods=['GET'])
 def get_games():
-    games = Game.query.all()
+    request = Game.query.paginate(per_page=20)
+    games = request.items
     return jsonify({ 'games': [game.to_json() for game in games] })
 
 @app_instance.route('/api/games/<int:game_id>', methods=['GET'])
