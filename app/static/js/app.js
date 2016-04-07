@@ -1,9 +1,10 @@
-var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate']);
+var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate', 'ui.bootstrap']);
 
 mainApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider
     .when('/', {
         templateUrl: '/templates/home.html',
+        controller: "CarouselDemoCtrl"
     })
     .when('/about', {
         templateUrl: '/templates/about.html',
@@ -37,6 +38,25 @@ mainApp.config(['$routeProvider', function($routeProvider) {
     })
 }]);
 
+mainApp.service('gameID', function($http) {
+  var productList = [];
+
+  var add = function(newObj) {
+      productList.push(newObj);
+  };
+
+  var get = function(){
+      return productList
+  };
+
+  return {
+    add: add,
+    get: get,
+    getAll: getAll
+  };
+
+});
+
 mainApp.controller('companyCtrl', function($scope) {
     $scope.companyName = "Bungie";
     $scope.description = "This is where game description goes";
@@ -51,15 +71,20 @@ mainApp.controller('companyCtrl', function($scope) {
     $scope.imageLink = "http://static.giantbomb.com/uploads/scale_large/1/12139/2754841-bgs.jpg";
 });
 
-mainApp.controller('gameCtrl', function($scope) {
-    $scope.imageLink = "http://static.giantbomb.com/uploads/scale_large/8/82063/2558592-daoclean.jpg";
-    $scope.description = "This is where game descriptions go";
-    $scope.rating = "This is where the game rating goes";
-    $scope.platforms = "This is where the game platforms goes";
-    $scope.developer = "This is where the game's developers goes";
-    $scope.publisher = "This is where the game's publisher goes";
-    $scope.people = ["Person1", "Person2", "Person3"];
-    $scope.video = "https://www.youtube.com/embed/GE2BkLqMef4"
+mainApp.controller('gameCtrl', function($scope, $http, gameID) {
+    var id = 1
+    id = gameID.get();
+    $http.get('/api/games/' + id).then(function(result) {
+        var game = result.data.games
+        $scope.imageLink = "http://static.giantbomb.com/uploads/scale_large/8/82063/2558592-daoclean.jpg";
+        $scope.description = "This is where game descriptions go";
+        $scope.rating = "This is where the game rating goes";
+        $scope.platforms = "This is where the game platforms goes";
+        $scope.developer = "This is where the game's developers goes";
+        $scope.publisher = "This is where the game's publisher goes";
+        $scope.people = ["Person1", "Person2", "Person3"];
+        $scope.video = "https://www.youtube.com/embed/GE2BkLqMef4"
+    })
 });
 
 mainApp.controller('personCtrl', function($scope) {
@@ -70,12 +95,28 @@ mainApp.controller('personCtrl', function($scope) {
     $scope.games = ["game1", "game2", "game3", "game4"];
 });
 
-mainApp.controller('companiesListCtrl', function($scope) {
+mainApp.controller('companiesListCtrl', function($scope, gameID) {
     $scope.companies = [{name: "Bethesda", founded: "November 10, 2015", develop: "8", publisher: "1", country: "United States"}, {name: "Bethesda", founded: "November 10, 2015", develop: "8", publisher: "1", country: "United States"} ];
+    var q =  gameID.get();
+    $scope.meh = q[-1];
 });
 
-mainApp.controller('gamesListCtrl', function($scope) {
-    $scope.games = [{}]
+mainApp.controller('gamesListCtrl', function($scope, $http, gameID) {
+    $http.get('/api/games').then(function(result){
+        $scope.b = result.data.games
+        // gameID.add(2);
+    })
+    // var id = gameID.get(then(function(data){;
+    //     $scope.id = data;
+    // });
+    // var um = '/api/games/'
+
+    // gameID.get().then(function(data) { $scope.me = data });
+
+    // $http.get(url).then(function(result) {
+    //     $scope.stuff = result.data.game
+    // })
+
 });
 
 mainApp.controller('peopleListCtrl', function($scope) {
@@ -160,6 +201,15 @@ mainApp.controller('aboutCtrl', function($scope, $http) {
         });
     }
 
+});
+
+mainApp.controller('CarouselDemoCtrl', function($scope) {
+    $scope.myInterval = 5000;
+    $scope.noWrapSlides = false;
+    $scope.active = 0;
+    $scope.slides = [{image: 'http://cdn.wegotthiscovered.com/wp-content/uploads/fallout_4_14-1152x612.jpg'}, {image:
+    'http://www.geforce.com/sites/default/files-world/screenshots/elder-scrolls-v-skyrim/screenshot-2.jpg'
+    }];
 });
 
 /*

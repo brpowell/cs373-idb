@@ -1,10 +1,10 @@
 <link href="css/grayscale.css" rel="stylesheet">
-    
+
     <!-- Intro Header -->
-    <header id="myCarousel" class="carousel slide" data-ride="carousel" style="padding: 0px; margin: 0px; width: 100%">
+    <header class="fill" style="padding: 0px; margin: 0px; width: 100%; height: 100%">
 
         <!-- Indicators -->
-        <ol class="carousel-indicators">
+        <!-- <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
@@ -28,7 +28,26 @@
                 <div class="fill" style="background-image: url('http://nichegamer.com/wp-content/uploads/2015/11/the-legend-of-zelda-twilight-princess-hd-11-13-15-9.jpg');">
                 </div>
             </div>
+        </div> -->
+
+        <div class="fill" ng-controller="CarouselDemoCtrl">
+          <!-- <div style="height: 100%">
+            <uib-carousel interval="myInterval">
+              <uib-slide ng-repeat="slide in slides" active="slide.active" index="slide.id" style="display: block; height: 100%">
+                <img ng-src="{{slide.image}}" style="margin:auto; height:100%;">
+              </uib-slide>
+            </uib-carousel>
+          </div> -->
+          <div class="fill">
+              <uib-carousel interval="myInterval">
+                <uib-slide ng-repeat="slide in slides">
+                  <img class="fill" ng-src="{{slide.image}}">
+                </uib-slide>
+            </uib-carousel>
+            </div>
         </div>
+
+
 
         <div class="container col-lg-12 bottom text-center fill" style="padding: 0px;">
             <table id="wrapper">
@@ -65,12 +84,12 @@
             </div> -->
         </div>
 
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="icon-prev"></span>
         </a>
         <a class="right carousel-control" href="#myCarousel" data-slide="next">
             <span class="icon-next"></span>
-        </a>
+        </a> -->
     </header>
 
 

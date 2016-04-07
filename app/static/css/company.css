@@ -67,11 +67,11 @@ h3 {
 
 .card {
     /*rgba(18, 55, 86, 0.8)*/
-    background-color: rgba(18, 55, 86, 1);
+    background-color: #B8B8B8;
 }
 
 .table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
-   background-color: #33CCFF;
+   background-color: rgba(18, 55, 86, 1);
 }
 
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
