@@ -1,4 +1,5 @@
-var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate', 'ui.bootstrap', 'ui.grid']);
+var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate', 'ui.bootstrap', 
+    'ui.grid', 'ui.grid.pagination']);
 mainApp.run(function($rootScope) {
     $rootScope.id = 0;
 })
@@ -164,8 +165,15 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare, $rootScop
           "Rating": 6
         }
     ];
-    $scope.gridOptions = {};
+    $scope.gridOptions = {    
+        enablePaginationControls: false,
+        paginationPageSize: 1
+    };
     $scope.gridOptions.data = $scope.myData;
+
+    $scope.gridOptions.onRegisterApi = function (gridApi) {
+        $scope.grid = gridApi;
+    };
 
     $scope.gridOptions.columnDefs = [
         { name: 'Game',
