@@ -67,6 +67,7 @@ games = [
 	{
 		'id': 1,
 		'name': 'Mario Kart'
+
 	},
 	{
 		'id': 2,
@@ -83,7 +84,7 @@ def get_game(game_id):
 	game = [game for game in games if game['id'] == game_id]
 	if len(game) == 0:
 		abort(404)
-	return jsonify({'games': games[0]})
+	return jsonify({'game': game})
 
 @app_instance.errorhandler(404)
 def not_found(error):
