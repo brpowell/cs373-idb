@@ -88,3 +88,7 @@ i {
 .modal-wide .modal-dialog {
 width: 80%;
 }
+
+.aboutColor {
+    color: black;
+}

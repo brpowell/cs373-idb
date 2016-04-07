@@ -13,11 +13,11 @@
         <div class="carousel-inner" role="listbox">
 
             <div class="item active">
-                <div class="fill" style="background-image:url('http://www.bioshockinfinite.com/images/media/screenshots/Elizabeth_fink1.jpg');">
+                <div class="fill" style="background-image:url('http://cdn.wegotthiscovered.com/wp-content/uploads/fallout_4_14-1152x612.jpg');">
                 </div>
             </div>
             <div class="item">
-                <div class="fill" style="background-image:url('http://cdn.wegotthiscovered.com/wp-content/uploads/fallout_4_14-1152x612.jpg');">
+                <div class="fill" style="background-image:url('http://www.bioshockinfinite.com/images/media/screenshots/Elizabeth_fink1.jpg');">
                 </div>
             </div>
             <div class="item">
@@ -49,9 +49,9 @@
                     </td>
                 </tr>
             </table>
-            <div class="container bottom center" style="width: 100%">
+            <div ng-controller="ScrollCtrl" class="container bottom center" style="width: 100%">
 
-                <a onclick="$('bottom')" class="btn btn-default btn-custom">
+                <a ng-click="gotoElement('bottom')" class="btn btn-default btn-custom">
                 Learn More About Our Website
                 </a>
             </div>
@@ -111,7 +111,7 @@
                 </div>
             </div>
         </div>
-        <div id="bottom" class="smoothScroll"></div>
+        <div id="bottom"></div>
     </section>
 
     <script>
