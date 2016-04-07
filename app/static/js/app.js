@@ -147,7 +147,7 @@ mainApp.controller('ScrollCtrl', function($scope, $location, anchorSmoothScroll)
       anchorSmoothScroll.scrollTo(eID);
 
     };
-  });
+});
 
 mainApp.controller('aboutCtrl', function($scope, $http) {
 
@@ -161,6 +161,7 @@ mainApp.controller('aboutCtrl', function($scope, $http) {
     }
 
 });
+
 /*
 Copyright 2016 Google Inc. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
