@@ -78,6 +78,30 @@ class Game(db.Model):
                 best = r
         return best
 
+    def to_json(self):
+        json_game = {
+            'id': self.id,
+            'name': self.name,
+            'deck': self.deck,
+            'image': self.image,
+        }
+        developers = []
+        for dev in self.developers:
+            details = {'id': dev.id, 'name': dev.name}
+            developers.append(details)
+        publishers = []
+        for pub in self.publishers:
+            details = {'id': pub.id, 'name': pub.name}
+            publishers.append(details)
+        platforms = []
+        for plat in self.platforms:
+            details = {'id': plat.id, 'name': plat.name, 'short': plat.short}
+            platforms.append(details)
+        json_game['developers'] = developers
+        json_game['publishers'] = publishers
+        json_game['platforms'] = platforms
+        return json_game
+
     def __repr__(self):
         return '<Game %r>' % self.name
 

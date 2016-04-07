@@ -1,7 +1,7 @@
 from flask import send_file, make_response, url_for, jsonify, abort, make_response
 from app import app_instance, db
 import subprocess, json, os
-# from models import Game, Company, Person
+from app.models import Game, Company, Person
 
 # Routes
 @app_instance.route('/', methods=['GET'])
@@ -63,21 +63,22 @@ def run_tests():
 # RESTful API
 # ------------------------------------
 
-games = [
-	{
-		'id': 1,
-		'name': 'Mario Kart'
-
-	},
-	{
-		'id': 2,
-		'name': 'Pokemon'
-	}
-]
+# games = [
+# 	{
+# 		'id': 1,
+# 		'name': 'Mario Kart'
+#
+# 	},
+# 	{
+# 		'id': 2,
+# 		'name': 'Pokemon'
+# 	}
+# ]
 
 @app_instance.route('/api/games', methods=['GET'])
 def get_games():
-	return jsonify({'games': games})
+    games = Game.query.all()
+    return jsonify({ 'games': [game.to_json() for game in games] })
 
 @app_instance.route('/api/games/<int:game_id>', methods=['GET'])
 def get_game(game_id):
