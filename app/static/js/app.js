@@ -84,7 +84,7 @@ mainApp.controller('companyCtrl', function($scope, $http, dataShare) {
 mainApp.controller('gameCtrl', function($scope, $http, dataShare) {
     var id =  dataShare.getData();
     var cID;
-    $http.get('/api/games/'.concat(id)).then(function(result) {
+    $http.get('/api/game/'.concat(id)).then(function(result) {
         var game = result.data
         $scope.gameName = game["name"]
         $scope.description = game['deck']
@@ -110,7 +110,7 @@ mainApp.controller('gameCtrl', function($scope, $http, dataShare) {
 
 mainApp.controller('personCtrl', function($scope, $http, dataShare) {
     var id =  dataShare.getData();
-    $http.get('/api/people/'.concat(id)).then(function(result) {
+    $http.get('/api/person/'.concat(id)).then(function(result) {
         var people = result.data
         $scope.personName = people["name"]
         $scope.description = people['deck']
@@ -137,7 +137,7 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
 
     $scope.gridOptions = {};
 
-    $http.get('/api/companies').then(function(result){
+    $http.get('/api/company').then(function(result){
         $scope.gridOptions.data = result.data.companies;
 
         $scope.gridOptions.columnDefs = [

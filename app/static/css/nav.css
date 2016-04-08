@@ -44,7 +44,7 @@
 .navbar-custom .nav li a:hover {
     outline: 0;
     color: black;
-    background-color: #33CCFF ;
+    background-color: #336699 ;
 }
 
 .navbar-custom .nav li a:focus,
@@ -62,7 +62,7 @@
 }
 
 .navbar-custom .nav li.active a:hover {
-    background: #33CCFF;
+    background: #336699;
     color: black;
 }
 
