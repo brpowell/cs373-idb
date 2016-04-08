@@ -1,3 +1,3 @@
-FROM mysql:5.6
+FROM postgres:9.4
 
 ADD ggmate.sql /docker-entrypoint-initdb.d/

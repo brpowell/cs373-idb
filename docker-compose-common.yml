@@ -23,8 +23,8 @@ services:
           # All app servers be referred to by this alias with the backend network
           - apps
     environment:
-      - MYSQL_DATABASE=games_db
-      - MYSQL_HOST=ggm8_db
+      # Environment variables to configure the app on startup.
+      - POSTGRES_DB=postgres
 
   db:
     # The database container. Built from the db/Dockerfile.
@@ -34,16 +34,15 @@ services:
     networks:
       - backend
     environment:
-      # Environment variables to configure MySQL on startup.
-      - MYSQL_DATABASE=games_db
+      # Environment variables to configure postgres on startup.
+      - POSTGRES_DB=postgres
 
-  data:
-    container_name: ggm8_db_data
-    # The Data Volume Container used to mount a volume to store our persistent data
-    # https://getcarina.com/docs/tutorials/data-volume-containers/
-    image: cirros
-    volumes:
-      # Mount this path as a volume to store our MySQL files
-      - /var/lib/mysql
-    command: /bin/true
-      # Run a trivial command to exit quickly. Volumes don't need a running container.
+  # data:
+  #   container_name: ggm8_db_data
+  #   # The Data Volume Container used to mount a volume to store our persistent data
+  #   # https://getcarina.com/docs/tutorials/data-volume-containers/
+  #   image: cirros
+  #   volumes:
+  #     # Mount this path as a volume to store our MySQL files
+  #     - /var/lib/mysql
+  #   command: /bin/true
