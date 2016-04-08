@@ -48,7 +48,7 @@
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <tr ng-repeat="game in games track by $index">
-                            <td><a href="#game" ng-click="giveID(game.id)">{{game.name}}</a></td>
+                            <td><a class="gridTextColor" href="#game" ng-click="giveID(game.id)">{{game.name}}</a></td>
                         </tr>
                     </table>
                 </div>
@@ -62,7 +62,7 @@
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <tr ng-repeat="person in relatedPeople track by $index">
-                            <td><a href="#person" ng-click="giveID(person.id)">{{person.name}}</a></td>
+                            <td><a class="gridTextColor" href="#person" ng-click="giveID(person.id)">{{person.name}}</a></td>
                         </tr>
                     </table>
                 </div>
