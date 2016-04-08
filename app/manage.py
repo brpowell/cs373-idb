@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-from app import app_instance, db
-from app.models import Game, Platform, Rating, Company, Person
+from ggmate import app_instance, db
+from ggmate.models import Game, Platform, Rating, Company, Person
 from flask.ext.script import Manager, Shell, Server
 from flask.ext.migrate import Migrate, MigrateCommand
 import os
