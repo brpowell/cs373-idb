@@ -1,4 +1,4 @@
-<link href="css/game.css" rel="stylesheet">
+<link href="css/company.css" rel="stylesheet">
 
 <!-- Page Content -->
 <!-- Portfolio Item Row -->
@@ -17,16 +17,14 @@
             <h5>{{description}}</h5>
             <div class="row">
                 <div class="col-md-6 col-sm-6">
-                    <h3><i class="fa fa-star icon-color"></i> Ratings:</h3>
-                    <h5>{{rating}}</h5>
                     <h3><i class="fa fa-gamepad icon-color"></i> Platforms:</h3>
                     <h5>{{platforms}}</h5>
                     <h3><i class="fa fa-desktop icon-color"></i> Developer:</h3>
-                    <h5>{{developer}}</h5>
+                    <h5><a href="#company" ng-click="giveID(cID)">{{developer}}</a></h5>
                     <h3><i class="fa fa-building icon-color"></i> Publishers:</h3>
-                    <h5>{{publisher}}</h5>
+                    <h5><a href="#company" ng-click="giveID(pID)">{{publisher}}</a></h5>
                 </div>
-                <div class="col-md-6 col-sm-6">
+                <!-- <div class="col-md-6 col-sm-6">
                     <h3><i class="fa fa-users icon-color"></i> My Creators</h3>
                         <div class="table-responsive">
                             <table class="table table-striped">
@@ -37,7 +35,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

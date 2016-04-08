@@ -5,6 +5,9 @@
 <div class="container">
     <div class="container col-md-12 col-sm-12 col-xs-12 card shadow">
         <div class="row">
+            <p>
+                {{customer}}
+            </p>
             <div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-pagination class="grid" style="margin: 5px;">
 
 		      <p>Current page: {{grid.pagination.getPage()}} of {{grid.pagination.getTotalPages()}}</p>

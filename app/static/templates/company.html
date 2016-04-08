@@ -28,15 +28,6 @@
                     <h5>{{headquarters}}</h5>
                     <h3><i class="fa fa-calendar "></i> Date Founded:</h3>
                     <h5>{{founded}}</h5>
-                    <h3><i class="fa fa-link "></i> Company Website:</h3>
-                    <h5>{{website}}</h5>
-                </div>
-
-                <div class="col-md-6" style="padding: 0px">
-                    <h3><i class="fa fa-gamepad "></i> Highest Rated Game:</h3>
-                    <h5>{{highestRated}}</h5>
-                    <h3><i class="fa fa-star"></i> Company Rating:</h3>
-                    <h5>{{metaRating}}</h5>
                 </div>
             </div>
         </div>
@@ -56,8 +47,8 @@
 
                 <div class="table-responsive">
                     <table class="table table-striped">
-                        <tr ng-repeat="game in games">
-                            <td>{{game}}</td>
+                        <tr ng-repeat="game in games track by $index">
+                            <td><a href="#game" ng-click="giveID(game.id)">{{game.name}}</a></td>
                         </tr>
                     </table>
                 </div>
@@ -70,8 +61,8 @@
                 <h3 class="page-header" style="margin-top:10px;">Related People</h3>
                 <div class="table-responsive">
                     <table class="table table-striped">
-                        <tr ng-repeat="person in relatedPeople">
-                            <td>{{person}}</td>
+                        <tr ng-repeat="person in relatedPeople track by $index">
+                            <td><a href="#person" ng-click="giveID(person.id)">{{person.name}}</a></td>
                         </tr>
                     </table>
                 </div>

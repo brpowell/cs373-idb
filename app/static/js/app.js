@@ -54,51 +54,82 @@ mainApp.factory('dataShare',function($rootScope){
   return service;
 });
 
-mainApp.controller('companyCtrl', function($scope) {
-    $scope.companyName = "Bungie";
-    $scope.description = "This is where game description goes";
-    $scope.headquarters = "This is where headquarters goes";
-    $scope.founded = "This is where date founded goes";
-    $scope.website = "http://ggmate.me"
-    $scope.highestRated = "Highest Rated Game goes here";
-    $scope.metaRating = "Metacritic rating for company";
-    $scope.relatedPeople = ["Daryl Brigner", "Lani Minella",
-                            "Roger L. Jackson", "Mark Jones"];
-    $scope.games = ["Halo"];
-    $scope.imageLink = "http://static.giantbomb.com/uploads/scale_large/1/12139/2754841-bgs.jpg";
+mainApp.controller('companyCtrl', function($scope, $http, dataShare) {
+    var id =  dataShare.getData();
+
+    $http.get('/api/companies/'.concat(id)).then(function(result) {
+        $scope.companyName = result.data['name'];
+        $scope.description = result.data['deck'];
+        $scope.headquarters = result.data['city'];
+        $scope.founded = result.data['date_founded']
+        var p = []
+        for (i in result.data['people']){
+            p.push(result.data['people'][i]);
+        }
+        var g = []
+        for (j in result.data['developed_games']) {
+            g.push(result.data['developed_games'][j]);
+        }
+        $scope.relatedPeople = p;
+        $scope.games = g;
+        $scope.imageLink = result.data['image']
+    });
+    $scope.giveID = function(row) {
+        dataShare.sendData(row);
+        $scope.publisher = row
+    }
+
 });
 
 mainApp.controller('gameCtrl', function($scope, $http, dataShare) {
     var id =  dataShare.getData();
+    var cID;
     $http.get('/api/games/'.concat(id)).then(function(result) {
-        var game = result.data.game[0]
+        var game = result.data
         $scope.gameName = game["name"]
-        $scope.description = id
+        $scope.description = game['deck']
+        $scope.imageLink = game["image"]
+        $scope.developer = game['developers'][0]['name']
+        var s = ""
+        for (p in game["platforms"]) {
+            if (p < game["platforms"].length)
+            s += game["platforms"][p]["name"] + ", "
+        }
+        $scope.platforms = s
+        $scope.cID = game['developers'][0]['id']
+        $scope.publisher = game['publishers'][0]['name']
+        $scope.pID = game['publishers'][0]['id']
     });
 
-    // $http.get(url).then(function(result) {
-    //     $scope.game = url
-    //
-    //     $scope.imageLink = "http://static.giantbomb.com/uploads/scale_large/8/82063/2558592-daoclean.jpg";
-    //     $scope.description = $scope.text;
-    //     $scope.rating = "This is where the game rating goes";
-    //     $scope.platforms = "This is where the game platforms goes";
-    //     $scope.developer = "This is where the game's developers goes";
-    //     $scope.publisher = "This is where the game's publisher goes";
-    //     $scope.people = ["Person1", "Person2", "Person3"];
-    //     $scope.video = "https://www.youtube.com/embed/GE2BkLqMef4"
-    // })
+    $scope.giveID = function(row) {
+        dataShare.sendData(row);
+        $scope.publisher = row
+    }
+
 });
 
-mainApp.controller('personCtrl', function($scope) {
-    $scope.personName = "Peron's name goes here";
-    $scope.description = "Person description goes here";
-    $scope.firstGame = "Person's first credited game";
-    $scope.birthDate = "Person's Birthdate";
-    $scope.games = ["game1", "game2", "game3", "game4"];
+mainApp.controller('personCtrl', function($scope, $http, dataShare) {
+    var id =  dataShare.getData();
+    $http.get('/api/people/'.concat(id)).then(function(result) {
+        var people = result.data
+        $scope.personName = people["name"]
+        $scope.description = people['deck']
+        var g = []
+        for (j in result.data['games']) {
+            g.push(result.data['games'][j]);
+        }
+        $scope.games = g;
+        $scope.country = people["country"]
+        $scope.firstGame = people["games_created"]
+    });
+
+    $scope.giveID = function(row) {
+        dataShare.sendData(row);
+        $scope.publisher = row
+    }
 });
 
-mainApp.controller('companiesListCtrl', function($scope, gameID) {
+mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
     $scope.giveID = function(row) {
         $scope.customer = row.entity.id;
         dataShare.sendData(row.entity.id);
@@ -111,26 +142,17 @@ mainApp.controller('companiesListCtrl', function($scope, gameID) {
 
         $scope.gridOptions.columnDefs = [
             { name: 'name',
-              cellTemplate:'<a href="#game" target="_self">{{COL_FIELD}}</a>', enableHiding: false },
+              cellTemplate:'<a href="#company" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>', enableHiding: false },
             { name: 'deck', enableHiding: false },
-            { name: 'image', enableHiding: false }
-            // { name: 'Date Released', enableHiding: false },
-            // { name: 'Rating', enableHiding: false }
+            { name: 'image', enableHiding: false },
+            { name: 'Date Founded', field: "date_founded"},
+            { name: 'country'}
+
         ];
     });
-
-    $scope.gridOptions.columnDefs = [
-        { name: 'Company',
-          cellTemplate:'<a href="#company" ng-click="grid.appScope.giveID(row) target="_self">{{COL_FIELD}}</a>' },
-        { name: 'Date Founded'},
-        { name: '# of Developed Games'},
-        { name: '# of Published Games'},
-        { name: 'Country' }
-    ];
-
 });
 
-mainApp.controller('gamesListCtrl', function($scope, $http, dataShare, $rootScope) {
+mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
     $scope.giveID = function(row) {
         $scope.customer = row.entity.id;
         dataShare.sendData(row.entity.id);
@@ -146,45 +168,52 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare, $rootScop
     };
 
     $http.get('/api/games').then(function(result){
+        var platforms = '';
+        for (p in result.data.games ){
+            for (q in result.data.games[p]['platforms']) {
+                platforms += result.data.games[p]['platforms'][q]['name'] + ', '
+            }
+            result.data.games[p]['platforms'] = platforms
+            platforms = ""
+        }
+
         $scope.gridOptions.data = result.data.games;
         $scope.gridOptions.columnDefs = [
             { name: 'name',
-              cellTemplate:'<a href="#game" target="_self">{{COL_FIELD}}</a>', enableHiding: false },
+              cellTemplate:'<a href="#game" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>',
+              enableHiding: false },
             { name: 'deck', enableHiding: false },
-            { name: 'image', enableHiding: false }
-            // { name: 'Date Released', enableHiding: false },
-            // { name: 'Rating', enableHiding: false }
+            { name: 'publisher', field: "publishers[0]['name']", enableHiding: false },
+            { name: 'developer', field: "developers[0]['name']"},
+            { name: 'platforms' }
         ];
     });
 });
 
-mainApp.controller('peopleListCtrl', function($scope) {
-    $scope.myData = [
-        {
-            "Person" : "Person's name goes here",
-            "Company" : "Person's company goes here",
-            "First Game" : "My First Game",
-            "Country" : "United States",
-            "Gender" : "Male"
-        }
-    ]
+mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
+    $scope.giveID = function(row) {
+        dataShare.sendData(row.entity.id);
+    }
     $scope.gridOptions = {
         enablePaginationControls: false,
-        paginationPageSize: 1
+        paginationPageSize: 20
     };
-
-    $scope.gridOptions.data = $scope.myData;
     $scope.gridOptions.onRegisterApi = function (gridApi) {
         $scope.grid = gridApi;
     };
-    $scope.gridOptions.columnDefs = [
-        { name: 'Person',
-          cellTemplate:'<a href="#game" ng-click="grid.appScope.why(row)">{{COL_FIELD}}</a>' },
-        { name: 'Company'},
-        { name: 'First Game'},
-        { name: 'Country'},
-        { name: 'Gender' }
-    ];
+    $http.get('/api/people').then(function(result){
+        $scope.gridOptions.data = result.data.people;
+
+        $scope.gridOptions.columnDefs = [
+            { name: 'name',
+              cellTemplate:'<a href="#person" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>',
+              enableHiding: false },
+            { name: 'deck', enableHiding: false },
+            { name: 'Games Created', field: "games_created", enableHiding: false },
+            { name: 'Country', field: "country"},
+            { name: 'Home Town', field: "hometown" }
+        ];
+    });
 
 });
 
