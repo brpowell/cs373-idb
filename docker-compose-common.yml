@@ -5,7 +5,7 @@ version: "2"
 services:
   lb:
     # The load balancer container. Built from the lb/Dockerfile.
-    container_name: ggm8_lb
+    container_name: pythonwebapp_lb
     build: lb
     restart: unless-stopped
     networks:
@@ -24,25 +24,27 @@ services:
           - apps
     environment:
       # Environment variables to configure the app on startup.
-      - POSTGRES_DB=postgres
+      - MYSQL_DATABASE=guestbook
+      - MYSQL_HOST=pythonwebapp_db
 
   db:
     # The database container. Built from the db/Dockerfile.
-    container_name: ggm8_db
+    container_name: pythonwebapp_db
     build: db
     restart: unless-stopped
     networks:
       - backend
     environment:
-      # Environment variables to configure postgres on startup.
-      - POSTGRES_DB=postgres
+      # Environment variables to configure MySQL on startup.
+      - MYSQL_DATABASE=guestbook
 
   data:
-    container_name: ggm8_db_data
+    container_name: pythonwebapp_db_data
     # The Data Volume Container used to mount a volume to store our persistent data
     # https://getcarina.com/docs/tutorials/data-volume-containers/
     image: cirros
     volumes:
       # Mount this path as a volume to store our MySQL files
-      - /var/lib/postgres
+      - /var/lib/mysql
     command: /bin/true
+      # Run a trivial command to exit quickly. Volumes don't need a running container.

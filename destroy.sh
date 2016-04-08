@@ -1,0 +1,1 @@
+docker-compose --file docker-compose-dark.yml stop && docker-compose --file docker-compose-dark.yml rm
