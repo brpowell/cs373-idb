@@ -8,49 +8,6 @@ from ggmate.models import Game, Company, Person
 def index():
     return send_file('index.html')
 
-# @app_instance.route('/index.html', methods=['GET'])
-# def ss():
-#     return send_file('templates/index.html')
-
-# @app_instance.route('/nav.html', methods=['GET'])
-# def nav():
-#     return send_file('templates/nav.html')
-
-# @app_instance.route('/about.html', methods=['GET'])
-# def about():
-#     return send_file('templates/about.html')
-
-# @app_instance.route('/companies.html')
-# def companies():
-#     return send_file('templates/companies.html')
-
-# @app_instance.route('/games.html')
-# def games():
-#     return send_file('templates/games.html')
-
-# @app_instance.route('/people.html')
-# def people():
-#     return send_file('templates/people.html')
-
-# @app_instance.route('/home.html')
-# def home():
-#     return send_file('templates/home.html')
-
-# @app.route('/company/<id>')
-# def company(id):
-#     company = Company.query.filter_by(company_id=id)
-#     return send_file('templates/company.html', company=company)
-#
-# @app.route('/game/<id>')
-# def game():
-#     game = Game.query.filter_by(game_id=id)
-#     return send_file('templates/game.html', game=game)
-#
-# @app.route('/person/<id>')
-# def person(id):
-#     person = Person.query.filter_by(person_id=id)
-#     return send_file('templates/person.html')
-
 # Run unittest
 @app_instance.route('/run_unittests')
 def run_tests():
@@ -65,7 +22,7 @@ def run_tests():
 
 @app_instance.route('/api/games/<int:page>', methods=['GET'])
 def get_games(page=1):
-    request = Game.query.paginate(page=page, per_page=50)
+    request = Game.query.paginate(page=page, per_page=20)
     games = request.items
     return jsonify({'games': [game.to_json() for game in games] })
 
@@ -77,7 +34,7 @@ def get_companies(page=1):
 
 @app_instance.route('/api/people/<int:page>', methods=['GET'])
 def get_people(page=1):
-    request = Person.query.paginate(page=page, per_page=50)
+    request = Person.query.paginate(page=page, per_page=20)
     people = request.items
     return jsonify({'people': [person.to_json() for person in people]})
 
