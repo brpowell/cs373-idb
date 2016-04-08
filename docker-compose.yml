@@ -27,7 +27,7 @@ services:
       # for our local development environment
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=swepeeps
-    command: gunicorn --reload app:app --bind 0.0.0.0:5000
+    command: gunicorn --reload manage:app --bind 0.0.0.0:5000
       # Run Gunicorn to serve app requests and reload on change so we can see our
       # changes to the app code
 
@@ -44,14 +44,14 @@ services:
       # for our local development environment
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=swepeeps
-    # volumes_from:
-    #   # Mount the volumes from the data container to store our MySQL files
-    #   - data
+    volumes_from:
+      # Mount the volumes from the data container to store our MySQL files
+      - data
 
-  # data:
-  #   extends:
-  #     file: docker-compose-common.yml
-  #     service: data
+  data:
+    extends:
+      file: docker-compose-common.yml
+      service: data
 
 networks:
   backend: {}

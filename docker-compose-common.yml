@@ -37,12 +37,12 @@ services:
       # Environment variables to configure postgres on startup.
       - POSTGRES_DB=postgres
 
-  # data:
-  #   container_name: ggm8_db_data
-  #   # The Data Volume Container used to mount a volume to store our persistent data
-  #   # https://getcarina.com/docs/tutorials/data-volume-containers/
-  #   image: cirros
-  #   volumes:
-  #     # Mount this path as a volume to store our MySQL files
-  #     - /var/lib/mysql
-  #   command: /bin/true
+  data:
+    container_name: ggm8_db_data
+    # The Data Volume Container used to mount a volume to store our persistent data
+    # https://getcarina.com/docs/tutorials/data-volume-containers/
+    image: cirros
+    volumes:
+      # Mount this path as a volume to store our MySQL files
+      - /var/lib/postgres
+    command: /bin/true

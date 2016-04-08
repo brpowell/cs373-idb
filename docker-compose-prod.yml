@@ -22,7 +22,7 @@ services:
       # Expose port 5000 so it's only visibile on the container, not the host
       - "5000"
     env_file: ggm8-postgres-prod.env
-    command: gunicorn app:app --bind 0.0.0.0:5000
+    command: gunicorn manage:app --bind 0.0.0.0:5000
       # Run Gunicorn to serve app requests
 
   db:
@@ -39,10 +39,10 @@ services:
       # Mount the volumes from the data container to store our MySQL files
       - data
 
-  # data:
-  #   extends:
-  #     file: docker-compose-common.yml
-  #     service: data
+  data:
+    extends:
+      file: docker-compose-common.yml
+      service: data
 
 networks:
   backend: {}
