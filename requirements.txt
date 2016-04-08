@@ -10,10 +10,7 @@ Jinja2==2.8
 Mako==1.0.4
 MarkupSafe==0.23
 psycopg2==2.6.1
-<<<<<<< HEAD:requirements.txt
 python-dateutil==2.5.2
-=======
->>>>>>> 6f69bb564ba1c6a4073d3469b1a1514f80aad988:app/requirements.txt
 python-editor==1.0
 requests==2.9.1
 six==1.10.0

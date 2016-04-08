@@ -5,15 +5,18 @@
 <div class="container">
     <div class="container col-md-12 col-sm-12 col-xs-12 card shadow">
         <div class="row">
-            <div id="grid1" ui-grid="gridOptions" class="grid" ui-grid-pagination class="grid" style="margin: 5px;">
-
-		      <p>Current page: {{grid.pagination.getPage()}} of {{grid.pagination.getTotalPages()}}</p>
+            <div ui-grid="gridOptions" class="grid" ui-grid-pagination class="grid">
+            <!-- style="margin: 5px;" -->
+            <div>
+		      <div>Current page: {{grid.pagination.getPage()}} of {{grid.pagination.getTotalPages()}}</div>
 		      <button type="button" class="btn btn-success" ng-click="grid.pagination.previousPage()">
 		        previous page
 		      </button>
 		      <button type="button" class="btn btn-success" ng-click="grid.pagination.nextPage()">
 		        next page
 		      </button>
+            </div>
+
             </div>
         </div>
     </div>
