@@ -1,0 +1,31 @@
+<!-- Custom CSS -->
+<link href="css/company.css" rel="stylesheet">
+
+<!-- Page Content -->
+<!-- Portfolio Item Row -->
+<div class="container col-md-8 col-xs-10 col-md-offset-2 col-xs-offset-1 shadow card" style="margin-top: 25px;" >
+    <h1 class="page-header">{{personName}}</h1>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-md-6 col-sm-6">
+            <h3>Description:</h3>
+            <h5>{{description}}</h5>
+            <h3><i class="fa fa-trophy"></i>Games Created:</h3>
+            <h5>{{firstGame}}</h5>
+            <h3><i class="fa fa-globe"></i> Country:</h3>
+            <h5>{{country}}</h5>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <h3><i class="fa fa-gamepad"></i> Games I've Worked On</h3>
+            <div class="table-responsive">
+            <table class="table table-striped">
+                <tr ng-repeat="game in games track by $index">
+                    <td><a href="#game" ng-click="giveID(game.id)">{{game.name}}</a></td>
+                </tr>
+            </table>
+        </div>
+        </div>
+    </div>
+
+<!-- /.row -->
+<hr>
+</div>
