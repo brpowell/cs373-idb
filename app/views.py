@@ -54,7 +54,7 @@ def index():
 # Run unittest
 @app_instance.route('/run_unittests')
 def run_tests():
-    output = subprocess.getoutput('python ../tests.py')
+    output = subprocess.getoutput('python3 tests.py')
     print(output)
     return json.dumps({'output': str(output)})
 
