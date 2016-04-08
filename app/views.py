@@ -63,11 +63,12 @@ def run_tests():
 # RESTful API
 # ------------------------------------
 
-@app_instance.route('/api/games', methods=['GET'])
-def get_games():
-    request = Game.query.paginate(per_page=20)
+@app_instance.route('/api/games/<int:page>', methods=['GET'])
+def get_games(page=1):
+    request = Game.query.paginate(page=page, per_page=50)
     games = request.items
-    return jsonify({ 'games': [game.to_json() for game in games] })
+    # games = request.items
+    return jsonify({'games': [game.to_json() for game in games] })
 
 @app_instance.route('/api/companies', methods=['GET'])
 def get_companies():
@@ -81,21 +82,21 @@ def get_people():
     people = request.items
     return jsonify({'people': [person.to_json() for person in people]})
 
-@app_instance.route('/api/people/<int:id>', methods=['GET'])
+@app_instance.route('/api/person/<int:id>', methods=['GET'])
 def get_person(id):
     request = Person.query.filter_by(id=id).first()
     if request is None:
         abort(404)
     return jsonify(request.to_json(list_view=True))
 
-@app_instance.route('/api/companies/<int:id>', methods=['GET'])
+@app_instance.route('/api/company/<int:id>', methods=['GET'])
 def get_company(id):
     request = Company.query.filter_by(id=id).first()
     if request is None:
         abort(404)
     return jsonify(request.to_json(list_view=True))
 
-@app_instance.route('/api/games/<int:id>', methods=['GET'])
+@app_instance.route('/api/game/<int:id>', methods=['GET'])
 def get_game(id):
     request = Game.query.filter_by(id=id).first()
     if request is None:

@@ -57,7 +57,7 @@ mainApp.factory('dataShare',function($rootScope){
 mainApp.controller('companyCtrl', function($scope, $http, dataShare) {
     var id =  dataShare.getData();
 
-    $http.get('/api/companies/'.concat(id)).then(function(result) {
+    $http.get('/api/company/'.concat(id)).then(function(result) {
         $scope.companyName = result.data['name'];
         $scope.description = result.data['deck'];
         $scope.headquarters = result.data['city'];
@@ -137,7 +137,7 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
 
     $scope.gridOptions = {};
 
-    $http.get('/api/company').then(function(result){
+    $http.get('/api/companies').then(function(result){
         $scope.gridOptions.data = result.data.companies;
 
         $scope.gridOptions.columnDefs = [
@@ -157,27 +157,48 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
         $scope.customer = row.entity.id;
         dataShare.sendData(row.entity.id);
     }
-
     $scope.gridOptions = {
         enablePaginationControls: false,
-        paginationPageSize: 10
+        paginationPageSize: 50,
+        useExternalPagination: true
+        // useExternalSorting: true
+    };
+    var paginationOptions = {
+        pageNumber: 1,
+        pageSize: 50,
+        sort: null
     };
 
-    $scope.gridOptions.onRegisterApi = function (gridApi) {
-        $scope.grid = gridApi;
-    };
-
-    $http.get('/api/games').then(function(result){
-        var platforms = '';
-        for (p in result.data.games ){
-            for (q in result.data.games[p]['platforms']) {
-                platforms += result.data.games[p]['platforms'][q]['name'] + ', '
-            }
-            result.data.games[p]['platforms'] = platforms
-            platforms = ""
+    var getPage = function() {
+        var url;
+        switch(paginationOptions.sort) {
+          // case uiGridConstants.ASC:
+          //   url = 'https://cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/data/100_ASC.json';
+          //   break;
+          // case uiGridConstants.DESC:
+          //   url = 'https://cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/data/100_DESC.json';
+          //   break;
+          default:
+            url = '/api/games/'+paginationOptions.pageNumber;
+            break;
         }
 
-        $scope.gridOptions.data = result.data.games;
+        $http.get(url).success(function (result) {
+            $scope.gridOptions.totalItems = 24776;
+            // var firstRow = (paginationOptions.pageNumber - 1) * paginationOptions.pageSize;
+            // $scope.gridOptions.data = data.games.slice(firstRow, firstRow + paginationOptions.pageSize);
+            // $scope.gridOptions.data = data.games
+            var platforms = '';
+            for (p in result.games ){
+                for (q in result.games[p]['platforms']) {
+                    platforms += result.games[p]['platforms'][q]['name'] + ', '
+                }
+                result.games[p]['platforms'] = platforms
+                platforms = ""
+            }
+            $scope.gridOptions.data = result.games;
+        });
+
         $scope.gridOptions.columnDefs = [
             { name: 'name',
               cellTemplate:'<a href="#game" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>',
@@ -187,7 +208,20 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
             { name: 'developer', field: "developers[0]['name']"},
             { name: 'platforms' }
         ];
-    });
+    };
+
+    $scope.gridOptions.onRegisterApi = function (gridApi) {
+        $scope.grid = gridApi;
+        
+
+        gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
+            paginationOptions.pageNumber = newPage;
+            paginationOptions.pageSize = pageSize;
+            getPage();
+        });
+    };
+    getPage();
+
 });
 
 mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
