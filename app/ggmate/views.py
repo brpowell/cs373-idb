@@ -1,7 +1,7 @@
 from flask import send_file, make_response, url_for, jsonify, abort, make_response
-from app import app_instance, db
+from ggmate import app_instance, db
 import subprocess, json, os
-from app.models import Game, Company, Person
+from ggmate.models import Game, Company, Person
 
 # Routes
 @app_instance.route('/', methods=['GET'])

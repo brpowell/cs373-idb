@@ -14,4 +14,4 @@ db = SQLAlchemy(app_instance)
 app_instance = Flask(__name__, static_url_path='')
 
 
-import app.views
+import ggmate.views

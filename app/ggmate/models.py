@@ -1,4 +1,4 @@
-from app import db
+from ggmate import db
 
 # Association tables for many-to-many relationships
 company_person = db.Table('company_person',
