@@ -92,3 +92,8 @@ width: 80%;
 .aboutColor {
     color: black;
 }
+
+.grid {
+  height: 70vh;
+  /*height: 500px;*/
+}
