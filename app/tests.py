@@ -1,7 +1,7 @@
 import os
 import unittest
-from app import db, app_instance
-from app.models import Company, Person, Game, Platform, Rating
+from ggmate import db, app_instance
+from ggmate.models import Company, Person, Game, Platform, Rating
 from flask.ext.testing import TestCase
 from datetime import datetime
 from dateutil import parser

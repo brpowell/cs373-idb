@@ -4,6 +4,7 @@ from ggmate.models import Game, Platform, Rating, Company, Person
 from flask.ext.script import Manager, Shell, Server
 from flask.ext.migrate import Migrate, MigrateCommand
 import os
+import subprocess
 
 manager = Manager(app_instance)
 migrate = Migrate(app_instance, db)
@@ -25,9 +26,9 @@ def resetdb():
     """ Clear the database """
     choice = input('Are you sure? Y/N: ')
     if choice.lower() == 'y':
-        db.session.commit()
         db.drop_all()
-        db.create_all()
+        db.session.commit()
+        subprocess.getoutput('psql ggmate < ../ggmate.sql')
         print('Done...Dropped tables and recreated db')
 
 @manager.command
