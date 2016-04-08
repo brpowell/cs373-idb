@@ -98,8 +98,9 @@ width: 80%;
 }
 
 .grid {
-  height: 70vh;
+  /*height: 70vh;*/
   /*height: 500px;*/
+  height: 100%;
 }
 
 .gridTextColor{

@@ -70,9 +70,9 @@ def get_games(page=1):
     # games = request.items
     return jsonify({'games': [game.to_json() for game in games] })
 
-@app_instance.route('/api/companies', methods=['GET'])
-def get_companies():
-    request = Company.query.paginate(per_page=20)
+@app_instance.route('/api/companies/<int:page>', methods=['GET'])
+def get_companies(page=1):
+    request = Company.query.paginate(page=page, per_page=50)
     companies = request.items
     return jsonify({'companies': [company.to_json() for company in companies]})
 

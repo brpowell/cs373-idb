@@ -135,10 +135,36 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
         dataShare.sendData(row.entity.id);
     }
 
-    $scope.gridOptions = {};
+    $scope.gridOptions = {
+        enablePaginationControls: false,
+        paginationPageSize: 50,
+        useExternalPagination: true
+        // useExternalSorting: true
+    };
+    var paginationOptions = {
+        pageNumber: 1,
+        pageSize: 50,
+        sort: null
+    };
 
-    $http.get('/api/companies').then(function(result){
-        $scope.gridOptions.data = result.data.companies;
+    var getPage = function() {
+        var url;
+        switch(paginationOptions.sort) {
+          // case uiGridConstants.ASC:
+          //   url = 'https://cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/data/100_ASC.json';
+          //   break;
+          // case uiGridConstants.DESC:
+          //   url = 'https://cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/data/100_DESC.json';
+          //   break;
+          default:
+            url = '/api/companies/'+paginationOptions.pageNumber;
+            break;
+        }
+
+        $http.get(url).success(function (result) {
+            $scope.gridOptions.totalItems = 617;
+            $scope.gridOptions.data = result.companies;
+        });
 
         $scope.gridOptions.columnDefs = [
             { name: 'name',
@@ -147,9 +173,19 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
             { name: 'image', enableHiding: false },
             { name: 'Date Founded', field: "date_founded"},
             { name: 'country'}
-
         ];
-    });
+    };
+
+    $scope.gridOptions.onRegisterApi = function (gridApi) {
+        $scope.grid = gridApi;
+        
+        gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
+            paginationOptions.pageNumber = newPage;
+            paginationOptions.pageSize = pageSize;
+            getPage();
+        });
+    };
+    getPage();
 });
 
 mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
@@ -191,7 +227,10 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
             var platforms = '';
             for (p in result.games ){
                 for (q in result.games[p]['platforms']) {
-                    platforms += result.games[p]['platforms'][q]['name'] + ', '
+                    platforms += result.games[p]['platforms'][q]['name']
+                    if (q < result.games[p]['platforms'].length - 1) {
+                        platforms += ', '
+                    }
                 }
                 result.games[p]['platforms'] = platforms
                 platforms = ""
@@ -230,12 +269,21 @@ mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
     }
     $scope.gridOptions = {
         enablePaginationControls: false,
-        paginationPageSize: 20
+        paginationPageSize: 50,
+        useExternalPagination: true
+        // useExternalSorting: true
     };
+    var paginationOptions = {
+        pageNumber: 1,
+        pageSize: 50,
+        sort: null
+    };
+    
     $scope.gridOptions.onRegisterApi = function (gridApi) {
         $scope.grid = gridApi;
     };
     $http.get('/api/people').then(function(result){
+        $scope.gridOptions.totalItems = 72951;
         $scope.gridOptions.data = result.data.people;
 
         $scope.gridOptions.columnDefs = [
