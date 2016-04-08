@@ -2,11 +2,11 @@
 from app import app_instance, db
 from app.models import Game, Platform, Rating, Company, Person
 from flask.ext.script import Manager, Shell, Server
-from flask.ext.migrate import Migrate, MigrateCommand
+# from flask.ext.migrate import Migrate, MigrateCommand
 import os
 
 manager = Manager(app_instance)
-migrate = Migrate(app_instance, db)
+# migrate = Migrate(app_instance, db)
 
 def make_shell_context():
     d = {
@@ -36,7 +36,7 @@ def test():
     output = subprocess.getoutput('python tests.py')
     print(output)
 
-manager.add_command('db', MigrateCommand)
+# manager.add_command('db', MigrateCommand)
 manager.add_command("shell", Shell(make_context=make_shell_context))
 manager.add_command('rundebug', Server(host='0.0.0.0', port="5000", use_debugger=True))
 

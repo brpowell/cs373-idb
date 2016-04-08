@@ -13,29 +13,21 @@
         <div class="col-md-8 col-sm-8" style="margin-top: 15px;">
             <div class="container col-md-12 shadow" style="background-color: #B8B8B8; min-height: 500px">
             <h1 class="page-header">{{gameName}}</h1>
-            <h2>Game Description:</h2>
+            <h2><i class="fa fa-bookmark-o icon-color"></i> Game Description:</h2>
             <h3>{{description}}</h3>
             <div class="row">
                 <div class="col-md-6 col-sm-6">
                     <h2><i class="fa fa-gamepad icon-color"></i> Platforms:</h2>
                     <h3>{{platforms}}</h3>
+
+                </div>
+                <div class="col-md-6 col-sm-6">
                     <h2><i class="fa fa-desktop icon-color"></i> Developer:</h2>
                     <h3><a href="#company" ng-click="giveID(cID)">{{developer}}</a></h3>
                     <h2><i class="fa fa-building icon-color"></i> Publishers:</h2>
                     <h3><a href="#company" ng-click="giveID(pID)">{{publisher}}</a></h3>
-                </div>
-                <!-- <div class="col-md-6 col-sm-6">
-                    <h3><i class="fa fa-users icon-color"></i> My Creators</h3>
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <tr ng-repeat="person in people">
-                                    <td>{{person}}</td>
-                                </tr>
-                            </table>
-                        </div>
 
-                    </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>

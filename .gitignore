@@ -6,6 +6,6 @@ __pycache__
 .env
 .env.swp
 oldenv.txt
-
+.dylib
 data/*/
 !data/base
