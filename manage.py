@@ -38,7 +38,7 @@ def test():
 
 manager.add_command('db', MigrateCommand)
 manager.add_command("shell", Shell(make_context=make_shell_context))
-manager.add_command('rundebug', Server(host='0.0.0.0', use_debugger=True))
+manager.add_command('rundebug', Server(host='0.0.0.0', port="5000", use_debugger=True))
 
 if __name__ == "__main__":
     manager.run()
