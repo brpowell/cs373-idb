@@ -139,7 +139,6 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
         enablePaginationControls: false,
         paginationPageSize: 50,
         useExternalPagination: true
-        // useExternalSorting: true
     };
     var paginationOptions = {
         pageNumber: 1,
@@ -150,12 +149,6 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
     var getPage = function() {
         var url;
         switch(paginationOptions.sort) {
-          // case uiGridConstants.ASC:
-          //   url = 'https://cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/data/100_ASC.json';
-          //   break;
-          // case uiGridConstants.DESC:
-          //   url = 'https://cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/data/100_DESC.json';
-          //   break;
           default:
             url = '/api/companies/'+paginationOptions.pageNumber;
             break;
@@ -251,8 +244,6 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
 
     $scope.gridOptions.onRegisterApi = function (gridApi) {
         $scope.grid = gridApi;
-        
-
         gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
             paginationOptions.pageNumber = newPage;
             paginationOptions.pageSize = pageSize;
@@ -267,24 +258,30 @@ mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
     $scope.giveID = function(row) {
         dataShare.sendData(row.entity.id);
     }
+
     $scope.gridOptions = {
         enablePaginationControls: false,
         paginationPageSize: 50,
         useExternalPagination: true
-        // useExternalSorting: true
     };
     var paginationOptions = {
         pageNumber: 1,
         pageSize: 50,
         sort: null
     };
-    
-    $scope.gridOptions.onRegisterApi = function (gridApi) {
-        $scope.grid = gridApi;
-    };
-    $http.get('/api/people').then(function(result){
-        $scope.gridOptions.totalItems = 72951;
-        $scope.gridOptions.data = result.data.people;
+
+    var getPage = function() {
+        var url;
+        switch(paginationOptions.sort) {
+          default:
+            url = '/api/people/'+paginationOptions.pageNumber;
+            break;
+        }
+
+        $http.get(url).success(function (result) {
+            $scope.gridOptions.totalItems = 72951;
+            $scope.gridOptions.data = result.people;
+        });
 
         $scope.gridOptions.columnDefs = [
             { name: 'name',
@@ -295,7 +292,18 @@ mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
             { name: 'Country', field: "country"},
             { name: 'Home Town', field: "hometown" }
         ];
-    });
+    };
+
+    $scope.gridOptions.onRegisterApi = function (gridApi) {
+        $scope.grid = gridApi;
+        
+        gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
+            paginationOptions.pageNumber = newPage;
+            paginationOptions.pageSize = pageSize;
+            getPage();
+        });
+    };
+    getPage();
 
 });
 
@@ -350,10 +358,7 @@ mainApp.service('anchorSmoothScroll', function(){
 
 mainApp.controller('ScrollCtrl', function($scope, $location, anchorSmoothScroll) {
     $scope.gotoElement = function (eID){
-      // set the location.hash to the id of
-      // the element you wish to scroll to.
       $location.hash('bottom');
-      // call $anchorScroll()
       anchorSmoothScroll.scrollTo(eID);
     };
 });

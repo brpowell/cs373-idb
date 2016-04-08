@@ -67,7 +67,6 @@ def run_tests():
 def get_games(page=1):
     request = Game.query.paginate(page=page, per_page=50)
     games = request.items
-    # games = request.items
     return jsonify({'games': [game.to_json() for game in games] })
 
 @app_instance.route('/api/companies/<int:page>', methods=['GET'])
@@ -76,9 +75,9 @@ def get_companies(page=1):
     companies = request.items
     return jsonify({'companies': [company.to_json() for company in companies]})
 
-@app_instance.route('/api/people', methods=['GET'])
-def get_people():
-    request = Person.query.paginate(per_page=20)
+@app_instance.route('/api/people/<int:page>', methods=['GET'])
+def get_people(page=1):
+    request = Person.query.paginate(page=page, per_page=50)
     people = request.items
     return jsonify({'people': [person.to_json() for person in people]})
 
