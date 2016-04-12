@@ -41,16 +41,16 @@ mainApp.config(['$routeProvider', function($routeProvider) {
 }]);
 
 mainApp.factory('dataShare',function($rootScope){
-  var service = {};
-  service.data = false;
-  service.sendData = function(data){
-      this.data = data;
-      $rootScope.$broadcast('data_shared');
-  };
-  service.getData = function(){
-    return this.data;
-  };
-  return service;
+    var service = {};
+    service.data = false;
+    service.sendData = function(data){
+        this.data = data;
+        $rootScope.$broadcast('data_shared');
+    };
+    service.getData = function(){
+        return this.data;
+    };
+    return service;
 });
 
 mainApp.controller('companyCtrl', function($scope, $http, dataShare) {
@@ -76,7 +76,7 @@ mainApp.controller('companyCtrl', function($scope, $http, dataShare) {
     $scope.giveID = function(row) {
         dataShare.sendData(row);
         $scope.publisher = row
-    }
+    };
 });
 
 mainApp.controller('gameCtrl', function($scope, $http, dataShare) {
@@ -121,7 +121,7 @@ mainApp.controller('personCtrl', function($scope, $http, dataShare) {
         $scope.firstGame = people["games_created"]
     });
 
-    $scope.giveID = function(row) {
+    $scope.giveID = function(id) {
         dataShare.sendData(row);
         $scope.publisher = row
     }
@@ -131,25 +131,37 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
     $scope.giveID = function(row) {
         dataShare.sendData(row);
     }
-
+    // total number of companies
     $scope.totalCompanies = 617;
+
+    // 20 companies per page
     $scope.companiesPerPage = 20;
+
+    // pagination
     $scope.pagination = {
         current: 1
     };
+
+    // get first page when load
     getPage(1);
 
+    // listen on page change
     $scope.pageChanged = function(newPage) {
         getPage(newPage);
     };
 
+    // get new page based on the page number
     function getPage(pageNumber) {
         $http.get('/api/companies/' + pageNumber).success(function(res) {
             $scope.companies = res.companies;
-            console.log($scope.companies);
         });
     };
 
+    // give company ID
+    $scope.giveID = function(id) {
+        $scope.customer = id;
+        dataShare.sendData(id);
+    }
 
 
     // $scope.gridOptions = {
@@ -272,55 +284,82 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
 });
 
 mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
-    $scope.giveID = function(row) {
-        dataShare.sendData(row.entity.id);
+
+    // total number of people
+    $scope.totalPeople = 72951;
+
+    // 20 people per page
+    $scope.peoplePerPage = 20;
+
+    // pagination
+    $scope.pagination = {
+        current: 1
+    };
+
+    // get first page when load
+    getPage(1);
+
+    $scope.pageChanged = function(newPage) {
+        getPage(newPage);
+    };
+
+    function getPage(pageNumber) {
+        $http.get('/api/people/' + pageNumber).success(function(res) {
+            $scope.people = res.people;
+            console.log($scope.people);
+        });
+    };
+
+    $scope.giveID = function(id) {
+        dataShare.sendData(id);
     }
 
-    $scope.gridOptions = {
-        enablePaginationControls: false,
-        paginationPageSize: 50,
-        useExternalPagination: true
-    };
-    var paginationOptions = {
-        pageNumber: 1,
-        pageSize: 50,
-        sort: null
-    };
+    // $scope.gridOptions = {
+    //     enablePaginationControls: false,
+    //     paginationPageSize: 50,
+    //     useExternalPagination: true
+    // };
+    // var paginationOptions = {
+    //     pageNumber: 1,
+    //     pageSize: 50,
+    //     sort: null
+    // };
 
-    var getPage = function() {
-        var url;
-        switch(paginationOptions.sort) {
-          default:
-            url = '/api/people/'+paginationOptions.pageNumber;
-            break;
-        }
+    // var getPage = function() {
+    //     var url;
+    //     switch(paginationOptions.sort) {
+    //       default:
+    //         url = '/api/people/'+paginationOptions.pageNumber;
+    //         break;
+    //     }
 
-        $http.get(url).success(function (result) {
-            $scope.gridOptions.totalItems = 72951;
-            $scope.gridOptions.data = result.people;
-        });
+    //     $http.get(url).success(function (result) {
+    //         $scope.gridOptions.totalItems = 72951;
+    //         $scope.gridOptions.data = result.people;
+    //     });
 
-        $scope.gridOptions.columnDefs = [
-            { name: 'name',
-              cellTemplate:'<a href="#person" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>',
-              enableHiding: false },
-            { name: 'deck', enableHiding: false },
-            { name: 'Games Created', field: "games_created", enableHiding: false },
-            { name: 'Country', field: "country"},
-            { name: 'Home Town', field: "hometown" }
-        ];
-    };
+    //     $scope.gridOptions.columnDefs = [
+    //         { name: 'name',
+    //           cellTemplate:'<a href="#person" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>',
+    //           enableHiding: false },
+    //         { name: 'deck', enableHiding: false },
+    //         { name: 'Games Created', field: "games_created", enableHiding: false },
+    //         { name: 'Country', field: "country"},
+    //         { name: 'Home Town', field: "hometown" }
+    //     ];
+    // };
 
-    $scope.gridOptions.onRegisterApi = function (gridApi) {
-        $scope.grid = gridApi;
+    // $scope.gridOptions.onRegisterApi = function (gridApi) {
+    //     $scope.grid = gridApi;
 
-        gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
-            paginationOptions.pageNumber = newPage;
-            paginationOptions.pageSize = pageSize;
-            getPage();
-        });
-    };
-    getPage();
+    //     gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
+    //         paginationOptions.pageNumber = newPage;
+    //         paginationOptions.pageSize = pageSize;
+    //         getPage();
+    //     });
+    // };
+    // getPage();
+
 
 });
 
