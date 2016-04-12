@@ -1,21 +1,32 @@
 <link href="css/company.css" rel="stylesheet">
 <!-- Page Content -->
-<!-- Table of Games -->
 <div class="container">
     <div class="container col-md-12 col-sm-12 col-xs-12 card shadow">
         <div class="row">
-            <div ui-grid="gridOptions" class="grid" ui-grid-pagination class="grid">
-            <!-- style="margin: 5px;" -->
-            <br></br>
-            <div>
-		      <div>Current page: {{grid.pagination.getPage()}} of {{grid.pagination.getTotalPages()}}</div>
-		      <button type="button" class="btn btn-success" ng-click="grid.pagination.previousPage()">
-		        previous page
-		      </button>
-		      <button type="button" class="btn btn-success" ng-click="grid.pagination.nextPage()">
-		        next page
-		      </button>
-            </div>
+            <table class="table table-hover">
+                <thead>
+                    <th>Name</th>
+                    <th>Deck</th>
+                    <th>Game Created</th>
+                    <th>Country</th>
+                    <th>Home Town</th>
+                </thead>
+                <tr dir-paginate="person in people | itemsPerPage: 20" total-items="totalPeople" current-page="pagination.current">
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.deck }}</td>
+                    <td>{{ person.games_created }}</td>
+                    <td>{{ person.country }}</td>
+                </tr>
+            </table>
         </div>
     </div>
+
+    <div class="row" align="center">
+        <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"
+            max-size="5"
+            direction-links="true"
+            boundary-links="true" >
+        </dir-pagination-controls>
+    </div>
 </div>
+

@@ -278,51 +278,77 @@ mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
         dataShare.sendData(row.entity.id);
     }
 
-    $scope.gridOptions = {
-        enablePaginationControls: false,
-        paginationPageSize: 50,
-        useExternalPagination: true
+    // $scope.getPeople = function() {
+    //     $http.get('/api/people/1').success(function(res) {
+    //         $scope.people = res.people;
+    //         console.log(res.people);
+    //     });
+    // }
+
+    $scope.totalPeople = 72951;
+    $scope.companiesPerPage = 20;
+    $scope.pagination = {
+        current: 1
     };
-    var paginationOptions = {
-        pageNumber: 1,
-        pageSize: 50,
-        sort: null
+    getPage(1);
+
+    $scope.pageChanged = function(newPage) {
+        getPage(newPage);
     };
 
-    var getPage = function() {
-        var url;
-        switch(paginationOptions.sort) {
-          default:
-            url = '/api/people/'+paginationOptions.pageNumber;
-            break;
-        }
-
-        $http.get(url).success(function (result) {
-            $scope.gridOptions.totalItems = 72951;
-            $scope.gridOptions.data = result.people;
+    function getPage(pageNumber) {
+        $http.get('/api/people/' + pageNumber).success(function(res) {
+            $scope.people = res.people;
+            console.log($scope.people);
         });
-
-        $scope.gridOptions.columnDefs = [
-            { name: 'name',
-              cellTemplate:'<a href="#person" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>',
-              enableHiding: false },
-            { name: 'deck', enableHiding: false },
-            { name: 'Games Created', field: "games_created", enableHiding: false },
-            { name: 'Country', field: "country"},
-            { name: 'Home Town', field: "hometown" }
-        ];
     };
 
-    $scope.gridOptions.onRegisterApi = function (gridApi) {
-        $scope.grid = gridApi;
+
+    // $scope.gridOptions = {
+    //     enablePaginationControls: false,
+    //     paginationPageSize: 50,
+    //     useExternalPagination: true
+    // };
+    // var paginationOptions = {
+    //     pageNumber: 1,
+    //     pageSize: 50,
+    //     sort: null
+    // };
+
+    // var getPage = function() {
+    //     var url;
+    //     switch(paginationOptions.sort) {
+    //       default:
+    //         url = '/api/people/'+paginationOptions.pageNumber;
+    //         break;
+    //     }
+
+    //     $http.get(url).success(function (result) {
+    //         $scope.gridOptions.totalItems = 72951;
+    //         $scope.gridOptions.data = result.people;
+    //     });
+
+    //     $scope.gridOptions.columnDefs = [
+    //         { name: 'name',
+    //           cellTemplate:'<a href="#person" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>',
+    //           enableHiding: false },
+    //         { name: 'deck', enableHiding: false },
+    //         { name: 'Games Created', field: "games_created", enableHiding: false },
+    //         { name: 'Country', field: "country"},
+    //         { name: 'Home Town', field: "hometown" }
+    //     ];
+    // };
+
+    // $scope.gridOptions.onRegisterApi = function (gridApi) {
+    //     $scope.grid = gridApi;
         
-        gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
-            paginationOptions.pageNumber = newPage;
-            paginationOptions.pageSize = pageSize;
-            getPage();
-        });
-    };
-    getPage();
+    //     gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
+    //         paginationOptions.pageNumber = newPage;
+    //         paginationOptions.pageSize = pageSize;
+    //         getPage();
+    //     });
+    // };
+    // getPage();
 
 });
 
