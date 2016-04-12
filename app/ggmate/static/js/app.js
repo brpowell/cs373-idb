@@ -282,19 +282,18 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
 
 mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
 
-
-    // $scope.getPeople = function() {
-    //     $http.get('/api/people/1').success(function(res) {
-    //         $scope.people = res.people;
-    //         console.log(res.people);
-    //     });
-    // }
-
+    // total number of people 
     $scope.totalPeople = 72951;
-    $scope.companiesPerPage = 20;
+
+    // 20 people per page
+    $scope.peoplePerPage = 20;
+
+    // pagination
     $scope.pagination = {
         current: 1
     };
+
+    // get first page when load
     getPage(1);
 
     $scope.pageChanged = function(newPage) {
