@@ -12,7 +12,7 @@
                     <th>Home Town</th>
                 </thead>
                 <tr dir-paginate="person in people | itemsPerPage: 20" total-items="totalPeople" current-page="pagination.current">
-                    <td>{{ person.name }}</td>
+                    <td><a href="#person" ng-click="giveID(person.id)">{{ person.name }}</a></td>
                     <td>{{ person.deck }}</td>
                     <td>{{ person.games_created }}</td>
                     <td>{{ person.country }}</td>

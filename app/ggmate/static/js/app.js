@@ -41,16 +41,16 @@ mainApp.config(['$routeProvider', function($routeProvider) {
 }]);
 
 mainApp.factory('dataShare',function($rootScope){
-  var service = {};
-  service.data = false;
-  service.sendData = function(data){
-      this.data = data;
-      $rootScope.$broadcast('data_shared');
-  };
-  service.getData = function(){
-    return this.data;
-  };
-  return service;
+    var service = {};
+    service.data = false;
+    service.sendData = function(data){
+        this.data = data;
+        $rootScope.$broadcast('data_shared');
+    };
+    service.getData = function(){
+        return this.data;
+    };
+    return service;
 });
 
 mainApp.controller('companyCtrl', function($scope, $http, dataShare) {
@@ -76,8 +76,7 @@ mainApp.controller('companyCtrl', function($scope, $http, dataShare) {
     $scope.giveID = function(row) {
         dataShare.sendData(row);
         $scope.publisher = row
-    }
-
+    };
 });
 
 mainApp.controller('gameCtrl', function($scope, $http, dataShare) {
@@ -122,14 +121,13 @@ mainApp.controller('personCtrl', function($scope, $http, dataShare) {
         $scope.firstGame = people["games_created"]
     });
 
-    $scope.giveID = function(row) {
+    $scope.giveID = function(id) {
         dataShare.sendData(row);
         $scope.publisher = row
     }
 });
 
 mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
-
 
     $scope.totalCompanies = 617;
     $scope.companiesPerPage = 20;
@@ -275,9 +273,7 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
 });
 
 mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
-    $scope.giveID = function(row) {
-        dataShare.sendData(row.entity.id);
-    }
+
 
     // $scope.getPeople = function() {
     //     $http.get('/api/people/1').success(function(res) {
@@ -305,6 +301,9 @@ mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
     };
 
 
+    $scope.giveID = function(id) {
+        dataShare.sendData(id);
+    }
 
     // $scope.gridOptions = {
     //     enablePaginationControls: false,
