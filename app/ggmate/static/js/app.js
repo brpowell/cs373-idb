@@ -128,25 +128,33 @@ mainApp.controller('personCtrl', function($scope, $http, dataShare) {
 });
 
 mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
-
+    // total number of companies
     $scope.totalCompanies = 617;
+
+    // 20 companies per page        
     $scope.companiesPerPage = 20;
+
+    // pagination       
     $scope.pagination = {
         current: 1
     };
+
+    // get first page when load
     getPage(1);
 
+    // listen on page change
     $scope.pageChanged = function(newPage) {
         getPage(newPage);
     };
 
+    // get new page based on the page number
     function getPage(pageNumber) {
         $http.get('/api/companies/' + pageNumber).success(function(res) {
             $scope.companies = res.companies;
-            console.log($scope.companies);
         });
     };
 
+    // give company ID
     $scope.giveID = function(id) {
         $scope.customer = id;
         dataShare.sendData(id);
@@ -299,7 +307,6 @@ mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
             console.log($scope.people);
         });
     };
-
 
     $scope.giveID = function(id) {
         dataShare.sendData(id);
