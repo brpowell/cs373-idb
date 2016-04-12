@@ -129,10 +129,7 @@ mainApp.controller('personCtrl', function($scope, $http, dataShare) {
 });
 
 mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
-    $scope.giveID = function(row) {
-        $scope.customer = row.entity.id;
-        dataShare.sendData(row.entity.id);
-    }
+
 
     $scope.totalCompanies = 617;
     $scope.companiesPerPage = 20;
@@ -152,6 +149,10 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
         });
     };
 
+    $scope.giveID = function(id) {
+        $scope.customer = id;
+        dataShare.sendData(id);
+    }
 
 
     // $scope.gridOptions = {
