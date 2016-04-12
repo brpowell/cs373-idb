@@ -2,10 +2,10 @@
 *.json
 venv/
 __pycache__
+.dylib
 *.pyc
 .env
 .env.swp
 oldenv.txt
-.dylib
 data/*/
 !data/base
