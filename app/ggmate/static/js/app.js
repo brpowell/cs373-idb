@@ -171,7 +171,7 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
 
     $scope.gridOptions.onRegisterApi = function (gridApi) {
         $scope.grid = gridApi;
-        
+
         gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
             paginationOptions.pageNumber = newPage;
             paginationOptions.pageSize = pageSize;
@@ -296,7 +296,7 @@ mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
 
     $scope.gridOptions.onRegisterApi = function (gridApi) {
         $scope.grid = gridApi;
-        
+
         gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
             paginationOptions.pageNumber = newPage;
             paginationOptions.pageSize = pageSize;

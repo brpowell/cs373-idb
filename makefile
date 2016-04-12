@@ -12,7 +12,7 @@ FILES :=        \
     models.py   \
     tests.py    \
     UML.pdf
-    
+
 check:
 	@not_found=0;                                 \
     for i in $(FILES);                            \
@@ -36,7 +36,7 @@ clean:
 	rm -rf app/__pycache__
 
 test:
-	python3 tests.py
+	python3 app/tests.py
 
 init-db:
 	docker-compose --file docker-compose-prod.yml run -d --rm --no-deps app python idb.py create_db
@@ -55,7 +55,7 @@ docker-build:
 	docker build -t ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_LB} lb
 	docker push ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_LB}
 
-	# docker build -t ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_DB} db 
+	# docker build -t ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_DB} db
 	# docker push ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_DB}
 
 docker-push:
@@ -66,3 +66,6 @@ models.html: models.py
 
 IDB1.log:
 	git log > IDB1.log
+
+IDB2.log:
+	git log > IDB2.log

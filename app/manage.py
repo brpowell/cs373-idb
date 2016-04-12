@@ -2,12 +2,12 @@
 from ggmate import app_instance, db
 from ggmate.models import Game, Platform, Rating, Company, Person
 from flask.ext.script import Manager, Shell, Server
-# from flask.ext.migrate import Migrate, MigrateCommand
+from flask.ext.migrate import Migrate, MigrateCommand
 import os
 import subprocess
 
 manager = Manager(app_instance)
-# migrate = Migrate(app_instance, db)
+migrate = Migrate(app_instance, db)
 
 def make_shell_context():
     d = {

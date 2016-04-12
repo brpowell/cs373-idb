@@ -17,7 +17,7 @@ footer {
 }
 
 .icon-color {
-    color: #336699;
+    color: #FF9900;
 }
 
 .shadow {
@@ -86,7 +86,7 @@ h4 {
     border-top: 0px;
 }
 i {
-    color: #336699;
+    color: white;
 }
 
 .modal-wide .modal-dialog {
@@ -100,9 +100,22 @@ width: 80%;
 .grid {
   /*height: 70vh;*/
   /*height: 500px;*/
-  height: 100%;
+  height: 500px;
 }
 
 .gridTextColor{
     color: white;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 400px;
+    height: 500px;
+}
+
+.panel > .panel-heading {
+    background-image: none;
+    background-color: #336699;
+    color: white;
+
 }
