@@ -16,10 +16,9 @@ def run_tests():
     return json.dumps({'output': str(output)})
 
 
-# ------------------------------------
+# ------------
 # RESTful API
-# ------------------------------------
-
+# ------------
 @app_instance.route('/api/games/<int:page>', methods=['GET'])
 def get_games(page=1):
     request = Game.query.paginate(page=page, per_page=20)
@@ -28,7 +27,7 @@ def get_games(page=1):
 
 @app_instance.route('/api/companies/<int:page>', methods=['GET'])
 def get_companies(page=1):
-    request = Company.query.paginate(page=page, per_page=50)
+    request = Company.query.paginate(page=page, per_page=20)
     companies = request.items
     return jsonify({'companies': [company.to_json() for company in companies]})
 
