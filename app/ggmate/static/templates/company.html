@@ -6,7 +6,7 @@
             <div class="container col-md-12 col-sm-12 shadow" style="background-color: black; height: 375px;">
                 <table id="wrapper">
                     <tr>
-                        <td align="center">
+                        <td style="text-align: center; vertical-align: middle;">
                         <img class="img-responsive"
                         ng-src="{{imageLink}}" alt="">
                         </td>
@@ -16,10 +16,10 @@
         </div>
 
         <div class="col-md-8 col-sm-8" style="margin-top: 15px">
-            <div class="container col-md-12 shadow card" style="background-color: #787878; min-height: 375px; padding: 0px;">
+            <div class="container col-md-12 shadow card" style="background-color: black; min-height: 375px; padding: 0px;">
 
-                <div class="container col-md-12 col-sm-12" style="background-color: rgba(18, 55, 86, 1);">
-                    <h1 style="margin-top: 15px; color: white;">{{companyName}}</h1>
+                <div class="container col-md-12 col-sm-12" style="background-color: #33CCFF;">
+                    <h1 style="margin-top: 15px;">{{companyName}}</h1>
                 </div>
 
                 <div class="container col-md-12 col-sm-12">
@@ -29,7 +29,7 @@
                         <h3><i class="fa fa-map-marker"></i> Headquarters:</h3>
                         <h4>{{headquarters}}</h4>
                         <h3><i class="fa fa-calendar"></i> Date Founded:</h3>
-                        <h4>{{founded}}</h4>
+                        <h4>{{changeDate(founded)}}</h4>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
 </div>
 
 <!-- Related People and Game Trailer Row -->
-<div class="container" style="margin-top: 20px; margin-bottom: 2px;">
+<div class="container" style="margin-top: 20px; margin-bottom: 20px;">
     <div class="row">
         <div class="col-md-6 col-sm-6 text-center" style="margin-top: 15px;">
             <div class="col-md-12 col-sm-12 shadow card" style="width: 100%; padding-top: 10px;">

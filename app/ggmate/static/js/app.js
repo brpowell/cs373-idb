@@ -77,6 +77,9 @@ mainApp.controller('companyCtrl', function($scope, $http, dataShare) {
         dataShare.sendData(row);
         $scope.publisher = row
     };
+    $scope.changeDate = function(str) {
+        return str.slice(0, 16)
+    };
 });
 
 mainApp.controller('gameCtrl', function($scope, $http, dataShare) {
@@ -90,8 +93,10 @@ mainApp.controller('gameCtrl', function($scope, $http, dataShare) {
         $scope.developer = game['developers'][0]['name']
         var s = ""
         for (p in game["platforms"]) {
-            if (p < game["platforms"].length)
-            s += game["platforms"][p]["name"] + ", "
+            s += game["platforms"][p]["name"]
+            if (p < game["platforms"].length - 1) {
+                s += ", "
+            }
         }
         $scope.platforms = s
         $scope.cID = game['developers'][0]['id']
@@ -102,8 +107,7 @@ mainApp.controller('gameCtrl', function($scope, $http, dataShare) {
     $scope.giveID = function(row) {
         dataShare.sendData(row);
         $scope.publisher = row
-    }
-
+    };
 });
 
 mainApp.controller('personCtrl', function($scope, $http, dataShare) {
@@ -128,6 +132,9 @@ mainApp.controller('personCtrl', function($scope, $http, dataShare) {
 });
 
 mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
+
+    $scope.sortType = 'name'; // set the default sort type
+
     $scope.giveID = function(row) {
         dataShare.sendData(row);
     }

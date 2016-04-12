@@ -9,7 +9,8 @@
 
 body {
     padding-top: 70px;
-    background-image: url('http://www.globalpbm.com/wp-content/uploads/2015/07/betfair-pattern.png');
+    /*background-image: url('http://www.globalpbm.com/wp-content/uploads/2015/07/betfair-pattern.png');*/
+    background-color: #303030;
 }
 
 footer {
@@ -21,7 +22,7 @@ footer {
 }
 
 .shadow {
-    box-shadow: 5px 5px gray;
+    box-shadow: 5px 5px #33CCFF;
     display: inline-block;
     vertical-align: middle;
 }
@@ -70,29 +71,32 @@ h4 {
 
 /* Company.html card styles */
 .card {
-    background-color: #787878;
+    background-color: black;
 }
 
 .card i {
     color: #33CCFF;
 }
 
-.card h4 {
+.card h2 {
+    color: white;
+}
+
+.card h4, h3 {
     color: white;
 }
 
 .cardHeader {
-    background-color:
+    background-color: #33CCFF;
 }
-
 /*------*/
 
 .table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
-   background-color: rgba(18, 55, 86, 1);
+   background-color: #303030;
 }
 
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
-   background-color: #989898 ;
+   background-color: black;
 }
 
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
