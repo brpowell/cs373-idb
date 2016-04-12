@@ -38,13 +38,7 @@ p {
     line-height: 1.5;*/
 }
 
-@media(min-width:768px) {
-/*    p {
-        margin: 0 0 35px;
-        font-size: 20px;
-        line-height: 1.6;
-    }*/
-}
+
 
 a {
     color: #42dca3;
@@ -189,23 +183,7 @@ ul.banner-social-buttons {
     margin-top: 0;
 }
 
-@media(max-width:1199px) {
-    ul.banner-social-buttons {
-        margin-top: 15px;
-    }
-}
 
-@media(max-width:767px) {
-    ul.banner-social-buttons li {
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-    }
-
-    ul.banner-social-buttons li:last-child {
-        margin-bottom: 0;
-    }
-}
 
 footer {
     padding: 50px 0;
@@ -430,18 +408,6 @@ input:-moz-placeholder {
 
 }
 
-@media(max-width: 590px) {
-    h1.launch-header {
-        margin-bottom: 30px;
-    }
-}
-
-@media(min-width: 591px) {
-    h1.launch-header {
-        margin-bottom: 10px;
-    }
-}
-
 .icon-color {
     color: #33CCFF;
 }
@@ -463,3 +429,60 @@ input:-moz-placeholder {
 section.content-section.text-center.ng-scope {
     padding-top: 120px;
 }
+
+.ggm8center img{
+    max-height: 47px;
+}
+
+
+/* -----------------------------*/
+/*          MEDIA QUERIES       */
+/* -----------------------------*/
+
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+    .ggm8center {
+        max-height: 50px;
+        font-size: 25px;
+    }
+
+    .ggsearch--input {
+        font-size: 20px;
+        height: 50px;
+    }
+}
+
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+
+}
+
+
+/* Landscape phones and portrait tablets */
+@media (min-width: 481px) and (max-width: 767px) {
+
+}
+
+
+
+/* Portrait tablets and small laptops/desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+
+
+/* Landscape tablets and medium laptops/desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+
+}
+
+
+/* Large laptops/desktop */
+@media (min-width: 1200px) {
+
+}
+

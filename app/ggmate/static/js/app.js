@@ -1,5 +1,4 @@
-var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate', 'ui.bootstrap',
-    'ui.grid', 'ui.grid.pagination']);
+var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate', 'ui.bootstrap', 'angularUtils.directives.dirPagination']);
 
 mainApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider
@@ -135,50 +134,70 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
         dataShare.sendData(row.entity.id);
     }
 
-    $scope.gridOptions = {
-        enablePaginationControls: false,
-        paginationPageSize: 50,
-        useExternalPagination: true
+    $scope.totalCompanies = 617;
+    $scope.companiesPerPage = 20;
+    $scope.pagination = {
+        current: 1
     };
-    var paginationOptions = {
-        pageNumber: 1,
-        pageSize: 50,
-        sort: null
-    };
+    getPage(1);
 
-    var getPage = function() {
-        var url;
-        switch(paginationOptions.sort) {
-          default:
-            url = '/api/companies/'+paginationOptions.pageNumber;
-            break;
-        }
-
-        $http.get(url).success(function (result) {
-            $scope.gridOptions.totalItems = 617;
-            $scope.gridOptions.data = result.companies;
-        });
-
-        $scope.gridOptions.columnDefs = [
-            { name: 'name',
-              cellTemplate:'<a href="#company" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>', enableHiding: false },
-            { name: 'deck', enableHiding: false },
-            { name: 'image', enableHiding: false },
-            { name: 'Date Founded', field: "date_founded"},
-            { name: 'country'}
-        ];
+    $scope.pageChanged = function(newPage) {
+        getPage(newPage);
     };
 
-    $scope.gridOptions.onRegisterApi = function (gridApi) {
-        $scope.grid = gridApi;
-
-        gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
-            paginationOptions.pageNumber = newPage;
-            paginationOptions.pageSize = pageSize;
-            getPage();
+    function getPage(pageNumber) {
+        $http.get('/api/companies/' + pageNumber).success(function(res) {
+            $scope.companies = res.companies;
+            console.log($scope.companies);
         });
     };
-    getPage();
+
+
+
+    // $scope.gridOptions = {
+    //     enablePaginationControls: false,
+    //     paginationPageSize: 50,
+    //     useExternalPagination: true
+    // };
+    // var paginationOptions = {
+    //     pageNumber: 1,
+    //     pageSize: 50,
+    //     sort: null
+    // };
+
+    // var getPage = function() {
+    //     var url;
+    //     switch(paginationOptions.sort) {
+    //       default:
+    //         url = '/api/companies/'+paginationOptions.pageNumber;
+    //         break;
+    //     }
+
+    //     $http.get(url).success(function (result) {
+    //         $scope.gridOptions.totalItems = 617;
+    //         $scope.gridOptions.data = result.companies;
+    //     });
+
+    //     $scope.gridOptions.columnDefs = [
+    //         { name: 'name',
+    //           cellTemplate:'<a href="#company" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>', enableHiding: false },
+    //         { name: 'deck', enableHiding: false },
+    //         { name: 'image', enableHiding: false },
+    //         { name: 'Date Founded', field: "date_founded"},
+    //         { name: 'country'}
+    //         ];
+    //     };
+
+    //     $scope.gridOptions.onRegisterApi = function (gridApi) {
+    //         $scope.grid = gridApi;
+
+    //         gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
+    //             paginationOptions.pageNumber = newPage;
+    //             paginationOptions.pageSize = pageSize;
+    //             getPage();
+    //         });
+    //     };
+    // getPage();
 });
 
 mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
