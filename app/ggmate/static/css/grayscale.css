@@ -372,14 +372,6 @@ body {
     border-color: #33CCFF;
 }
 
-/*::-webkit-input-placeholder {
-    color: #888;
-}
-
-input:-moz-placeholder {
-  color: #888
-}*/
-
 .launch-header {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     /*font-size: 44px;*/
@@ -485,4 +477,3 @@ section.content-section.text-center.ng-scope {
 @media (min-width: 1200px) {
 
 }
-

@@ -77,7 +77,6 @@ mainApp.controller('companyCtrl', function($scope, $http, dataShare) {
         dataShare.sendData(row);
         $scope.publisher = row
     }
-
 });
 
 mainApp.controller('gameCtrl', function($scope, $http, dataShare) {
@@ -130,8 +129,7 @@ mainApp.controller('personCtrl', function($scope, $http, dataShare) {
 
 mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
     $scope.giveID = function(row) {
-        $scope.customer = row.entity.id;
-        dataShare.sendData(row.entity.id);
+        dataShare.sendData(row);
     }
 
     $scope.totalCompanies = 617;

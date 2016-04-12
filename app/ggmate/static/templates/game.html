@@ -1,7 +1,5 @@
 <link href="css/company.css" rel="stylesheet">
-
 <!-- Page Content -->
-<!-- Portfolio Item Row -->
 <div class="container" style="margin-top: 20px;">
     <div class="row" style="margin-top: 25px;">
 
@@ -11,43 +9,39 @@
         </div>
 
         <div class="col-md-8 col-sm-8" style="margin-top: 15px;">
-
             <div class="panel panel-default shadow">
                 <div class="panel-heading col-md-12 col-sm-12">
                     <h1 class="panel-title" style="font-size: 50px;">{{gameName}}</h1>
                 </div>
+
                 <div class="panel-body col-md-12 col-sm-12" style="background-color: #C8C8C8;">
-                    <h2>
-                        <i class="fa fa-bookmark-o icon-color"></i>
-                        Game Description:</h2>
+                    <h2><i class="fa fa-bookmark-o icon-color">
+                    </i> Game Description:</h2>
                     <h3>{{description}}</h3>
+
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <h2>
-                                <i class="fa fa-gamepad icon-color"></i>
-                                Platforms:</h2>
+                            <h2><i class="fa fa-gamepad icon-color">
+                            </i> Platforms:</h2>
                             <h3>{{platforms}}</h3>
-
                         </div>
+
                         <div class="col-md-6 col-sm-6">
                             <h2>
-                                <i class="fa fa-desktop icon-color"></i>
-                                Developer:</h2>
+                                <i class="fa fa-desktop icon-color"></i> Developer:</h2>
                             <h3>
                                 <a href="#company" ng-click="giveID(cID)">{{developer}}</a>
                             </h3>
                             <h2>
-                                <i class="fa fa-building icon-color"></i>
-                                Publishers:</h2>
+                                <i class="fa fa-building icon-color"></i> Publishers:
+                            </h2>
                             <h3>
                                 <a href="#company" ng-click="giveID(pID)">{{publisher}}</a>
                             </h3>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>

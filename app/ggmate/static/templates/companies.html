@@ -1,7 +1,7 @@
 <link href="css/company.css" rel="stylesheet">
 <!-- Page Content -->
 <div class="container">
-    <div class="container col-md-12 col-sm-12 col-xs-12 card shadow">
+    <div class="container col-md-12 col-sm-12 col-xs-12 card shadow" style="height: 100%;">
         <div class="row">
             <table class="table table-hover">
                 <thead>
@@ -12,7 +12,7 @@
                     <th>Country</th>
                 </thead>
                 <tr dir-paginate="company in companies | itemsPerPage: 20" total-items="totalCompanies" current-page="pagination.current">
-                    <td>{{ company.name }}</td>
+                    <td><a href="#company" ng-click="giveID(company.id)">{{ company.name }}</a></td>
                     <td>{{ company.deck }}</td>
                     <td>{{ company.image }}</td>
                     <td>{{ company.date_founded }}</td>
@@ -30,5 +30,3 @@
         </dir-pagination-controls>
     </div>
 </div>
-
-

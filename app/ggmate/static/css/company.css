@@ -17,14 +17,13 @@ footer {
 }
 
 .icon-color {
-    color: #FF9900;
+    color: #33CCFF;
 }
 
 .shadow {
     box-shadow: 5px 5px gray;
     display: inline-block;
     vertical-align: middle;
-    /*height: 100%;*/
 }
 
 hr {
@@ -69,10 +68,24 @@ h4 {
      margin-bottom: 10px;
 }
 
+/* Company.html card styles */
 .card {
-    /*rgba(18, 55, 86, 0.8)*/
-    background-color: #B8B8B8;
+    background-color: #787878;
 }
+
+.card i {
+    color: #33CCFF;
+}
+
+.card h4 {
+    color: white;
+}
+
+.cardHeader {
+    background-color:
+}
+
+/*------*/
 
 .table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
    background-color: rgba(18, 55, 86, 1);
@@ -86,7 +99,7 @@ h4 {
     border-top: 0px;
 }
 i {
-    color: white;
+    color :#336699;
 }
 
 .modal-wide .modal-dialog {
@@ -98,8 +111,6 @@ width: 80%;
 }
 
 .grid {
-  /*height: 70vh;*/
-  /*height: 500px;*/
   height: 500px;
 }
 
@@ -111,11 +122,4 @@ width: 80%;
     border: 1px solid rgb(212,212,212);
     width: 400px;
     height: 500px;
-}
-
-.panel > .panel-heading {
-    background-image: none;
-    background-color: #336699;
-    color: white;
-
 }
