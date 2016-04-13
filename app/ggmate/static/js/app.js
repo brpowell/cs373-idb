@@ -324,6 +324,12 @@ mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
         dataShare.sendData(id);
     }
 
+    $scope.sort = function(key) {
+        $scope.sortKey = key;
+        $scope.reverse = !$scope.reverse;
+    }
+
+
     // $scope.gridOptions = {
     //     enablePaginationControls: false,
     //     paginationPageSize: 50,

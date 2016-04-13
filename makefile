@@ -72,3 +72,6 @@ IDB2.log:
 
 IDB3.log:
 	git log > IDB3.log
+
+run:
+	python3 app/manage.py runserver

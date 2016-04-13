@@ -17,24 +17,10 @@ person_game = db.Table('person_game',
     db.Column('person_id', db.Integer, db.ForeignKey('people.id')),
     db.Column('game_id', db.Integer, db.ForeignKey('games.id'))
 )
-worked_with = db.Table('worked_with',
-    db.Column('person_id', db.Integer, db.ForeignKey('people.id')),
-    db.Column('coworker_id', db.Integer, db.ForeignKey('people.id'))
-)
 game_platform = db.Table('game_platform',
     db.Column('game_id', db.Integer, db.ForeignKey('games.id')),
     db.Column('platform_id', db.Integer, db.ForeignKey('platforms.id'))
 )
-
-class Rating(db.Model):
-    __tablename__= 'ratings'
-    id = db.Column(db.Integer, primary_key=True)
-    game_id = db.Column(db.Integer, db.ForeignKey('games.id'))
-    platform_id = db.Column(db.Integer, db.ForeignKey('platforms.id'))
-    metacritic = db.Column(db.Integer)
-
-    def __repr__(self):
-        return '<Rating %s: %d>' % (self.platform.short, self.metacritic)
 
 
 class Platform(db.Model):
@@ -42,15 +28,6 @@ class Platform(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
     short = db.Column(db.String(10))
-    ratings = db.relationship('Rating', backref='platform')
-
-    def best_rating(self):
-        r_iter = iter(self.ratings)
-        best = next(r_iter)
-        for r in r_iter:
-            if r.metacritic > best.metacritic:
-                best = r
-        return best
 
     def __repr__(self):
         return '<Platform %s>' % self.short
@@ -63,20 +40,8 @@ class Game(db.Model):
     deck = db.Column(db.Text)
     image = db.Column(db.String(255))
     release_date = db.Column(db.DateTime)
-    content_rating = db.Column(db.String(255))
-    genre = db.Column(db.String(255))
     platforms = db.relationship('Platform', secondary=game_platform,
                     backref=db.backref('games', lazy='dynamic'))
-    ratings = db.relationship('Rating', backref='game')
-    first_for = db.relationship('Person', backref='first_game')
-
-    def best_rating(self):
-        r_iter = iter(self.ratings)
-        best = next(r_iter)
-        for r in r_iter:
-            if r.metacritic > best.metacritic:
-                best = r
-        return best
 
     def to_json(self):
         json_game = {
@@ -118,18 +83,6 @@ class Person(db.Model):
     deck = db.Column(db.Text)
     first_credited_game = db.Column(db.Integer, db.ForeignKey('games.id'))
     games = db.relationship('Game', secondary=person_game, backref='people')
-    people = db.relationship('Person', secondary=worked_with,
-                        primaryjoin=(worked_with.c.person_id == id),
-                        secondaryjoin=(worked_with.c.coworker_id == id),
-                        backref='coworkers',
-                        lazy='dynamic')
-
-    def coworker(self, person):
-        self.people.append(person)
-        person.people.append(self)
-        db.session.add(self)
-        db.session.add(person)
-        db.session.commit()
 
     def to_json(self, list_view=False):
         json_person = {

@@ -9,3 +9,4 @@ __pycache__
 oldenv.txt
 data/*/
 !data/base
+*.db
