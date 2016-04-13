@@ -261,6 +261,17 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
         dataShare.sendData(id);
     }
 
+    $scope.extract = function(arr) {
+        var res = '';
+        for (var i = 0; i < arr.length; i++) {
+            res += arr[i].name;
+            if(arr.length > 1 && i < arr.length - 1) {
+                res += ', ';
+            }
+        }
+        return res;
+    }
+
     $scope.sort = function(key) {
         $scope.sortKey = key;
         $scope.reverse = !$scope.reverse;
@@ -270,6 +281,7 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
     $scope.changeDate = function(str) {
         return str.slice(0, 16)
     };
+
 
 
 
