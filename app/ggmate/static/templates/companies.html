@@ -2,20 +2,21 @@
 <!-- Page Content -->
 <div class="container">
     <div class="container col-md-12 col-sm-12 col-xs-12 shadow" style="height: 100%;">
-        <div class="row">
-            <table class="table table-hover">
-                <thead>
+
+        <div class="row table-responsive" style="margin-bottom: 0px; background-color: black;">
+            <table class="table table-hover" style="background-color: black; color: white;">
+                <thead style="background-color: #001C6E; color: white;">
                     <th>Name</th>
                     <th>Deck</th>
-                    <th>Image</th>
                     <th>Date Founded</th>
+                    <th>City</th>
                     <th>Country</th>
                 </thead>
                 <tr dir-paginate="company in companies | itemsPerPage: 20" total-items="totalCompanies" current-page="pagination.current">
                     <td><a href="#company" ng-click="giveID(company.id)">{{ company.name }}</a></td>
                     <td>{{ company.deck }}</td>
-                    <td>{{ company.image }}</td>
                     <td>{{ changeDate(company.date_founded) }}</td>
+                    <td>{{ company.city }}</td>
                     <td>{{ company.country }}</td>
                 </tr>
             </table>

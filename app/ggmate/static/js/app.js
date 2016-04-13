@@ -59,7 +59,7 @@ mainApp.controller('companyCtrl', function($scope, $http, dataShare) {
     $http.get('/api/company/'.concat(id)).then(function(result) {
         $scope.companyName = result.data['name'];
         $scope.description = result.data['deck'];
-        $scope.headquarters = result.data['city'];
+        $scope.headquarters = result.data['city'] + ', ' + result.data['country'];
         $scope.founded = result.data['date_founded']
         var p = []
         for (i in result.data['people']){
@@ -126,8 +126,7 @@ mainApp.controller('personCtrl', function($scope, $http, dataShare) {
     });
 
     $scope.giveID = function(id) {
-        dataShare.sendData(row);
-        $scope.publisher = row
+        dataShare.sendData(id);
     }
 });
 
@@ -170,6 +169,10 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
         dataShare.sendData(id);
     }
 
+    // Changes Date Format
+    $scope.changeDate = function(str) {
+        return str.slice(0, 16)
+    };
 
     // $scope.gridOptions = {
     //     enablePaginationControls: false,
