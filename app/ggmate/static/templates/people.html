@@ -22,10 +22,16 @@
                         <span ng-if="!reverse && sortKey=='games_created'" class="glyphicon glyphicon-chevron-up"></span>
                     </th>
 
-                    <th ng-click="sort('country')">Hometown&nbsp;&nbsp;
+                    <th ng-click="sort('country')">Country&nbsp;&nbsp;
                         <span ng-if="sortKey!='country'" class="glyphicon glyphicon-chevron-down"></span>
                         <span ng-if="reverse && sortKey=='country'" class="glyphicon glyphicon-chevron-down"></span>
                         <span ng-if="!reverse && sortKey=='country'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
+
+                    <th ng-click="sort('hometown')">Hometown&nbsp;&nbsp;
+                        <span ng-if="sortKey!='hometown'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='hometown'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='hometown'" class="glyphicon glyphicon-chevron-up"></span>
                     </th>
 
                 </thead>
