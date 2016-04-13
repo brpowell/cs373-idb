@@ -22,7 +22,7 @@ mainApp.config(['$routeProvider', function($routeProvider) {
         templateUrl: '/templates/people.html',
         controller: 'peopleListCtrl'
     })
-    .when('/company', {
+    .when('/company/:id', {
         templateUrl: '/templates/company.html',
         controller: 'companyCtrl'
     })
@@ -30,7 +30,7 @@ mainApp.config(['$routeProvider', function($routeProvider) {
         templateUrl: '/templates/game.html',
         controller: 'gameCtrl'
     })
-    .when('/person', {
+    .when('/person/:id', {
         templateUrl: '/templates/person.html',
         controller: 'personCtrl'
     })
@@ -40,23 +40,8 @@ mainApp.config(['$routeProvider', function($routeProvider) {
 
 }]);
 
-mainApp.factory('dataShare',function($rootScope){
-    var service = {};
-    service.data = false;
-    service.sendData = function(data){
-        this.data = data;
-        $rootScope.$broadcast('data_shared');
-    };
-    service.getData = function(){
-        return this.data;
-    };
-    return service;
-});
-
-mainApp.controller('companyCtrl', function($scope, $http, dataShare) {
-    var id =  dataShare.getData();
-
-    $http.get('/api/company/'.concat(id)).then(function(result) {
+mainApp.controller('companyCtrl', function($scope, $http, $routeParams) {
+    $http.get('/api/company/' + $routeParams["id"]).then(function(result) {
         $scope.companyName = result.data['name'];
         $scope.description = result.data['deck'];
         $scope.headquarters = result.data['city'] + ', ' + result.data['country'];
@@ -69,22 +54,24 @@ mainApp.controller('companyCtrl', function($scope, $http, dataShare) {
         for (j in result.data['developed_games']) {
             g.push(result.data['developed_games'][j]);
         }
+        var pubGames = []
+        for (i in result.data['published_games']) {
+            pubGames.push(result.data['published_games'][i]);
+        }
         $scope.relatedPeople = p;
-        $scope.games = g;
+        $scope.dgames = g;
+        $scope.pgames = pubGames;
         $scope.imageLink = result.data['image']
     });
-    $scope.giveID = function(row) {
-        dataShare.sendData(row);
-        $scope.publisher = row
-    };
+
     $scope.changeDate = function(str) {
-        return str.slice(0, 16)
+        if (str) {
+            return str.slice(0, 16)
+        }
     };
 });
 
-mainApp.controller('gameCtrl', function($scope, $http, dataShare, $routeParams) {
-    var id =  dataShare.getData();
-    var cID;
+mainApp.controller('gameCtrl', function($scope, $http, $routeParams) {
     $http.get('/api/game/' + $routeParams["id"]).then(function(result) {
         var game = result.data
         $scope.gameName = game["name"]
@@ -103,16 +90,10 @@ mainApp.controller('gameCtrl', function($scope, $http, dataShare, $routeParams) 
         $scope.publisher = game['publishers'][0]['name']
         $scope.pID = game['publishers'][0]['id']
     });
-
-    $scope.giveID = function(row) {
-        dataShare.sendData(row);
-        $scope.publisher = row
-    };
 });
 
-mainApp.controller('personCtrl', function($scope, $http, dataShare) {
-    var id =  dataShare.getData();
-    $http.get('/api/person/'.concat(id)).then(function(result) {
+mainApp.controller('personCtrl', function($scope, $http, $routeParams) {;
+    $http.get('/api/person/' + $routeParams["id"]).then(function(result) {
         var people = result.data
         $scope.personName = people["name"]
         $scope.description = people['deck']
@@ -124,19 +105,12 @@ mainApp.controller('personCtrl', function($scope, $http, dataShare) {
         $scope.country = people["country"]
         $scope.firstGame = people["games_created"]
     });
-
-    $scope.giveID = function(id) {
-        dataShare.sendData(id);
-    }
 });
 
-mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
+mainApp.controller('companiesListCtrl', function($scope, $http) {
 
     $scope.sortType = 'name'; // set the default sort type
 
-    $scope.giveID = function(row) {
-        dataShare.sendData(row);
-    }
     // total number of companies
     $scope.totalCompanies = 617;
 
@@ -162,12 +136,6 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
             $scope.companies = res.companies;
         });
     };
-
-    // give company ID
-    $scope.giveID = function(id) {
-        $scope.customer = id;
-        dataShare.sendData(id);
-    }
 
     // sorting on client side
     $scope.sort = function(key) {
@@ -230,7 +198,7 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
     // getPage();
 });
 
-mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
+mainApp.controller('gamesListCtrl', function($scope, $http) {
     $scope.sortType = 'name'; // set the default sort type
 
     // total number of companies
@@ -256,15 +224,8 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
     function getPage(pageNumber) {
         $http.get('/api/games/' + pageNumber).success(function(res) {
             $scope.games = res.games;
-            console.log(res.games);
         });
     };
-
-    // give company ID
-    $scope.giveID = function(id) {
-        $scope.customer = id;
-        dataShare.sendData(id);
-    }
 
     // get the names from the array
     $scope.extract = function(arr) {
@@ -365,7 +326,7 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
 
 });
 
-mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
+mainApp.controller('peopleListCtrl', function($scope, $http) {
 
     // total number of people
     $scope.totalPeople = 72951;
@@ -393,11 +354,6 @@ mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
             console.log($scope.people);
         });
     };
-
-    // share id
-    $scope.giveID = function(id) {
-        dataShare.sendData(id);
-    }
 
     // sorting on client side
     $scope.sort = function(key) {

@@ -28,7 +28,7 @@
                     <div class="table-responsive">
                         <table class="table table-striped">
                             <tr ng-repeat="game in games track by $index">
-                                <td><a href="#game" ng-click="giveID(game.id)">{{game.name}}</a></td>
+                                <td><a href="#game/{{game.id}}">{{game.name}}</a></td>
                             </tr>
                         </table>
                     </div>
