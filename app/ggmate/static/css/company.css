@@ -1,5 +1,6 @@
 @import 'nav.css';
-@import url(https://fonts.googleapis.com/css?family=Exo+2);
+@import url(//fonts.googleapis.com/css?family=Exo+2);
+@import url(//fonts.googleapis.com/css?family=Roboto);
 
 /*!
  * Start Bootstrap - Round About HTML Template (http://startbootstrap.com)
@@ -13,41 +14,25 @@ body {
     background-color: #303030;
 }
 
-footer {
-    margin: 50px 0;
-}
-
-.icon-color {
-    color: #33CCFF;
-}
-
-.shadow {
-    box-shadow: 5px 5px #33CCFF;
-    display: inline-block;
-    vertical-align: middle;
-}
-
 hr {
-  border-color: #336699;
+  border-color: #33CCFF;
 }
 
+h1,
+h3 {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+h4 {
+    color: #336699;
+}
 h5 {
   color: white;
   font-family: 'Exo 2', sans-serif;
 }
 
-h1,
-h3 {
-  color: black;
-  font-family: 'Exo 2', sans-serif;
-}
-
-h4 {
-    color: #336699;
-}
-
 .page-header {
-    border-color: #336699;
+    border-color: #33CCFF;
 }
 
 #wrapper {
@@ -63,45 +48,43 @@ h4 {
     text-align: center;
 }
 
+.card {
+    background-color: black;
+}
+.card i {
+    color: #2451D5;
+}
+.card h2, h4, h3 {
+    color: white;
+}
+.cardHeader {
+    background-color: #001C6E;
+}
+.shadow {
+    box-shadow: 5px 5px #2451D5;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+   background-color: #303030;
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: black;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border-top: 0px;
+}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #336699;
+  color: black;
+}
 .table-responsive {
     height: 300px;
     overflow:auto;
      margin-bottom: 10px;
 }
 
-/* Company.html card styles */
-.card {
-    background-color: black;
-}
-
-.card i {
-    color: #33CCFF;
-}
-
-.card h2 {
-    color: white;
-}
-
-.card h4, h3 {
-    color: white;
-}
-
-.cardHeader {
-    background-color: #33CCFF;
-}
-/*------*/
-
-.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
-   background-color: #303030;
-}
-
-.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
-   background-color: black;
-}
-
-.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-    border-top: 0px;
-}
 i {
     color :#336699;
 }
@@ -113,15 +96,16 @@ width: 80%;
 .aboutColor {
     color: black;
 }
+.aboutCard h4, i{
+    color: #336699;
+}
 
 .grid {
   height: 500px;
 }
-
 .gridTextColor{
     color: white;
 }
-
 .gridStyle {
     border: 1px solid rgb(212,212,212);
     width: 400px;

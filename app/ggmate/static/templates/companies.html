@@ -1,21 +1,45 @@
 <link href="css/company.css" rel="stylesheet">
 <!-- Page Content -->
 <div class="container">
-    <div class="container col-md-12 col-sm-12 col-xs-12 shadow" style="height: 100%;">
-        <div class="row">
-            <table class="table table-hover">
-                <thead>
-                    <th>Name</th>
-                    <th>Deck</th>
-                    <th>Image</th>
-                    <th>Date Founded</th>
-                    <th>Country</th>
+    <div class="container col-md-12 col-sm-12 col-xs-12 shadow" style="height: 100%;" ng-init="reverse='false'">
+
+        <div class="row table-responsive" style="margin-bottom: 0px; background-color: black;">
+            <table class="table table-hover" style="background-color: black; color: white;">
+                <thead style="background-color: #001C6E; color: white;">
+                    <th ng-click="sort('name')">Name&nbsp;&nbsp;
+                        <span ng-if="sortKey!='name'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='name'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='name'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
+                    <th ng-click="sort('deck')">Deck&nbsp;&nbsp;
+                        <span ng-if="sortKey!='deck'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='deck'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='deck'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
+
+                    <th ng-click="sort('date_founded')">Date Founded&nbsp;&nbsp;
+                        <span ng-if="sortKey!='date_founded'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='date_founded'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='date_founded'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
+
+                    <th ng-click="sort('city')">City&nbsp;&nbsp;
+                        <span ng-if="sortKey!='city'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='city'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='city'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
+
+                    <th ng-click="sort('country')">Country&nbsp;&nbsp;
+                        <span ng-if="sortKey!='country'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='country'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='country'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
                 </thead>
-                <tr dir-paginate="company in companies | itemsPerPage: 20" total-items="totalCompanies" current-page="pagination.current">
+                <tr dir-paginate="company in companies | itemsPerPage: 20 | orderBy:sortKey:reverse" total-items="totalCompanies" current-page="pagination.current">
                     <td><a href="#company" ng-click="giveID(company.id)">{{ company.name }}</a></td>
                     <td>{{ company.deck }}</td>
-                    <td>{{ company.image }}</td>
                     <td>{{ changeDate(company.date_founded) }}</td>
+                    <td>{{ company.city }}</td>
                     <td>{{ company.country }}</td>
                 </tr>
             </table>

@@ -22,18 +22,24 @@
                         <span ng-if="!reverse && sortKey=='games_created'" class="glyphicon glyphicon-chevron-up"></span>
                     </th>
 
-                    <th ng-click="sort('country')">Hometown&nbsp;&nbsp;
+                    <th ng-click="sort('country')">Country&nbsp;&nbsp;
                         <span ng-if="sortKey!='country'" class="glyphicon glyphicon-chevron-down"></span>
                         <span ng-if="reverse && sortKey=='country'" class="glyphicon glyphicon-chevron-down"></span>
                         <span ng-if="!reverse && sortKey=='country'" class="glyphicon glyphicon-chevron-up"></span>
                     </th>
 
+                    <th ng-click="sort('hometown')">Hometown&nbsp;&nbsp;
+                        <span ng-if="sortKey!='hometown'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='hometown'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='hometown'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
                 </thead>
                 <tr dir-paginate="person in people | itemsPerPage: 20 | orderBy:sortKey:reverse" total-items="totalPeople" current-page="pagination.current">
                     <td><a href="#person" ng-click="giveID(person.id)">{{ person.name }}</a></td>
                     <td>{{ person.deck }}</td>
                     <td>{{ person.games_created }}</td>
                     <td>{{ person.country }}</td>
+                    <td>{{ person.hometown }}</td>
                 </tr>
             </table>
         </div>
@@ -47,4 +53,3 @@
         </dir-pagination-controls>
     </div>
 </div>
-
