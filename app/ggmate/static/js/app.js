@@ -226,75 +226,123 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
 });
 
 mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
-    $scope.giveID = function(row) {
-        $scope.customer = row.entity.id;
-        dataShare.sendData(row.entity.id);
+    $scope.sortType = 'name'; // set the default sort type
+
+    // total number of companies
+    $scope.totalGames = 24776;
+
+    // 20 companies per page
+    $scope.gamesPerPage = 20;
+
+    // pagination
+    $scope.pagination = {
+        current: 1
+    };
+
+    // get first page when load
+    getPage(1);
+
+    // listen on page change
+    $scope.pageChanged = function(newPage) {
+        getPage(newPage);
+    };
+
+    // get new page based on the page number
+    function getPage(pageNumber) {
+        $http.get('/api/games/' + pageNumber).success(function(res) {
+            $scope.games = res.games;
+            console.log(res.games);
+        });
+    };
+
+    // give company ID
+    $scope.giveID = function(id) {
+        $scope.customer = id;
+        dataShare.sendData(id);
     }
-    $scope.gridOptions = {
-        enablePaginationControls: false,
-        paginationPageSize: 50,
-        useExternalPagination: true
-        // useExternalSorting: true
-    };
-    var paginationOptions = {
-        pageNumber: 1,
-        pageSize: 50,
-        sort: null
-    };
 
-    var getPage = function() {
-        var url;
-        switch(paginationOptions.sort) {
-          // case uiGridConstants.ASC:
-          //   url = 'https://cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/data/100_ASC.json';
-          //   break;
-          // case uiGridConstants.DESC:
-          //   url = 'https://cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/data/100_DESC.json';
-          //   break;
-          default:
-            url = '/api/games/'+paginationOptions.pageNumber;
-            break;
-        }
+    $scope.sort = function(key) {
+        $scope.sortKey = key;
+        $scope.reverse = !$scope.reverse;
+    }
 
-        $http.get(url).success(function (result) {
-            $scope.gridOptions.totalItems = 24776;
-            // var firstRow = (paginationOptions.pageNumber - 1) * paginationOptions.pageSize;
-            // $scope.gridOptions.data = data.games.slice(firstRow, firstRow + paginationOptions.pageSize);
-            // $scope.gridOptions.data = data.games
-            var platforms = '';
-            for (p in result.games ){
-                for (q in result.games[p]['platforms']) {
-                    platforms += result.games[p]['platforms'][q]['name']
-                    if (q < result.games[p]['platforms'].length - 1) {
-                        platforms += ', '
-                    }
-                }
-                result.games[p]['platforms'] = platforms
-                platforms = ""
-            }
-            $scope.gridOptions.data = result.games;
-        });
-
-        $scope.gridOptions.columnDefs = [
-            { name: 'name',
-              cellTemplate:'<a href="#game" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>',
-              enableHiding: false },
-            { name: 'deck', enableHiding: false },
-            { name: 'publisher', field: "publishers[0]['name']", enableHiding: false },
-            { name: 'developer', field: "developers[0]['name']"},
-            { name: 'platforms' }
-        ];
+    // Changes Date Format
+    $scope.changeDate = function(str) {
+        return str.slice(0, 16)
     };
 
-    $scope.gridOptions.onRegisterApi = function (gridApi) {
-        $scope.grid = gridApi;
-        gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
-            paginationOptions.pageNumber = newPage;
-            paginationOptions.pageSize = pageSize;
-            getPage();
-        });
-    };
-    getPage();
+
+
+
+    // $scope.giveID = function(row) {
+    //     $scope.customer = row.entity.id;
+    //     dataShare.sendData(row.entity.id);
+    // }
+    // $scope.gridOptions = {
+    //     enablePaginationControls: false,
+    //     paginationPageSize: 50,
+    //     useExternalPagination: true
+    //     // useExternalSorting: true
+    // };
+    // var paginationOptions = {
+    //     pageNumber: 1,
+    //     pageSize: 50,
+    //     sort: null
+    // };
+
+    // var getPage = function() {
+    //     var url;
+    //     switch(paginationOptions.sort) {
+    //       // case uiGridConstants.ASC:
+    //       //   url = 'https://cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/data/100_ASC.json';
+    //       //   break;
+    //       // case uiGridConstants.DESC:
+    //       //   url = 'https://cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/data/100_DESC.json';
+    //       //   break;
+    //       default:
+    //         url = '/api/games/'+paginationOptions.pageNumber;
+    //         break;
+    //     }
+
+    //     $http.get(url).success(function (result) {
+    //         $scope.gridOptions.totalItems = 24776;
+    //         // var firstRow = (paginationOptions.pageNumber - 1) * paginationOptions.pageSize;
+    //         // $scope.gridOptions.data = data.games.slice(firstRow, firstRow + paginationOptions.pageSize);
+    //         // $scope.gridOptions.data = data.games
+    //         var platforms = '';
+    //         for (p in result.games ){
+    //             for (q in result.games[p]['platforms']) {
+    //                 platforms += result.games[p]['platforms'][q]['name']
+    //                 if (q < result.games[p]['platforms'].length - 1) {
+    //                     platforms += ', '
+    //                 }
+    //             }
+    //             result.games[p]['platforms'] = platforms
+    //             platforms = ""
+    //         }
+    //         $scope.gridOptions.data = result.games;
+    //     });
+
+    //     $scope.gridOptions.columnDefs = [
+    //         { name: 'name',
+    //           cellTemplate:'<a href="#game" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>',
+    //           enableHiding: false },
+    //         { name: 'deck', enableHiding: false },
+    //         { name: 'publisher', field: "publishers[0]['name']", enableHiding: false },
+    //         { name: 'developer', field: "developers[0]['name']"},
+    //         { name: 'platforms' }
+    //     ];
+    // };
+
+    // $scope.gridOptions.onRegisterApi = function (gridApi) {
+    //     $scope.grid = gridApi;
+    //     gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
+    //         paginationOptions.pageNumber = newPage;
+    //         paginationOptions.pageSize = pageSize;
+    //         getPage();
+    //     });
+    // };
+    // getPage();
 
 });
 

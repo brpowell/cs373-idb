@@ -1,21 +1,56 @@
 <link href="css/company.css" rel="stylesheet">
 <!-- Page Content -->
-<!-- Table of Games -->
 <div class="container">
-    <div class="container col-md-12 col-sm-12 col-xs-12 card shadow" style="height: 100%;">
-        <div class="row" style="height: 100%;">
-            <div ui-grid="gridOptions" class="grid" ui-grid-pagination class="grid">
-            <!-- style="margin: 5px;" -->
-            <br></br>
-            <div>
-		      <div>Current page: {{grid.pagination.getPage()}} of {{grid.pagination.getTotalPages()}}</div>
-		      <button type="button" class="btn btn-success" ng-click="grid.pagination.previousPage()">
-		        previous page
-		      </button>
-		      <button type="button" class="btn btn-success" ng-click="grid.pagination.nextPage()">
-		        next page
-		      </button>
-            </div>
+    <div class="container col-md-12 col-sm-12 col-xs-12 shadow" style="height: 100%;" ng-init="reverse='false'">
+
+        <div class="row table-responsive" style="margin-bottom: 0px; background-color: black;">
+            <table class="table table-hover" style="background-color: black; color: white;">
+                <thead style="background-color: #001C6E; color: white;">
+                    <th ng-click="sort('name')">Name&nbsp;&nbsp;
+                        <span ng-if="sortKey!='name'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='name'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='name'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
+                    <th ng-click="sort('deck')">Deck&nbsp;&nbsp;
+                        <span ng-if="sortKey!='deck'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='deck'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='deck'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
+
+                    <th ng-click="sort('date_founded')">Publishers&nbsp;&nbsp;
+                        <span ng-if="sortKey!='date_founded'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='date_founded'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='date_founded'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
+
+                    <th ng-click="sort('city')">Developers&nbsp;&nbsp;
+                        <span ng-if="sortKey!='city'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='city'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='city'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
+
+                    <th ng-click="sort('country')">Platforms&nbsp;&nbsp;
+                        <span ng-if="sortKey!='country'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='country'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='country'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
+                </thead>
+                <tr dir-paginate="game in games | itemsPerPage: 20 | orderBy:sortKey:reverse" total-items="totalGames" current-page="pagination.current">
+                    <td><a href="#game" ng-click="giveID(game.id)">{{ game.name }}</a></td>
+                    <td>{{ game.deck }}</td>
+                    <td>{{ game.publishers }}</td>
+                    <td>{{ game.developers }}</td>
+                    <td>{{ game.platforms }}</td>
+                </tr>
+            </table>
         </div>
+    </div>
+
+    <div class="row" align="center">
+        <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"
+            max-size="5"
+            direction-links="true"
+            boundary-links="true" >
+        </dir-pagination-controls>
     </div>
 </div>
