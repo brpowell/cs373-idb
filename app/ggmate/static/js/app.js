@@ -169,6 +169,7 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
         dataShare.sendData(id);
     }
 
+    // sorting on client side
     $scope.sort = function(key) {
         $scope.sortKey = key;
         $scope.reverse = !$scope.reverse;
@@ -261,6 +262,7 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
         dataShare.sendData(id);
     }
 
+    // get the names from the array
     $scope.extract = function(arr) {
         var res = '';
         for (var i = 0; i < arr.length; i++) {
@@ -272,6 +274,7 @@ mainApp.controller('gamesListCtrl', function($scope, $http, dataShare) {
         return res;
     }
 
+    // sorting on client side
     $scope.sort = function(key) {
         $scope.sortKey = key;
         $scope.reverse = !$scope.reverse;
@@ -374,10 +377,12 @@ mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
     // get first page when load
     getPage(1);
 
+    // listen on page change event
     $scope.pageChanged = function(newPage) {
         getPage(newPage);
     };
 
+    // get a page based on the page number
     function getPage(pageNumber) {
         $http.get('/api/people/' + pageNumber).success(function(res) {
             $scope.people = res.people;
@@ -385,10 +390,12 @@ mainApp.controller('peopleListCtrl', function($scope, $http, dataShare) {
         });
     };
 
+    // share id
     $scope.giveID = function(id) {
         dataShare.sendData(id);
     }
 
+    // sorting on client side
     $scope.sort = function(key) {
         $scope.sortKey = key;
         $scope.reverse = !$scope.reverse;
