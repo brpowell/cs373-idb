@@ -38,41 +38,7 @@ with open(os.path.join(base, 'people.json'), 'r') as people_file:
     people_json = json.loads(people_file.readlines()[0])
 print('people.json loaded')
 
-# for id, game in games_json.items():
-#     try:
-#         release = parser.parse(game['original_release_date'])
-#     except:
-#         release = parser.parse('1-1-1900')
-#     try:
-#         genre = game['genres'][0]['name']
-#     except:
-#         genre = 'No genre'
-#     rating = game['original_game_rating']
-#     image = game['image']
-#     if image:
-#         image = image['medium_url']
-#     else:
-#         image = 'https://s3.amazonaws.com/clarityfm-production/attachments/1354/default/Objects-Joystick-icon.png?1401047397'
-#     if rating:
-#         rating = rating[0]['name'].replace('ESRB: ', '')
-#     else:
-#         rating = 'No Rating'
-#     g = Game(name=game['name'], deck=game['deck'], image=image, \
-#         release_date=release, content_rating=rating, genre=genre)
-#     if game['platforms']:
-#         for platform in game['platforms']:
-#             p = 0
-#             if platform['id'] not in platform_cache:
-#                 p = Platform(name=platform['name'], short=platform['abbreviation'])
-#             else:
-#                 p = Platform.query.filter_by(id=platform['id']).first()
-#             g.platforms.append(p)
-#             db.session.add(p)
-#             print(p)
-#     db.session.add(g)
-#     print(g)
-# db.session.commit()
-# print('Games Committed')
+
 def just_companies():
     for f in os.listdir('../../ggmate-sub/scrape/data/robust-developers'):
         company = companies_json[f.split('.')[0]]
