@@ -1,7 +1,9 @@
-from flask import send_file, make_response, url_for, jsonify, abort, make_response
+from flask import send_file, make_response, url_for, jsonify, abort, make_response, request
 from ggmate import app_instance, db
 import subprocess, json, os
 from ggmate.models import Game, Company, Person
+from sqlalchemy_searchable import parse_search_query
+from sqlalchemy_searchable import search
 
 # Routes
 @app_instance.route('/', methods=['GET'])
@@ -20,6 +22,20 @@ def run_tests():
 # ------------
 # RESTful API
 # ------------
+
+@app_instance.route('/search')
+def search():
+    results = []
+    search_text = request.args.get('searchbar', '')
+    game_query = Game.query.search(search_text).limit(15)
+    company_query = Company.query.search(search_text).limit(15)
+    person_query = Person.query.search(search_text).limit(15)
+    results.extend(game_query.all())
+    results.extend(company_query.all())
+    results.extend(person_query.all())
+
+    return jsonify({'results': [x.to_json() for x in results]})
+
 @app_instance.route('/api/games/<int:page>', methods=['GET'])
 def get_games(page=1):
     request = Game.query.paginate(page=page, per_page=20)

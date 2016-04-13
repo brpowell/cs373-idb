@@ -21,11 +21,13 @@ def make_shell_context():
     return d
 
 @manager.command
-def resetdb():
+def builddb():
     """ Clear the database """
-    choice = input('Are you sure? Y/N: ')
+    choice = input('Are you sure you want to replace? Y/N: ')
     if choice.lower() == 'y':
         db.drop_all()
+        db.configure_mappers()
+        db.create_all()
         db.session.commit()
         # subprocess.getoutput('psql ggmate < ../ggmate.sql')
         print('Done...Dropped tables and recreated db')
@@ -36,7 +38,7 @@ def test():
     output = subprocess.getoutput('python tests.py')
     print(output)
 
-# manager.add_command('db', MigrateCommand)
+manager.add_command('db', MigrateCommand)
 manager.add_command("shell", Shell(make_context=make_shell_context))
 manager.add_command('rundebug', Server(host='0.0.0.0', port="5000", use_debugger=True))
 

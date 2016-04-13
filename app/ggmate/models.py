@@ -1,4 +1,10 @@
 from ggmate import db
+from sqlalchemy_searchable import SearchQueryMixin
+from sqlalchemy_utils.types import TSVectorType
+from sqlalchemy_searchable import make_searchable
+from flask.ext.sqlalchemy import BaseQuery
+
+make_searchable()
 
 # Association tables for many-to-many relationships
 company_person = db.Table('company_person',
@@ -23,6 +29,16 @@ game_platform = db.Table('game_platform',
 )
 
 
+class GameQuery(BaseQuery, SearchQueryMixin):
+    pass
+
+class CompanyQuery(BaseQuery, SearchQueryMixin):
+    pass
+
+class PersonQuery(BaseQuery, SearchQueryMixin):
+    pass
+
+
 class Platform(db.Model):
     __tablename__ = 'platforms'
     id = db.Column(db.Integer, primary_key=True)
@@ -34,6 +50,7 @@ class Platform(db.Model):
 
 
 class Game(db.Model):
+    query_class = GameQuery
     __tablename__ = 'games'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
@@ -42,13 +59,15 @@ class Game(db.Model):
     release_date = db.Column(db.DateTime)
     platforms = db.relationship('Platform', secondary=game_platform,
                     backref=db.backref('games', lazy='dynamic'))
+    search_vector = db.Column(TSVectorType('name'))
 
     def to_json(self):
         json_game = {
             'id': self.id,
             'name': self.name,
             'deck': self.deck,
-            'image': self.image,
+            'image': self.image
+            # 'release_date': self.release_date
         }
         developers = []
         for dev in self.developers:
@@ -72,6 +91,7 @@ class Game(db.Model):
 
 
 class Person(db.Model):
+    query_class = PersonQuery
     __tablename__ = 'people'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
@@ -83,6 +103,7 @@ class Person(db.Model):
     deck = db.Column(db.Text)
     first_credited_game = db.Column(db.Integer, db.ForeignKey('games.id'))
     games = db.relationship('Game', secondary=person_game, backref='people')
+    search_vector = db.Column(TSVectorType('name'))
 
     def to_json(self, list_view=False):
         json_person = {
@@ -109,6 +130,7 @@ class Person(db.Model):
 
 
 class Company(db.Model):
+    query_class = CompanyQuery
     __tablename__ = 'companies'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255))
@@ -123,6 +145,7 @@ class Company(db.Model):
                         backref='developers')
     published_games = db.relationship('Game', secondary=publisher_game,
                         backref='publishers')
+    search_vector = db.Column(TSVectorType('name'))
 
     def to_json(self, list_view=False):
         json_company = {
