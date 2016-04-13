@@ -36,7 +36,7 @@
                     </th>
                 </thead>
                 <tr dir-paginate="game in games | itemsPerPage: 20 | orderBy:sortKey:reverse" total-items="totalGames" current-page="pagination.current">
-                    <td><a href="#game" ng-click="giveID(game.id)">{{ game.name }}</a></td>
+                    <td><a href="#game/{{game.id}}" ng-click="giveID(game.id)">{{ game.name }}</a></td>
                     <td>{{ game.deck }}</td>
                     <td>{{ extract(game.publishers) }}</td>
                     <td>{{ extract(game.developers) }}</td>

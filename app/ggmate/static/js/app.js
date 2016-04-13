@@ -26,7 +26,7 @@ mainApp.config(['$routeProvider', function($routeProvider) {
         templateUrl: '/templates/company.html',
         controller: 'companyCtrl'
     })
-    .when('/game', {
+    .when('/game/:name', {
         templateUrl: '/templates/game.html',
         controller: 'gameCtrl'
     })
@@ -173,6 +173,10 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
     $scope.sort = function(key) {
         $scope.sortKey = key;
         $scope.reverse = !$scope.reverse;
+    }
+
+    $scope.getSlug = function(name) {
+        return name.replace(/ /g,"_");
     }
 
     // Changes Date Format
