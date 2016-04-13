@@ -169,6 +169,11 @@ mainApp.controller('companiesListCtrl', function($scope, $http, dataShare) {
         dataShare.sendData(id);
     }
 
+    $scope.sort = function(key) {
+        $scope.sortKey = key;
+        $scope.reverse = !$scope.reverse;
+    }
+
     // Changes Date Format
     $scope.changeDate = function(str) {
         return str.slice(0, 16)
