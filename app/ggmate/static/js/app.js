@@ -26,7 +26,7 @@ mainApp.config(['$routeProvider', function($routeProvider) {
         templateUrl: '/templates/company.html',
         controller: 'companyCtrl'
     })
-    .when('/game/:name', {
+    .when('/game/:id', {
         templateUrl: '/templates/game.html',
         controller: 'gameCtrl'
     })
@@ -82,10 +82,10 @@ mainApp.controller('companyCtrl', function($scope, $http, dataShare) {
     };
 });
 
-mainApp.controller('gameCtrl', function($scope, $http, dataShare) {
+mainApp.controller('gameCtrl', function($scope, $http, dataShare, $routeParams) {
     var id =  dataShare.getData();
     var cID;
-    $http.get('/api/game/'.concat(id)).then(function(result) {
+    $http.get('/api/game/' + $routeParams["id"]).then(function(result) {
         var game = result.data
         $scope.gameName = game["name"]
         $scope.description = game['deck']
