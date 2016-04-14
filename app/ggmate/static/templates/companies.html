@@ -36,7 +36,7 @@
                     </th>
                 </thead>
                 <tr dir-paginate="company in companies | itemsPerPage: 20 | orderBy:sortKey:reverse" total-items="totalCompanies" current-page="pagination.current">
-                    <td><a href="#company/{{company.id}}">{{ company.name}}</a></td>
+                    <td><a href="#company/{{company.id}}">{{ company.name }}</a></td>
                     <td>{{ company.deck }}</td>
                     <td>{{ changeDate(company.date_founded) }}</td>
                     <td>{{ company.city }}</td>
