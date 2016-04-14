@@ -254,7 +254,7 @@ class DBTestCases(unittest.TestCase):
     #     self.assertEqual(len(g.first_for), 2)
 
 if __name__ == '__main__':
-    app_instance.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///test.db"
+    app_instance.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://localhost/ggmate_test"
     # print(app_instance.config['SQLALCHEMY_DATABASE_URI'])
     unittest.main()
     # db.drop_all()

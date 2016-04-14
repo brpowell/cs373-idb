@@ -109,7 +109,7 @@ mainApp.controller('personCtrl', function($scope, $http, $routeParams) {;
 
 mainApp.controller('companiesListCtrl', function($scope, $http) {
     // set the default sort type
-    $scope.sortType = 'name'; 
+    $scope.sortType = 'name';
 
     // total number of companies
     $scope.totalCompanies = 617;
@@ -151,7 +151,7 @@ mainApp.controller('companiesListCtrl', function($scope, $http) {
 
 mainApp.controller('gamesListCtrl', function($scope, $http) {
     // set the default sort type
-    $scope.sortType = 'name'; 
+    $scope.sortType = 'name';
 
     // total number of companies
     $scope.totalGames = 24776;
