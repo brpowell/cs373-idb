@@ -43,16 +43,16 @@ def lucky():
 
 @app_instance.route('/search')
 def search():
-    results = []
     search_text = request.args.get('searchbar', '')
     game_query = Game.query.search(search_text).limit(15)
     company_query = Company.query.search(search_text).limit(15)
     person_query = Person.query.search(search_text).limit(15)
-    results.extend(game_query.all())
-    results.extend(company_query.all())
-    results.extend(person_query.all())
-
-    return jsonify({'results': [x.to_json() for x in results]})
+    results = {
+        'games': [x.to_json() for x in game_query.all()],
+        'companies': [x.to_json() for x in company_query.all()],
+        'people': [x.to_json() for x in person_query.all()]
+    }
+    return jsonify(results)
 
 @app_instance.route('/api/games/<int:page>', methods=['GET'])
 def get_games(page=1):
