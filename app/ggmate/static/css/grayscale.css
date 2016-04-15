@@ -180,6 +180,10 @@ a:focus {
     background-color: #42dca3;
 }
 
+.btn-lucky {
+    margin-top: 10px;
+}
+
 ul.banner-social-buttons {
     margin-top: 0;
 }
@@ -265,6 +269,7 @@ body {
 .btn-custom {
     border-color: white;
     color: white;
+    margin-top: 5px;
     background-color: rgba(34,34,34,0.4);
 }
 
@@ -432,6 +437,13 @@ section.content-section.text-center.ng-scope {
 /*          MEDIA QUERIES       */
 /* -----------------------------*/
 
+/* Smallest */
+@media (max-width: 370px) {
+    .btn-lucky {
+        font-size: 11px;
+    }
+}
+
 
 /* Portrait phones and smaller */
 @media (max-width: 480px) {
@@ -447,10 +459,7 @@ section.content-section.text-center.ng-scope {
 }
 
 
-/* Portrait phones and smaller */
-@media (max-width: 480px) {
 
-}
 
 
 /* Landscape phones and portrait tablets */
