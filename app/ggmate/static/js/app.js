@@ -3,8 +3,7 @@ var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate', 'ui.bootstrap
 mainApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider
     .when('/', {
-        templateUrl: '/templates/home.html',
-        controller: "CarouselDemoCtrl"
+        templateUrl: '/templates/home.html'
     })
     .when('/about', {
         templateUrl: '/templates/about.html',
@@ -34,8 +33,13 @@ mainApp.config(['$routeProvider', function($routeProvider) {
         templateUrl: '/templates/person.html',
         controller: 'personCtrl'
     })
+    .when('/searchResult/:searchTerm', {
+        templateUrl: '/templates/searchResults.html',
+        controller: 'searchCtrl'
+    })
     .otherwise({
-        templateUrl: '/templates/home.html'
+        templateUrl: '/templates/home.html',
+        contoller: 'homeCtrl'
     })
 
 }]);
@@ -141,9 +145,13 @@ mainApp.controller('companiesListCtrl', function($scope, $http) {
     $scope.sort = function(key) {
         $scope.sortKey = key;
         $scope.reverse = !$scope.reverse;
-    }
+    };
 
-    // changes Date Format
+    $scope.getSlug = function(name) {
+        return name.replace(/ /g,"_");
+    };
+
+    // Changes Date Format
     $scope.changeDate = function(str) {
         return str.slice(0, 16)
     };
@@ -304,6 +312,34 @@ mainApp.controller('aboutCtrl', function($scope, $http) {
             $scope.testOutput = '\n' + result.data.output;
         });
     }
+});
+
+mainApp.controller('submitCtrl', function($scope, $http, $location) {
+    $scope.query;
+    $scope.submitQuery = function(){
+        if ($scope.query) {
+            $location.path("/searchResult/" + $scope.query); // path not hash
+        }
+
+    };
+})
+
+mainApp.controller('searchCtrl', function($scope, $http, $routeParams) {
+    var searchTerm = $routeParams["searchTerm"]
+    console.log(searchTerm)
+    if (searchTerm) {
+        $http.get('/search', {params:{'searchbar': searchTerm}}).success(function(res) {
+            $scope.result = res.results;
+        });
+    }
+    // $scope.hrefChange = function(path) {
+        // if ($scope.result["city"]){
+        //     $scope.stuff = "#company/" + path["id"]
+        // }
+        // else if ($scope.result["birth_date"]) {
+        //     $scope.stuff = "#person/" + path["id"]
+        // }
+    // }
 });
 
 mainApp.controller('CarouselDemoCtrl', function($scope) {
