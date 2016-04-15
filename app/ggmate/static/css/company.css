@@ -117,6 +117,16 @@ width: 80%;
     width: 400px;
     height: 500px;
 }
-/*th {
-  width: 110px;
-}*/
+
+table {
+  table-layout: fixed;
+}
+
+td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
