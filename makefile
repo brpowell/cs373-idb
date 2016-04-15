@@ -78,3 +78,9 @@ run:
 
 freeze:
 	pip freeze > app/requirements.txt 
+
+install:
+	pip install -r app/requirements.txt
+
+loaddb:
+	psql ggmate < db/ggmate_search.sql
