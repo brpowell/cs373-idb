@@ -112,8 +112,8 @@ mainApp.controller('personCtrl', function($scope, $http, $routeParams) {;
 });
 
 mainApp.controller('companiesListCtrl', function($scope, $http) {
-
-    $scope.sortType = 'name'; // set the default sort type
+    // set the default sort type
+    $scope.sortType = 'name';
 
     // total number of companies
     $scope.totalCompanies = 617;
@@ -158,7 +158,8 @@ mainApp.controller('companiesListCtrl', function($scope, $http) {
 });
 
 mainApp.controller('gamesListCtrl', function($scope, $http) {
-    $scope.sortType = 'name'; // set the default sort type
+    // set the default sort type
+    $scope.sortType = 'name';
 
     // total number of companies
     $scope.totalGames = 24776;
@@ -204,12 +205,47 @@ mainApp.controller('gamesListCtrl', function($scope, $http) {
         $scope.reverse = !$scope.reverse;
     }
 
-    // Changes Date Format
+    // changes Date Format
     $scope.changeDate = function(str) {
         return str.slice(0, 16)
     };
 });
 
+mainApp.controller('peopleListCtrl', function($scope, $http) {
+
+    // total number of people
+    $scope.totalPeople = 72951;
+
+    // 20 people per page
+    $scope.peoplePerPage = 20;
+
+    // pagination
+    $scope.pagination = {
+        current: 1
+    };
+
+    // get first page when load
+    getPage(1);
+
+    // listen on page change event
+    $scope.pageChanged = function(newPage) {
+        getPage(newPage);
+    };
+
+    // get a page based on the page number
+    function getPage(pageNumber) {
+        $http.get('/api/people/' + pageNumber).success(function(res) {
+            $scope.people = res.people;
+            console.log($scope.people);
+        });
+    };
+
+    // sorting on client side
+    $scope.sort = function(key) {
+        $scope.sortKey = key;
+        $scope.reverse = !$scope.reverse;
+    }
+});
 
 // This scrolling function
 // is from http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript

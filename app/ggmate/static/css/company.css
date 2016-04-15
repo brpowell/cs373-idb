@@ -31,6 +31,10 @@ h5 {
   font-family: 'Exo 2', sans-serif;
 }
 
+a {
+    color: rgb(14, 143, 255);
+}
+
 .page-header {
     border-color: #33CCFF;
 }
@@ -105,7 +109,8 @@ h5 {
 }
 
 .aboutColor {
-    color: black;
+    /*color: #black;*/
+    color: #white;
 }
 .aboutCard h4 i{
     color: #33CCFF;
@@ -119,9 +124,8 @@ i {
 }
 
 .modal-wide .modal-dialog {
-width: 80%;
+    width: 80%;
 }
-
 .grid {
   height: 500px;
 }
@@ -133,9 +137,14 @@ width: 80%;
     width: 400px;
     height: 500px;
 }
+
 .img-center {
     height: 200px;
     width: 200px;
     padding: 0px;
     margin: 0 auto;
 }
+
+/*th {
+  width: 110px;
+}*/
