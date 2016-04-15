@@ -379,7 +379,7 @@ body {
     /*margin-bottom: 0;*/
     color:#33CCFF;
     max-height: 47px;
-    height: 47px;
+    /*height: 47px;*/
 }
 
 .nav-btns {
@@ -394,7 +394,7 @@ body {
     border-radius: 10px;
 
     border-width: thin;
-    height: 170px;
+    height: 182px
     width: 50%;
     box-shadow: 0px 0px 6px 2px #CCCCCC;
 

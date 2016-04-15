@@ -1,4 +1,4 @@
-from flask import send_file, make_response, url_for, jsonify, abort, make_response, request
+from flask import send_file, make_response, url_for, jsonify, abort, make_response, request, redirect
 from ggmate import app_instance, db
 import subprocess, json, os
 from ggmate.models import Game, Company, Person
@@ -17,6 +17,24 @@ def run_tests():
     output = subprocess.getoutput('python3 '+path)
     print(output)
     return json.dumps({'output': str(output)})
+
+@app_instance.route('/lucky')
+def lucky():
+    from random import randint
+    rnd = randint(0, 2)
+    if rnd == 0:
+        query = Game.query.all()
+        model_id = query[randint(0, len(query) - 1)].id
+        model_text = 'game'
+    elif rnd == 1:
+        query = Company.query.all()
+        model_id = query[randint(0, len(query) - 1)].id
+        model_text = 'company'
+    elif rnd == 2:
+        query = Person.query.all()
+        model_id = query[randint(0, len(query) - 1)].id
+        model_text = 'person'
+    return redirect('/#/'+model_text+'/'+str(model_id))
 
 
 # ------------
