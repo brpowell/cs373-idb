@@ -3,9 +3,9 @@
 <div class="container">
     <div class="container col-md-12 col-sm-12 col-xs-12 shadow" style="height: 100%;" ng-init="reverse='false'">
 
-        <div class="row table-responsive" style="margin-bottom: 0px; background-color: black;">
-            <table class="table table-hover" style="background-color: black; color: white;">
-                <thead style="background-color: #001C6E; color: white;">
+        <div class="row table-responsive" style="margin-bottom: 0px; background-color: black; height: 100vh;" >
+            <table class="table table-hover table-striped table-header">
+                <thead>
                     <th ng-click="sort('name')">Name&nbsp;&nbsp;
                         <span ng-if="sortKey!='name'" class="glyphicon glyphicon-chevron-down"></span>
                         <span ng-if="reverse && sortKey=='name'" class="glyphicon glyphicon-chevron-down"></span>

@@ -3,8 +3,7 @@ var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate', 'ui.bootstrap
 mainApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider
     .when('/', {
-        templateUrl: '/templates/home.html',
-        controller: "CarouselDemoCtrl"
+        templateUrl: '/templates/home.html'
     })
     .when('/about', {
         templateUrl: '/templates/about.html',
@@ -34,8 +33,13 @@ mainApp.config(['$routeProvider', function($routeProvider) {
         templateUrl: '/templates/person.html',
         controller: 'personCtrl'
     })
+    .when('/searchResult/:searchTerm', {
+        templateUrl: '/templates/searchResults.html',
+        controller: 'searchCtrl'
+    })
     .otherwise({
-        templateUrl: '/templates/home.html'
+        templateUrl: '/templates/home.html',
+        contoller: 'homeCtrl'
     })
 
 }]);
@@ -141,61 +145,16 @@ mainApp.controller('companiesListCtrl', function($scope, $http) {
     $scope.sort = function(key) {
         $scope.sortKey = key;
         $scope.reverse = !$scope.reverse;
-    }
+    };
 
     $scope.getSlug = function(name) {
         return name.replace(/ /g,"_");
-    }
+    };
 
     // Changes Date Format
     $scope.changeDate = function(str) {
         return str.slice(0, 16)
     };
-
-    // $scope.gridOptions = {
-    //     enablePaginationControls: false,
-    //     paginationPageSize: 50,
-    //     useExternalPagination: true
-    // };
-    // var paginationOptions = {
-    //     pageNumber: 1,
-    //     pageSize: 50,
-    //     sort: null
-    // };
-
-    // var getPage = function() {
-    //     var url;
-    //     switch(paginationOptions.sort) {
-    //       default:
-    //         url = '/api/companies/'+paginationOptions.pageNumber;
-    //         break;
-    //     }
-
-    //     $http.get(url).success(function (result) {
-    //         $scope.gridOptions.totalItems = 617;
-    //         $scope.gridOptions.data = result.companies;
-    //     });
-
-    //     $scope.gridOptions.columnDefs = [
-    //         { name: 'name',
-    //           cellTemplate:'<a href="#company" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>', enableHiding: false },
-    //         { name: 'deck', enableHiding: false },
-    //         { name: 'image', enableHiding: false },
-    //         { name: 'Date Founded', field: "date_founded"},
-    //         { name: 'country'}
-    //         ];
-    //     };
-
-    //     $scope.gridOptions.onRegisterApi = function (gridApi) {
-    //         $scope.grid = gridApi;
-
-    //         gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
-    //             paginationOptions.pageNumber = newPage;
-    //             paginationOptions.pageSize = pageSize;
-    //             getPage();
-    //         });
-    //     };
-    // getPage();
 });
 
 mainApp.controller('gamesListCtrl', function($scope, $http) {
@@ -249,167 +208,8 @@ mainApp.controller('gamesListCtrl', function($scope, $http) {
     $scope.changeDate = function(str) {
         return str.slice(0, 16)
     };
-
-
-
-
-
-    // $scope.giveID = function(row) {
-    //     $scope.customer = row.entity.id;
-    //     dataShare.sendData(row.entity.id);
-    // }
-    // $scope.gridOptions = {
-    //     enablePaginationControls: false,
-    //     paginationPageSize: 50,
-    //     useExternalPagination: true
-    //     // useExternalSorting: true
-    // };
-    // var paginationOptions = {
-    //     pageNumber: 1,
-    //     pageSize: 50,
-    //     sort: null
-    // };
-
-    // var getPage = function() {
-    //     var url;
-    //     switch(paginationOptions.sort) {
-    //       // case uiGridConstants.ASC:
-    //       //   url = 'https://cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/data/100_ASC.json';
-    //       //   break;
-    //       // case uiGridConstants.DESC:
-    //       //   url = 'https://cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/data/100_DESC.json';
-    //       //   break;
-    //       default:
-    //         url = '/api/games/'+paginationOptions.pageNumber;
-    //         break;
-    //     }
-
-    //     $http.get(url).success(function (result) {
-    //         $scope.gridOptions.totalItems = 24776;
-    //         // var firstRow = (paginationOptions.pageNumber - 1) * paginationOptions.pageSize;
-    //         // $scope.gridOptions.data = data.games.slice(firstRow, firstRow + paginationOptions.pageSize);
-    //         // $scope.gridOptions.data = data.games
-    //         var platforms = '';
-    //         for (p in result.games ){
-    //             for (q in result.games[p]['platforms']) {
-    //                 platforms += result.games[p]['platforms'][q]['name']
-    //                 if (q < result.games[p]['platforms'].length - 1) {
-    //                     platforms += ', '
-    //                 }
-    //             }
-    //             result.games[p]['platforms'] = platforms
-    //             platforms = ""
-    //         }
-    //         $scope.gridOptions.data = result.games;
-    //     });
-
-    //     $scope.gridOptions.columnDefs = [
-    //         { name: 'name',
-    //           cellTemplate:'<a href="#game" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>',
-    //           enableHiding: false },
-    //         { name: 'deck', enableHiding: false },
-    //         { name: 'publisher', field: "publishers[0]['name']", enableHiding: false },
-    //         { name: 'developer', field: "developers[0]['name']"},
-    //         { name: 'platforms' }
-    //     ];
-    // };
-
-    // $scope.gridOptions.onRegisterApi = function (gridApi) {
-    //     $scope.grid = gridApi;
-    //     gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
-    //         paginationOptions.pageNumber = newPage;
-    //         paginationOptions.pageSize = pageSize;
-    //         getPage();
-    //     });
-    // };
-    // getPage();
-
 });
 
-mainApp.controller('peopleListCtrl', function($scope, $http) {
-
-    // total number of people
-    $scope.totalPeople = 72951;
-
-    // 20 people per page
-    $scope.peoplePerPage = 20;
-
-    // pagination
-    $scope.pagination = {
-        current: 1
-    };
-
-    // get first page when load
-    getPage(1);
-
-    // listen on page change event
-    $scope.pageChanged = function(newPage) {
-        getPage(newPage);
-    };
-
-    // get a page based on the page number
-    function getPage(pageNumber) {
-        $http.get('/api/people/' + pageNumber).success(function(res) {
-            $scope.people = res.people;
-            console.log($scope.people);
-        });
-    };
-
-    // sorting on client side
-    $scope.sort = function(key) {
-        $scope.sortKey = key;
-        $scope.reverse = !$scope.reverse;
-    }
-
-
-    // $scope.gridOptions = {
-    //     enablePaginationControls: false,
-    //     paginationPageSize: 50,
-    //     useExternalPagination: true
-    // };
-    // var paginationOptions = {
-    //     pageNumber: 1,
-    //     pageSize: 50,
-    //     sort: null
-    // };
-
-    // var getPage = function() {
-    //     var url;
-    //     switch(paginationOptions.sort) {
-    //       default:
-    //         url = '/api/people/'+paginationOptions.pageNumber;
-    //         break;
-    //     }
-
-    //     $http.get(url).success(function (result) {
-    //         $scope.gridOptions.totalItems = 72951;
-    //         $scope.gridOptions.data = result.people;
-    //     });
-
-    //     $scope.gridOptions.columnDefs = [
-    //         { name: 'name',
-    //           cellTemplate:'<a href="#person" ng-click="grid.appScope.giveID(row)">{{COL_FIELD}}</a>',
-    //           enableHiding: false },
-    //         { name: 'deck', enableHiding: false },
-    //         { name: 'Games Created', field: "games_created", enableHiding: false },
-    //         { name: 'Country', field: "country"},
-    //         { name: 'Home Town', field: "hometown" }
-    //     ];
-    // };
-
-    // $scope.gridOptions.onRegisterApi = function (gridApi) {
-    //     $scope.grid = gridApi;
-
-    //     gridApi.pagination.on.paginationChanged($scope, function (newPage, pageSize) {
-    //         paginationOptions.pageNumber = newPage;
-    //         paginationOptions.pageSize = pageSize;
-    //         getPage();
-    //     });
-    // };
-    // getPage();
-
-
-});
 
 // This scrolling function
 // is from http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript
@@ -476,6 +276,34 @@ mainApp.controller('aboutCtrl', function($scope, $http) {
             $scope.testOutput = '\n' + result.data.output;
         });
     }
+});
+
+mainApp.controller('submitCtrl', function($scope, $http, $location) {
+    $scope.query;
+    $scope.submitQuery = function(){
+        if ($scope.query) {
+            $location.path("/searchResult/" + $scope.query); // path not hash
+        }
+
+    };
+})
+
+mainApp.controller('searchCtrl', function($scope, $http, $routeParams) {
+    var searchTerm = $routeParams["searchTerm"]
+    console.log(searchTerm)
+    if (searchTerm) {
+        $http.get('/search', {params:{'searchbar': searchTerm}}).success(function(res) {
+            $scope.result = res.results;
+        });
+    }
+    // $scope.hrefChange = function(path) {
+        // if ($scope.result["city"]){
+        //     $scope.stuff = "#company/" + path["id"]
+        // }
+        // else if ($scope.result["birth_date"]) {
+        //     $scope.stuff = "#person/" + path["id"]
+        // }
+    // }
 });
 
 mainApp.controller('CarouselDemoCtrl', function($scope) {

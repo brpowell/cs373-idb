@@ -9,7 +9,8 @@ body {
     height: 100%;
     /*font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
     color: #fff;
-    background-color: transparent;
+    /*background-color: transparent;*/
+    background-color: #303030;
 }
 
 html {

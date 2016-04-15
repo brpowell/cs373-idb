@@ -35,19 +35,6 @@ h5 {
     border-color: #33CCFF;
 }
 
-#wrapper {
-    height:100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
-
-#wrapper td {
-    vertical-align: middle;
-    text-align: center;
-}
-
 .card {
     background-color: black;
 }
@@ -76,13 +63,55 @@ h5 {
     border-top: 0px;
 }
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  background-color: #336699;
+  background-color: #33CCFF;
   color: black;
 }
 .table-responsive {
     height: 300px;
     overflow:auto;
      margin-bottom: 10px;
+}
+.table a{
+    color: #339999;
+}
+.table-header {
+    background-color: black;
+    color: white;
+}
+.table thead {
+    background-color: #001C6E;
+    color: white;
+}
+
+.pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
+    background-color: black;
+}
+.pagination>li>a, .pagination>li>span {
+    background-color: black;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: #2451D5;
+}
+
+#wrapper {
+    height:100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+#wrapper td {
+    margin: 0 auto;
+}
+
+.aboutColor {
+    color: black;
+}
+.aboutCard h4 i{
+    color: #33CCFF;
+}
+.aboutCard h2 {
+    color: white;
 }
 
 i {
@@ -91,13 +120,6 @@ i {
 
 .modal-wide .modal-dialog {
 width: 80%;
-}
-
-.aboutColor {
-    color: black;
-}
-.aboutCard h4, i{
-    color: #336699;
 }
 
 .grid {
@@ -110,4 +132,10 @@ width: 80%;
     border: 1px solid rgb(212,212,212);
     width: 400px;
     height: 500px;
+}
+.img-center {
+    height: 200px;
+    width: 200px;
+    padding: 0px;
+    margin: 0 auto;
 }

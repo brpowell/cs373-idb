@@ -52,13 +52,12 @@
                 <tr>
                     <td>
                         <div class="launch-pad col-xs-6 col-xs-offset-3">
-                            <!-- <div class="launch-header"> -->
-                                <h1 class="launch-header ggm8center"> <img src="img/ggm8center.png">GGMate</h1>
-                            <!-- </div> -->
-                            <div class="ggsearch--wrapper">
-                                <form class="ggsearch--form" action="/search" method="get">
+                            <h1 class="launch-header ggm8center">
+                            <img src="img/ggm8center.png">GGMate</h1>
+                            <div class="ggsearch--wrapper" ng-controller="submitCtrl">
+                                <form class="ggsearch--form" ng-submit="submitQuery()">
                                     <div class="ggsearch--input-wrapper">
-                                        <input id="searchbar" name="searchbar" class="ggsearch--input" type="search" placeholder="Let's Play">
+                                        <input id="searchbar" name="searchbar" class="ggsearch--input" type="search" placeholder="Let's Play" ng-model="query">
                                     </div>
                                 </form>
                             </div>
@@ -71,15 +70,6 @@
                     Learn More About Our Website
                 </a>
             </div>
-
-
-            <!-- This is what the button was previously. It works but it doesn't smooth scroll -->
-            <!--
-            <div class="container bottom center" style="width: 100%">
-                <a href="#huh" class="btn btn-default btn-custom page-scroll">
-                    Learn More About Our Website
-                </a>
-            </div> -->
         </div>
 
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -90,10 +80,8 @@
         </a>
     </header>
 
-
-
-    <section id="bottom" class="content-section text-center" style="height: 100%; background-color: black" >
-        <div class="container col-md-12 col-sm-12" style="background-color: black; padding: 0px; margin: 0px;">
+    <section id="bottom" class="content-section text-center" style="height: 100%; background-image: url('http://www.globalpbm.com/wp-content/uploads/2015/07/betfair-pattern.png');" >
+        <div class="container col-md-12 col-sm-12" style="padding: 0px; margin: 0px;">
             <div class="container" style="margin-bottom: 55px;">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
@@ -126,21 +114,6 @@
             </div>
         </div>
     </section>
-    <!-- <div id="bottom"></div> -->
-
-    <script>
-        $(document).scroll(function(){
-            if($(this).scrollTop() > 600)
-            {
-               $('#myNav').css({"background":"#33CCFF"});
-               $('.navbar-custom a').css({"color": "black"});
-            } else {
-               $('#myNav').css({"background":"transparent"});
-               $('.navbar-custom .nav li a hover').css({"color": "black"});
-               $('.navbar-custom a').css({"color": "white"});
-           }
-       });
-    </script>
 
     <script type="text/javascript">
         $(document).ready(function() {
