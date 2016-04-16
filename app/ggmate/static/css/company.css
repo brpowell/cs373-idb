@@ -138,6 +138,15 @@ i {
     height: 500px;
 }
 
+@media (max-width: 768px) {
+  .container {
+    margin-left: 11px;
+  }
+  .shadow {
+    box-shadow: 5px 0px;
+  }
+}
+
 table {
   table-layout: fixed;
 }
@@ -156,8 +165,4 @@ td {
     margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  .container {
-    margin-left: 11px;
-  }
-}
+
