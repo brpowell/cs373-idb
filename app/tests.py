@@ -78,7 +78,7 @@ class DBTestCases(unittest.TestCase):
         self.assertTrue(len(g.platforms) >= 2)
 
     # Viewing games of a particular platform
-    def test_game_platforms(self):
+    def test_platform_games(self):
         p1 = Platform(name="Commodore 64", short="C64")
         p2 = Platform(name="Game Boy", short="GB")
         self.session.add(p1)
