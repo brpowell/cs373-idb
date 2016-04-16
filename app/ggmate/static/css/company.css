@@ -145,6 +145,14 @@ i {
   .shadow {
     box-shadow: 5px 0px;
   }
+
+  thead {
+    display: none;
+  }
+  tr td {
+    display: block;
+    text-align: center;
+  }
 }
 
 table {
