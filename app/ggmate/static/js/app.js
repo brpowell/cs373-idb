@@ -227,6 +227,22 @@ mainApp.controller('gamesListCtrl', function($scope, $http) {
     $scope.changeDate = function(str) {
         return str.slice(0, 16)
     };
+
+    jQuery(window).resize(function() {
+        hideControl();
+    });
+
+    function hideControl() {
+        var width = jQuery(window).width();
+        if(width < 480) {
+            jQuery(".dirPageLarge").hide();
+            jQuery(".dirPageSmall").show();
+        } else {
+            jQuery(".dirPageLarge").show();
+            jQuery(".dirPageSmall").hide();
+        }
+    }
+    hideControl();
 });
 
 mainApp.controller('peopleListCtrl', function($scope, $http) {
@@ -263,6 +279,22 @@ mainApp.controller('peopleListCtrl', function($scope, $http) {
         $scope.sortKey = key;
         $scope.reverse = !$scope.reverse;
     }
+
+    jQuery(window).resize(function() {
+        hideControl();
+    });
+
+    function hideControl() {
+        var width = jQuery(window).width();
+        if(width < 480) {
+            jQuery(".dirPageLarge").hide();
+            jQuery(".dirPageSmall").show();
+        } else {
+            jQuery(".dirPageLarge").show();
+            jQuery(".dirPageSmall").hide();
+        }
+    }
+    hideControl();
 });
 
 // This scrolling function
