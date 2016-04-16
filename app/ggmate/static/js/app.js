@@ -326,20 +326,17 @@ mainApp.controller('submitCtrl', function($scope, $http, $location) {
 
 mainApp.controller('searchCtrl', function($scope, $http, $routeParams) {
     var searchTerm = $routeParams["searchTerm"]
-    console.log(searchTerm)
+    var result
     if (searchTerm) {
         $http.get('/search', {params:{'searchbar': searchTerm}}).success(function(res) {
-            $scope.result = res.results;
+            $scope.games = res.games
+            $scope.companies = res.companies
+            $scope.people = res.people
+
         });
+
     }
-    // $scope.hrefChange = function(path) {
-        // if ($scope.result["city"]){
-        //     $scope.stuff = "#company/" + path["id"]
-        // }
-        // else if ($scope.result["birth_date"]) {
-        //     $scope.stuff = "#person/" + path["id"]
-        // }
-    // }
+
 });
 
 mainApp.controller('CarouselDemoCtrl', function($scope) {
