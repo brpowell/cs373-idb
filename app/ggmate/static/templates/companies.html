@@ -4,7 +4,7 @@
 <div class="container" style="height:85%">
     <div class="container col-md-12 col-sm-12 col-xs-12" style="height: 100%;" ng-init="reverse='false'">
         <div class="row table-responsive" style="margin-bottom: 0px; background-color: black;height:100%">
-            <table class="table table-hover table-striped" style="color: white;">
+            <table id="responsive-table" class="table table-hover table-striped" style="color: white;">
                 <thead style="background-color: #001C6E; color: white;">
                     <th ng-click="sort('name')">Name&nbsp;&nbsp;
                         <span ng-if="sortKey!='name'" class="glyphicon glyphicon-chevron-down"></span>
@@ -36,21 +36,29 @@
                     </th>
                 </thead>
                 <tr dir-paginate="company in companies | itemsPerPage: 20 | orderBy:sortKey:reverse" total-items="totalCompanies" current-page="pagination.current">
-                    <td><a href="#company/{{company.id}}">{{ company.name }}</a></td>
-                    <td>{{ company.deck }}</td>
-                    <td>{{ changeDate(company.date_founded) }}</td>
-                    <td>{{ company.city }}</td>
-                    <td>{{ company.country }}</td>
+                    <td tableData="Name"><span class"spacing"></span><a href="#company/{{company.id}}">{{ company.name }}</a></td>
+                    <td tableData="Deck">{{ company.deck }}</td>
+                    <td tableData="Date Founded">{{ changeDate(company.date_founded) }}</td>
+                    <td tableData="City">{{ company.city }}</td>
+                    <td tableData="Country">{{ company.country }}</td>
                 </tr>
             </table>
         </div>
     </div>
 
     <div class="row" align="center">
-        <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"
+        <dir-pagination-controls class="dirPageLarge" on-page-change="pageChanged(newPageNumber)"
             max-size="5"
+            template-url="../js/dirPagination.tpl.html"
             direction-links="true"
-            boundary-links="true" >
+            boundary-links="true">
+        </dir-pagination-controls>
+
+        <dir-pagination-controls class="dirPageSmall" on-page-change="pageChanged(newPageNumber)"
+            max-size="5"
+            template-url="../js/smDirPagination.tpl.html">
         </dir-pagination-controls>
     </div>
+
+
 </div>
