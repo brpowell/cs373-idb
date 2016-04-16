@@ -48,10 +48,16 @@
     </div>
 
     <div class="row" align="center">
-        <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"
+        <dir-pagination-controls class="dirPageLarge" on-page-change="pageChanged(newPageNumber)"
             max-size="5"
+            template-url="../js/dirPagination.tpl.html"
             direction-links="true"
-            boundary-links="true" >
+            boundary-links="true">
+        </dir-pagination-controls>
+
+        <dir-pagination-controls class="dirPageSmall" on-page-change="pageChanged(newPageNumber)"
+            max-size="5"
+            template-url="../js/smDirPagination.tpl.html">
         </dir-pagination-controls>
     </div>
 </div>
