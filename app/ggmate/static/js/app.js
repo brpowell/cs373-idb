@@ -351,17 +351,6 @@ mainApp.service('anchorSmoothScroll', function(){
 });
 
 mainApp.controller('booksCtrl', function($scope, $http) {
-
-    // var config = {
-    //     headers : {'Accept' : 'application/json'}
-    // };
-
-    // $http.get('http://ibdb.me/api/books', config).then(function(response) {
-    //     console.log(response);
-    // }, function(response) {
-
-    // });
-
     jQuery('.books-header').click(function() {
         
     });
@@ -426,6 +415,17 @@ mainApp.controller('CarouselDemoCtrl', function($scope) {
     $scope.slides = [{image: 'http://cdn.wegotthiscovered.com/wp-content/uploads/fallout_4_14-1152x612.jpg'}, {image:
     'http://www.geforce.com/sites/default/files-world/screenshots/elder-scrolls-v-skyrim/screenshot-2.jpg'
     }];
+});
+
+
+mainApp.filter('booksFilter', function() {
+    return function(input, test){
+        var newArray = [];
+        for(var x = 0; x < input.length; x += 4){
+             newArray.push(input[x]);   
+        }
+        return newArray;
+    }
 });
 
 /*

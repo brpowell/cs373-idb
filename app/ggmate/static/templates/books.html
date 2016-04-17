@@ -37,19 +37,19 @@
 </div>
 
 
-<div class="container" style="padding-top: 50px;" ng-repeat="book in books | myFilter">
-	<div class="row" align="center">
-		<div class="col-md-3 col-sm-6">
-			<img src="{{ books[$index].book_image }}" style="height: 150px; width: 100px;">
+<div class="container" style="padding-top: 50px;" ng-repeat="book in books | booksFilter">
+	<div class="row" align="center" style="padding-top: 15px;">
+		<div class="col-md-3 col-sm-3">
+			<img src="{{ books[$index * 4 + 0].book_image }}" style="height: 150px; width: 100px;">
 		</div>
-		<div class="col-md-3 col-sm-6">
-			<img src="{{ books[$index + 1].book_image }}" style="height: 150px; width: 100px;">
+		<div class="col-md-3 col-sm-3">
+			<img src="{{ books[$index * 4 + 1].book_image }}" style="height: 150px; width: 100px;">
 		</div>
-		<div class="col-md-3 col-sm-6">
-			<img src="{{ books[$index + 2].book_image }}" style="height: 150px; width: 100px;">
+		<div class="col-md-3 col-sm-3">
+			<img src="{{ books[$index * 4 + 2].book_image }}" style="height: 150px; width: 100px;">
 		</div>
-		<div class="col-md-3 col-sm-6">
-			<img src="{{ books[$index + 3].book_image }}" style="height: 150px; width: 100px;">
+		<div class="col-md-3 col-sm-3">
+			<img src="{{ books[$index * 4+ 3].book_image }}" style="height: 150px; width: 100px;">
 		</div>
 	</div>
 </div>
