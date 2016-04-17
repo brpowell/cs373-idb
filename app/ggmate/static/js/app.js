@@ -37,6 +37,10 @@ mainApp.config(['$routeProvider', function($routeProvider) {
         templateUrl: '/templates/searchResults.html',
         controller: 'searchCtrl'
     })
+    .when('/books', {
+        templateUrl: '/templates/books.html',
+        controller: 'booksCtrl'
+    })
     .otherwise({
         templateUrl: '/templates/home.html',
         contoller: 'homeCtrl'
@@ -344,6 +348,22 @@ mainApp.service('anchorSmoothScroll', function(){
             } return y;
         }
     };
+});
+
+mainApp.controller('booksCtrl', function($scope, $http) {
+
+    // var config = {
+    //     headers : {'Accept' : 'application/json'}
+    // };
+
+    // $http.get('http://ibdb.me/api/books', config).then(function(response) {
+    //     console.log(response);
+    // }, function(response) {
+
+    // });
+    $http.get('/books').success(function(res) {
+        $scope.books = res;
+    });
 });
 
 mainApp.controller('ScrollCtrl', function($scope, $location, anchorSmoothScroll) {

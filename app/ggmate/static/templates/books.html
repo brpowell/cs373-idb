@@ -1,0 +1,65 @@
+
+<!-- Intro Header -->
+<header id="myCarousel" class="carousel slide" data-ride="carousel"style="top: 80px; margin: 0px;">
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div id="slide1" style="height: 400px;">
+            </div>
+        </div>
+        <div class="item">
+            <div id="slide2" style="height: 400px;">
+            </div>
+        </div>
+        <div class="item">
+            <div id="slide3" style="height: 400px;">
+            </div>
+        </div>
+    </div>
+
+
+	<!-- 
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="icon-next"></span>
+    </a> -->
+</header>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.carousel').carousel({
+            interval: 1500
+        })
+    });
+</script>
+
+
+<style>
+	#slide1 {
+		background: url('img/book-0.jpg') top center no-repeat;
+	}
+
+	#slide2 {
+		background: url('img/book-1.jpg') top center no-repeat;
+	}
+
+	#slide3 {
+		background: url('img/book-2.jpg') top center no-repeat;
+	}
+</style>
+
+
+
+
+

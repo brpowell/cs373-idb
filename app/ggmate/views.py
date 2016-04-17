@@ -4,6 +4,7 @@ import subprocess, json, os
 from ggmate.models import Game, Company, Person
 from sqlalchemy_searchable import parse_search_query
 from sqlalchemy_searchable import search
+import requests
 
 # Routes
 @app_instance.route('/', methods=['GET'])
@@ -92,6 +93,12 @@ def get_game(id):
     if request is None:
         abort(404)
     return jsonify(request.to_json())
+
+@app_instance.route('/books', methods=['GET'])
+def get_books_data():
+    headers = {'User-Agent' : 'GGMATE'}
+    r = requests.get('http://ibdb.me/api/books', headers=headers)
+    return json.dumps(r.json())
 
 @app_instance.errorhandler(404)
 def not_found(error):
