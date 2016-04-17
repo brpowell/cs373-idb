@@ -1,5 +1,6 @@
 
 <!-- Intro Header -->
+<link href="css/company.css" rel="stylesheet">
 <header id="myCarousel" class="carousel slide" data-ride="carousel"style="top: 80px; margin: 0px;">
 
     <!-- Indicators -->
@@ -11,20 +12,15 @@
 
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <div id="slide1" style="height: 400px;">
-            </div>
+            <div id="slide1" style="height: 400px;"><span class="text">“There are many little ways to enlarge your child’s world. Love of books is the best of all.”</span></div>
         </div>
         <div class="item">
-            <div id="slide2" style="height: 400px;">
-            </div>
+            <div id="slide2" style="height: 400px;"><span class="text">“Whenever you read a good book, somewhere in the world a door opens to allow in more light.“</span></div>
         </div>
         <div class="item">
-            <div id="slide3" style="height: 400px;">
-            </div>
+            <div id="slide3" style="height: 400px;"><span class="text">“I think of life as a good book. The further you get into it, the more it begins to make sense.“</span></div>
         </div>
     </div>
-
-
 	<!-- 
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="icon-prev"></span>
@@ -34,6 +30,30 @@
     </a> -->
 </header>
 
+<div class="container" style="padding-top: 100px;">
+	<div class="row" align="center" style="position: relative;">
+		<a class="books-header">BOOKS</a>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-star" style="font-size: 20px;"></span>&nbsp;&nbsp;&nbsp;<a class="authors-header">AUTHORS</a>
+	</div>
+</div>
+
+
+<div class="container" style="padding-top: 50px;" ng-repeat="book in books | myFilter">
+	<div class="row" align="center">
+		<div class="col-md-3 col-sm-6">
+			<img src="{{ books[$index].book_image }}" style="height: 150px; width: 100px;">
+		</div>
+		<div class="col-md-3 col-sm-6">
+			<img src="{{ books[$index + 1].book_image }}" style="height: 150px; width: 100px;">
+		</div>
+		<div class="col-md-3 col-sm-6">
+			<img src="{{ books[$index + 2].book_image }}" style="height: 150px; width: 100px;">
+		</div>
+		<div class="col-md-3 col-sm-6">
+			<img src="{{ books[$index + 3].book_image }}" style="height: 150px; width: 100px;">
+		</div>
+	</div>
+</div>
+
 
 
 <script type="text/javascript">
@@ -42,6 +62,7 @@
             interval: 1500
         })
     });
+
 </script>
 
 
@@ -56,6 +77,32 @@
 
 	#slide3 {
 		background: url('img/book-2.jpg') top center no-repeat;
+	}
+
+	.books-header, .authors-header {
+		font-size: 20px;
+		color: #e67e22;
+	}
+
+	.books-header:hover, .authors-header:hover {
+		cursor: pointer;
+		cursor: hand;
+	}
+
+	body {
+		background-color: white;
+	}
+
+	.text {
+		position: absolute;
+		color: white;
+		font-size: 30px;
+		font-weight: bolder;
+		letter-spacing: 2px;
+		text-align: center;
+		margin-top: 120px;
+		margin-left: 20%;
+		margin-right: 20%;
 	}
 </style>
 

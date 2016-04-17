@@ -361,8 +361,18 @@ mainApp.controller('booksCtrl', function($scope, $http) {
     // }, function(response) {
 
     // });
+
+    jQuery('.books-header').click(function() {
+        
+    });
+
+    jQuery('.authors-header').click(function() {
+        
+    });
+
     $http.get('/books').success(function(res) {
         $scope.books = res;
+        console.log(res);
     });
 });
 
