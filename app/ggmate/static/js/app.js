@@ -352,17 +352,25 @@ mainApp.service('anchorSmoothScroll', function(){
 
 mainApp.controller('booksCtrl', function($scope, $http) {
     jQuery('.books-header').click(function() {
-        
+        jQuery('.books').show();
+        jQuery('.authors').hide();
     });
 
     jQuery('.authors-header').click(function() {
-        
+        jQuery('.books').hide();
+        jQuery('.authors').show();
     });
 
     $http.get('/books').success(function(res) {
         $scope.books = res;
+
+    });
+
+    $http.get('/authors').success(function(res) {
+        $scope.authors = res;
         console.log(res);
     });
+
 });
 
 mainApp.controller('ScrollCtrl', function($scope, $location, anchorSmoothScroll) {
@@ -401,11 +409,8 @@ mainApp.controller('searchCtrl', function($scope, $http, $routeParams) {
             $scope.games = res.games
             $scope.companies = res.companies
             $scope.people = res.people
-
         });
-
     }
-
 });
 
 mainApp.controller('CarouselDemoCtrl', function($scope) {
@@ -418,15 +423,25 @@ mainApp.controller('CarouselDemoCtrl', function($scope) {
 });
 
 
-mainApp.filter('booksFilter', function() {
-    return function(input, test){
-        var newArray = [];
-        for(var x = 0; x < input.length; x += 4){
-             newArray.push(input[x]);   
-        }
-        return newArray;
-    }
-});
+// mainApp.filter('booksFilter', function() {
+//     return function(input, test){
+//         var newArray = [];
+//         for(var x = 0; x < input.length; x += 4){
+//              newArray.push(input[x]);   
+//         }
+//         return newArray;
+//     }
+// });
+
+// mainApp.filter('authorsFilter', function() {
+//     return function(input, test){
+//         var newArray = [];
+//         for(var x = 0; x < input.length; x += 4){
+//              newArray.push(input[x]);   
+//         }
+//         return newArray;
+//     }
+// });
 
 /*
 Copyright 2016 Google Inc. All Rights Reserved.

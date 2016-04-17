@@ -12,7 +12,7 @@
 
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <div id="slide1" style="height: 400px;"><span class="text">“There are many little ways to enlarge your child’s world. Love of books is the best of all.”</span></div>
+            <div id="slide1" style="height: 400px;"></div>
         </div>
         <div class="item">
             <div id="slide2" style="height: 400px;"><span class="text">“Whenever you read a good book, somewhere in the world a door opens to allow in more light.“</span></div>
@@ -21,13 +21,6 @@
             <div id="slide3" style="height: 400px;"><span class="text">“I think of life as a good book. The further you get into it, the more it begins to make sense.“</span></div>
         </div>
     </div>
-	<!-- 
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="icon-prev"></span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="icon-next"></span>
-    </a> -->
 </header>
 
 <div class="container" style="padding-top: 100px;">
@@ -37,7 +30,7 @@
 </div>
 
 
-<div class="container" style="padding-top: 50px;" ng-repeat="book in books | booksFilter">
+<div class="container books" style="padding-top: 50px;" ng-repeat="book in books">
 	<div class="row" align="center" style="padding-top: 15px;">
 		<div class="col-md-3 col-sm-3">
 			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 0].id}}"><img src="{{ books[$index * 4 + 0].book_image }}" style="height: 150px; width: 100px;"></a>
@@ -54,6 +47,23 @@
 	</div>
 </div>
 
+<div class="container authors" style="padding-top: 50px;" ng-repeat="author in authors">
+	<div class="row" align="center" style="padding-top: 15px;">
+		<div class="col-md-3 col-sm-3">
+			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 0].id}}"><img src="{{ authors[$index * 4 + 0].link }}" style="height: 150px; width: 100px;"></a>
+		</div>
+		<div class="col-md-3 col-sm-3">
+			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 1].id}}"><img src="{{ authors[$index * 4 + 1].link }}" style="height: 150px; width: 100px;"></a>
+		</div>
+		<div class="col-md-3 col-sm-3">
+			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 2].id}}"><img src="{{ authors[$index * 4 + 2].link }}" style="height: 150px; width: 100px;"></a>
+		</div>
+		<div class="col-md-3 col-sm-3">
+			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 3].id}}"><img src="{{ authors[$index * 4+ 3].link }}" style="height: 150px; width: 100px;"></a>
+		</div>
+	</div>
+</div>
+
 
 
 <script type="text/javascript">
@@ -62,7 +72,6 @@
             interval: 1500
         })
     });
-
 </script>
 
 

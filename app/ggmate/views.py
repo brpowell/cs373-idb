@@ -100,6 +100,13 @@ def get_books_data():
     r = requests.get('http://ibdb.me/api/books', headers=headers)
     return json.dumps(r.json())
 
+@app_instance.route('/authors', methods=['GET'])
+def get_authors_data():
+    headers = {'User-Agent' : 'GGMATE'}
+    r = requests.get('http://ibdb.me/api/authors', headers=headers)
+    return json.dumps(r.json())
+
+
 @app_instance.errorhandler(404)
 def not_found(error):
 	return make_response(jsonify({'error': 'Not found'}), 404)
