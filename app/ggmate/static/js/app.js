@@ -1,5 +1,6 @@
 var mainApp = angular.module('ngGGMate', ['ngRoute' , 'ngAnimate', 'ui.bootstrap', 'angularUtils.directives.dirPagination']);
 
+// Routes
 mainApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider
     .when('/', {
@@ -48,6 +49,8 @@ mainApp.config(['$routeProvider', function($routeProvider) {
 
 }]);
 
+
+// Controller for company
 mainApp.controller('companyCtrl', function($scope, $http, $routeParams) {
     $http.get('/api/company/' + $routeParams["id"]).then(function(result) {
         $scope.companyName = result.data['name'];
@@ -79,6 +82,7 @@ mainApp.controller('companyCtrl', function($scope, $http, $routeParams) {
     };
 });
 
+// Controller for game
 mainApp.controller('gameCtrl', function($scope, $http, $routeParams) {
     $http.get('/api/game/' + $routeParams["id"]).then(function(result) {
         var game = result.data
@@ -100,6 +104,8 @@ mainApp.controller('gameCtrl', function($scope, $http, $routeParams) {
     });
 });
 
+
+// Controller for person
 mainApp.controller('personCtrl', function($scope, $http, $routeParams) {;
     $http.get('/api/person/' + $routeParams["id"]).then(function(result) {
         var people = result.data
@@ -115,6 +121,8 @@ mainApp.controller('personCtrl', function($scope, $http, $routeParams) {;
     });
 });
 
+
+// Controller for Companies
 mainApp.controller('companiesListCtrl', function($scope, $http) {
     // set the default sort type
     $scope.sortType = 'name';
@@ -155,16 +163,17 @@ mainApp.controller('companiesListCtrl', function($scope, $http) {
         return name.replace(/ /g,"_");
     };
 
-    // Changes Date Format
+    // changes Date Format
     $scope.changeDate = function(str) {
         return str.slice(0, 16)
     };
 
-
+    // listen on resize event
     jQuery(window).resize(function() {
         hideControl();
     });
 
+    // hide control function
     function hideControl() {
         var width = jQuery(window).width();
         if(width < 480) {
@@ -175,10 +184,12 @@ mainApp.controller('companiesListCtrl', function($scope, $http) {
             jQuery(".dirPageSmall").hide();
         }
     }
+    // trigger hide control
     hideControl();
-
 });
 
+
+// Controller for Games
 mainApp.controller('gamesListCtrl', function($scope, $http) {
     // set the default sort type
     $scope.sortType = 'name';
@@ -232,10 +243,12 @@ mainApp.controller('gamesListCtrl', function($scope, $http) {
         return str.slice(0, 16)
     };
 
+    // listen on resize event
     jQuery(window).resize(function() {
         hideControl();
     });
 
+    // hide control function
     function hideControl() {
         var width = jQuery(window).width();
         if(width < 480) {
@@ -246,9 +259,13 @@ mainApp.controller('gamesListCtrl', function($scope, $http) {
             jQuery(".dirPageSmall").hide();
         }
     }
+
+    // trigger hide control
     hideControl();
 });
 
+
+// Controller for People
 mainApp.controller('peopleListCtrl', function($scope, $http) {
 
     // total number of people
@@ -284,10 +301,12 @@ mainApp.controller('peopleListCtrl', function($scope, $http) {
         $scope.reverse = !$scope.reverse;
     }
 
+    // listen on resize event
     jQuery(window).resize(function() {
         hideControl();
     });
 
+    // hide control function
     function hideControl() {
         var width = jQuery(window).width();
         if(width < 480) {
@@ -298,6 +317,8 @@ mainApp.controller('peopleListCtrl', function($scope, $http) {
             jQuery(".dirPageSmall").hide();
         }
     }
+
+    // trigger hide control
     hideControl();
 });
 
@@ -350,31 +371,40 @@ mainApp.service('anchorSmoothScroll', function(){
     };
 });
 
+
+// Controller for Books
 mainApp.controller('booksCtrl', function($scope, $http) {
 
+    // section for books
     jQuery('.books-header').click(function() {
         jQuery('.books').show();
         jQuery('.authors').hide();
     });
 
+    // section for author
     jQuery('.authors-header').click(function() {
         jQuery('.books').hide();
         jQuery('.authors').show();
     });
 
+    // get books
     $http.get('/books').success(function(res) {
         $scope.books = res.books;
     });
 
+    // get authors
     $http.get('/authors').success(function(res) {
         $scope.authors = res.authors;
     });
 
+    // hide authors at the beginning
     jQuery(document).ready(function() {
         jQuery('.authors').hide();
     });  
 });
 
+
+// Controller for scroll
 mainApp.controller('ScrollCtrl', function($scope, $location, anchorSmoothScroll) {
     $scope.gotoElement = function (eID){
       $location.hash('bottom');
@@ -382,6 +412,8 @@ mainApp.controller('ScrollCtrl', function($scope, $location, anchorSmoothScroll)
     };
 });
 
+
+// Controller for about page
 mainApp.controller('aboutCtrl', function($scope, $http) {
     $scope.runTests = function() {
         $scope.showTestsOutput = true;
@@ -393,6 +425,8 @@ mainApp.controller('aboutCtrl', function($scope, $http) {
     }
 });
 
+
+// Controller for submit
 mainApp.controller('submitCtrl', function($scope, $http, $location) {
     $scope.query;
     $scope.submitQuery = function(){
@@ -403,6 +437,8 @@ mainApp.controller('submitCtrl', function($scope, $http, $location) {
     };
 })
 
+
+// Controller for search
 mainApp.controller('searchCtrl', function($scope, $http, $routeParams) {
     var searchTerm = $routeParams["searchTerm"]
     var result
@@ -415,6 +451,7 @@ mainApp.controller('searchCtrl', function($scope, $http, $routeParams) {
     }
 });
 
+// Controller for carousel
 mainApp.controller('CarouselDemoCtrl', function($scope) {
     $scope.myInterval = 5000;
     $scope.noWrapSlides = false;
@@ -424,29 +461,6 @@ mainApp.controller('CarouselDemoCtrl', function($scope) {
     }];
 });
 
-
-mainApp.filter('booksFilter', function() {
-    return function(input, test){
-        if(typeof(input) == 'undefined') {
-            return [];
-        }
-        var newArray = [];
-        for(var x = 4; x < input.length; x += 1){
-             newArray.push(input[x]);   
-        }
-        return newArray;
-    }
-});
-
-// mainApp.filter('authorsFilter', function() {
-//     return function(input, test){
-//         var newArray = [];
-//         for(var x = 0; x < input.length; x += 4){
-//              newArray.push(input[x]);   
-//         }
-//         return newArray;
-//     }
-// });
 
 /*
 Copyright 2016 Google Inc. All Rights Reserved.
