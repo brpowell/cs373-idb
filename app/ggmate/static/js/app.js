@@ -351,6 +351,7 @@ mainApp.service('anchorSmoothScroll', function(){
 });
 
 mainApp.controller('booksCtrl', function($scope, $http) {
+
     jQuery('.books-header').click(function() {
         jQuery('.books').show();
         jQuery('.authors').hide();
@@ -363,7 +364,7 @@ mainApp.controller('booksCtrl', function($scope, $http) {
 
     $http.get('/books').success(function(res) {
         $scope.books = res;
-
+        console.log(res);
     });
 
     $http.get('/authors').success(function(res) {
@@ -371,6 +372,7 @@ mainApp.controller('booksCtrl', function($scope, $http) {
         console.log(res);
     });
 
+    jQuery('.authors').hide();
 });
 
 mainApp.controller('ScrollCtrl', function($scope, $location, anchorSmoothScroll) {
@@ -423,15 +425,18 @@ mainApp.controller('CarouselDemoCtrl', function($scope) {
 });
 
 
-// mainApp.filter('booksFilter', function() {
-//     return function(input, test){
-//         var newArray = [];
-//         for(var x = 0; x < input.length; x += 4){
-//              newArray.push(input[x]);   
-//         }
-//         return newArray;
-//     }
-// });
+mainApp.filter('booksFilter', function() {
+    return function(input, test){
+        if(typeof(input) == 'undefined') {
+            return [];
+        }
+        var newArray = [];
+        for(var x = 4; x < input.length; x += 1){
+             newArray.push(input[x]);   
+        }
+        return newArray;
+    }
+});
 
 // mainApp.filter('authorsFilter', function() {
 //     return function(input, test){

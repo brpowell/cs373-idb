@@ -98,13 +98,13 @@ def get_game(id):
 def get_books_data():
     headers = {'User-Agent' : 'GGMATE'}
     r = requests.get('http://ibdb.me/api/books', headers=headers)
-    return json.dumps(r.json())
+    return jsonify({'books' : r.json()})
 
 @app_instance.route('/authors', methods=['GET'])
 def get_authors_data():
     headers = {'User-Agent' : 'GGMATE'}
     r = requests.get('http://ibdb.me/api/authors', headers=headers)
-    return json.dumps(r.json())
+    return jsonify({'authors' : r.json()})
 
 
 @app_instance.errorhandler(404)

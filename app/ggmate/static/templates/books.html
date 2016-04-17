@@ -30,35 +30,35 @@
 </div>
 
 
-<div class="container books" style="padding-top: 50px;" ng-repeat="book in books">
-	<div class="row" align="center" style="padding-top: 15px;">
-		<div class="col-md-3 col-sm-3">
+<div ng-if="books[$index * 4 + 0].id < 407" class="container books" style="padding-top: 50px;" ng-repeat="book in books">
+	<div ng-if="books[$index * 4 + 0].id < 407" class="row" align="center" style="padding-top: 15px;">
+		<div ng-if="books[$index * 4 + 0].id < 407" class="col-md-3 col-sm-3">
 			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 0].id}}"><img src="{{ books[$index * 4 + 0].book_image }}" style="height: 150px; width: 100px;"></a>
 		</div>
-		<div class="col-md-3 col-sm-3">
+		<div ng-if="books[$index * 4 + 1].id < 407" class="col-md-3 col-sm-3">
 			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 1].id}}"><img src="{{ books[$index * 4 + 1].book_image }}" style="height: 150px; width: 100px;"></a>
 		</div>
-		<div class="col-md-3 col-sm-3">
+		<div ng-if="books[$index * 4 + 2].id < 407" class="col-md-3 col-sm-3">
 			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 2].id}}"><img src="{{ books[$index * 4 + 2].book_image }}" style="height: 150px; width: 100px;"></a>
 		</div>
-		<div class="col-md-3 col-sm-3">
+		<div ng-if="books[$index * 4 + 3].id < 407" class="col-md-3 col-sm-3">
 			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 3].id}}"><img src="{{ books[$index * 4+ 3].book_image }}" style="height: 150px; width: 100px;"></a>
 		</div>
 	</div>
 </div>
 
-<div class="container authors" style="padding-top: 50px;" ng-repeat="author in authors">
-	<div class="row" align="center" style="padding-top: 15px;">
-		<div class="col-md-3 col-sm-3">
+<div ng-if="authors[$index * 4 + 0].id < 350" class="container authors" style="padding-top: 50px; display: hide;" ng-repeat="author in authors">
+	<div ng-if="authors[$index * 4 + 0].id < 350" class="row" align="center" style="padding-top: 15px;">
+		<div ng-if="authors[$index * 4 + 0].id < 350" class="col-md-3 col-sm-3">
 			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 0].id}}"><img src="{{ authors[$index * 4 + 0].link }}" style="height: 150px; width: 100px;"></a>
 		</div>
-		<div class="col-md-3 col-sm-3">
+		<div ng-if="authors[$index * 4 + 1].id < 350" class="col-md-3 col-sm-3">
 			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 1].id}}"><img src="{{ authors[$index * 4 + 1].link }}" style="height: 150px; width: 100px;"></a>
 		</div>
-		<div class="col-md-3 col-sm-3">
+		<div ng-if="authors[$index * 4 + 2].id < 350" class="col-md-3 col-sm-3">
 			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 2].id}}"><img src="{{ authors[$index * 4 + 2].link }}" style="height: 150px; width: 100px;"></a>
 		</div>
-		<div class="col-md-3 col-sm-3">
+		<div ng-if="authors[$index * 4 + 3].id < 350" class="col-md-3 col-sm-3">
 			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 3].id}}"><img src="{{ authors[$index * 4+ 3].link }}" style="height: 150px; width: 100px;"></a>
 		</div>
 	</div>
@@ -70,7 +70,8 @@
     $(document).ready(function() {
         $('.carousel').carousel({
             interval: 1500
-        })
+        });
+
     });
 </script>
 
