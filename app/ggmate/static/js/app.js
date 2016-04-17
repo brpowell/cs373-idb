@@ -364,15 +364,15 @@ mainApp.controller('booksCtrl', function($scope, $http) {
 
     $http.get('/books').success(function(res) {
         $scope.books = res.books;
-        console.log(res);
     });
 
     $http.get('/authors').success(function(res) {
         $scope.authors = res.authors;
-        console.log(res);
     });
 
-    jQuery('.authors').hide();
+    jQuery(document).ready(function() {
+        jQuery('.authors').hide();
+    });  
 });
 
 mainApp.controller('ScrollCtrl', function($scope, $location, anchorSmoothScroll) {

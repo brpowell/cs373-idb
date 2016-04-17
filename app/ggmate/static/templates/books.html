@@ -47,7 +47,7 @@
 	</div>
 </div>
 
-<div ng-if="authors[$index * 4 + 0].id < 350" class="container authors" style="padding-top: 50px; display: hide;" ng-repeat="author in authors">
+<div ng-if="authors[$index * 4 + 0].id < 350" class="container authors" style="padding-top: 50px; display: none;" ng-repeat="author in authors">
 	<div ng-if="authors[$index * 4 + 0].id < 350" class="row" align="center" style="padding-top: 15px;">
 		<div ng-if="authors[$index * 4 + 0].id < 350" class="col-md-3 col-sm-3">
 			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 0].id}}"><img src="{{ authors[$index * 4 + 0].link }}" style="height: 150px; width: 100px;"></a>
