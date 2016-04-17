@@ -40,16 +40,16 @@
 <div class="container" style="padding-top: 50px;" ng-repeat="book in books | booksFilter">
 	<div class="row" align="center" style="padding-top: 15px;">
 		<div class="col-md-3 col-sm-3">
-			<img src="{{ books[$index * 4 + 0].book_image }}" style="height: 150px; width: 100px;">
+			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 0].id}}"><img src="{{ books[$index * 4 + 0].book_image }}" style="height: 150px; width: 100px;"></a>
 		</div>
 		<div class="col-md-3 col-sm-3">
-			<img src="{{ books[$index * 4 + 1].book_image }}" style="height: 150px; width: 100px;">
+			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 1].id}}"><img src="{{ books[$index * 4 + 1].book_image }}" style="height: 150px; width: 100px;"></a>
 		</div>
 		<div class="col-md-3 col-sm-3">
-			<img src="{{ books[$index * 4 + 2].book_image }}" style="height: 150px; width: 100px;">
+			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 2].id}}"><img src="{{ books[$index * 4 + 2].book_image }}" style="height: 150px; width: 100px;"></a>
 		</div>
 		<div class="col-md-3 col-sm-3">
-			<img src="{{ books[$index * 4+ 3].book_image }}" style="height: 150px; width: 100px;">
+			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 3].id}}"><img src="{{ books[$index * 4+ 3].book_image }}" style="height: 150px; width: 100px;"></a>
 		</div>
 	</div>
 </div>
@@ -84,7 +84,7 @@
 		color: #e67e22;
 	}
 
-	.books-header:hover, .authors-header:hover {
+	.books-header:hover, .authors-header:hover, .bookImg:hover {
 		cursor: pointer;
 		cursor: hand;
 	}
