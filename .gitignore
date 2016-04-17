@@ -11,3 +11,5 @@ oldenv.txt
 data/*/
 !data/base
 *.db
+.env
+.docker-compose-prod.yml.swp

@@ -38,11 +38,11 @@
                     </thead>
                 </tr>
                 <tr dir-paginate="game in games | itemsPerPage: 20 | orderBy:sortKey:reverse" total-items="totalGames" current-page="pagination.current">
-                    <td tableData="Name" ><a href="#game/{{game.id}}" ng-click="giveID(game.id)">{{ game.name }}</a></td>
-                    <td tableData="Deck">{{ game.deck }}</td>
-                    <td tableData="Publishers">{{ extract(game.publishers) }}</td>
-                    <td tableData="Developers">{{ extract(game.developers) }}</td>
-                    <td tableData="Platforms">{{ extract(game.platforms) }}</td>
+                    <td tableData="Name" class="tds" ><a href="#game/{{game.id}}" ng-click="giveID(game.id)">{{ game.name }}</a></td>
+                    <td tableData="Deck" class="tds">{{ game.deck }}</td>
+                    <td tableData="Publishers" class="tds">{{ extract(game.publishers) }}</td>
+                    <td tableData="Developers" class="tds">{{ extract(game.developers) }}</td>
+                    <td tableData="Platforms" class="tds">{{ extract(game.platforms) }}</td>
                 </tr>
             </table>
         </div>

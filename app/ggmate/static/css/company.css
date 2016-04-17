@@ -149,7 +149,7 @@ i {
   thead {
     display: none;
   }
-  tr td {
+  .tds {
     display: block;
     text-align: center;
   }

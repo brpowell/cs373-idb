@@ -36,11 +36,11 @@
                     </th>
                 </thead>
                 <tr dir-paginate="company in companies | itemsPerPage: 20 | orderBy:sortKey:reverse" total-items="totalCompanies" current-page="pagination.current">
-                    <td tableData="Name"><span class"spacing"></span><a href="#company/{{company.id}}">{{ company.name }}</a></td>
-                    <td tableData="Deck">{{ company.deck }}</td>
-                    <td tableData="Date Founded">{{ changeDate(company.date_founded) }}</td>
-                    <td tableData="City">{{ company.city }}</td>
-                    <td tableData="Country">{{ company.country }}</td>
+                    <td tableData="Name" class="tds"><span class"spacing"></span><a href="#company/{{company.id}}">{{ company.name }}</a></td>
+                    <td tableData="Deck" class="tds">{{ company.deck }}</td>
+                    <td tableData="Date Founded" class="tds">{{ changeDate(company.date_founded) }}</td>
+                    <td tableData="City" class="tds">{{ company.city }}</td>
+                    <td tableData="Country" class="tds">{{ company.country }}</td>
                 </tr>
             </table>
         </div>
