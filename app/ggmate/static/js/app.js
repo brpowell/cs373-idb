@@ -396,6 +396,7 @@ mainApp.controller('booksCtrl', function($scope, $http) {
     // get authors
     $http.get('/authors').success(function(res) {
         $scope.authors = res.authors;
+        console.log(res);
     });
 
     // hide authors at the beginning

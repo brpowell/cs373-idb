@@ -62,16 +62,28 @@
 <div ng-if="authors[$index * 4 + 0].id < 350" class="container authors" style="padding-top: 50px; display: none;" ng-repeat="author in authors">
 	<div ng-if="authors[$index * 4 + 0].id < 350" class="row" align="center" style="padding-top: 15px;">
 		<div ng-if="authors[$index * 4 + 0].id < 350" class="col-md-3 col-sm-3">
-			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 0].id}}"><img src="{{ authors[$index * 4 + 0].link }}" style="height: 150px; width: 100px;"></a>
+			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 0].id}}"><img src="{{ authors[$index * 4 + 0].link }}" style="height: 180px; width: 130px;">
+			<br/><br/>
+			<p class="title">{{ authors[$index * 4 + 0].first_name }}&nbsp;{{ authors[$index * 4 + 0].last_name }}</p>
+			</a>
 		</div>
 		<div ng-if="authors[$index * 4 + 1].id < 350" class="col-md-3 col-sm-3">
-			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 1].id}}"><img src="{{ authors[$index * 4 + 1].link }}" style="height: 150px; width: 100px;"></a>
+			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 1].id}}"><img src="{{ authors[$index * 4 + 1].link }}" style="height: 180px; width: 130px;">
+			<br/><br/>
+			<p class="title">{{ authors[$index * 4 + 1].first_name }}&nbsp;{{ authors[$index * 4 + 1].last_name }}</p>
+			</a>
 		</div>
 		<div ng-if="authors[$index * 4 + 2].id < 350" class="col-md-3 col-sm-3">
-			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 2].id}}"><img src="{{ authors[$index * 4 + 2].link }}" style="height: 150px; width: 100px;"></a>
+			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 2].id}}"><img src="{{ authors[$index * 4 + 2].link }}" style="height: 180px; width: 130px;">
+			<br/><br/>
+			<p class="title">{{ authors[$index * 4 + 2].first_name }}&nbsp;{{ authors[$index * 4 + 2].last_name }}</p>
+			</a>
 		</div>
 		<div ng-if="authors[$index * 4 + 3].id < 350" class="col-md-3 col-sm-3">
-			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 3].id}}"><img src="{{ authors[$index * 4+ 3].link }}" style="height: 150px; width: 100px;"></a>
+			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 3].id}}"><img src="{{ authors[$index * 4+ 3].link }}" style="height: 180px; width: 130px;">
+			<br/><br/>
+			<p class="title">{{ authors[$index * 4 + 3].first_name }}&nbsp;{{ authors[$index * 4 + 3].last_name }}</p>
+			</a>
 		</div>
 	</div>
 </div>
