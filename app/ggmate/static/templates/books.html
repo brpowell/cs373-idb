@@ -33,16 +33,28 @@
 <div ng-if="books[$index * 4 + 0].id < 407" class="container books" style="padding-top: 50px;" ng-repeat="book in books">
 	<div ng-if="books[$index * 4 + 0].id < 407" class="row" align="center" style="padding-top: 15px;">
 		<div ng-if="books[$index * 4 + 0].id < 407" class="col-md-3 col-sm-3">
-			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 0].id}}"><img src="{{ books[$index * 4 + 0].book_image }}" style="height: 150px; width: 100px;"></a>
+			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 0].id}}"><img src="{{ books[$index * 4 + 0].book_image }}" style="height: 150px; width: 100px;">
+			<br/><br/>
+			<p class="title">{{ books[$index * 4 + 0].title }}</p>
+			</a>
 		</div>
 		<div ng-if="books[$index * 4 + 1].id < 407" class="col-md-3 col-sm-3">
-			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 1].id}}"><img src="{{ books[$index * 4 + 1].book_image }}" style="height: 150px; width: 100px;"></a>
+			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 1].id}}"><img src="{{ books[$index * 4 + 1].book_image }}" style="height: 150px; width: 100px;">
+			<br/><br/>
+			<p class="title">{{ books[$index * 4 + 1].title }}</p>
+			</a>
 		</div>
 		<div ng-if="books[$index * 4 + 2].id < 407" class="col-md-3 col-sm-3">
-			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 2].id}}"><img src="{{ books[$index * 4 + 2].book_image }}" style="height: 150px; width: 100px;"></a>
+			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 2].id}}"><img src="{{ books[$index * 4 + 2].book_image }}" style="height: 150px; width: 100px;">
+			<br/><br/>
+			<p class="title">{{ books[$index * 4 + 2].title }}</p>
+			</a>
 		</div>
 		<div ng-if="books[$index * 4 + 3].id < 407" class="col-md-3 col-sm-3">
-			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 3].id}}"><img src="{{ books[$index * 4+ 3].book_image }}" style="height: 150px; width: 100px;"></a>
+			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 3].id}}"><img src="{{ books[$index * 4+ 3].book_image }}" style="height: 150px; width: 100px;">
+			<br/><br/>
+			<p class="title">{{ books[$index * 4 + 3].title }}</p>
+			</a>
 		</div>
 	</div>
 </div>
@@ -97,6 +109,8 @@
 	.books-header:hover, .authors-header:hover, .bookImg:hover {
 		cursor: pointer;
 		cursor: hand;
+		text-decoration: none;
+		color: #34495e;
 	}
 
 	body {
@@ -113,6 +127,12 @@
 		margin-top: 120px;
 		margin-left: 20%;
 		margin-right: 20%;
+	}
+	.title {
+		color: #f39c12;
+	}
+	.title:hover {
+		text-decoration: none;
 	}
 </style>
 

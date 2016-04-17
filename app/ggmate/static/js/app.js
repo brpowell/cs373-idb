@@ -390,6 +390,7 @@ mainApp.controller('booksCtrl', function($scope, $http) {
     // get books
     $http.get('/books').success(function(res) {
         $scope.books = res.books;
+        console.log(res);
     });
 
     // get authors
