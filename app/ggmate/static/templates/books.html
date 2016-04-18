@@ -1,7 +1,7 @@
 
 <!-- Intro Header -->
 <link href="css/company.css" rel="stylesheet">
-<header id="myCarousel" class="carousel slide" data-ride="carousel"style="top: 80px; margin: 0px;">
+<header id="myCarousel" class="carousel slide" data-ride="carousel">
 
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -23,35 +23,35 @@
     </div>
 </header>
 
-<div class="container" style="padding-top: 100px;">
+<div class="container books-authors-headers" style="padding-top: 100px;">
 	<div class="row" align="center" style="position: relative;">
 		<a class="books-header">BOOKS</a>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-bookmark" style="font-size: 20px;"></span>&nbsp;&nbsp;&nbsp;<a class="authors-header">AUTHORS</a>
 	</div>
 </div>
 
 
-<div ng-if="books[$index * 4 + 0].id < 407" class="container books" style="padding-top: 50px;" ng-repeat="book in books">
-	<div ng-if="books[$index * 4 + 0].id < 407" class="row" align="center" style="padding-top: 15px;">
+<div ng-if="books[$index * 4 + 0].id < 407" class="container books" ng-repeat="book in books">
+	<div ng-if="books[$index * 4 + 0].id < 407" class="row" align="center">
 		<div ng-if="books[$index * 4 + 0].id < 407" class="col-md-3 col-sm-3">
-			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 0].id}}"><img src="{{ books[$index * 4 + 0].book_image }}" style="height: 150px; width: 100px;">
+			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 0].id}}"><img src="{{ books[$index * 4 + 0].book_image }}">
 			<br/><br/>
 			<p class="title">{{ books[$index * 4 + 0].title }}</p>
 			</a>
 		</div>
 		<div ng-if="books[$index * 4 + 1].id < 407" class="col-md-3 col-sm-3">
-			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 1].id}}"><img src="{{ books[$index * 4 + 1].book_image }}" style="height: 150px; width: 100px;">
+			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 1].id}}"><img src="{{ books[$index * 4 + 1].book_image }}">
 			<br/><br/>
 			<p class="title">{{ books[$index * 4 + 1].title }}</p>
 			</a>
 		</div>
 		<div ng-if="books[$index * 4 + 2].id < 407" class="col-md-3 col-sm-3">
-			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 2].id}}"><img src="{{ books[$index * 4 + 2].book_image }}" style="height: 150px; width: 100px;">
+			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 2].id}}"><img src="{{ books[$index * 4 + 2].book_image }}">
 			<br/><br/>
 			<p class="title">{{ books[$index * 4 + 2].title }}</p>
 			</a>
 		</div>
 		<div ng-if="books[$index * 4 + 3].id < 407" class="col-md-3 col-sm-3">
-			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 3].id}}"><img src="{{ books[$index * 4+ 3].book_image }}" style="height: 150px; width: 100px;">
+			<a class="bookImg" href="http://ibdb.me/book/{{books[$index * 4 + 3].id}}"><img src="{{ books[$index * 4+ 3].book_image }}">
 			<br/><br/>
 			<p class="title">{{ books[$index * 4 + 3].title }}</p>
 			</a>
@@ -59,28 +59,28 @@
 	</div>
 </div>
 
-<div ng-if="authors[$index * 4 + 0].id < 350" class="container authors" style="padding-top: 50px; display: none;" ng-repeat="author in authors">
-	<div ng-if="authors[$index * 4 + 0].id < 350" class="row" align="center" style="padding-top: 15px;">
+<div ng-if="authors[$index * 4 + 0].id < 350" class="container authors" style="display: none;" ng-repeat="author in authors">
+	<div ng-if="authors[$index * 4 + 0].id < 350" class="row" align="center">
 		<div ng-if="authors[$index * 4 + 0].id < 350" class="col-md-3 col-sm-3">
-			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 0].id}}"><img src="{{ authors[$index * 4 + 0].link }}" style="height: 180px; width: 130px;">
+			<a class="authorImg" href="http://ibdb.me/author/{{authors[$index * 4 + 0].id}}"><img src="{{ authors[$index * 4 + 0].link }}">
 			<br/><br/>
 			<p class="title">{{ authors[$index * 4 + 0].first_name }}&nbsp;{{ authors[$index * 4 + 0].last_name }}</p>
 			</a>
 		</div>
 		<div ng-if="authors[$index * 4 + 1].id < 350" class="col-md-3 col-sm-3">
-			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 1].id}}"><img src="{{ authors[$index * 4 + 1].link }}" style="height: 180px; width: 130px;">
+			<a class="authorImg" href="http://ibdb.me/author/{{authors[$index * 4 + 1].id}}"><img src="{{ authors[$index * 4 + 1].link }}">
 			<br/><br/>
 			<p class="title">{{ authors[$index * 4 + 1].first_name }}&nbsp;{{ authors[$index * 4 + 1].last_name }}</p>
 			</a>
 		</div>
 		<div ng-if="authors[$index * 4 + 2].id < 350" class="col-md-3 col-sm-3">
-			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 2].id}}"><img src="{{ authors[$index * 4 + 2].link }}" style="height: 180px; width: 130px;">
+			<a class="authorImg" href="http://ibdb.me/author/{{authors[$index * 4 + 2].id}}"><img src="{{ authors[$index * 4 + 2].link }}">
 			<br/><br/>
 			<p class="title">{{ authors[$index * 4 + 2].first_name }}&nbsp;{{ authors[$index * 4 + 2].last_name }}</p>
 			</a>
 		</div>
 		<div ng-if="authors[$index * 4 + 3].id < 350" class="col-md-3 col-sm-3">
-			<a class="bookImg" href="http://ibdb.me/author/{{authors[$index * 4 + 3].id}}"><img src="{{ authors[$index * 4+ 3].link }}" style="height: 180px; width: 130px;">
+			<a class="authorImg" href="http://ibdb.me/author/{{authors[$index * 4 + 3].id}}"><img src="{{ authors[$index * 4+ 3].link }}">
 			<br/><br/>
 			<p class="title">{{ authors[$index * 4 + 3].first_name }}&nbsp;{{ authors[$index * 4 + 3].last_name }}</p>
 			</a>
@@ -89,51 +89,28 @@
 </div>
 
 <div class="container" style="padding-top: 100px;"><div class="row"></div></div>
-
 <script type="text/javascript">
     $(document).ready(function() {
         $('.carousel').carousel({
             interval: 1500
         });
-
     });
 </script>
 
-
 <style>
-	#slide1 {
-		background: url('img/book-0.jpg') top center no-repeat;
-	}
-
-	#slide2 {
-		background: url('img/book-1.jpg') top center no-repeat;
-	}
-
-	#slide3 {
-		background: url('img/book-2.jpg') top center no-repeat;
-	}
-
-	.books-header, .authors-header {
-		font-size: 20px;
-		color: #e67e22;
-	}
-
-	.books-header {
-		padding-left: 28px;
-	}
-
-	.books-header:hover, .authors-header:hover, .bookImg:hover {
+	body { background-color: white; }
+	#slide1 { background: url('img/book-0.jpg') top center no-repeat; }
+	#slide2 { background: url('img/book-1.jpg') top center no-repeat; }
+	#slide3 { background: url('img/book-2.jpg') top center no-repeat; }
+	#myCarousel { top: 50px; margin: 0px; }
+	.books-header, .authors-header { font-size: 20px; color: #e67e22; }
+	.books-header { padding-left: 28px; }
+	.books-header:hover, .authors-header:hover, .bookImg:hover, .authorImg:hover {
 		cursor: pointer;
 		cursor: hand;
 		color: #34495e;
 		text-decoration: none;
-		
 	}
-
-	body {
-		background-color: white;
-	}
-
 	.text {
 		position: absolute;
 		color: white;
@@ -145,14 +122,18 @@
 		margin-left: 20%;
 		margin-right: 20%;
 	}
-	.title {
-		color: #f39c12;
-	}
-	.title:hover {
-		text-decoration: none;
-	}
-	.glyphicon-bookmark {
-		color: #bdc3c7;
+	.title { color: #f39c12; padding-bottom: 30px; }
+	.title:hover { text-decoration: none; }
+	.glyphicon-bookmark { color: #bdc3c7; }
+	.books-authors-headers { margin-bottom: 35px; }
+	.bookImg > img { height: 180px; width: 120px; }
+	.authorImg > img { height: 180px; width: 150px; }
+
+	@media (max-width: 769px) {
+		#myCarousel { top: 30px; margin: 0px; }
+		.text { font-size: 22px; margin-left: 10%; margin-right: 10%; margin-top: 105px; }
+		.bookImg > img { height: 300px; width: 200px; }
+		.authorImg > img { height: 300px; width: 250px; }
 	}
 </style>
 
