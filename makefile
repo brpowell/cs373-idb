@@ -55,8 +55,8 @@ docker-build:
 	docker build -t ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_LB} lb
 	docker push ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_LB}
 
-	# docker build -t ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_DB} db
-	# docker push ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_DB}
+	docker build -t ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_DB} db
+	docker push ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_DB}
 
 docker-push:
 	docker-compose --file docker-compose-prod.yml up -d

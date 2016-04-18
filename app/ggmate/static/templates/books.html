@@ -1,9 +1,8 @@
 
-<!-- Intro Header -->
 <link href="css/company.css" rel="stylesheet">
-<header id="myCarousel" class="carousel slide" data-ride="carousel">
 
-    <!-- Indicators -->
+<!-- Carousel -->
+<header id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -11,9 +10,7 @@
     </ol>
 
     <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <div id="slide1" style="height: 400px;"></div>
-        </div>
+        <div class="item active"><div id="slide1" style="height: 400px;"></div></div>
         <div class="item">
             <div id="slide2" style="height: 400px;"><span class="text">“Whenever you read a good book, somewhere in the world a door opens to allow in more light.“</span></div>
         </div>
@@ -23,13 +20,14 @@
     </div>
 </header>
 
+<!-- Books and Author header -->
 <div class="container books-authors-headers" style="padding-top: 100px;">
 	<div class="row" align="center" style="position: relative;">
 		<a class="books-header">BOOKS</a>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-bookmark" style="font-size: 20px;"></span>&nbsp;&nbsp;&nbsp;<a class="authors-header">AUTHORS</a>
 	</div>
 </div>
 
-
+<!-- Books section (show on default) -->
 <div ng-if="books[$index * 4 + 0].id < 407" class="container books" ng-repeat="book in books">
 	<div ng-if="books[$index * 4 + 0].id < 407" class="row" align="center">
 		<div ng-if="books[$index * 4 + 0].id < 407" class="col-md-3 col-sm-3">
@@ -59,6 +57,7 @@
 	</div>
 </div>
 
+<!-- Author section (hide on default) -->
 <div ng-if="authors[$index * 4 + 0].id < 350" class="container authors" style="display: none;" ng-repeat="author in authors">
 	<div ng-if="authors[$index * 4 + 0].id < 350" class="row" align="center">
 		<div ng-if="authors[$index * 4 + 0].id < 350" class="col-md-3 col-sm-3">
@@ -97,6 +96,7 @@
     });
 </script>
 
+<!-- Custom style -->
 <style>
 	body { background-color: white; }
 	#slide1 { background: url('img/book-0.jpg') top center no-repeat; }
@@ -129,6 +129,7 @@
 	.bookImg > img { height: 180px; width: 120px; }
 	.authorImg > img { height: 180px; width: 150px; }
 
+	/* Style for small devices */
 	@media (max-width: 769px) {
 		#myCarousel { top: 30px; margin: 0px; }
 		.text { font-size: 22px; margin-left: 10%; margin-right: 10%; margin-top: 105px; }
@@ -136,8 +137,3 @@
 		.authorImg > img { height: 300px; width: 250px; }
 	}
 </style>
-
-
-
-
-
