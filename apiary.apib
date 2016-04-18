@@ -7,25 +7,44 @@ The GGMate API allows making requests for data on video game companies, people,
 and the games they develop/publish.
 
 # Group Companies
-## Company List [/companies]
+## Company List [/companies/{page}]
++ Parameters
+    + page (number) - An optional page number, default is 1
 
 ### Obtain a list of companies. [GET]
 + Response 200 (application/json)
 
-        [
-            {
-                "id": 1,
-                "name": "Bioware"
-            },
-            {
-                "id": 2,
-                "name": "Bungie"
-            },
-            {
-                "id": 3,
-                "name": "Bethesda Softworks"
-            }
-        ]
+        {
+            "companies": [
+                {
+                    "city": "Redwood City",
+                    "country": "USA",
+                    "date_founded": "Fri, 28 May 1982 00:00:00 GMT",
+                    "deck": "EA is one of the largest publisher/developers in the video game industry.",
+                    "id": 1,
+                    "image": "http://static.giantbomb.com/uploads/scale_medium/0/4/9801-ea.jpg",
+                    "name": "Electronic Arts"
+                },
+                {
+                    "city": "Kita-ku Osaka-shi, Osaka",
+                    "country": "Japan",
+                    "date_founded": "Mon, 03 Apr 1995 00:00:00 GMT",
+                    "deck": "Konami Computer Entertainment Osaka (KCEO) was founded April 3, 1995 as a subsidiary of Konami Corporation.  On March 1, 2003, KCEO's 139 employees were absorbed into a new branch, Konami Studios.  This new branch was later absorbed into the parent company in April 2005.",
+                    "id": 2,
+                    "image": "http://static.giantbomb.com/uploads/scale_medium/0/1992/1302163-kceo.jpeg",
+                    "name": "Konami Computer Entertainment Osaka Co., Ltd."
+                },
+                {
+                    "city": "St. Catharines",
+                    "country": "Canada",
+                    "date_founded": "Wed, 01 Jul 1992 00:00:00 GMT",
+                    "deck": "Started by Denis Dyack in 1992, Silicon Knights are known for creating games with compelling and detailed mythologies.",
+                    "id": 3,
+                    "image": "http://static.giantbomb.com/uploads/scale_medium/0/26/11805-silicon_knights_logo_black.jpg",
+                    "name": "Silicon Knights, Inc."
+                }
+            ]
+        }
 
 ## Company [/companies/{company_id}]
 + Parameters
@@ -41,77 +60,77 @@ and the games they develop/publish.
             "date_founded": "1995-02-01 00:00:00",
             "city": "Edmonton",
             "country": "Canada",
-            "average_metacritic": 92,
             "website": "http://www.bioware.com",
-            "banner": "http://ggmate.me/static/company_banners/bioware.png",
+            "image": "http://ggmate.me/static/company_banners/bioware.png",
             "games_developed": [
                 {
                     "id": 23,
-                    "name": "Baldur's Gate",
-                    "platforms": ["PC", "MAC"],
-                    "metacritic": {
-                        "PC": 91
-                    }
+                    "name": "Baldur's Gate"
                 },
                 {
                     "id": 24,
-                    "name": "Star Wars: Knights of the Old Republic",
-                    "platforms": ["Xbox", "PC", "iOS"],
-                    "metacritic": {
-                        "PC": 93,
-                        "Xbox": 94,
-                        "iOS": 88
-                    }
+                    "name": "Star Wars: Knights of the Old Republic"
                 },
                 {
                     "id": 25,
-                    "name": "Mass Effect 2",
-                    "platforms": ["Xbox 360", "PS3", "PC"],
-                    "metacritic": {
-                        "Xbox 360": 96,
-                        "PS3": 94,
-                        "PC": 94
-                    }
+                    "name": "Mass Effect 2"
                 }
             ],
             "games_published": [
                 {
                     "id": 25,
-                    "name": "Dragon Age Legends",
-                    "platforms": ["PC"],
-                    "metacritic": {
-                        "PC": "None"
-                    }
+                    "name": "Dragon Age Legends"
                 }
             ]
         }
 
 # Group People
 
-## People List [/people]
+## People List [/people/{page}]
++ Parameters
+    + page (number) - An optional page number, default is 1
 
 ### Obtain a list of people. [GET]
 
 + Response 200 (application/json)
 
-        [
-            {
-                "id": 1,
-                "name": "Casey Hudson"
-            },
-            {
-                "id": 2,
-                "name": "Hideo Kojima"
-            },
-            {
-                "id": 3,
-                "name": "Shigeru Miyamoto"
-            },
-            {
-                "id": 4,
-                "name": "Johnathan Blow"
-            }
-        ]
+        {
+            "people": [
+                {
+                    "birth_date": "Mon, 01 Jan 1900 00:00:00 GMT",
+                    "country": "U.S.A.",
+                    "death_date": "Mon, 01 Jan 1900 00:00:00 GMT",
+                    "deck": "A prolific American voice actress who has voiced many characters in several anime series and video games. She has also worked as an ADR Director and Line Producer.",
+                    "games_created": 135,
+                    "hometown": "Mississippi",
+                    "id": 45059,
+                    "image": null,
+                    "name": "Laura Bailey"
+                },
+                {
+                    "birth_date": "Mon, 01 Jan 1900 00:00:00 GMT",
+                    "country": "",
+                    "death_date": "Mon, 01 Jan 1900 00:00:00 GMT",
+                    "deck": "Arjuna Ravikumar is a video game developer at Electronic Arts.",
+                    "games_created": 15,
+                    "hometown": "",
+                    "id": 101112,
+                    "image": null,
+                    "name": "Arjuna Ravikumar"
+                },
+                {
+                    "birth_date": "Mon, 01 Jan 1900 00:00:00 GMT",
+                    "country": "",
+                    "death_date": "Mon, 01 Jan 1900 00:00:00 GMT",
+                    "deck": "Julie is an actress who has been doing voices for video games since 2004.",
+                    "games_created": 19,
+                    "hometown": "",
+                    "id": 92094,
+                    "image": null,
+                    "name": "Julie Nathanson"
+                }
+            ]
+        }
 
 ## Person [/people/{person_id}]
 + Parameters
@@ -121,94 +140,105 @@ and the games they develop/publish.
 + Response 200 (application/json)
 
         {
-                "id": 1,
-                "name": "Casey Hudson",
-                "country": "Canada",
-                "hometown": "Edmonton",
-                "deck": "A former creative lead at Bioware, where he was the project director on the Mass Effect series. In August 2014 he announced his departure from the company.",
-                "birth_date": null,
-                "death_date": null,
-                "first_credited_game": {
-                    "id": 1531,
-                    "name": "MDK 2"
-                },
-                "games": [
-                    {
-                        "id": 10637,
-                        "name": "Baldur's Gate II: Shadows of Amn"
-                    },
-                    {
-                        "id": 18741,
-                        "name": "Star Wars: Knights of the Old Republic"
-                    },
-                    {
-                        "id": 21590,
-                        "name": "Mass Effect 2"
-                    },
-                    {
-                        "id": 1531,
-                        "name": "MDK 2"
-                    },
-                    {
-                        "id": 9953,
-                        "name": "Neverwinter Nights"
-                    },
-                    {
-                        "id": 26087,
-                        "name": "Mass Effect: Galaxy"
-                    },
-                    {
-                        "id": 8852,
-                        "name": "Star Wars: Knights of the Old Republic II - The Sith Lords"
-                    },
-                    {
-                        "id": 8580,
-                        "name": "Jade Empire"
-                    },
-                    {
-                        "id": 37437,
-                        "name": "Mass Effect: Infiltrator"
-                    },
-                    {
-                        "id": 16909,
-                        "name": "Mass Effect"
-                    },
-                    {
-                        "id": 29935,
-                        "name": "Mass Effect 3"
-                    }
-                ],
-                "people": [{
-                    "id": 89829,
-                    "name": "Larry Hryb"
-                }]
+            "birth_date": "Mon, 01 Jan 1900 00:00:00 GMT",
+            "country": "",
+            "death_date": "Mon, 01 Jan 1900 00:00:00 GMT",
+            "deck": "Worked on Gun: Showdown",
+            "games": [
+            {
+              "id": 2227,
+              "name": "Gun: Showdown"
+            },
+            {
+              "id": 2502,
+              "name": "Call of Duty 3"
+            }
+            ],
+            "games_created": 2,
+            "hometown": "",
+            "id": 45,
+            "image": null,
+            "name": "Jonathan Menzies"
         }
 
 # Group Games
 
-## Game List [/games]
+## Game List [/games/{page}]
++ Parameters
+    + page (number) - An optional page number, default is 1
 
 ### Obtain a list of games. [GET]
 + Response 200 (application/json)
 
-        [
-            {
-                "id": 1,
-                "name": "Mass Effect"
-            },
-            {
+        {
+            "games": [
+                {
+                    "deck": "Monopoly Millionaire is an iOS game based on the Monopoly Millionaire board game.",
+                    "developers": [
+                        {
+                            "id": 1,
+                            "name": "Electronic Arts"
+                        }
+                    ],
+                    "id": 1,
+                    "image": "http://static.giantbomb.com/uploads/scale_medium/10/103881/2345937-monopoly_millionaire.jpg",
+                    "name": "Monopoly Millionaire",
+                    "platforms": [
+                        {
+                            "id": 83,
+                            "name": "iPhone",
+                            "short": "IPHN"
+                        },
+                        {
+                            "id": 107,
+                            "name": "iPad",
+                            "short": "IPAD"
+                        },
+                        {
+                            "id": 109,
+                            "name": "Android",
+                            "short": "ANDR"
+                        }
+                    ],
+                    "publishers": [
+                        {
+                        "id": 1,
+                        "name": "Electronic Arts"
+                        }
+                    ]
+                },
+                {
+                "deck": "The Sims' modern setting is put aside for a medieval one for this standalone title in the popular life simulator franchise.",
+                "developers": [
+                    {
+                        "id": 1,
+                        "name": "Electronic Arts"
+                    }
+                ],
                 "id": 2,
-                "name": "Mass Effect 2"
-            },
-            {
-                "id": 3,
-                "name": "Fallout 4"
-            },
-            {
-                "id": 4,
-                "name": "Super Mario World"
-            }
-        ]
+                "image": "http://static.giantbomb.com/uploads/scale_medium/3/30036/1777126-box_165433_hd.jpg",
+                "name": "The Sims Medieval",
+                "platforms": [
+                    {
+                        "id": 15,
+                        "name": "Mac",
+                        "short": "MAC"
+                    },
+                    {
+                        "id": 81,
+                        "name": "PC",
+                        "short": "PC"
+                    }
+                ],
+                "publishers": [
+                    {
+                        "id": 403,
+                        "name": "EA Games"
+                    }
+                ]
+                }
+            ]
+        }
 
 ## Game [/game/{game_id}]
 + Parameters
@@ -218,52 +248,27 @@ and the games they develop/publish.
 + Response 200 (application/json)
 
         {
-            "id": 1,
-            "name": "Mass Effect",
-            "deck": "When humanity is still a newcomer on the futuristic galactic stage, it's up to the charismatic Commander Shepard to investigate the actions of a rogue agent in the first chapter of the Mass Effect trilogy.",
-            "image": "http://ggmate.me/static/games/me1.jpg",
-            "platforms": ["Xbox 360", "PS3", "PC"],
-            "metacritic": {
-                "Xbox 360": 91,
-                "PS3": 85,
-                "PC": 89
-            },
+            "deck": "Skitch, bone out, and thrash your way to the top in this extreme combat sports racing game from Electronic Arts.",
             "developers": [
                 {
                     "id": 1,
-                    "name": "Bioware"
+                    "name": "Electronic Arts"
+                }
+            ],
+            "id": 76,
+            "image": "http://static.giantbomb.com/uploads/scale_medium/9/93770/2374500-genesis_skitchin.jpg",
+            "name": "Skitchin'",
+            "platforms": [
+                {
+                    "id": 5,
+                    "name": "Genesis",
+                    "short": "GEN"
                 }
             ],
             "publishers": [
                 {
-                    "id": 340,
-                    "name": "Microsoft Studios"
-                },
-                {
-                    "id": 6256,
-                    "name": "EA Games"
-                }
-            ],
-            "people": [
-                {
-                    "id": 1,
-                    "name": "Casey Hudson"
-                },
-                {
-                    "id": 101632,
-                    "name": "Robert Blake"
-                },
-                {
-                    "id": 107212,
-                    "name": "Belinda Cornish"
-                },
-                {
-                    "id": 12808,
-                    "name": "Greg Zeschuk"
-                },
-                {
-                    "id": 12762,
-                    "name": "Ray Muzyka"
+                "id": 1,
+                "name": "Electronic Arts"
                 }
             ]
         }

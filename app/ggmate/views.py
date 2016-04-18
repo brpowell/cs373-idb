@@ -56,18 +56,21 @@ def search():
     return jsonify(results)
 
 @app_instance.route('/api/games/<int:page>', methods=['GET'])
+@app_instance.route('/api/games', methods=['GET'])
 def get_games(page=1):
     request = Game.query.paginate(page=page, per_page=20)
     games = request.items
     return jsonify({'games': [game.to_json() for game in games] })
 
 @app_instance.route('/api/companies/<int:page>', methods=['GET'])
+@app_instance.route('/api/companies', methods=['GET'])
 def get_companies(page=1):
     request = Company.query.paginate(page=page, per_page=20)
     companies = request.items
     return jsonify({'companies': [company.to_json() for company in companies]})
 
 @app_instance.route('/api/people/<int:page>', methods=['GET'])
+@app_instance.route('/api/people', methods=['GET'])
 def get_people(page=1):
     request = Person.query.paginate(page=page, per_page=20)
     people = request.items
