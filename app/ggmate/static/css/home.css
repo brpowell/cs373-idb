@@ -469,7 +469,11 @@ section.content-section.text-center.ng-scope {
 }
 
 
-
+@media (max-width: 590px) {
+    .ggsearch--wrapper {
+        margin-top: 25px;
+    }
+}
 
 
 /* Landscape phones and portrait tablets */
