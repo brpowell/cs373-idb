@@ -42,7 +42,7 @@ p {
 
 
 a {
-    color: #42dca3;
+    color: #33CCFF;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
@@ -167,17 +167,17 @@ a:focus {
 }
 
 .btn-default {
-    border: 1px solid #42dca3;
-    color: #42dca3;
+    border: 1px solid #33CCFF;
+    color: #33CCFF;
     background-color: transparent;
 }
 
 .btn-default:hover,
 .btn-default:focus {
-    border: 1px solid #42dca3;
+    border: 1px solid #33CCFF;
     outline: 0;
     color: #000;
-    background-color: #42dca3;
+    background-color: #33CCFF;
 }
 
 .btn-lucky {
@@ -304,7 +304,7 @@ body {
 
 .btn-launch {
     border: 1px solid #33CCFF;
-    color: #42dca3;
+    color: #33CCFF;
     background-color: transparent;
     font-size: 18px;
 }
