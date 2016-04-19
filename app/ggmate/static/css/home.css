@@ -280,6 +280,12 @@ body {
 
 .btn-default:hover{
     background-color: #33CCFF;
+    border: 1px solid #33CCFF;
+}
+
+.btn-default:active{
+    background-color: #33CCFF;
+    border: 1px solid #33CCFF;
 }
 
 .ggsearch--input::-moz-selection { /* Code for Firefox */
