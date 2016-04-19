@@ -36,7 +36,7 @@
                         <span ng-if="!reverse && sortKey=='hometown'" class="glyphicon glyphicon-chevron-up"></span>
                     </th>
                 </thead>
-                <tr dir-paginate="person in people | itemsPerPage: 20 | orderBy:sortKey:reverse" total-items="totalPeople" current-page="pagination.current">
+                <tr dir-paginate="person in people | itemsPerPage: 25 | orderBy:sortKey:reverse" total-items="totalPeople" current-page="pagination.current">
                     <td class="tds"><a href="#person/{{person.id}}">{{ person.name }}</a></td>
                     <td class="tds">{{ person.deck }}</td>
                     <td class="tds">{{ person.games_created }}</td>

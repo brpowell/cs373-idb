@@ -35,7 +35,7 @@
                         <span ng-if="!reverse && sortKey=='country'" class="glyphicon glyphicon-chevron-up"></span>
                     </th>
                 </thead>
-                <tr dir-paginate="company in companies | itemsPerPage: 20 | orderBy:sortKey:reverse" total-items="totalCompanies" current-page="pagination.current">
+                <tr dir-paginate="company in companies | itemsPerPage: 25 | orderBy:sortKey:reverse" total-items="totalCompanies" current-page="pagination.current">
                     <td tableData="Name" class="tds"><span class"spacing"></span><a href="#company/{{company.id}}">{{ company.name }}</a></td>
                     <td tableData="Deck" class="tds">{{ company.deck }}</td>
                     <td tableData="Date Founded" class="tds">{{ changeDate(company.date_founded) }}</td>

@@ -76,7 +76,8 @@ a {
      margin-bottom: 10px;
 }
 .table a{
-    color: #339999;
+    /*color: #339999;*/
+    color: rgb(14, 143, 255);
 }
 .table-header {
     background-color: black;
@@ -172,5 +173,3 @@ td {
     padding: 0px;
     margin: 0 auto;
 }
-
-

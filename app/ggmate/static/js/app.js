@@ -131,7 +131,7 @@ mainApp.controller('companiesListCtrl', function($scope, $http) {
     $scope.totalCompanies = 617;
 
     // 20 companies per page
-    $scope.companiesPerPage = 20;
+    $scope.companiesPerPage = 25;
 
     // pagination
     $scope.pagination = {
@@ -198,7 +198,7 @@ mainApp.controller('gamesListCtrl', function($scope, $http) {
     $scope.totalGames = 24776;
 
     // 20 companies per page
-    $scope.gamesPerPage = 20;
+    $scope.gamesPerPage = 25;
 
     // pagination
     $scope.pagination = {
@@ -272,7 +272,7 @@ mainApp.controller('peopleListCtrl', function($scope, $http) {
     $scope.totalPeople = 72951;
 
     // 20 people per page
-    $scope.peoplePerPage = 20;
+    $scope.peoplePerPage = 25;
 
     // pagination
     $scope.pagination = {
@@ -402,7 +402,7 @@ mainApp.controller('booksCtrl', function($scope, $http) {
     // hide authors at the beginning
     jQuery(document).ready(function() {
         jQuery('.authors').hide();
-    });  
+    });
 });
 
 
