@@ -162,6 +162,42 @@ class DBTestCases(unittest.TestCase):
 
         self.assertEqual(len(p.games), 3)
 
+    # People involved with a game
+    def test_game_people(self):
+        p1 = Person(name="Andrew")
+        p2 = Person(name="Rachel")
+        p3 = Person(name="Beth")
+        g = Game(name="Super Awesome Squad")
+        g.people.append(p1)
+        g.people.append(p2)
+        g.people.append(p3)
+        self.session.add(p1)
+        self.session.add(p2)
+        self.session.add(p3)
+        self.session.add(g)
+
+        result = self.session.query(Game).filter_by(name='Super Awesome Squad').first()
+
+        self.assertEqual(len(result.people), 3)
+
+    # View developers and publishers of a game
+    def test_game_companies(self):
+        dev1 = Company(name="Boss Interactive")
+        dev2 = Company(name="Epic Entertainment")
+        pub = Company(name="We love money")
+        g = Game(name="Call of brewty: Modern coffee")
+        dev1.developed_games.append(g)
+        dev2.developed_games.append(g)
+        pub.published_games.append(g)
+        self.session.add(dev1)
+        self.session.add(dev2)
+        self.session.add(pub)
+        self.session.add(g)
+
+        result = self.session.query(Game).filter_by(name="Call of brewty: Modern coffee").first()
+        self.assertEqual(len(result.developers), 2)
+        self.assertEqual(len(result.publishers), 1)
+
 if __name__ == '__main__':
     app_instance.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://localhost/ggmate_test"
     unittest.main()
