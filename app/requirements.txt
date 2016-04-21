@@ -1,7 +1,6 @@
 alembic==0.8.5
 decorator==4.0.9
 Flask==0.10.1
-Flask-Migrate==1.8.0
 Flask-Script==2.0.5
 Flask-SQLAlchemy==2.1
 Flask-Testing==0.4.2
@@ -11,7 +10,6 @@ Jinja2==2.8
 Mako==1.0.4
 MarkupSafe==0.23
 psycopg2==2.6.1
-PyMySQL==0.7.2
 pyparsing==2.1.1
 python-dateutil==2.5.2
 python-editor==1.0
