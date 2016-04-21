@@ -1,23 +1,27 @@
-from flask import send_file, make_response, url_for, jsonify, abort, make_response, request, redirect
-from ggmate import app_instance, db
-import subprocess, json, os
-from ggmate.models import Game, Company, Person
+from loader import app_instance, db
+from flask import send_file, make_response, url_for, jsonify, abort, \
+                    make_response, request, redirect
+from models import Game, Company, Person
 from sqlalchemy_searchable import parse_search_query
 from sqlalchemy_searchable import search
 import requests
 
-# Routes
+
+# ------------------
+# Views
+# ------------------
+
 @app_instance.route('/', methods=['GET'])
 def index():
     return send_file('index.html')
 
-# Run unittest
 @app_instance.route('/run_unittests')
 def run_tests():
+    from subprocess import getoutput
     path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../tests.py')
-    output = subprocess.getoutput('python3 '+path)
+    output = getoutput('python3 '+path)
     print(output)
-    return json.dumps({'output': str(output)})
+    return jsonify({'output': str(output)})
 
 @app_instance.route('/lucky')
 def lucky():

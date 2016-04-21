@@ -1,0 +1,1412 @@
+commit a58d4df677cae1c3c6f6ab87bf480a79df9af685
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Wed Apr 20 12:44:41 2016 -0500
+
+    2 more unit tests, fixed stats
+
+commit 3c6b1967071c4c0c0505cb36e101a71b11993e9c
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Wed Apr 20 11:10:02 2016 -0500
+
+    updated issue and commit count
+
+commit 69bb466d074883ff8e62660ad494a7b5d737d08d
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Wed Apr 20 11:04:18 2016 -0500
+
+    fixed company header and medium devices problem
+
+commit 4c0a041dd7efd0a801677d6aa4f7dde22fb4465c
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Tue Apr 19 17:22:08 2016 -0500
+
+    company css fixed, looks kind of weird on medium size
+
+commit ce962dba976105cdbd46f4ee4d201d4eb19b284b
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Tue Apr 19 17:00:34 2016 -0500
+
+    fixed mint color in other places
+
+commit eb312b4ab71f197dde47717c8a603eff24ffac88
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Tue Apr 19 16:54:42 2016 -0500
+
+    search bar wrapper responsive fix
+
+commit a2b5c7a4b92d3861f7047e7d5892a5027aba77a3
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Tue Apr 19 16:49:51 2016 -0500
+
+    splash page buttons and link color update
+
+commit 880425ccaeff75066a189b40220ec326fd28602f
+Merge: 926ceb9 00a02c5
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Tue Apr 19 12:03:44 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brpowell/cs373-idb into dev
+
+commit 926ceb9e1a7f01baab0c8201dbce4befb8089403
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Tue Apr 19 12:03:41 2016 -0500
+
+    tweaking about page
+
+commit 00a02c51ba7dfaac549974ca3dc3c543b1517662
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Mon Apr 18 21:00:19 2016 -0500
+
+    cleaned up the file names and fixed button closes #53
+
+commit 3697ad316e2ede393313cd2f317198191db337cc
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Mon Apr 18 09:19:40 2016 -0500
+
+    updated apiary and made page no optional for lists
+
+commit 7d81ccdffd62a8af5fb05b7f3c378fd1bcd8b865
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 17 19:45:41 2016 -0500
+
+    Removed some extra filees and cleaned up some code
+
+commit 72e930804bff7274dad31a82335eff9a8e39ed18
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 17 19:35:04 2016 -0500
+
+    Fixed some stuffs to make books/authors page look nice on medium and small devices
+
+commit 301aaeccb895df3c308f6fbe7bd89a68de15d165
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 17 18:48:07 2016 -0500
+
+    Added authors' names
+
+commit 63daaf8c06df070efbe8373f67cb1775eaf78f25
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 17 16:48:09 2016 -0500
+
+    Replaced star icon, and align the header
+
+commit 9a93d2c68f70c8cb28573a25c8cd17661cb5dc58
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 17 16:17:03 2016 -0500
+
+    Added books' titles
+
+commit 8aa2e7cb437eddca35369032ae837658d0462bbc
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 17 15:53:46 2016 -0500
+
+    Fixed some typos and addd some tools and links
+
+commit c1f377a2da4c7a87c54c34726343138b764b081b
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 17 15:14:44 2016 -0500
+
+    Cleaned up some code and added some comments
+
+commit 0c578cf90a652fa3f1a38962a0039d5252d62563
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 17 15:04:33 2016 -0500
+
+    Forgot to add some spaces at the end of the page
+
+commit 11ea8d5d9efc1adbd3835c10d2e18a632a1ce3af
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 17 15:00:36 2016 -0500
+
+    Hide authors in books' section
+
+commit 4815ed59e2ba00767eb0ebfa4721cd3f17ae8c84
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 17 14:55:17 2016 -0500
+
+    Fixed response from backend for books and authors
+
+commit 577cfdbdd2a9ae240076ff2a6b5a770c52084e16
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 17 14:52:02 2016 -0500
+
+    Removed some unneeded sections
+
+commit 055dc7597457d9b2c9be410f24b8741baf7b34f4
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 17 14:10:53 2016 -0500
+
+    Added back file
+
+commit b456c3f9cc2314f03e7cd0e02364eff228e79037
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 17 10:46:27 2016 -0500
+
+    Finished exercising other group's API
+
+commit 8e878546186fba215d307b797493085a076df2a5
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 17 10:12:46 2016 -0500
+
+    Linked all books to the ibdb site
+
+commit 60ac63d302b2b8bdcbcd0dfe239b5ed4142a2ee8
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 17 10:06:49 2016 -0500
+
+    Added books filter for eexercising other group's API
+
+commit 0e9aed7c69babfb70698a974ebe5321cfa3b79cc
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 17 01:46:21 2016 -0500
+
+    Trying to display data
+
+commit de62a1781d164b087fc00ca237fcf0e24325c394
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sat Apr 16 23:44:14 2016 -0500
+
+    Trying to exercise other group's API - made a carousel
+
+commit 6fb3b08dd5761f8cde89c2bf8e343195953931ae
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sat Apr 16 19:56:16 2016 -0500
+
+    Fixed some extra spaces
+
+commit 9a5f9179855a345daeecb480e90d617edc236be0
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sat Apr 16 18:26:22 2016 -0500
+
+    Put back the space
+
+commit 0202c0f641eeb148ef8b95dcb2258c6eade9a174
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sat Apr 16 15:52:36 2016 -0500
+
+    table striped
+
+commit 512e5fc80f2654951174d4325ddef011be4d1b28
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sat Apr 16 15:48:57 2016 -0500
+
+    Partially fixed the table to be responsive on medium and small devices
+
+commit 984c53393f5e623948c231764add726137645f86
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sat Apr 16 15:20:46 2016 -0500
+
+    Improved UX - tap outside to hide navbar-collapsed
+
+commit 4141281fb0f793fe6e8057b72daaeba92c19cfd4
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sat Apr 16 14:54:26 2016 -0500
+
+    Fixed dirPagination controller overflow on small devices
+
+commit 3a556c432dc56f1c840969ef818135955fb35591
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sat Apr 16 14:50:07 2016 -0500
+
+    shadow on small devices
+
+commit 1bd5d86d9f2db0ad7ddcf968fd895c8f5dd00f1f
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sat Apr 16 14:42:18 2016 -0500
+
+    Changed dirPagination control for small devices on games.html
+
+commit 9de3d8362d9775b85c830074d3066c255835a35c
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sat Apr 16 14:35:47 2016 -0500
+
+    Changed dirPagination control for small devices on companies.html
+
+commit f71ea0834ec909a6a51860ff96b10ea1734b0e1f
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Sat Apr 16 13:03:02 2016 -0500
+
+    test naming fixed
+
+commit a6a39ddbfd9d2c26dfffbed60eaa75fbcb90e22e
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Sat Apr 16 13:01:26 2016 -0500
+
+    couple more tests
+
+commit 0e4e596d0c65a32a01904da511e928e3688acd46
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Sat Apr 16 10:41:36 2016 -0500
+
+    changes gitignore
+
+commit f3f4622abf1f5e88a77b3aafe032ae266eaf568e
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Sat Apr 16 10:13:50 2016 -0500
+
+    searchresults have links and separated by types
+
+commit 0798fe0279091ca2a644a869ce5e5d5eeb1e78ab
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Fri Apr 15 12:32:46 2016 -0500
+
+    modified search results format
+
+commit a302e052d5ac4f10e45a8e52ca4a69be12316cd9
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Fri Apr 15 00:56:12 2016 -0500
+
+    Feeling lucky btn fits on  < 480px devices
+
+commit 04e6a047bc64564756cc1385bb028b053c3917d0
+Merge: f39f580 a4f5476
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Fri Apr 15 00:16:10 2016 -0500
+
+    Truncated long deeck for the tables
+
+commit f39f58053cdc2c9976d67ebb7b5e643ccdbb3620
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Fri Apr 15 00:13:42 2016 -0500
+
+    Truncated long deeck for the tables
+
+commit a4f54767d856eb67ec9534950799fd59f5c087a5
+Merge: 3c2e658 54aa2bd
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Fri Apr 15 00:02:05 2016 -0500
+
+    search results page kind of there, about page looks better at different scales
+
+commit 3c2e658d466433633f8b3f8afc04be815b4c432f
+Merge: 38a61d9 b071c3a
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Fri Apr 15 00:01:11 2016 -0500
+
+    search results page kind of there, about page looks better at different scales
+
+commit 54aa2bd1e9c46b0ea941b7b20e0a8fd1bd2d94fb
+Merge: 1b4f822 b071c3a
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Apr 14 23:56:08 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brpowell/cs373-idb into dev
+
+commit 1b4f82272714edb2a39cbad09920bc4050b355ed
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Apr 14 23:55:57 2016 -0500
+
+    im feeling lucky, sorry i had to lol
+
+commit 38a61d92803564d3a4af1883cce12b5cbd2e2900
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Apr 14 23:24:46 2016 -0500
+
+    started on search page need a way to link to actual pages
+
+commit b071c3a6921cd44c7039acafe86ac983a2ffa670
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Apr 14 22:20:33 2016 -0500
+
+    Updated makefile
+
+commit dec8fe00331aaad155145915c32066bcf20e1b7e
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Apr 14 22:04:51 2016 -0500
+
+    Removed extra files
+
+commit 23bfd8a4b4363a36930e6d76df6ee87526004428
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Apr 14 15:56:23 2016 -0500
+
+    About page aesthetics
+
+commit a0b0115dff8b8845834edc8c5fce808cf377b86e
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Apr 14 15:36:45 2016 -0500
+
+    Table display fixed for pages
+
+commit 104da82f56631ea4cca54e33d4bbb19e30ae06bb
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Apr 14 10:38:49 2016 -0500
+
+    fixed small typo and reversed the width of th
+
+commit 655ee1e7df96df3e600fe4c24011a6f9a56c4c3d
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Wed Apr 13 20:17:06 2016 -0500
+
+    trying to fix the table header
+
+commit fae77f991f98cb2cd85854ccf50eac4e69ec2a99
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Wed Apr 13 20:00:40 2016 -0500
+
+    Clean up code
+
+commit 19d3e4e874deb8ec64a086db2b1421eed9bb12a0
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Wed Apr 13 17:48:41 2016 -0500
+
+    fixed about page white box closes #49
+
+commit 961952eb5de1be3dbe7d069aa053fbdfc231cb62
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Wed Apr 13 17:37:36 2016 -0500
+
+    finished moving to
+
+commit 4556a5331999e5d315b2709d4b069d0fc3473b3f
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Wed Apr 13 14:52:02 2016 -0500
+
+    Added param for specific game
+
+commit 1a5ba7bce0119dadd1d91c28aa08a69c4e7973a8
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Wed Apr 13 14:44:38 2016 -0500
+
+    Trying to add parameter for game/comp/person on routing
+
+commit ffec66bf67ecff6708049085370f3cf401a3364a
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Wed Apr 13 14:16:39 2016 -0500
+
+    Added some comments
+
+commit a6951879c5c79ce62ac833d981d7e4191359739f
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Wed Apr 13 14:11:06 2016 -0500
+
+    Fixed entries for devs, pubs, and platforms for games table
+
+commit 057ffef10853c5c04cd080d84fa1aa7199bee631
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Wed Apr 13 13:36:07 2016 -0500
+
+    added sorting for games table. Debugging table entries for developers, publishers, and platforms
+
+commit 30c421e77d73acb083a6913ac3c9f27f5124eb0c
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Wed Apr 13 12:54:45 2016 -0500
+
+    Updated dockerfile
+
+commit d5af2ea47edc3acda839e3378f8612ca3f7a9711
+Merge: 64a5155 fb3ea52
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Wed Apr 13 02:05:33 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brpowell/cs373-idb into dev
+
+commit 64a5155c2761677a26d65cc65067d01a0faed71c
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Wed Apr 13 02:05:26 2016 -0500
+
+    Basic searching works
+
+commit fb3ea524d49304d858899815130d4a8e3bb050cd
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Wed Apr 13 00:23:13 2016 -0500
+
+    Added sorting for companies
+
+commit cbd47460b7550044ca9f16d649eba492e6d90b5c
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Wed Apr 13 00:13:12 2016 -0500
+
+    Re-added hometown column in people
+
+commit c9966e8d9c8135e6201ae86f2b493de5a7a85c05
+Merge: 7a14ce2 dc67fb3
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Tue Apr 12 23:45:31 2016 -0500
+
+    css changes fixed merge conflicts
+
+commit 7a14ce296ac95811f5d6999364af77501f0f897f
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Tue Apr 12 23:44:10 2016 -0500
+
+    has new css changes and starting on about changes
+
+commit dc67fb32115450c51b4176eb3f8d702909398f4f
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Tue Apr 12 22:44:07 2016 -0500
+
+    removing comments and duplicates
+
+commit fe6e1c1564b2ff55d2e2713ba5e5deb0e789e58e
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Tue Apr 12 22:24:45 2016 -0500
+
+    New SQL file, tests now working properly
+
+commit 19b84b19ba40f313983f70e2b0aaadf7cfbe80d2
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Apr 12 22:04:32 2016 -0500
+
+    Added sorting for people table
+
+commit d5f1f5af8c93ea39cb4cf9bf1afc695fcd4424ac
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Tue Apr 12 16:25:13 2016 -0500
+
+    deleting extra files
+
+commit e09393a6266cd0db37d8f78e264ef57ee7bf0073
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Tue Apr 12 16:24:28 2016 -0500
+
+    new color changes
+
+commit 94b6e0120a9c7fe39365036110895ff05226d6b3
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Tue Apr 12 16:23:32 2016 -0500
+
+    new colors yay
+
+commit 2cdcedf15d777edcc21504cb25ec62e71feef7de
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Tue Apr 12 15:37:47 2016 -0500
+
+    trying to make boostrap carousel work
+
+commit 58361576689578986b328db3227196b35a4ac782
+Merge: ace05ea 69b6eab
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Tue Apr 12 14:30:06 2016 -0500
+
+    css changes
+
+commit ace05ea8b5b522231a04e5a7377e5695668b6a8c
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Tue Apr 12 14:28:46 2016 -0500
+
+    css changes
+
+commit 37ceab878f2deaad83813f9d410463d8be0dd26e
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Tue Apr 12 14:26:39 2016 -0500
+
+    more css changes to company.html
+
+commit 69b6eaba4281c02c3df7a3757e7cb4e72bc782e9
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Tue Apr 12 14:26:04 2016 -0500
+
+    updated bios
+
+commit ec3080a15a7f1bf26d336b8b9c922a9daf54afe9
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Apr 12 09:32:06 2016 -0500
+
+    removed IDB2.log
+
+commit b2ee99f1ee1aa8cef09b53b351bf50efc96cc2a5
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Apr 12 09:30:51 2016 -0500
+
+    updated makefile
+
+commit 98ccb20291b40ce544d239dfd3bd918df4b0ddd5
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Apr 12 01:11:38 2016 -0500
+
+    added some comments and clean up code
+
+commit 638ce55b07a26d3964031a4c00f57a01339422eb
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Apr 12 01:05:06 2016 -0500
+
+    Added some comments on companniesCtrl
+
+commit 13ca895c6f73fbb9b8881404f346062bd57e7eab
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Apr 12 00:58:30 2016 -0500
+
+    Fixed links on people.html
+
+commit 26750b5fb8baf0c82ee8e260fc8eeb67de1bbbd7
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Apr 12 00:36:53 2016 -0500
+
+    Fixed links in companies.html
+
+commit 5dcb81bdd6a414979c0bb7e81dced1a8bc2038d0
+Merge: 34078c5 e33458c
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Mon Apr 11 23:09:34 2016 -0500
+
+    Updated people and removed merge conflict
+
+commit 34078c543d725320dee0607cc63f0c4af1131f25
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Mon Apr 11 23:07:59 2016 -0500
+
+    Updated changes on people.html
+
+commit e33458c8a7c55d03901f2007185a8cc9516148b2
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Mon Apr 11 22:56:37 2016 -0500
+
+    removed extra files
+
+commit cfb3509dd8e273a02cea90ecc1708fd201afc9f6
+Merge: 3d4b5d0 7067316
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Mon Apr 11 22:52:09 2016 -0500
+
+    some color changes
+
+commit 3d4b5d062b8abbbdec7da9d7150048582b3f782a
+Merge: 02f29fa 00606bc
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Mon Apr 11 22:50:01 2016 -0500
+
+    css color changes
+
+commit 706731666b2bcf2f8272966c7dd582ba74a98be2
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Mon Apr 11 22:32:43 2016 -0500
+
+    Added/updated pagination for the companies
+
+commit 441f2351b470cf69b15522b67ef337f437d0192a
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 10 16:45:21 2016 -0500
+
+    Updated media query
+
+commit d9da7ca58c1dcd63fb98c1762b4054ff6527f150
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Sat Apr 9 00:35:44 2016 -0500
+
+    forgot the git log...
+
+commit 31a9bee379791e29dd8d0266757b3049dd44169a
+Merge: ebe6c9f 00606bc
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Fri Apr 8 17:21:11 2016 -0500
+
+    Merge branch 'dev'
+
+commit 00606bc7161567b000c72ddbb2fd0cf6d3be22a4
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Fri Apr 8 17:20:44 2016 -0500
+
+    reorganizing
+
+commit ebe6c9f7e0a66117d0891c0733eca7d9f9b87917
+Merge: ea608c6 de4dd14
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Fri Apr 8 17:16:14 2016 -0500
+
+    Merge branch 'dev'
+
+commit de4dd148288fb3d4f1727bba20b232d49679c8f5
+Merge: c9a8d73 efa9fcb
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Fri Apr 8 16:45:59 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brpowell/cs373-idb into dev
+
+commit c9a8d73adfb881b07dc87fd423dbe99d7e6caa58
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Fri Apr 8 16:45:47 2016 -0500
+
+    new docker files
+
+commit efa9fcbd2b4dca174fb826443c38f322ea1aa1d9
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Fri Apr 8 16:23:25 2016 -0500
+
+    Updated requirements
+
+commit 70a8b720e5ec07614f38d3f9631a43610b6ca00a
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Fri Apr 8 15:25:05 2016 -0500
+
+    new changes to about page
+
+commit 02f29fa6d6d2dd1e7f049855fa78573f44f1a41a
+Merge: c458579 fe4790c
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Fri Apr 8 12:29:16 2016 -0500
+
+    Merge branch 'dev' of github.com:brpowell/cs373-idb into dev
+
+commit c4585798da6178c57c93a382a6c1efc0168372b9
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Fri Apr 8 12:28:48 2016 -0500
+
+    Changing some css
+
+commit fe4790c6cb762663acba6ed49295a3de0a5ec41b
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Fri Apr 8 12:28:12 2016 -0500
+
+    moving static folder
+
+commit 7604f5a5f190dcb4865c20488b565c5eb7133444
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Fri Apr 8 12:03:02 2016 -0500
+
+    created ggmate module, moved manage.py
+
+commit e323be1cb79ac84f176d673e24419d9a6186871b
+Merge: c34439e 0fba554
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Apr 7 21:53:57 2016 -0500
+
+    Merge branch 'dev' of github.com:brpowell/cs373-idb into dev
+
+commit c34439ea4f4c23f2f6f2bb51915c492207adc84c
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Apr 7 21:53:31 2016 -0500
+
+    testing
+
+commit 0fba55457ef57ed1e74fd78a58eebd51ef0d14eb
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Apr 7 21:53:07 2016 -0500
+
+    stuff
+
+commit 21048e1688ec5c16f79e568148971b943bef42b3
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Thu Apr 7 21:22:06 2016 -0500
+
+    fixed run tests again
+
+commit 476d92ff8e07d90e1119cbef358e17d2527d751d
+Merge: 8826c3e 8a3a78b
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Thu Apr 7 21:16:56 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brpowell/cs373-idb into dev
+
+commit 8826c3e51c9a82ce69ca64e522607f0cc69be20a
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Thu Apr 7 21:16:39 2016 -0500
+
+    all grids show up and api is updated
+
+commit 8a3a78bb3242eec70a5001473a955b31ad682a83
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Apr 7 21:07:14 2016 -0500
+
+    docker/carina stufss
+
+commit d34fd8d1b3d19483f314d13ae0a1e222c802b662
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Thu Apr 7 20:57:41 2016 -0500
+
+    all pillars have a grid
+
+commit c649a671552afd48bc0439e196b3f76cc31fa22b
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Thu Apr 7 20:13:14 2016 -0500
+
+    working grid. linking models
+
+commit 65ce74f681f60b116c84b2b8114dc0b9d05a26ea
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Apr 7 20:02:05 2016 -0500
+
+    css changes and removed s
+
+commit 83fcd21b30e76e11f31707ab7717cec066356535
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Apr 7 19:48:34 2016 -0500
+
+    some color changes
+
+commit 78c566eadcbd66d8dd1b5f449bc1d5589786f79e
+Merge: 06b9051 9e7dc39
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Apr 7 19:43:18 2016 -0500
+
+    has dynamic loading
+
+commit 06b90515c3d4ddbfb08cbe470d4d1d4e8b10de08
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Apr 7 19:41:45 2016 -0500
+
+    has dynamic loading
+
+commit 9e7dc3985d65637843b5a0c9e37a7c6d21d7608a
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Thu Apr 7 19:01:03 2016 -0500
+
+    shows more rows
+
+commit 653ac840433ea7d2048de2427cad69769dd2c917
+Merge: 2542a75 6f69bb5
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Apr 7 17:15:22 2016 -0500
+
+    idk
+
+commit 2542a75b2ec6323ac14941684a8e7351a0e9f686
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Apr 7 17:12:13 2016 -0500
+
+    something
+
+commit 6f69bb564ba1c6a4073d3469b1a1514f80aad988
+Merge: 7bc747b 15152e2
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Apr 7 16:29:22 2016 -0500
+
+    has id passing
+
+commit 7bc747b9d028a2b858395137aa581196c57726b3
+Merge: 057e61a 626d775
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Apr 7 16:04:47 2016 -0500
+
+    passing id
+
+commit 15152e285229dba43da2571f3f0ac6a5961cda29
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Apr 7 16:03:46 2016 -0500
+
+    Loading data dynamically
+
+commit 5c0f1b352deacc52a2ac6bbebda90bc694fd3dd4
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Apr 7 15:17:46 2016 -0500
+
+    changed home and implementing dynamic api
+
+commit 057e61a87c6cd9a9bb96d5f510f8e748b2533347
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Apr 7 14:09:55 2016 -0500
+
+    merging
+
+commit 626d775a52dd5bffa614d6401d5689a17880e338
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Thu Apr 7 14:07:08 2016 -0500
+
+    basic pagination for the games
+
+commit f3bebe68c5dbe3d15481b13bcf0b16a0dce640b5
+Merge: c15dd40 42d811a
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Apr 7 13:36:40 2016 -0500
+
+    Merge branch 'dev' of github.com:brpowell/cs373-idb into dev
+
+commit c15dd402d0a7f673317bfe00cb42b3633a412a8f
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Apr 7 13:36:32 2016 -0500
+
+    services in app.js can pass data
+
+commit 42d811a47d774e934f0b735ef80ca0d6266af3d7
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Apr 7 13:32:36 2016 -0500
+
+    sql file of database, hallelujah
+
+commit dd702e1eb9f7145033f62b90614aa365070f07f3
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Thu Apr 7 13:17:40 2016 -0500
+
+    took out ability to delete columns in grid
+
+commit 86e3b3b12523568af2f022851ab026f788ac9e9f
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Apr 7 12:21:21 2016 -0500
+
+    table sorting and figuring out to dynamically pass id to pages
+
+commit 7d252025eef1697ac692d581fa6bcea50d78b86b
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Apr 7 06:48:03 2016 -0500
+
+    ui-grid table added and it sorts, need to change css to it
+
+commit b34417661d58f0a08afe0d259267f1f6b4c0dd98
+Merge: 15dc61c 3d74b9f
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Apr 7 00:36:20 2016 -0500
+
+    Merge branch 'dev' of github.com:brpowell/cs373-idb into dev
+
+commit 15dc61c7b5a82d4f29889e42a9b2f91dc9bf9f83
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Apr 7 00:36:07 2016 -0500
+
+    Updated Dockerfile for db
+
+commit 3d74b9fe6ca71bcc3cfacb2d9a36684af0ed5231
+Merge: b4616b7 9788afe
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Apr 7 00:34:34 2016 -0500
+
+    Merge branch 'dev' of github.com:brpowell/cs373-idb into dev
+
+commit b4616b7bf4b6a997bb2f5306221c8b00c326c346
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Apr 7 00:34:27 2016 -0500
+
+    http requests are kind of working for games
+
+commit 9788afe4a67ee03ccec6f9746444e4360a0fc98c
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Wed Apr 6 20:44:21 2016 -0500
+
+    took out extraneous js files
+
+commit a964c3671b40b263c372c67ff5aaf2ca14d55b4a
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Wed Apr 6 20:42:30 2016 -0500
+
+    cleaning directories
+
+commit bd1538f590276c82844062e441e74707f9a771fd
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Wed Apr 6 20:07:32 2016 -0500
+
+    scroll all the way down
+
+commit b9fc658b4e1fa01e84058f62e70e9d3a19b48dab
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Wed Apr 6 20:05:10 2016 -0500
+
+    delete uneeeded files
+
+commit 7081f196cba3e1da47b9fe0efd0877161fd71b8a
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Wed Apr 6 20:04:18 2016 -0500
+
+    make code style better, ez money
+
+commit d9dd11603dd6a8a7d65d18ef5ed9021bdc31d71b
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Wed Apr 6 19:59:57 2016 -0500
+
+    its scrolls again
+
+commit af514d729878b109f03099f379f651c757689a7b
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Wed Apr 6 19:34:02 2016 -0500
+
+    another stable version
+
+commit fcf9d12bd8255f9e7467e7fdbd770e9c0ee0414e
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Wed Apr 6 18:59:24 2016 -0500
+
+    changed background back
+
+commit 9e2126e28809ce49291396f35429d6d87fb14470
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Wed Apr 6 17:14:57 2016 -0500
+
+    a stable version
+
+commit af9dfe69ba89459a1a6f8b56e67b7a8823e3884b
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Wed Apr 6 10:40:03 2016 -0500
+
+    cleaned some code, changed ngroutes, and created the modal for unittests
+
+commit c1c24141e1723f430e28a6fc500fa72ac4d1b798
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Tue Apr 5 21:42:52 2016 -0500
+
+    Filling database with games/platforms
+
+commit 7bc11868854af1d7a98680de40748846ae3e8924
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Tue Apr 5 21:42:07 2016 -0500
+
+    index nav stuff
+
+commit 9a1b8e0fd307b8b41eaa2c36aef33bf389276209
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Apr 5 20:55:18 2016 -0500
+
+    Deleted people.html and js files
+
+commit 0679920747bc7036e370d007ef9cdc4c9462b3c3
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Apr 5 20:53:37 2016 -0500
+
+    Works
+
+commit 6e0fc7e9d0ea3b426b5f7523ee41d04bfd49892a
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Apr 5 20:37:38 2016 -0500
+
+    Angular route is working
+
+commit e97ca7e06380d9f6c18fc0b390f27fa0eab3caed
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Tue Apr 5 19:51:37 2016 -0500
+
+    there was merge conflicts left
+
+commit d7cab490e3af4b0f054e69d3e3b22a3cb688de8c
+Merge: 9c3b8d2 8e20cf2
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Tue Apr 5 19:50:25 2016 -0500
+
+    has most angular working
+
+commit 9c3b8d29789edc2efd61d650da732e07dae1111d
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Tue Apr 5 19:45:10 2016 -0500
+
+    has angular mostly working
+
+commit 8e20cf26fd82acc7a186ca1489674ea47f5c77f2
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Mon Apr 4 23:38:42 2016 -0500
+
+    forgot to take out merge conflict
+
+commit 96d402d0ca5af13955de7bd9eb05f11d054b6aa6
+Merge: 559960c 2dded63
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Mon Apr 4 23:35:20 2016 -0500
+
+    just work merge omg
+
+commit 559960c313bf201a31aff56d41ed59d2862769a3
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Mon Apr 4 23:34:04 2016 -0500
+
+    Tests working, can launch from about page
+
+commit a6dff1608b297b7c00fd242e2c1515f5448a0e5b
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Mon Apr 4 23:31:48 2016 -0500
+
+    Tests working, can launch from about
+
+commit 2dded634e8cfb662ea1f5b38edbc8fde204bd946
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Mon Apr 4 22:32:26 2016 -0500
+
+    Added Google Analytics
+
+commit 34f138aff5c1fc16569829c7724f90ee4280f7ca
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Mon Apr 4 09:44:19 2016 -0500
+
+    Toggle tests output
+
+commit 8597d70b0d0d92c05a19b41888fec733bcace21f
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Mon Apr 4 01:00:12 2016 -0500
+
+    made page scroll on About button, but the button stays green after clicked
+
+commit e8edc633aee84a6da05eabafba80ea09f59c4a7a
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 3 18:47:26 2016 -0500
+
+    Updated about.html page
+
+commit 506c134c9af6a39775a96bef939a853788800066
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Sun Apr 3 16:15:07 2016 -0500
+
+    changed location of video game icon
+
+commit 58645a8698ed47d6cf2e763776e7e063ae28fd60
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Sun Apr 3 15:53:36 2016 -0500
+
+    deleted home.html
+
+commit 652a28c5d72655956db629adc7ad22b5c79facb5
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Sun Apr 3 15:51:50 2016 -0500
+
+    changed some slogans
+
+commit 25909b7ec6017286fa70127e652964e8e7c336bd
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Sun Apr 3 15:22:33 2016 -0500
+
+    Models good to go
+
+commit 6a1ce6099a64dab7e8053ff7dd90657fac9f4899
+Merge: 93dc046 1e47cf2
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Sun Apr 3 14:02:48 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brpowell/cs373-idb into dev
+
+commit 93dc046cef2387ba74dc81c38305e18e3f7c0988
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Sun Apr 3 14:02:38 2016 -0500
+
+    models almost fully functioning
+
+commit 1e47cf29a5c0c35870f020bb00c47b279c5195ed
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Sun Apr 3 13:45:26 2016 -0500
+
+    exposed API inside of views.py
+
+commit a03839c2549ee7b35fe4008cac53dee0ef565ac7
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Sun Apr 3 12:38:20 2016 -0500
+
+    removing app.py, update requirements
+
+commit 869ddbe8fb87f6deeae567ab6326bbad18b5d04c
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Sun Apr 3 12:05:20 2016 -0500
+
+    updated app structure. models inactive
+
+commit 1d8687db38939207ce166bce3a47140a52ef894b
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 3 11:42:14 2016 -0500
+
+    Added hide tests output button
+
+commit 2f88732bd27ae70e9ef09e0d921e9c7709a361cc
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 3 11:15:46 2016 -0500
+
+    Reformat the output of the unittests, show the output when running the tests
+
+commit 17261321276927f7b6cbb14b312b1efe5105da43
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 3 10:46:35 2016 -0500
+
+    Run Tests button on about page is working
+
+commit 958db73f37c171ad7eab7371c9ae6cb10ec1889a
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 3 01:45:32 2016 -0500
+
+    Testing unittest controller on about page
+
+commit 2051e230701d563c5d3c76bb5315090e3a87a9b8
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sun Apr 3 01:27:48 2016 -0500
+
+    changed about page section
+
+commit 62e0fe5767384b73de7b36eaa8457b27417809d8
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Sat Apr 2 13:34:14 2016 -0500
+
+    forgot to take out a merge conflict
+
+commit 6d946999c7e94448368bddd0231785b21b5ec924
+Merge: 4c22c2a e2b96c2
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Sat Apr 2 13:12:33 2016 -0500
+
+    website layout/color changes and merged with new backend stuff
+
+commit 4c22c2a3f4991ae113f7391897306250cc779c9f
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Sat Apr 2 13:11:06 2016 -0500
+
+    changes
+
+commit e2b96c232f09dd7ff56d7332f2f386da999caa99
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Fri Apr 1 09:54:41 2016 -0500
+
+    Added runUnitests service
+
+commit f27b37139067c7657394258ef6bab01296bd7d04
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Fri Apr 1 01:36:33 2016 -0500
+
+    created db dir for docker, updated makefile, started implementing run unittests on about page
+
+commit 491c007758385c63ab57f074dc7ab2a4c7246e0a
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Fri Apr 1 01:07:11 2016 -0500
+
+    Updated makefile to initilize and config db for docker
+
+commit c880fa98f1268fa1dbd231b0471e8b3050468bb2
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Fri Apr 1 01:02:45 2016 -0500
+
+    Updated docker-compose file
+
+commit b84999f52f3252ad6774871f2f03fbb539ddb1b7
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Thu Mar 31 22:28:08 2016 -0500
+
+    using sqlalchemy models and flask
+
+commit 182d3b6936f14a22ee3852ca80960568f1f83780
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Thu Mar 31 21:15:04 2016 -0500
+
+    angularjs controllers
+
+commit 290d9940b104ce8f0e234cd304c272d2a939c5fb
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Wed Mar 30 19:04:51 2016 -0500
+
+    adding angular controllers for each pillar of content
+
+commit 32f1fc9760d4490a9fa110f2ffd25d22e21afc47
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Tue Mar 29 23:30:35 2016 -0500
+
+    tweaking/adding bells and whistles
+
+commit 2a819e577ca5ff2ec9299f1de35bb2b6bff902d0
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Tue Mar 29 19:46:30 2016 -0500
+
+    added logo image
+
+commit d4f4ac7e4d26cfdd9ad6292208a122d4c674f45e
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Tue Mar 29 19:40:44 2016 -0500
+
+    changes to colors and what not
+
+commit 0e665e5b8c90f2470b1b61bf5585b8fcfb9aa9e6
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Tue Mar 29 19:19:39 2016 -0500
+
+    merge worked
+
+commit ea608c65e547ea3a42b02ea84a70c3a50d436783
+Author: brpowell <bryanpowell@utexas.edu>
+Date:   Thu Mar 24 20:58:06 2016 -0500
+
+    Delete company2.html
+
+commit 7829d9e4fa67a24590e2f2a6d4b762b8e859c378
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Mar 24 20:56:52 2016 -0500
+
+    git log
+
+commit 3f05d413bafc24156cbe2172cf6ec90cdb78dc34
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Mar 24 20:55:06 2016 -0500
+
+    adding documentation
+
+commit e5ac27fd90ff15e2fa4b934353d958711084fd17
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Thu Mar 24 20:26:01 2016 -0500
+
+    Tests and models updates
+
+commit 7c3e7f9b6119384c31352daee336c080d149a661
+Merge: d552744 bdcba35
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Mar 24 20:17:17 2016 -0500
+
+    Merge branch 'dev' of github.com:brpowell/cs373-idb into dev
+
+commit d55274441def6d7de1da2b53da4b4cf65e841051
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Mar 24 20:16:53 2016 -0500
+
+    Added number of commits
+
+commit bdcba356ba14583ce24e09196e15233d61b3cac2
+Author: Andrew Capindo <acapindo0123@utexas.edu>
+Date:   Thu Mar 24 20:12:11 2016 -0500
+
+    Update .travis.yml
+
+commit dd55fc33c10b6e8eefd5f3ffd6cd880454fdf8ce
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Mar 24 20:11:17 2016 -0500
+
+    Fixed html files
+
+commit 86552290878c4856e9cc474f6072f62163452378
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Mar 24 18:47:18 2016 -0500
+
+    here is my app.js
+
+commit 59647483c78a4fae5a4379b1e5a7b5f3b06b71da
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Mar 24 18:33:25 2016 -0500
+
+    changed the files
+
+commit e0dfa61dd2d08a661f2e13fc0816b4952b88db70
+Author: Uyviet Nguyen <upn63@cs.utexas.edu>
+Date:   Thu Mar 24 16:05:42 2016 -0500
+
+    UML diagram
+
+commit 8e71ebc295db75e6b5caad2c91e0bc6e500e11f3
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Mar 24 11:11:51 2016 -0500
+
+    Updated makefile and .travis
+
+commit c53de5b3f038aa257a5f9c90d0c89654d34aefec
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Mar 24 10:43:21 2016 -0500
+
+    merged testing to dev
+
+commit 8d68af0ef57fd916f70a96b10645d0e568681910
+Author: Bryan Powell <bryanpowell94@gmail.com>
+Date:   Wed Mar 23 20:36:37 2016 -0500
+
+    cleaning dev
+
+commit b8298bb328dc5a69060c2a7bd4dd98f94902dffd
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Wed Mar 23 20:28:05 2016 -0500
+
+    has most of the static pages
+
+commit a11335cf9bccb8e5b48a868bc7c3b1bd708abe64
+Author: Uyviet Nguyen <uyviet.nguyen@utexas.edu>
+Date:   Wed Mar 23 20:17:13 2016 -0500
+
+    Update .travis.yml
+
+commit 292fce24eb4223886fbadf8c4c448212a8afc1b5
+Author: Uyviet Nguyen <uyviet.nguyen@utexas.edu>
+Date:   Wed Mar 23 20:16:24 2016 -0500
+
+    Update .travis.yml
+
+commit 5f580845d48a6833e7858c274f83eb3f0bc2404c
+Author: Uyviet Nguyen <uyviet.nguyen@utexas.edu>
+Date:   Wed Mar 23 20:16:04 2016 -0500
+
+    Create .travis.yml
+
+commit 446bce143d50e9bf87c30c59c8640c9728aa0a9a
+Merge: 0c199b1 1748666
+Author: Bryan Powell <bryanpowell94@gmail.com>
+Date:   Tue Mar 22 12:33:51 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brpowell/cs373-idb into dev
+
+commit 0c199b1ae12d8c363ba12081540722fc95a9a204
+Author: Bryan Powell <bryanpowell94@gmail.com>
+Date:   Tue Mar 22 12:33:41 2016 -0500
+
+    updating scrape files and added api documentation
+
+commit 174866644376a2a2f35824cc2640fb09cf41e6f2
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Mar 22 10:33:25 2016 -0500
+
+    Completed people.json file
+
+commit 761dcc66aadfcaa9009b79acfabdd3acbeb96fc5
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Mon Mar 21 10:59:27 2016 -0500
+
+    color changes
+
+commit 9939b272a75e60f689946bdf6641549c78ae1129
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Sun Mar 20 16:48:39 2016 -0500
+
+    choosing colors and 1 example game page
+
+commit 50c277138000ce9af922d8b8cb30068bda2dfc0d
+Author: Bryan Powell <bryanpowell94@gmail.com>
+Date:   Fri Mar 18 14:50:23 2016 -0500
+
+    reorganizing data files
+
+commit 9a1795dd57105d58d6818c82f4e613cd7031f458
+Author: Bryan Powell <bryanpowell94@gmail.com>
+Date:   Fri Mar 18 11:34:00 2016 -0500
+
+    moved all scraping to scrape folder. added sample data for static pages
+
+commit 6fc38cd72910881638f506c5d9725d74a33b899b
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Mar 17 21:13:22 2016 -0500
+
+    Added final part of people.json (missing middle part)
+
+commit 06158196f30b8627cb2f25e99c3af95ecca19947
+Merge: 2de4f13 6e9933f
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Mar 17 17:08:24 2016 -0500
+
+    new files
+
+commit 6e9933ff7c1d144c5e5726de2a604bc8097896eb
+Author: Bryan Powell <bryanpowell94@gmail.com>
+Date:   Thu Mar 17 15:55:13 2016 -0500
+
+    working on makefile and models
+
+commit 2de4f13f13a1580d570fd370127d84fe51f7e7d2
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Mar 17 14:27:03 2016 -0500
+
+    has about and a splash page
+
+commit f4359c251f05f989cde2ae27da0d087ccd002170
+Merge: eb0149d 2bf9a3e
+Author: Bryan Powell <bryanpowell94@gmail.com>
+Date:   Wed Mar 16 20:24:23 2016 -0500
+
+    Merge branch 'dev' of https://github.com/brpowell/cs373-idb into dev
+
+commit eb0149d5c1fa4b5f8d7023205b02e23e035a9d5b
+Author: Bryan Powell <bryanpowell94@gmail.com>
+Date:   Wed Mar 16 20:24:08 2016 -0500
+
+    Created a json generator to build caches for data
+
+commit 2bf9a3e5a53195420db19cc44783e6d7f86f4bfe
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Wed Mar 16 15:33:10 2016 -0500
+
+    Added people.json file, there are 78119 people out of 163760 people in the .json file
+
+commit cbe5af336ebffcf41e528c84008ba83be3872bba
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Mar 15 14:18:22 2016 -0500
+
+    Added games.json for all of the games, each game contains: id, name, deck, image, people, platforms, publishers, and similar_games
+
+commit c6e5bda88fd817a0b500b3eef2927e7f6df9873b
+Merge: c6701fd d7780cf
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Mar 15 13:43:08 2016 -0500
+
+    Merge branch 'dev' of github.com:brpowell/cs373-idb into dev
+
+commit c6701fdc9e48ad5cef8e9ec96de5e700245637cf
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Tue Mar 15 13:42:37 2016 -0500
+
+    Added companies.json file for all of the companies; each company contains: id, name, deck, date_founded, developed_games, image, people, published_games, webite, location_address, location_city, location_state, and location_country
+
+commit d7780cf8f82aee1239089fb33a67c8c116a231fc
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Sat Mar 12 22:51:18 2016 -0600
+
+    Added responsive navbar for sm and xs devices
+
+commit 1efd2808c7cdb9bdc68210a19041a63d6b9c4cf9
+Author: abcapindo <acapindo0123@utexas.edu>
+Date:   Thu Mar 10 18:01:22 2016 -0600
+
+    some work on splash html

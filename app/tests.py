@@ -1,7 +1,7 @@
 import os
 import unittest
-from ggmate import db, app_instance
-from ggmate.models import Company, Person, Game, Platform
+from loader import db, app_instance
+from models import Company, Person, Game, Platform
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
 from dateutil import parser

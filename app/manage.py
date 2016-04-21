@@ -1,10 +1,9 @@
 #!/usr/bin/env python
-from ggmate import app_instance, db
-from ggmate.models import Game, Platform, Company, Person
+from loader import app_instance, db
+from models import Game, Platform, Company, Person
 from flask.ext.script import Manager, Shell, Server
 from flask.ext.migrate import Migrate, MigrateCommand
 import os
-import subprocess
 
 manager = Manager(app_instance)
 migrate = Migrate(app_instance, db)

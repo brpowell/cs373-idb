@@ -9,8 +9,8 @@ FILES :=        \
     apiary.apib \
     IDB3.log    \
     models.html \
-    models.py   \
-    tests.py    \
+    app/models.py   \
+    app/tests.py    \
     UML.pdf
 
 check:
@@ -33,7 +33,8 @@ check:
     echo "success";
 
 clean:
-	rm -rf app/__pycache__
+	find . -type f -name '*.pyc' -delete
+	find . -type d -name '__pycache__' -delete
 
 test:
 	python3 app/tests.py
@@ -61,25 +62,23 @@ docker-build:
 docker-push:
 	docker-compose --file docker-compose-prod.yml up -d
 
-models.html: models.py
-	pydoc -w models
+models.html: app/models.py
+	cp app/models.py ./ && cp app/loader.py ./
+	pydoc3 -w models
+	rm models.py && rm loader.py
 
-IDB1.log:
-	git log > IDB1.log
-
-IDB2.log:
-	git log > IDB2.log
-
-IDB3.log:
+log:
+	# git log > IDB1.log
+	# git log > IDB2.log
 	git log > IDB3.log
 
 run:
 	python3 app/manage.py runserver
 
 freeze:
-	pip freeze > app/requirements.txt 
+	pip freeze > app/requirements.txt
 
-install:
+requirements:
 	pip install -r app/requirements.txt
 
 loaddb:

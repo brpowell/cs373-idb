@@ -1,4 +1,4 @@
-from ggmate import db
+from loader import db
 from sqlalchemy_searchable import SearchQueryMixin
 from sqlalchemy_utils.types import TSVectorType
 from sqlalchemy_searchable import make_searchable
