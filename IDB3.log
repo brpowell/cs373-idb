@@ -1,3 +1,96 @@
+commit 144a7c70eb1d6d49ad41cd76e46ba585e0192a08
+Author: Andrew Capindo <acapindo0123@utexas.edu>
+Date:   Thu Apr 21 16:15:30 2016 -0500
+
+    Delete Dockerfile
+
+commit a286b4ab40e894d0f186a6481796d0c2da85bbbc
+Author: Andrew Capindo <acapindo0123@utexas.edu>
+Date:   Thu Apr 21 16:15:25 2016 -0500
+
+    Delete nginx.conf
+
+commit 46e0fefa4798d8b0145ed55f27192efe44e492f0
+Author: Andrew Capindo <acapindo0123@utexas.edu>
+Date:   Thu Apr 21 16:15:15 2016 -0500
+
+    Delete docker-compose.yml
+
+commit 97d9b738803ba4eb17e798c0f804d7ee2d9561e8
+Author: Andrew Capindo <acapindo0123@utexas.edu>
+Date:   Thu Apr 21 16:15:05 2016 -0500
+
+    Delete docker-compose-prod.yml
+
+commit c3e47309d1f839fe303ae34ed0ee7b1f9c642139
+Author: Andrew Capindo <acapindo0123@utexas.edu>
+Date:   Thu Apr 21 16:14:58 2016 -0500
+
+    Delete docker-compose-common.yml
+
+commit 996098f1140679dbb7c486ffdb5ea4ceea42bfa4
+Merge: d9da7ca f177186
+Author: Andrew Capindo <acapindo0123@utexas.edu>
+Date:   Thu Apr 21 16:11:29 2016 -0500
+
+    Merge pull request #57 from brpowell/dev
+    
+    Dev
+
+commit f1771861a61679619b05d01f4bb19d7d564d76f3
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Thu Apr 21 15:23:15 2016 -0500
+
+    Added favicon to the site
+
+commit 028e938123c71b1b55706186d798cec1fb42cc12
+Author: Tin Vo <tinnvo1101@gmail.com>
+Date:   Wed Apr 20 22:23:46 2016 -0500
+
+    Open links in a new tab
+
+commit 7d2fd0dc17fde68a39ea379ea0abd1064bedc2f6
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Wed Apr 20 21:39:39 2016 -0500
+
+    updated UML.pdf
+
+commit 4343850c9df7a425a4ac86304259bc33e00a4e51
+Author: uyviet <uyviet.nguyen@utexas.edu>
+Date:   Wed Apr 20 21:39:04 2016 -0500
+
+    delete old uml
+
+commit e37de916365c21889a162ac56ea5de70f0a8aa4c
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Wed Apr 20 20:24:30 2016 -0500
+
+    nevermind
+
+commit 8ad103d92e74ced92f51b0cc9066a45a07b82c5c
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Wed Apr 20 20:21:34 2016 -0500
+
+    updating travis
+
+commit cb2e78d3688d017fa24c93e1fd22a8c9b18c8cf4
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Wed Apr 20 20:16:55 2016 -0500
+
+    new testing db
+
+commit 306ddc7d321f9680c749cc4902ae82fe5e7948f3
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Wed Apr 20 19:15:39 2016 -0500
+
+    updating travis.yml
+
+commit 9abf8959d6cbf8caa6e9f8a804a3cfc01f9175da
+Author: Bryan Powell <bryanpowell@utexas.edu>
+Date:   Wed Apr 20 19:12:05 2016 -0500
+
+    code refactoring. generated models.html
+
 commit a58d4df677cae1c3c6f6ab87bf480a79df9af685
 Author: Bryan Powell <bryanpowell@utexas.edu>
 Date:   Wed Apr 20 12:44:41 2016 -0500
