@@ -419,7 +419,7 @@ mainApp.controller('ScrollCtrl', function($scope, $location, anchorSmoothScroll)
 mainApp.controller('aboutCtrl', function($scope, $http) {
     $scope.runTests = function() {
         $scope.showTestsOutput = true;
-        $scope.testOutput = '\nRunning Tests ... '
+        $scope.testOutput = '\nTests take a little while\nPlease wait... '
         $http.get('/run_unittests').then(function(result){
             $scope.finished = true;
             $scope.testOutput = '\n' + result.data.output;

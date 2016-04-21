@@ -11,3 +11,5 @@ app_instance.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app_instance.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('GGMATE_DB')
 
 db = SQLAlchemy(app_instance)
+
+import ggmate

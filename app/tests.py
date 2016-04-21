@@ -9,7 +9,7 @@ from flask import Flask
 
 class DBTestCases(unittest.TestCase):
     def setUp(self):
-        db.create_all()
+
         self.connection = db.engine.connect()
         self.trans = self.connection.begin()
         Session = sessionmaker(bind=db.engine)
@@ -199,5 +199,9 @@ class DBTestCases(unittest.TestCase):
         self.assertEqual(len(result.publishers), 1)
 
 if __name__ == '__main__':
-    app_instance.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://localhost/ggmate_test"
+    test = "postgresql://%s:%s@%s:%s/ggmatetest" % \
+            (os.getenv('DB_USER'), os.getenv('DB_PASS'),\
+            os.getenv('GGMATE_DB_TEST'), os.getenv('DB_PORT'))
+    app_instance.config["SQLALCHEMY_DATABASE_URI"] = test
+    db.create_all()
     unittest.main()

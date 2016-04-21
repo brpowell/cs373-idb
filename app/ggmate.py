@@ -18,8 +18,9 @@ def index():
 @app_instance.route('/run_unittests')
 def run_tests():
     from subprocess import getoutput
-    path = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../tests.py')
-    output = getoutput('python3 '+path)
+    from os import path
+    p = path.join(path.dirname(path.realpath(__file__)), 'tests.py')
+    output = getoutput('python3 '+p)
     print(output)
     return jsonify({'output': str(output)})
 
