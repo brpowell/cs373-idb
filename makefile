@@ -63,6 +63,7 @@ docker-push:
 	docker-compose --file docker-compose-prod.yml up -d
 
 models.html: app/models.py
+	rm models.html
 	cp app/models.py ./ && cp app/loader.py ./
 	pydoc3 -w models
 	rm models.py && rm loader.py

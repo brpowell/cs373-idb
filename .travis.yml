@@ -24,5 +24,4 @@ script:
     - ls -al
     - make log
     - ls -al
-    - make test
     - make check
