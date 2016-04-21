@@ -13,3 +13,4 @@ data/*/
 *.db
 .env
 .docker-compose-prod.yml.swp
+app/Procfile

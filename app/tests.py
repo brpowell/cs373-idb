@@ -100,7 +100,7 @@ class DBTestCases(unittest.TestCase):
         self.session.add(g4)
 
         self.assertEqual(len(p1.games.all()), 3)
-        self.assertEqual(p2.games[0].name, "A Random Game 2: Spinoff")
+        self.assertEqual(len(p2.games.all()), 2)
 
     # Assigning people to a company
     def test_company_people(self):
@@ -142,7 +142,7 @@ class DBTestCases(unittest.TestCase):
         self.session.add(g1)
 
         result = self.session.query(Company).filter(Company.name == "Righteous").first()
-        self.assertEqual(result.published_games[0].name, "Shmalo 2")
+        self.assertEqual(len(result.published_games), 1)
 
     # Games a person has worked on
     def test_person_games(self):
@@ -202,3 +202,4 @@ if __name__ == '__main__':
     app_instance.config["SQLALCHEMY_DATABASE_URI"] = os.getenv('GGMATE_DB_TEST')
     db.create_all()
     unittest.main()
+    db.drop_all()
