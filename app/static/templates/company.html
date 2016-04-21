@@ -1,0 +1,85 @@
+<link href="css/templates.css" rel="stylesheet">
+<!-- Page Content -->
+<div class="container" style="margin-top: 15px; margin-bottom: 15px;" >
+    <div class="row">
+        <div class="col-md-4 col-sm-12" style="margin-top: 15px;">
+            <div class="col-md-12 col-sm-12 shadow" style="background-color: black; height: 375px;">
+                <table id="wrapper">
+                    <tr>
+                        <td>
+                        <img class="img-responsive"
+                        ng-src="{{imageLink}}" alt="" style="margin: 0 auto;">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-8" style="margin-top: 15px">
+            <div class="col-md-12 col-sm-12 shadow card" style="background-color: black; min-height: 375px; padding: 0px;">
+
+                <div class="container col-md-12 col-sm-12 cardHeader">
+                    <h1 style="margin-top: 15px; padding-left: 10px;">{{companyName}}</h1>
+                </div>
+
+                <div class="container col-md-12 col-sm-12">
+                    <h3><i class="fa fa-bookmark-o"></i> Description:</h3>
+                    <h4>{{description}}</h4>
+                    <div class="col-md-6" style="padding: 0px">
+                        <h3><i class="fa fa-map-marker"></i> Headquarters:</h3>
+                        <h4>{{headquarters}}</h4>
+                        <h3><i class="fa fa-calendar"></i> Date Founded:</h3>
+                        <h4>{{changeDate(founded)}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Related People and Game Trailer Row -->
+<div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+    <div class="row">
+        <div class="col-md-4 col-sm-4 text-center" style="margin-top: 15px;">
+            <div class="col-md-12 col-sm-12 shadow card" style="width: 100%; padding-top: 10px;">
+                <i class="fa fa-gamepad fa-3x icon-color"></i>
+                <h2 class="page-header" style="margin-top:10px;">Developed Games</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tr ng-repeat="game in dgames track by $index">
+                            <td><a class="gridTextColor" href="#game/{{game.id}}">{{game.name}}</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4 text-center" style="margin-top: 15px;">
+            <div class="col-md-12 col-sm-12 shadow card" style="width: 100%; padding-top: 10px;">
+                <i class="fa fa-gamepad fa-3x icon-color"></i>
+                <h2 class="page-header" style="margin-top:10px;">Published Games</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tr ng-repeat="game in pgames track by $index">
+                            <td><a class="gridTextColor" href="#game/{{game.id}}">{{game.name}}</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-4 text-center" style="margin-top: 15px">
+            <div class="col-md-12 col-sm-12 shadow card" style="width: 100%; padding-top: 10px;">
+                <i class="fa fa-users fa-3x icon-color"></i>
+                <h2 class="page-header" style="margin-top:10px;">Related People</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tr ng-repeat="person in relatedPeople track by $index">
+                            <td><a class="gridTextColor" href="#person/{{person.id}}">{{person.name}}</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,139 @@
+
+<link href="css/templates.css" rel="stylesheet">
+
+<!-- Carousel -->
+<header id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+        <div class="item active"><div id="slide1" style="height: 400px;"></div></div>
+        <div class="item">
+            <div id="slide2" style="height: 400px;"><span class="text">“Whenever you read a good book, somewhere in the world a door opens to allow in more light.“</span></div>
+        </div>
+        <div class="item">
+            <div id="slide3" style="height: 400px;"><span class="text">“I think of life as a good book. The further you get into it, the more it begins to make sense.“</span></div>
+        </div>
+    </div>
+</header>
+
+<!-- Books and Author header -->
+<div class="container books-authors-headers" style="padding-top: 100px;">
+	<div class="row" align="center" style="position: relative;">
+		<a class="books-header">BOOKS</a>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-bookmark" style="font-size: 20px;"></span>&nbsp;&nbsp;&nbsp;<a class="authors-header">AUTHORS</a>
+	</div>
+</div>
+
+<!-- Books section (show on default) -->
+<div ng-if="books[$index * 4 + 0].id < 407" class="container books" ng-repeat="book in books">
+	<div ng-if="books[$index * 4 + 0].id < 407" class="row" align="center">
+		<div ng-if="books[$index * 4 + 0].id < 407" class="col-md-3 col-sm-3">
+			<a class="bookImg" target="_blank" href="http://ibdb.me/book/{{books[$index * 4 + 0].id}}"><img src="{{ books[$index * 4 + 0].book_image }}">
+			<br/><br/>
+			<p class="title">{{ books[$index * 4 + 0].title }}</p>
+			</a>
+		</div>
+		<div ng-if="books[$index * 4 + 1].id < 407" class="col-md-3 col-sm-3">
+			<a class="bookImg" target="_blank" href="http://ibdb.me/book/{{books[$index * 4 + 1].id}}"><img src="{{ books[$index * 4 + 1].book_image }}">
+			<br/><br/>
+			<p class="title">{{ books[$index * 4 + 1].title }}</p>
+			</a>
+		</div>
+		<div ng-if="books[$index * 4 + 2].id < 407" class="col-md-3 col-sm-3">
+			<a class="bookImg" target="_blank" href="http://ibdb.me/book/{{books[$index * 4 + 2].id}}"><img src="{{ books[$index * 4 + 2].book_image }}">
+			<br/><br/>
+			<p class="title">{{ books[$index * 4 + 2].title }}</p>
+			</a>
+		</div>
+		<div ng-if="books[$index * 4 + 3].id < 407" class="col-md-3 col-sm-3">
+			<a class="bookImg" target="_blank" href="http://ibdb.me/book/{{books[$index * 4 + 3].id}}"><img src="{{ books[$index * 4+ 3].book_image }}">
+			<br/><br/>
+			<p class="title">{{ books[$index * 4 + 3].title }}</p>
+			</a>
+		</div>
+	</div>
+</div>
+
+<!-- Author section (hide on default) -->
+<div ng-if="authors[$index * 4 + 0].id < 350" class="container authors" style="display: none;" ng-repeat="author in authors">
+	<div ng-if="authors[$index * 4 + 0].id < 350" class="row" align="center">
+		<div ng-if="authors[$index * 4 + 0].id < 350" class="col-md-3 col-sm-3">
+			<a class="authorImg" target="_blank" href="http://ibdb.me/author/{{authors[$index * 4 + 0].id}}"><img src="{{ authors[$index * 4 + 0].link }}">
+			<br/><br/>
+			<p class="title">{{ authors[$index * 4 + 0].first_name }}&nbsp;{{ authors[$index * 4 + 0].last_name }}</p>
+			</a>
+		</div>
+		<div ng-if="authors[$index * 4 + 1].id < 350" class="col-md-3 col-sm-3">
+			<a class="authorImg" target="_blank" href="http://ibdb.me/author/{{authors[$index * 4 + 1].id}}"><img src="{{ authors[$index * 4 + 1].link }}">
+			<br/><br/>
+			<p class="title">{{ authors[$index * 4 + 1].first_name }}&nbsp;{{ authors[$index * 4 + 1].last_name }}</p>
+			</a>
+		</div>
+		<div ng-if="authors[$index * 4 + 2].id < 350" class="col-md-3 col-sm-3">
+			<a class="authorImg" target="_blank" href="http://ibdb.me/author/{{authors[$index * 4 + 2].id}}"><img src="{{ authors[$index * 4 + 2].link }}">
+			<br/><br/>
+			<p class="title">{{ authors[$index * 4 + 2].first_name }}&nbsp;{{ authors[$index * 4 + 2].last_name }}</p>
+			</a>
+		</div>
+		<div ng-if="authors[$index * 4 + 3].id < 350" class="col-md-3 col-sm-3">
+			<a class="authorImg" target="_blank" href="http://ibdb.me/author/{{authors[$index * 4 + 3].id}}"><img src="{{ authors[$index * 4+ 3].link }}">
+			<br/><br/>
+			<p class="title">{{ authors[$index * 4 + 3].first_name }}&nbsp;{{ authors[$index * 4 + 3].last_name }}</p>
+			</a>
+		</div>
+	</div>
+</div>
+
+<div class="container" style="padding-top: 100px;"><div class="row"></div></div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.carousel').carousel({
+            interval: 1500
+        });
+    });
+</script>
+
+<!-- Custom style -->
+<style>
+	body { background-color: white; }
+	#slide1 { background: url('img/book-0.jpg') top center no-repeat; }
+	#slide2 { background: url('img/book-1.jpg') top center no-repeat; }
+	#slide3 { background: url('img/book-2.jpg') top center no-repeat; }
+	#myCarousel { top: 50px; margin: 0px; }
+	.books-header, .authors-header { font-size: 20px; color: #e67e22; }
+	.books-header { padding-left: 28px; }
+	.books-header:hover, .authors-header:hover, .bookImg:hover, .authorImg:hover {
+		cursor: pointer;
+		cursor: hand;
+		color: #34495e;
+		text-decoration: none;
+	}
+	.text {
+		position: absolute;
+		color: white;
+		font-size: 30px;
+		font-weight: bolder;
+		letter-spacing: 2px;
+		text-align: center;
+		margin-top: 120px;
+		margin-left: 20%;
+		margin-right: 20%;
+	}
+	.title { color: #f39c12; padding-bottom: 30px; }
+	.title:hover { text-decoration: none; }
+	.glyphicon-bookmark { color: #bdc3c7; }
+	.books-authors-headers { margin-bottom: 35px; }
+	.bookImg > img { height: 180px; width: 120px; }
+	.authorImg > img { height: 180px; width: 150px; }
+
+	/* Style for small devices */
+	@media (max-width: 769px) {
+		#myCarousel { top: 30px; margin: 0px; }
+		.text { font-size: 22px; margin-left: 10%; margin-right: 10%; margin-top: 105px; }
+		.bookImg > img { height: 300px; width: 200px; }
+		.authorImg > img { height: 300px; width: 250px; }
+	}
+</style>

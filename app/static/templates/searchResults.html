@@ -1,0 +1,27 @@
+<link href="css/templates.css" rel="stylesheet">
+<!-- Page Content -->
+<div class="container">
+    <div class="container col-md-12 col-sm-12 col-xs-12 shadow" style="height: 100%;" ng-init="reverse='false'">
+
+        <div class="row table-responsive" style="margin-bottom: 0px; background-color: black; height: 100vh;" >
+            <table class="table table-hover table-striped table-header">
+                <thead>
+                    <th>Type</th>
+                    <th>Name</th>
+                </thead>
+                <tr ng-repeat="game in games">
+                    <td>Game</td>
+                    <td><a href="#/game/{{game.id}}">{{game.name}}</a></td>
+                </tr>
+                <tr ng-repeat="company in companies">
+                    <td>Company</td>
+                    <td><a href="#/company/{{company.id}}">{{company.name}}</a></td>
+                </tr>
+                <tr ng-repeat="person in people">
+                    <td>Person</td>
+                    <td><a href="#/person/{{person.id}}">{{person.name}}</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

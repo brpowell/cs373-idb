@@ -1,0 +1,175 @@
+@import 'nav.css';
+@import url(//fonts.googleapis.com/css?family=Exo+2);
+@import url(//fonts.googleapis.com/css?family=Roboto);
+
+/*!
+ * Start Bootstrap - Round About HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    padding-top: 70px;
+    /*background-image: url('http://www.globalpbm.com/wp-content/uploads/2015/07/betfair-pattern.png');*/
+    background-color: #303030;
+}
+
+hr {
+  border-color: #33CCFF;
+}
+
+h1,
+h3 {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+h4 {
+    color: #336699;
+}
+h5 {
+  color: white;
+  font-family: 'Exo 2', sans-serif;
+}
+
+a {
+    color: rgb(14, 143, 255);
+}
+
+.page-header {
+    border-color: #33CCFF;
+}
+
+.card {
+    background-color: black;
+}
+.card i {
+    color: #2451D5;
+}
+.card h2, h4, h3 {
+    color: white;
+}
+.cardHeader {
+    background-color: #001C6E;
+}
+.shadow {
+    box-shadow: 5px 5px #2451D5;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+   background-color: #303030;
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: black;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border-top: 0px;
+}
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #33CCFF;
+  color: black;
+}
+.table-responsive {
+    height: 300px;
+    overflow:auto;
+     margin-bottom: 10px;
+}
+.table a{
+    /*color: #339999;*/
+    color: rgb(14, 143, 255);
+}
+.table-header {
+    background-color: black;
+    color: white;
+}
+.table thead {
+    background-color: #001C6E;
+    color: white;
+}
+
+.pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
+    background-color: black;
+}
+.pagination>li>a, .pagination>li>span {
+    background-color: black;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: #2451D5;
+}
+
+#wrapper {
+    height:100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+#wrapper td {
+    margin: 0 auto;
+}
+
+.aboutColor {
+    /*color: #black;*/
+    color: #white;
+}
+.aboutCard h4 i{
+    color: #33CCFF;
+}
+.aboutCard h2 {
+    color: white;
+}
+
+i {
+    color :#336699;
+}
+
+.modal-wide .modal-dialog {
+    width: 80%;
+}
+.grid {
+  height: 500px;
+}
+.gridTextColor{
+    color: white;
+}
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 400px;
+    height: 500px;
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    margin-left: 30px;
+  }
+  .shadow {
+    box-shadow: 5px 0px;
+  }
+
+  thead {
+    display: none;
+  }
+  .tds {
+    display: block;
+    text-align: center;
+  }
+}
+
+table {
+  table-layout: fixed;
+}
+
+td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.img-center {
+    height: 200px;
+    width: 200px;
+    padding: 0px;
+    margin: 0 auto;
+}

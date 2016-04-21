@@ -7,10 +7,10 @@ FILES :=        \
     .travis.yml \
     makefile    \
     apiary.apib \
-    IDB1.log    \
+    IDB3.log    \
     models.html \
-    models.py   \
-    tests.py    \
+    app/models.py   \
+    app/tests.py    \
     UML.pdf
 
 check:
@@ -33,7 +33,8 @@ check:
     echo "success";
 
 clean:
-	rm -rf app/__pycache__
+	find . -type f -name '*.pyc' -delete
+	find . -type d -name '__pycache__' -delete
 
 test:
 	python3 app/tests.py
@@ -55,17 +56,31 @@ docker-build:
 	docker build -t ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_LB} lb
 	docker push ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_LB}
 
-	# docker build -t ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_DB} db
-	# docker push ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_DB}
+	docker build -t ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_DB} db
+	docker push ${DOCKER_HUB_USERNAME}/${IMAGE_NAME_DB}
 
 docker-push:
 	docker-compose --file docker-compose-prod.yml up -d
 
-models.html: models.py
-	pydoc -w models
+models.html: app/models.py
+	rm models.html
+	cp app/models.py ./ && cp app/loader.py ./
+	pydoc3 -w models
+	rm models.py && rm loader.py
 
-IDB1.log:
-	git log > IDB1.log
+log:
+	# git log > IDB1.log
+	# git log > IDB2.log
+	git log > IDB3.log
 
-IDB2.log:
-	git log > IDB2.log
+run:
+	python3 app/manage.py runserver
+
+freeze:
+	pip freeze > app/requirements.txt
+
+requirements:
+	pip install -r app/requirements.txt
+
+loaddb:
+	psql ggmate < db/ggmate_search.sql

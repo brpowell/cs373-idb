@@ -1,0 +1,64 @@
+<link href="css/templates.css" rel="stylesheet">
+<!-- Page Content -->
+<style>html { height: 100%; }</style>
+<div class="container table-container" style="height:85%">
+    <div class="container col-md-12 col-sm-12 col-xs-12" style="height: 100%;" ng-init="reverse='false'">
+        <div class="row table-responsive" style="margin-bottom: 0px; background-color: black;height:100%">
+            <table id="responsive-table" class="table table-hover table-striped" style="color: white;">
+                <thead style="background-color: #001C6E; color: white;">
+                    <th ng-click="sort('name')">Name&nbsp;&nbsp;
+                        <span ng-if="sortKey!='name'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='name'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='name'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
+                    <th ng-click="sort('deck')">Deck&nbsp;&nbsp;
+                        <span ng-if="sortKey!='deck'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='deck'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='deck'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
+
+                    <th ng-click="sort('date_founded')">Date Founded&nbsp;&nbsp;
+                        <span ng-if="sortKey!='date_founded'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='date_founded'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='date_founded'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
+
+                    <th ng-click="sort('city')">City&nbsp;&nbsp;
+                        <span ng-if="sortKey!='city'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='city'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='city'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
+
+                    <th ng-click="sort('country')">Country&nbsp;&nbsp;
+                        <span ng-if="sortKey!='country'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="reverse && sortKey=='country'" class="glyphicon glyphicon-chevron-down"></span>
+                        <span ng-if="!reverse && sortKey=='country'" class="glyphicon glyphicon-chevron-up"></span>
+                    </th>
+                </thead>
+                <tr dir-paginate="company in companies | itemsPerPage: 25 | orderBy:sortKey:reverse" total-items="totalCompanies" current-page="pagination.current">
+                    <td tableData="Name" class="tds"><span class"spacing"></span><a href="#company/{{company.id}}">{{ company.name }}</a></td>
+                    <td tableData="Deck" class="tds">{{ company.deck }}</td>
+                    <td tableData="Date Founded" class="tds">{{ changeDate(company.date_founded) }}</td>
+                    <td tableData="City" class="tds">{{ company.city }}</td>
+                    <td tableData="Country" class="tds">{{ company.country }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="row" align="center">
+        <dir-pagination-controls class="dirPageLarge" on-page-change="pageChanged(newPageNumber)"
+            max-size="5"
+            template-url="../js/dirPagination.tpl.html"
+            direction-links="true"
+            boundary-links="true">
+        </dir-pagination-controls>
+
+        <dir-pagination-controls class="dirPageSmall" on-page-change="pageChanged(newPageNumber)"
+            max-size="5"
+            template-url="../js/smDirPagination.tpl.html">
+        </dir-pagination-controls>
+    </div>
+
+
+</div>

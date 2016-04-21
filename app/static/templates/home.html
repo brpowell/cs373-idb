@@ -1,0 +1,130 @@
+<link href="css/home.css" rel="stylesheet">
+
+    <!-- Intro Header -->
+    <header id="myCarousel" class="carousel slide fill" data-ride="carousel"style="padding: 0px; margin: 0px; width: 100%; height: 100%">
+
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="fill" style="background-image:url('http://cdn.wegotthiscovered.com/wp-content/uploads/fallout_4_14-1152x612.jpg');">
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://www.bioshockinfinite.com/images/media/screenshots/Elizabeth_fink1.jpg');">
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('http://www.geforce.com/sites/default/files-world/screenshots/elder-scrolls-v-skyrim/screenshot-2.jpg');">
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image: url('http://nichegamer.com/wp-content/uploads/2015/11/the-legend-of-zelda-twilight-princess-hd-11-13-15-9.jpg');">
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="fill" ng-controller="CarouselDemoCtrl"> -->
+          <!-- <div style="height: 100%">
+            <uib-carousel interval="myInterval">
+              <uib-slide ng-repeat="slide in slides" active="slide.active" index="slide.id" style="display: block; height: 100%">
+                <img ng-src="{{slide.image}}" style="margin:auto; height:100%;">
+              </uib-slide>
+            </uib-carousel>
+          </div> -->
+          <!-- <div class="fill">
+              <uib-carousel interval="myInterval">
+                <uib-slide ng-repeat="slide in slides">
+                  <img class="fill" ng-src="{{slide.image}}">
+                </uib-slide>
+            </uib-carousel>
+            </div>
+        </div> -->
+
+        <div class="container col-lg-12 bottom text-center fill" style="padding: 0px;">
+            <table id="wrapper">
+                <tr>
+                    <td>
+                        <div class="launch-pad col-xs-6 col-xs-offset-3">
+                            <h1 class="launch-header ggm8center">
+                            <img src="img/ggm8center.png">GGMate</h1>
+                            <div class="ggsearch--wrapper" ng-controller="submitCtrl">
+                                <form class="ggsearch--form" ng-submit="submitQuery()">
+                                    <div class="ggsearch--input-wrapper">
+                                        <input id="searchbar" name="searchbar" class="ggsearch--input" type="search" placeholder="Let's Play" ng-model="query">
+                                    </div>
+                                    <button type="submit" value="Search" class="btn btn-default btn-custom btn-lucky">
+                                        Search <i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                    <a href="/lucky" class="btn btn-default btn-custom btn-lucky">
+                                        Surprise <i class="fa fa-gift" aria-hidden="true"></i>
+                                    </a>
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div ng-controller="ScrollCtrl" class="container bottom center" style="width: 100%">
+                <a ng-click="gotoElement('bottom')" class="btn btn-default btn-custom">
+                    Learn More About Our Website
+                </a>
+            </div>
+        </div>
+
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+
+    <section id="bottom" class="content-section text-center" style="height: 100%; background-image: url('http://www.globalpbm.com/wp-content/uploads/2015/07/betfair-pattern.png');" >
+        <div class="container col-md-12 col-sm-12" style="padding: 0px; margin: 0px;">
+            <div class="container" style="margin-bottom: 55px;">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1>GGMate</h1>
+                        <h1>Immerse yourself into the industry.</h1>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h4>A database where you can learn about the studios, the developers, and the people behind your most beloved games.
+                        </h4>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <i class="fa fa-building fa-5x icon-color"></i>
+                        <p></p>
+                        <h4>Learn about the contributors to the most popular video games in the world.</h4>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <i class="fa fa-gamepad fa-5x icon-color"></i>
+                        <p></p>
+                        <h4>Learn about the titles you love and games similar to them.</h4>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <i class="fa fa-users fa-5x icon-color"></i>
+                        <p></p>
+                        <h4>Learn about people in the industry and where and what they have worked on.</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.carousel').carousel({
+                interval: 1500
+            })
+        });
+    </script>

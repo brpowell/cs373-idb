@@ -10,11 +10,7 @@ sudo: false
 install:
     - pip install --upgrade pip
     - pip --version
-    - pip install Flask
-    - pip install Flask-Script
-    - pip install Flask-SQLAlchemy
-    - pip install gunicorn
-    - pip install requests
+    - pip install -r app/requirements.txt
 
 before_script:
     - uname -a
@@ -24,3 +20,8 @@ before_script:
 script:
     - date
     - ls -al
+    - make models.html
+    - ls -al
+    - make log
+    - ls -al
+    - make check

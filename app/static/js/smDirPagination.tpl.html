@@ -1,0 +1,8 @@
+<ul class="pagination" ng-if="1 < pages.length || !autoHide">
+    <li ng-if="directionLinks" ng-class="{ disabled : pagination.current == 1 }">
+        <a  style="width: 50px;" href="" ng-click="setCurrent(pagination.current - 1)">&lsaquo;</a>
+    </li>
+    <li ng-if="directionLinks" ng-class="{ disabled : pagination.current == pagination.last }">
+        <a style="width: 50px;" href="" ng-click="setCurrent(pagination.current + 1)">&rsaquo;</a>
+    </li>
+</ul>

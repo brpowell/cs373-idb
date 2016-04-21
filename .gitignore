@@ -1,11 +1,15 @@
 .DS_Store
 *.json
+*.dylib
 venv/
 __pycache__
+.dylib
 *.pyc
 .env
 .env.swp
 oldenv.txt
-
 data/*/
 !data/base
+*.db
+.env
+.docker-compose-prod.yml.swp
