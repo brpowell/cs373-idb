@@ -1,1 +1,1 @@
-web: gunicorn loader:app_instance
+web: gunicorn --log-file=- loader:app_instance

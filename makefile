@@ -74,7 +74,7 @@ log:
 	git log > IDB3.log
 
 run:
-	python3 app/manage.py runserver
+	python app/manage.py runserver
 
 freeze:
 	pip freeze > app/requirements.txt

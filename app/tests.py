@@ -9,7 +9,6 @@ from flask import Flask
 
 class DBTestCases(unittest.TestCase):
     def setUp(self):
-        # db.create_all()
         self.connection = db.engine.connect()
         self.trans = self.connection.begin()
         Session = sessionmaker(bind=db.engine)
@@ -199,6 +198,7 @@ class DBTestCases(unittest.TestCase):
         self.assertEqual(len(result.publishers), 1)
 
 if __name__ == '__main__':
+    app_instance.config["TESTING"] = True
     app_instance.config["SQLALCHEMY_DATABASE_URI"] = os.getenv('GGMATE_DB_TEST')
     db.create_all()
     unittest.main()
