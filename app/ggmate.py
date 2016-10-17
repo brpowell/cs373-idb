@@ -11,6 +11,7 @@ import requests
 # Views
 # ------------------
 
+
 @app_instance.route('/', methods=['GET'])
 def index():
     return send_file('index.html')
